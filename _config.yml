@@ -1,7 +1,7 @@
 # Hexo Configuration
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
-
+## 参考网站 https://blinkfox.github.io/
 # Site
 title: ZRH博客
 subtitle: ''
@@ -98,7 +98,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: hexo-theme-matery    # default landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
