@@ -107,3 +107,14 @@ deploy:
   repo: https://github.com/zrh-main/zrh-main.github.io/
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
+
+# SEO优化
+
+## 生成 sitemap 文件
+### 需要先安装两个 hexo 插件
+#### npm install hexo-generator-sitemap --save
+#### npm install hexo-generator-baidu-sitemap --save
+sitemap:
+	path: sitemap.xml
+baidusitemap:
+	path: baidusitemap.xml
