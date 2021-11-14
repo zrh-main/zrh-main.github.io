@@ -14,7 +14,6 @@ timezone: ''
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://zrh-main.github.io/
-root: /zrh-main.github.io/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -63,7 +62,7 @@ prismjs:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 12
+  per_page: 10
   order_by: -date
 
 # Category & Tag
@@ -98,11 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: hexo-theme-matery-master
-
-permalink_pinyin:
-  enable: true
-  separator: '-' # default: '-'
+theme: landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
