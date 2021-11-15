@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>移动端rem</title>
+      <link href="/2021/11/15/%E7%A7%BB%E5%8A%A8%E7%AB%AFrem/"/>
+      <url>/2021/11/15/%E7%A7%BB%E5%8A%A8%E7%AB%AFrem/</url>
+      
+        <content type="html"><![CDATA[<h2 id="推荐使用以下两个工具"><a href="#推荐使用以下两个工具" class="headerlink" title="推荐使用以下两个工具"></a>推荐使用以下两个工具</h2><ul><li>postcss-pxtorem  <ul><li>是一款postcss插件，用于将单位转化为 rem  </li></ul></li><li>lib-flexible<ul><li>用于设置 rem 基准值</li></ul></li></ul><h2 id="使用-lib-flexible-动态设置REM基准值（html标签的字体大小）"><a href="#使用-lib-flexible-动态设置REM基准值（html标签的字体大小）" class="headerlink" title="使用 lib-flexible 动态设置REM基准值（html标签的字体大小）"></a>使用 lib-flexible 动态设置REM基准值（html标签的字体大小）</h2><ol><li><p>安装</p><pre class=" language-bash"><code class="language-bash">yarn add amfe-flexible<span class="token comment" spellcheck="true"># 或</span><span class="token function">npm</span> i amfe-flexible</code></pre></li><li><p>在 main.js 中加载执行该模块</p><pre class=" language-bash"><code class="language-bash"><span class="token function">import</span> <span class="token string">'amfe-flexible'</span></code></pre></li><li><p>测试：<br> <strong>在浏览器中切换不同的手机设备尺寸，观察 html 标签 font-size 的变化。</strong></p><ul><li>例如在 iPhone 6/7/8 设备下，html 标签字体大小为 37.5 px</li><li>例如在 iPhone 6/7/8 Plus 设备下，html 标签字体大小为 41.4 px</li></ul></li></ol><h2 id="使用-postcss-pxtorem-将-px-转为-rem"><a href="#使用-postcss-pxtorem-将-px-转为-rem" class="headerlink" title="使用 postcss-pxtorem 将 px 转为 rem"></a>使用 postcss-pxtorem 将 px 转为 rem</h2><blockquote><p>注意<br>    <strong><font color="red">该插件不能转换行内样式中的 px，例如 <code>&lt;div style=&quot;width: 200px;&quot;&gt;&lt;/div&gt;</code></font></strong><br>    <strong><font color="red">postcss-pxtorem扫描的是css文件，要转换的class样式设置在当前vue文件转换是不会生效的</font></strong></p></blockquote><ol><li>安装<pre class=" language-bash"><code class="language-bash">yarn add -D postcss-pxtorem<span class="token comment" spellcheck="true"># 或</span><span class="token function">npm</span> <span class="token function">install</span> postcss-pxtorem -D</code></pre></li><li>在vue.config.js中配置postcss-pxtorem</li></ol><pre class=" language-vue"><code class="language-vue">module.exports = &#123;  lintOnSave: true,  css: &#123;    loaderOptions: &#123;      postcss: &#123;        plugins: [          //在这里配置postcss-pxtorem          require('postcss-pxtorem')(&#123;            rootValue(&#123; file &#125;) &#123;              //如果是 Vant 的样式，就把 rootValue 设置为 37.5 来转换              //如果是我们的样式，就按照 75 的 rootValue 来转换              return file.indexOf('vant') !== -1 ? 37.5 : 75            &#125;,            // 例如 * 就是所有属性都要转换， width 就是仅转换 width 属性            propList: ['*']          &#125;),        ]      &#125;    &#125;  &#125;,&#125;</code></pre><ol start="3"><li>配置完毕，重新启动服务<br>最后测试：刷新浏览器页面，审查元素的样式查看是否已将 px 转换为 rem 。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 移动端 </tag>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Markdown</title>
       <link href="/2021/11/15/Markdown/"/>
       <url>/2021/11/15/Markdown/</url>
