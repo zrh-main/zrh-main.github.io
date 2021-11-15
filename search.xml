@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>HTTP库-axios-vue</title>
+      <link href="/2021/11/15/HTTP%E5%BA%93-axios-vue/"/>
+      <url>/2021/11/15/HTTP%E5%BA%93-axios-vue/</url>
+      
+        <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>使用 npm:</p><pre class=" language-bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> axios</code></pre><p>使用 cdn:</p><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://unpkg.com/axios/dist/axios.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre><h2 id="vue中使用axios"><a href="#vue中使用axios" class="headerlink" title="vue中使用axios"></a>vue中使用axios</h2><ol><li>安装<pre class=" language-bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> axios</code></pre>安装qs库,修改post请求的编码数据<pre class=" language-bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> qs</code></pre></li><li>创建src/plugins/axios.js配置文件;内容如下:<pre class=" language-JavaScript"><code class="language-JavaScript">"use strict";import axios from "axios";import qs from 'qs'//转换数据类型;post请求需要转换字符串类型// cors跨域 如果浏览器开启cookie,则使用withCredentials启用跨域验证if (navigator.cookieEnabled) axios.defaults.withCredentials = trueaxios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';//全局配置let config = &#123;baseURL: process.env.VUE_APP_BASE_URL,timeout: 3000, // Timeout// withCredentials: true, // Check cross-site Access-Control&#125;;//创建axios实例const _axios = axios.create(config);//请求拦截_axios.interceptors.request.use(config => &#123; //post请求需要转换字符串类型,在请求拦截中封装 if (config.method === "post") &#123;   config.data = qs.stringify(config.data) &#125; if (sessionStorage.getItem("manageToken")) &#123;   config.headers.Authorization = sessionStorage.getItem("manageToken") &#125; return config;&#125;,error => Promise.reject(error));// 响应拦截// Add a response interceptor_axios.interceptors.response.use(response => response.status === 200 || response.status === 304 ? Promise.resolve(response.data) : Promise.reject(response),error => &#123;// Do something with response error const &#123; response &#125; = error; if (response) &#123;   errorHandle(response.status, response.data);   return Promise.reject(error); &#125; console.log("连接失败,请检查网络!!!")&#125;);// 响应状态码的错误处理const errorHandle = (status, info) => &#123;switch (status) &#123; case 400:   console.log("语法错误")   break; case 401:   console.log("请进行身份认证")   break case 403:   console.log("服务器理解请求客户端的请求，但是拒绝执行此请求            ")   break case 404:   console.log("服务器无法根据客户端的请求找到资源（网页）。")   break default:   console.log(info)&#125;&#125;// Plugin.install = function (Vue) &#123;//   Vue.axios = _axios;//   window.axios = _axios;//   Object.defineProperties(Vue.prototype, &#123;//     axios: &#123; get() &#123; return _axios &#125; &#125;,//     $axios: &#123; get() &#123; return _axios &#125; &#125;,//   &#125;);// &#125;;export default _axios;</code></pre></li><li>创建src/api/api.js接口文件,引入配置的axios并创建请求函数;内容如下:<pre class=" language-JavaScript"><code class="language-JavaScript">import axios from "@/plugins/axios"// postconst apiPost = data => axios(&#123; url: 'users', method: 'post', data &#125;)// deleteconst apiDelete = data => axios(&#123; url: `users/$&#123;data&#125;`, method: 'delete' &#125;)// putconst apiPut = data => axios(&#123; url: `users/$&#123;data.id&#125;/state/$&#123;data.status&#125;`, method: 'put'&#125;)// getconst apiGet = () => axios(&#123; url: 'rights/list' &#125;)const apiGet2 = data => axios(&#123; url: `rights/list?$&#123;data&#125;`&#125;)export &#123; apiPost, apiDelete, apiPut, apiGet, apiGet2&#125;</code></pre></li><li>引入api.js接口文件,在vue页面中使用请求函数<pre class=" language-JavaScript"><code class="language-JavaScript">import &#123; apiPost, apiDelete, apiPut,apiGet &#125; from '@/api/api'export default &#123;data() &#123;return &#123; &#125; &#125;,methods: &#123; post: async function () &#123;   let res = await apiPost()   if (res.code !== 200) &#123;     console.log(res.msg)     return   &#125;   console.log(res.data) &#125;&#125;&#125;</code></pre></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> axios </tag>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>node版本管理工具-nvmw</title>
+      <link href="/2021/11/15/node%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-nvmw/"/>
+      <url>/2021/11/15/node%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-nvmw/</url>
+      
+        <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>nvmw 是 Windows 下的 node 管理工具<br><font color='red'>已经安装node了，则需要先卸载</font></p><h2 id="nvmw常用操作"><a href="#nvmw常用操作" class="headerlink" title="nvmw常用操作"></a>nvmw常用操作</h2><h3 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g nvmw</code></pre><h3 id="查看nvmw版本"><a href="#查看nvmw版本" class="headerlink" title="查看nvmw版本"></a>查看nvmw版本</h3><pre class=" language-bash"><code class="language-bash">nvmw -V</code></pre><h3 id="nvmw下载不同的node版本"><a href="#nvmw下载不同的node版本" class="headerlink" title="nvmw下载不同的node版本"></a>nvmw下载不同的node版本</h3><p>命令：</p><pre class=" language-bash"><code class="language-bash">nvmw <span class="token function">install</span> v版本号</code></pre><p>例：<code>nvmw install v12.13.0</code></p><h3 id="nvmw当前终端切换node版本"><a href="#nvmw当前终端切换node版本" class="headerlink" title="nvmw当前终端切换node版本"></a>nvmw当前终端切换node版本</h3><p>命令：</p><pre class=" language-bash"><code class="language-bash">nvmw use  v版本号</code></pre><p>例：<code>nvmw use v12.13.0</code></p><h3 id="nvmw永久切换node版本"><a href="#nvmw永久切换node版本" class="headerlink" title="nvmw永久切换node版本"></a>nvmw永久切换node版本</h3><p>命令：</p><pre class=" language-bash"><code class="language-bash">nvmw switch v版本号</code></pre><p>例：<code>nvmw switch  v12.13.0</code></p><h3 id="nvmw查看node版本"><a href="#nvmw查看node版本" class="headerlink" title="nvmw查看node版本"></a>nvmw查看node版本</h3><pre class=" language-bash"><code class="language-bash">nvmw <span class="token function">ls</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> node </tag>
+            
+            <tag> nvmw </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>移动端rem</title>
       <link href="/2021/11/15/%E7%A7%BB%E5%8A%A8%E7%AB%AFrem/"/>
       <url>/2021/11/15/%E7%A7%BB%E5%8A%A8%E7%AB%AFrem/</url>
@@ -20,9 +74,9 @@
       
         <tags>
             
-            <tag> 移动端 </tag>
-            
             <tag> vue </tag>
+            
+            <tag> 移动端 </tag>
             
         </tags>
       
