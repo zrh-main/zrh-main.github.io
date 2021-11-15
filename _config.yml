@@ -108,6 +108,12 @@ deploy:
   repo: https://github.com/zrh-main/zrh-main.github.io/
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
+  
+# 搜索配置
+search:
+  path: search.xml
+  field: post
+
 # 代码高亮
 highlight:
   enable: false
