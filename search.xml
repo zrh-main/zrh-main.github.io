@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>mocker-api</title>
+      <link href="/2021/11/27/mocker-api/"/>
+      <url>/2021/11/27/mocker-api/</url>
+      
+        <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote><p>拦截 Ajax 请求,自定义返回数据<br><a href="https://www.npmjs.com/package/mocker-api">npm地址</a></p></blockquote><h2 id="Vue项目中使用mocker-api进行mock"><a href="#Vue项目中使用mocker-api进行mock" class="headerlink" title="Vue项目中使用mocker-api进行mock"></a>Vue项目中使用mocker-api进行mock</h2><h3 id="安装mocker-api"><a href="#安装mocker-api" class="headerlink" title="安装mocker-api"></a>安装mocker-api</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> i mocker-api --save-dev</code></pre><h3 id="根目录编写-mocker-index-js，用于定义mock接口"><a href="#根目录编写-mocker-index-js，用于定义mock接口" class="headerlink" title="根目录编写 /mocker/index.js，用于定义mock接口"></a>根目录编写 /mocker/index.js，用于定义mock接口</h3><pre class=" language-JavaScript"><code class="language-JavaScript">// 使用 require 引入json文件，可以直接访问数据const appData = require('../data.json')const proxy = &#123;    'POST /api/userLogin':        (req, res) => &#123;            res.send(&#123;                code: 200,                data: appData.userLogin,            &#125;);        &#125;,    'GET /api/list': [      &#123; id: 1, username: 'kenny', sex: 6 &#125;,      &#123; id: 2, username: 'kenny', sex: 6 &#125;    ],    'POST /api/post': (req, res) => &#123;        res.send(&#123;            status: 'error',            code: 403        &#125;);    &#125;,    'DELETE /api/remove': (req, res) => &#123;        res.send(&#123;            status: 'ok',            message: '删除成功！'        &#125;);    &#125;,    'GET /api/:owner/:repo/raw/:ref/(.*)': (req, res) => &#123;        const &#123; owner, repo, ref &#125; = req.params;        // http://localhost:8081/api/admin/webpack-mock-api/raw/master/add/ddd.md        // owner => admin        // repo => webpack-mock-api        // ref => master        // req.params[0] => add/ddd.md        return res.json(&#123;          id: 1,          owner, repo, ref,          path: req.params[0]        &#125;);      &#125;,      'POST /api/login/account': (req, res) => &#123;        const &#123; password, username &#125; = req.body;        if (password === '888888' && username === 'admin') &#123;          return res.json(&#123;            status: 'ok',            code: 0,            token: "sdfsdfsdfdsf",            data: &#123;              id: 1,              username: 'kenny',              sex: 6            &#125;          &#125;);        &#125; else &#123;          return res.status(403).json(&#123;            status: 'error',            code: 403          &#125;);        &#125;      &#125;,      'DELETE /api/user/:id': (req, res) => &#123;        console.log('---->', req.body)        console.log('---->', req.params.id)        res.send(&#123; status: 'ok', message: '删除成功！' &#125;);      &#125;&#125;module.exports = proxy</code></pre><h3 id="修改-vue-config-js-配置文件（若不存在，在项目下新建即可）"><a href="#修改-vue-config-js-配置文件（若不存在，在项目下新建即可）" class="headerlink" title="修改 vue.config.js 配置文件（若不存在，在项目下新建即可）"></a>修改 vue.config.js 配置文件（若不存在，在项目下新建即可）</h3><pre class=" language-JavaScript"><code class="language-JavaScript">const path = require('path')const apiMocker = require('mocker-api')module.exports = &#123;  devServer: &#123;    before(app) &#123;      // 1. 执行apiMocker,加载mock接口配置      apiMocker(app, path.resolve('./mocker/index.js'), &#123;        proxy: &#123;          // 将路径字符串转成正则表达式          '/repos/(.*)': 'https://api.github.com/',        &#125;,        // 重写目标的 url 路径。对象键将用作 RegExp 来匹配路径。        pathRewrite: &#123;          '^/api/repos/': '/repos/',        &#125;,        changeHost: true,        // 修改http-proxy选项        httpProxy: &#123;          options: &#123;            ignorePath: true,          &#125;,          listeners: &#123;            proxyReq: function (proxyReq, req, res, options) &#123;              console.log('proxyReq');            &#125;,          &#125;,        &#125;,      &#125;)    &#125;  &#125;&#125;</code></pre><h3 id="定义json-数据（用于测试-根目录新增data-json编写模拟数据"><a href="#定义json-数据（用于测试-根目录新增data-json编写模拟数据" class="headerlink" title="定义json 数据（用于测试)根目录新增data.json编写模拟数据"></a>定义json 数据（用于测试)根目录新增data.json编写模拟数据</h3><pre class=" language-JavaScript"><code class="language-JavaScript">&#123;    "login": &#123;      "success": "true",      "message": "登陆成功"    &#125;,    "fileList": &#123;      "success":"true",      "list":[      &#123;"fileId":"1","fileName":"a1.c","content":"content-test1"      &#125;,      &#123;"fileId":"2","fileName":"a2.c","content":"content-test2"      &#125;,      &#123;"fileId":"3","fileName":"a3.c","content":"content-test2"      &#125;,      &#123;"fileId":"4","fileName":"a4.c","content":"content-test2"      &#125;,      &#123;"fileId":"5","fileName":"a5.c","content":"content-test2"      &#125;,      &#123;"fileId":"6","fileName":"a8.c","content":"content-test2"      &#125;,      &#123;"fileId":"7","fileName":"a9.c","content":"content-test2"      &#125;]    &#125;&#125;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+            <tag> 请求拦截,数据模拟 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>HTTP库-axios-vue</title>
       <link href="/2021/11/15/HTTP%E5%BA%93-axios-vue/"/>
       <url>/2021/11/15/HTTP%E5%BA%93-axios-vue/</url>

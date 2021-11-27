@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zrh-main.github.io/2021/11/27/mocker-api/</loc>
+    <lastmod>2021-11-27</lastmod>
+  </url>
+  <url>
     <loc>https://zrh-main.github.io/2021/11/15/HTTP%E5%BA%93-axios-vue/</loc>
     <lastmod>2021-11-15</lastmod>
   </url>

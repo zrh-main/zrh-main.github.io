@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="HTTP库-axios-vue, 前端,vue,html,css,JavaScript,markdown,jQuery,移动端rem,git,Gitee,GitHub">
+    <meta name="keywords" content="mocker-api, 前端,vue,html,css,JavaScript,markdown,jQuery,移动端rem,git,Gitee,GitHub">
     <meta name="description" content="ZRH的个人博客,记录个人笔记">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>HTTP库-axios-vue | ZRH博客</title>
+    <title>mocker-api | ZRH博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">HTTP库-axios-vue</h1>
+                    <h1 class="description center-align post-title">mocker-api</h1>
                 </div>
             </div>
         </div>
@@ -431,12 +431,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/axios/">
-                                <span class="chip bg-color">axios</span>
-                            </a>
-                        
                             <a href="/tags/vue/">
                                 <span class="chip bg-color">vue</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%AF%B7%E6%B1%82%E6%8B%A6%E6%88%AA-%E6%95%B0%E6%8D%AE%E6%A8%A1%E6%8B%9F/">
+                                <span class="chip bg-color">请求拦截,数据模拟</span>
                             </a>
                         
                     </div>
@@ -460,7 +460,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-11-15
+                    2021-11-27
                 </div>
                 
 
@@ -481,126 +481,135 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>使用 npm:</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> axios
+                <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>拦截 Ajax 请求,自定义返回数据<br><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/mocker-api">npm地址</a></p>
+</blockquote>
+<h2 id="Vue项目中使用mocker-api进行mock"><a href="#Vue项目中使用mocker-api进行mock" class="headerlink" title="Vue项目中使用mocker-api进行mock"></a>Vue项目中使用mocker-api进行mock</h2><h3 id="安装mocker-api"><a href="#安装mocker-api" class="headerlink" title="安装mocker-api"></a>安装mocker-api</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> i mocker-api --save-dev
 </code></pre>
-<p>使用 cdn:</p>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://unpkg.com/axios/dist/axios.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-</code></pre>
-<h2 id="vue中使用axios"><a href="#vue中使用axios" class="headerlink" title="vue中使用axios"></a>vue中使用axios</h2><ol>
-<li>安装<pre class=" language-bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> axios
-</code></pre>
-安装qs库,修改post请求的编码数据<pre class=" language-bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> qs
-</code></pre>
-</li>
-<li>创建src/plugins/axios.js配置文件;内容如下:<pre class=" language-JavaScript"><code class="language-JavaScript">"use strict";
-import axios from "axios";
-import qs from 'qs'//转换数据类型;post请求需要转换字符串类型
-// cors跨域 如果浏览器开启cookie,则使用withCredentials启用跨域验证
-if (navigator.cookieEnabled) axios.defaults.withCredentials = true
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-//全局配置
-let config = &#123;
-baseURL: process.env.VUE_APP_BASE_URL,
-timeout: 3000, // Timeout
-// withCredentials: true, // Check cross-site Access-Control
-&#125;;
-//创建axios实例
-const _axios = axios.create(config);
-//请求拦截
-_axios.interceptors.request.use(
-config => &#123;
- //post请求需要转换字符串类型,在请求拦截中封装
- if (config.method === "post") &#123;
-   config.data = qs.stringify(config.data)
- &#125;
- if (sessionStorage.getItem("manageToken")) &#123;
-   config.headers.Authorization = sessionStorage.getItem("manageToken")
- &#125;
- return config;
-&#125;,
-error => Promise.reject(error)
-);
-// 响应拦截
-// Add a response interceptor
-_axios.interceptors.response.use(
-response => response.status === 200 || response.status === 304 ? Promise.resolve(response.data) : Promise.reject(response),
-error => &#123;// Do something with response error
- const &#123; response &#125; = error;
- if (response) &#123;
-   errorHandle(response.status, response.data);
-   return Promise.reject(error);
- &#125;
- console.log("连接失败,请检查网络!!!")
+<h3 id="根目录编写-mocker-index-js，用于定义mock接口"><a href="#根目录编写-mocker-index-js，用于定义mock接口" class="headerlink" title="根目录编写 /mocker/index.js，用于定义mock接口"></a>根目录编写 /mocker/index.js，用于定义mock接口</h3><pre class=" language-JavaScript"><code class="language-JavaScript">// 使用 require 引入json文件，可以直接访问数据
+const appData = require('../data.json')
+const proxy = &#123;
+    'POST /api/userLogin':
+        (req, res) => &#123;
+            res.send(&#123;
+                code: 200,
+                data: appData.userLogin,
+            &#125;);
+        &#125;,
+    'GET /api/list': [
+      &#123; id: 1, username: 'kenny', sex: 6 &#125;,
+      &#123; id: 2, username: 'kenny', sex: 6 &#125;
+    ],
+    'POST /api/post': (req, res) => &#123;
+        res.send(&#123;
+            status: 'error',
+            code: 403
+        &#125;);
+    &#125;,
+    'DELETE /api/remove': (req, res) => &#123;
+        res.send(&#123;
+            status: 'ok',
+            message: '删除成功！'
+        &#125;);
+    &#125;,
+    'GET /api/:owner/:repo/raw/:ref/(.*)': (req, res) => &#123;
+        const &#123; owner, repo, ref &#125; = req.params;
+        // http://localhost:8081/api/admin/webpack-mock-api/raw/master/add/ddd.md
+        // owner => admin
+        // repo => webpack-mock-api
+        // ref => master
+        // req.params[0] => add/ddd.md
+        return res.json(&#123;
+          id: 1,
+          owner, repo, ref,
+          path: req.params[0]
+        &#125;);
+      &#125;,
+      'POST /api/login/account': (req, res) => &#123;
+        const &#123; password, username &#125; = req.body;
+        if (password === '888888' && username === 'admin') &#123;
+          return res.json(&#123;
+            status: 'ok',
+            code: 0,
+            token: "sdfsdfsdfdsf",
+            data: &#123;
+              id: 1,
+              username: 'kenny',
+              sex: 6
+            &#125;
+          &#125;);
+        &#125; else &#123;
+          return res.status(403).json(&#123;
+            status: 'error',
+            code: 403
+          &#125;);
+        &#125;
+      &#125;,
+      'DELETE /api/user/:id': (req, res) => &#123;
+        console.log('---->', req.body)
+        console.log('---->', req.params.id)
+        res.send(&#123; status: 'ok', message: '删除成功！' &#125;);
+      &#125;
 &#125;
-);
-// 响应状态码的错误处理
-const errorHandle = (status, info) => &#123;
-switch (status) &#123;
- case 400:
-   console.log("语法错误")
-   break;
- case 401:
-   console.log("请进行身份认证")
-   break
- case 403:
-   console.log("服务器理解请求客户端的请求，但是拒绝执行此请求            ")
-   break
- case 404:
-   console.log("服务器无法根据客户端的请求找到资源（网页）。")
-   break
- default:
-   console.log(info)
-&#125;
-&#125;
-// Plugin.install = function (Vue) &#123;
-//   Vue.axios = _axios;
-//   window.axios = _axios;
-//   Object.defineProperties(Vue.prototype, &#123;
-//     axios: &#123; get() &#123; return _axios &#125; &#125;,
-//     $axios: &#123; get() &#123; return _axios &#125; &#125;,
-//   &#125;);
-// &#125;;
-export default _axios;
+module.exports = proxy
 </code></pre>
-</li>
-<li>创建src/api/api.js接口文件,引入配置的axios并创建请求函数;内容如下:<pre class=" language-JavaScript"><code class="language-JavaScript">import axios from "@/plugins/axios"
-// post
-const apiPost = data => axios(&#123; url: 'users', method: 'post', data &#125;)
-// delete
-const apiDelete = data => axios(&#123; url: `users/$&#123;data&#125;`, method: 'delete' &#125;)
-// put
-const apiPut = data => axios(&#123; url: `users/$&#123;data.id&#125;/state/$&#123;data.status&#125;`, method: 'put'&#125;)
-// get
-const apiGet = () => axios(&#123; url: 'rights/list' &#125;)
-const apiGet2 = data => axios(&#123; url: `rights/list?$&#123;data&#125;`&#125;)
-export &#123;
- apiPost,
- apiDelete,
- apiPut,
- apiGet,
- apiGet2
-&#125;
-</code></pre>
-</li>
-<li>引入api.js接口文件,在vue页面中使用请求函数<pre class=" language-JavaScript"><code class="language-JavaScript">import &#123; apiPost, apiDelete, apiPut,apiGet &#125; from '@/api/api'
-export default &#123;
-data() &#123;return &#123; &#125; &#125;,
-methods: &#123;
- post: async function () &#123;
-   let res = await apiPost()
-   if (res.code !== 200) &#123;
-     console.log(res.msg)
-     return
-   &#125;
-   console.log(res.data)
- &#125;
-&#125;
+<h3 id="修改-vue-config-js-配置文件（若不存在，在项目下新建即可）"><a href="#修改-vue-config-js-配置文件（若不存在，在项目下新建即可）" class="headerlink" title="修改 vue.config.js 配置文件（若不存在，在项目下新建即可）"></a>修改 vue.config.js 配置文件（若不存在，在项目下新建即可）</h3><pre class=" language-JavaScript"><code class="language-JavaScript">const path = require('path')
+const apiMocker = require('mocker-api')
+module.exports = &#123;
+  devServer: &#123;
+    before(app) &#123;
+      // 1. 执行apiMocker,加载mock接口配置
+      apiMocker(app, path.resolve('./mocker/index.js'), &#123;
+        proxy: &#123;
+          // 将路径字符串转成正则表达式
+          '/repos/(.*)': 'https://api.github.com/',
+        &#125;,
+        // 重写目标的 url 路径。对象键将用作 RegExp 来匹配路径。
+        pathRewrite: &#123;
+          '^/api/repos/': '/repos/',
+        &#125;,
+        changeHost: true,
+        // 修改http-proxy选项
+        httpProxy: &#123;
+          options: &#123;
+            ignorePath: true,
+          &#125;,
+          listeners: &#123;
+            proxyReq: function (proxyReq, req, res, options) &#123;
+              console.log('proxyReq');
+            &#125;,
+          &#125;,
+        &#125;,
+      &#125;)
+    &#125;
+  &#125;
 &#125;
 </code></pre>
-</li>
-</ol>
+<h3 id="定义json-数据（用于测试-根目录新增data-json编写模拟数据"><a href="#定义json-数据（用于测试-根目录新增data-json编写模拟数据" class="headerlink" title="定义json 数据（用于测试)根目录新增data.json编写模拟数据"></a>定义json 数据（用于测试)根目录新增data.json编写模拟数据</h3><pre class=" language-JavaScript"><code class="language-JavaScript">&#123;
+    "login": &#123;
+      "success": "true",
+      "message": "登陆成功"
+    &#125;,
+    "fileList": &#123;
+      "success":"true",
+      "list":[
+      &#123;"fileId":"1","fileName":"a1.c","content":"content-test1"
+      &#125;,
+      &#123;"fileId":"2","fileName":"a2.c","content":"content-test2"
+      &#125;,
+      &#123;"fileId":"3","fileName":"a3.c","content":"content-test2"
+      &#125;,
+      &#123;"fileId":"4","fileName":"a4.c","content":"content-test2"
+      &#125;,
+      &#123;"fileId":"5","fileName":"a5.c","content":"content-test2"
+      &#125;,
+      &#123;"fileId":"6","fileName":"a8.c","content":"content-test2"
+      &#125;,
+      &#123;"fileId":"7","fileName":"a9.c","content":"content-test2"
+      &#125;]
+    &#125;
+&#125;
+</code></pre>
 
                 
             </div>
@@ -627,7 +636,7 @@ methods: &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://zrh-main.github.io/2021/11/15/HTTP%E5%BA%93-axios-vue/">https://zrh-main.github.io/2021/11/15/HTTP%E5%BA%93-axios-vue/</a>
+                    <a href="https://zrh-main.github.io/2021/11/27/mocker-api/">https://zrh-main.github.io/2021/11/27/mocker-api/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -665,12 +674,12 @@ methods: &#123;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/axios/">
-                                    <span class="chip bg-color">axios</span>
-                                </a>
-                            
                                 <a href="/tags/vue/">
                                     <span class="chip bg-color">vue</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%AF%B7%E6%B1%82%E6%8B%A6%E6%88%AA-%E6%95%B0%E6%8D%AE%E6%A8%A1%E6%8B%9F/">
+                                    <span class="chip bg-color">请求拦截,数据模拟</span>
                                 </a>
                             
                         </div>
@@ -714,9 +723,10 @@ methods: &#123;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/11/27/mocker-api/">
                     <div class="card-image">
@@ -734,9 +744,9 @@ methods: &#123;
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -749,6 +759,7 @@ methods: &#123;
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -771,13 +782,13 @@ methods: &#123;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/15/node%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-nvmw/">
+                <a href="/2021/11/15/HTTP%E5%BA%93-axios-vue/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="node版本管理工具-nvmw">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="HTTP库-axios-vue">
                         
-                        <span class="card-title">node版本管理工具-nvmw</span>
+                        <span class="card-title">HTTP库-axios-vue</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -794,8 +805,8 @@ methods: &#123;
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
-                                    后端
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
@@ -805,12 +816,12 @@ methods: &#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/node/">
-                        <span class="chip bg-color">node</span>
+                    <a href="/tags/axios/">
+                        <span class="chip bg-color">axios</span>
                     </a>
                     
-                    <a href="/tags/nvmw/">
-                        <span class="chip bg-color">nvmw</span>
+                    <a href="/tags/vue/">
+                        <span class="chip bg-color">vue</span>
                     </a>
                     
                 </div>
