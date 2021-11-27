@@ -1,7 +1,7 @@
 ---
 title: mocker-api
 tags:
-  - '请求拦截,数据模拟'
+  - 请求拦截,数据模拟
   - vue
 categories: 前端
 date: 2021-11-27 21:13:29
