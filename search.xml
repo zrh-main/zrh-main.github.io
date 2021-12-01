@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>冒泡排序</title>
+      <link href="/2021/12/01/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"/>
+      <url>/2021/12/01/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
+      
+        <content type="html"><![CDATA[<ol><li>思路：<ul><li>每轮确定一个最大值,并放入末尾</li><li>下一轮就可以少比较一个</li><li>轮数为长度-1次</li><li>比较的次数为长度-1-i</li></ul></li><li>实现：<ul><li>使用双重for循环</li><li>外层循环控制轮数</li><li>内层循环控制比较的次数</li></ul></li><li>案例:<pre class=" language-Java"><code class="language-Java"> int[] arr = &#123;31, 345, 52, 4, 66, 34&#125;; for (int i = 0; i < arr.length - 1; i++) &#123;     for (int j = 0; j < arr.length - 1 - i; j++) &#123;         if (arr[j] > arr[j + 1]) &#123;             arr[j] = arr[j] ^ arr[j + 1];             arr[j + 1] = arr[j + 1] ^ arr[j];             arr[j] = arr[j] ^ arr[j + 1];         &#125;     &#125; &#125; System.out.println( Arrays.toString(arr))     </code></pre></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 排序 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>mocker-api</title>
       <link href="/2021/11/27/mocker-api/"/>
       <url>/2021/11/27/mocker-api/</url>
