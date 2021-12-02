@@ -50,13 +50,13 @@
 
 "acorn@^7.1.1":
   "integrity" "sha1-/q7SVZc9LndVW4PbwIhRpsY1IPo="
-  "resolved" "https://registry.nlark.com/acorn/download/acorn-7.4.1.tgz"
+  "resolved" "https://registry.npmmirror.com/acorn/download/acorn-7.4.1.tgz?cache=0&sync_timestamp=1637225522161&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Facorn%2Fdownload%2Facorn-7.4.1.tgz"
   "version" "7.4.1"
 
 "acorn@^8.2.4":
-  "integrity" "sha1-RRLMuZs2mMdSWR6btEcuOK1DzuI="
-  "resolved" "https://registry.nlark.com/acorn/download/acorn-8.5.0.tgz"
-  "version" "8.5.0"
+  "integrity" "sha512-U1riIR+lBSNi3IbxtaHOIKdH8sLFv3NYfNv8sg7ZsNhcfl4HF2++BfqqrNAxoCLQW1iiylOj76ecnaUxz+z9yw=="
+  "resolved" "https://registry.npmmirror.com/acorn/download/acorn-8.6.0.tgz?cache=0&sync_timestamp=1637225522161&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Facorn%2Fdownload%2Facorn-8.6.0.tgz"
+  "version" "8.6.0"
 
 "agent-base@6":
   "integrity" "sha1-Sf/1hXfP7j83F2/qtMIuAPhtf3c="
@@ -388,7 +388,18 @@
     "ansi-styles" "^4.1.0"
     "supports-color" "^7.1.0"
 
-"cheerio@^0.22.0", "cheerio@0.22.0":
+"cheerio@^0.19.0":
+  "integrity" "sha1-dy5wFfLuKZZQltcepBdbdas1SSU="
+  "resolved" "https://registry.nlark.com/cheerio/download/cheerio-0.19.0.tgz"
+  "version" "0.19.0"
+  dependencies:
+    "css-select" "~1.0.0"
+    "dom-serializer" "~0.1.0"
+    "entities" "~1.1.1"
+    "htmlparser2" "~3.8.1"
+    "lodash" "^3.2.0"
+
+"cheerio@0.22.0":
   "integrity" "sha1-qbqoYKP5tZWmuBsahocxIe06Jp4="
   "resolved" "https://registry.nlark.com/cheerio/download/cheerio-0.22.0.tgz"
   "version" "0.22.0"
@@ -621,6 +632,16 @@
   "resolved" "https://registry.nlark.com/css-parse/download/css-parse-1.7.0.tgz"
   "version" "1.7.0"
 
+"css-select@~1.0.0":
+  "integrity" "sha1-sRIcpRhI3SZOIkTQWM7iVN7rRLA="
+  "resolved" "https://registry.nlark.com/css-select/download/css-select-1.0.0.tgz"
+  "version" "1.0.0"
+  dependencies:
+    "boolbase" "~1.0.0"
+    "css-what" "1.0"
+    "domutils" "1.4"
+    "nth-check" "~1.0.0"
+
 "css-select@~1.2.0":
   "integrity" "sha1-KzoRBTnFNV8c2NMUYj6HCxIeyFg="
   "resolved" "https://registry.nlark.com/css-select/download/css-select-1.2.0.tgz"
@@ -630,6 +651,11 @@
     "css-what" "2.1"
     "domutils" "1.5.1"
     "nth-check" "~1.0.1"
+
+"css-what@1.0":
+  "integrity" "sha1-18wt9FGAZm+Z0rFEYmOUaeAPc2w="
+  "resolved" "https://registry.npmmirror.com/css-what/download/css-what-1.0.0.tgz?cache=0&sync_timestamp=1633864103961&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fcss-what%2Fdownload%2Fcss-what-1.0.0.tgz"
+  "version" "1.0.0"
 
 "css-what@2.1":
   "integrity" "sha1-ptdgRXM2X+dGhsPzEcVlE9iChfI="
@@ -708,9 +734,9 @@
     "ms" "2.0.0"
 
 "debug@4":
-  "integrity" "sha1-8KScGKyHeeMdSgxgKd+3aHPHQos="
-  "resolved" "https://registry.npmmirror.com/debug/download/debug-4.3.2.tgz"
-  "version" "4.3.2"
+  "integrity" "sha512-/zxw5+vh1Tfv+4Qn7a5nsbcJKPaSvCDhojn6FEl9vupwK2VCSDtEiEtqr8DFtzYFOdz63LBkxec7DYuc2jon6Q=="
+  "resolved" "https://registry.npmmirror.com/debug/download/debug-4.3.3.tgz"
+  "version" "4.3.3"
   dependencies:
     "ms" "2.1.2"
 
@@ -839,6 +865,13 @@
   dependencies:
     "domelementtype" "^2.2.0"
 
+"domhandler@2.3":
+  "integrity" "sha1-LeWaCCLVAn+r/28DLCsloqir5zg="
+  "resolved" "https://registry.npmmirror.com/domhandler/download/domhandler-2.3.0.tgz"
+  "version" "2.3.0"
+  dependencies:
+    "domelementtype" "1"
+
 "dompurify@^2.3.0":
   "integrity" "sha1-wa8+uIvkcyRDKWTYq8dc9LmNY0w="
   "resolved" "https://registry.nlark.com/dompurify/download/dompurify-2.3.3.tgz"
@@ -861,7 +894,22 @@
     "domelementtype" "^2.2.0"
     "domhandler" "^4.2.0"
 
+"domutils@1.4":
+  "integrity" "sha1-CGVRN5bGswYDGFDhdVFrr4C3Km8="
+  "resolved" "https://registry.nlark.com/domutils/download/domutils-1.4.3.tgz?cache=0&sync_timestamp=1630106606599&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fdomutils%2Fdownload%2Fdomutils-1.4.3.tgz"
+  "version" "1.4.3"
+  dependencies:
+    "domelementtype" "1"
+
 "domutils@1.5.1":
+  "integrity" "sha1-3NhIiib1Y9YQeeSMn3t+Mjc2gs8="
+  "resolved" "https://registry.nlark.com/domutils/download/domutils-1.5.1.tgz?cache=0&sync_timestamp=1630106606599&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fdomutils%2Fdownload%2Fdomutils-1.5.1.tgz"
+  "version" "1.5.1"
+  dependencies:
+    "dom-serializer" "0"
+    "domelementtype" "1"
+
+"domutils@1.5":
   "integrity" "sha1-3NhIiib1Y9YQeeSMn3t+Mjc2gs8="
   "resolved" "https://registry.nlark.com/domutils/download/domutils-1.5.1.tgz?cache=0&sync_timestamp=1630106606599&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fdomutils%2Fdownload%2Fdomutils-1.5.1.tgz"
   "version" "1.5.1"
@@ -884,7 +932,7 @@
   "resolved" "https://registry.nlark.com/encodeurl/download/encodeurl-1.0.2.tgz"
   "version" "1.0.2"
 
-"entities@^1.1.1", "entities@~1.1.1":
+"entities@^1.1.1", "entities@^1.1.2", "entities@~1.1.1":
   "integrity" "sha1-vfpzUplmTfr9NFKe1PhSKidf6lY="
   "resolved" "https://registry.nlark.com/entities/download/entities-1.1.2.tgz?cache=0&sync_timestamp=1628508126700&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fentities%2Fdownload%2Fentities-1.1.2.tgz"
   "version" "1.1.2"
@@ -893,6 +941,11 @@
   "integrity" "sha1-CY3JDruD2N/6CJ1VJWs1HTTE2lU="
   "resolved" "https://registry.nlark.com/entities/download/entities-2.2.0.tgz?cache=0&sync_timestamp=1628508126700&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fentities%2Fdownload%2Fentities-2.2.0.tgz"
   "version" "2.2.0"
+
+"entities@1.0":
+  "integrity" "sha1-sph6o4ITR/zeZCsk/fyeT7cSvyY="
+  "resolved" "https://registry.nlark.com/entities/download/entities-1.0.0.tgz?cache=0&sync_timestamp=1628508126700&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fentities%2Fdownload%2Fentities-1.0.0.tgz"
+  "version" "1.0.0"
 
 "escape-html@~1.0.3":
   "integrity" "sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg="
@@ -1238,12 +1291,13 @@
   dependencies:
     "function-bind" "^1.1.1"
 
-"hexo-asset-image-for-hexo5@^2.1.7":
-  "integrity" "sha1-NUiNe1By2ZluNewGVpFwWSuBvS8="
-  "resolved" "https://registry.npmmirror.com/hexo-asset-image-for-hexo5/download/hexo-asset-image-for-hexo5-2.1.7.tgz"
-  "version" "2.1.7"
+"hexo-asset-image@^1.0.0":
+  "integrity" "sha1-8imtKLBxoysdWxIfkpopbnFP0ko="
+  "resolved" "https://registry.npm.taobao.org/hexo-asset-image/download/hexo-asset-image-1.0.0.tgz"
+  "version" "1.0.0"
   dependencies:
-    "cheerio" "^0.22.0"
+    "cheerio" "^0.19.0"
+    "entities" "^1.1.2"
 
 "hexo-bunyan@^1.0.0":
   "integrity" "sha1-shBrJlR7Iy8BlduGPLXV/4Un/TY="
@@ -1618,6 +1672,17 @@
     "domutils" "^2.5.2"
     "entities" "^2.0.0"
 
+"htmlparser2@~3.8.1":
+  "integrity" "sha1-mWwosZFRaovoZQGn15dX5ccMEGg="
+  "resolved" "https://registry.npmmirror.com/htmlparser2/download/htmlparser2-3.8.3.tgz?cache=0&sync_timestamp=1636640945377&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fhtmlparser2%2Fdownload%2Fhtmlparser2-3.8.3.tgz"
+  "version" "3.8.3"
+  dependencies:
+    "domelementtype" "1"
+    "domhandler" "2.3"
+    "domutils" "1.5"
+    "entities" "1.0"
+    "readable-stream" "1.1"
+
 "http-errors@~1.7.2":
   "integrity" "sha1-bGGeT5xgMIw4UZSYwU+7EKrOuwY="
   "resolved" "https://registry.nlark.com/http-errors/download/http-errors-1.7.3.tgz?cache=0&sync_timestamp=1624607959970&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fhttp-errors%2Fdownload%2Fhttp-errors-1.7.3.tgz"
@@ -1661,7 +1726,7 @@
     "once" "^1.3.0"
     "wrappy" "1"
 
-"inherits@^2.0.1", "inherits@^2.0.3", "inherits@~2.0.3", "inherits@2", "inherits@2.0.4":
+"inherits@^2.0.1", "inherits@^2.0.3", "inherits@~2.0.1", "inherits@~2.0.3", "inherits@2", "inherits@2.0.4":
   "integrity" "sha1-D6LGT5MpF8NDOg3tVTY6rjdBa3w="
   "resolved" "https://registry.nlark.com/inherits/download/inherits-2.0.4.tgz"
   "version" "2.0.4"
@@ -1873,6 +1938,11 @@
   "resolved" "https://registry.nlark.com/isarray/download/isarray-1.0.0.tgz"
   "version" "1.0.0"
 
+"isarray@0.0.1":
+  "integrity" "sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8="
+  "resolved" "https://registry.nlark.com/isarray/download/isarray-0.0.1.tgz"
+  "version" "0.0.1"
+
 "isexe@^2.0.0":
   "integrity" "sha1-6PvzdNxVb/iUehDcsFctYz8s+hA="
   "resolved" "https://registry.nlark.com/isexe/download/isexe-2.0.0.tgz"
@@ -1915,7 +1985,7 @@
 
 "jsdom@^16.7.0":
   "integrity" "sha1-kYrnGWVCSxl8gZ+Bg6dU4Yl3txA="
-  "resolved" "https://registry.npmmirror.com/jsdom/download/jsdom-16.7.0.tgz?cache=0&sync_timestamp=1636758156484&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fjsdom%2Fdownload%2Fjsdom-16.7.0.tgz"
+  "resolved" "https://registry.npmmirror.com/jsdom/download/jsdom-16.7.0.tgz?cache=0&sync_timestamp=1637536208014&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fjsdom%2Fdownload%2Fjsdom-16.7.0.tgz"
   "version" "16.7.0"
   dependencies:
     "abab" "^2.0.5"
@@ -2056,6 +2126,11 @@
   "resolved" "https://registry.nlark.com/lodash.some/download/lodash.some-4.6.0.tgz"
   "version" "4.6.0"
 
+"lodash@^3.2.0":
+  "integrity" "sha1-W/Rejkm6QYnhfUgnid/RW9FAt7Y="
+  "resolved" "https://registry.nlark.com/lodash/download/lodash-3.10.1.tgz"
+  "version" "3.10.1"
+
 "lodash@^4.17.11", "lodash@^4.2.1", "lodash@^4.7.0":
   "integrity" "sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw="
   "resolved" "https://registry.nlark.com/lodash/download/lodash-4.17.21.tgz"
@@ -2107,7 +2182,7 @@
 
 "marked@^2.1.3":
   "integrity" "sha1-vQF872Qxck/Usn4GV/XOsUv/N1M="
-  "resolved" "https://registry.npmmirror.com/marked/download/marked-2.1.3.tgz?cache=0&sync_timestamp=1636778186560&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fmarked%2Fdownload%2Fmarked-2.1.3.tgz"
+  "resolved" "https://registry.npmmirror.com/marked/download/marked-2.1.3.tgz"
   "version" "2.1.3"
 
 "math-random@^1.0.1":
@@ -2366,7 +2441,7 @@
   "resolved" "https://registry.nlark.com/normalize-path/download/normalize-path-3.0.0.tgz"
   "version" "3.0.0"
 
-"nth-check@~1.0.1":
+"nth-check@~1.0.0", "nth-check@~1.0.1":
   "integrity" "sha1-sr0pXDfj3VijvwcAN2Zjuk2c8Fw="
   "resolved" "https://registry.nlark.com/nth-check/download/nth-check-1.0.2.tgz"
   "version" "1.0.2"
@@ -2620,6 +2695,16 @@
     "inherits" "^2.0.3"
     "string_decoder" "^1.1.1"
     "util-deprecate" "^1.0.1"
+
+"readable-stream@1.1":
+  "integrity" "sha1-fPTFTvZI44EwhMY23SB54WbAgdk="
+  "resolved" "https://registry.nlark.com/readable-stream/download/readable-stream-1.1.14.tgz"
+  "version" "1.1.14"
+  dependencies:
+    "core-util-is" "~1.0.0"
+    "inherits" "~2.0.1"
+    "isarray" "0.0.1"
+    "string_decoder" "~0.10.x"
 
 "readdirp@^2.0.0":
   "integrity" "sha1-DodiKjMlqjPokihcr4tOhGUppSU="
@@ -2932,6 +3017,11 @@
   "version" "1.3.0"
   dependencies:
     "safe-buffer" "~5.2.0"
+
+"string_decoder@~0.10.x":
+  "integrity" "sha1-YuIDvEF2bGwoyfyEMB2rHFMQ+pQ="
+  "resolved" "https://registry.nlark.com/string_decoder/download/string_decoder-0.10.31.tgz"
+  "version" "0.10.31"
 
 "string_decoder@~1.1.1":
   "integrity" "sha1-nPFhG6YmhdcDCunkujQUnDrwP8g="
@@ -3332,9 +3422,9 @@
   "version" "1.0.2"
 
 "ws@^7.4.6":
-  "integrity" "sha1-i0vEr1GM+r0Ec65PmRRCh7M+uIE="
-  "resolved" "https://registry.npmmirror.com/ws/download/ws-7.5.5.tgz"
-  "version" "7.5.5"
+  "integrity" "sha512-6GLgCqo2cy2A2rjCNFlxQS6ZljG/coZfZXclldI8FB/1G3CCI36Zd8xy2HrFVACi8tfk5XrgLQEk+P0Tnz9UcA=="
+  "resolved" "https://registry.npmmirror.com/ws/download/ws-7.5.6.tgz"
+  "version" "7.5.6"
 
 "xml-name-validator@^3.0.0":
   "integrity" "sha1-auc+Bt5NjG5H+fsYH3jWSK1FfGo="
