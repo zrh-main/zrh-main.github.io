@@ -388,7 +388,7 @@
     "ansi-styles" "^4.1.0"
     "supports-color" "^7.1.0"
 
-"cheerio@0.22.0":
+"cheerio@^0.22.0", "cheerio@0.22.0":
   "integrity" "sha1-qbqoYKP5tZWmuBsahocxIe06Jp4="
   "resolved" "https://registry.nlark.com/cheerio/download/cheerio-0.22.0.tgz"
   "version" "0.22.0"
@@ -1238,6 +1238,13 @@
   dependencies:
     "function-bind" "^1.1.1"
 
+"hexo-asset-image-for-hexo5@^2.1.7":
+  "integrity" "sha1-NUiNe1By2ZluNewGVpFwWSuBvS8="
+  "resolved" "https://registry.npmmirror.com/hexo-asset-image-for-hexo5/download/hexo-asset-image-for-hexo5-2.1.7.tgz"
+  "version" "2.1.7"
+  dependencies:
+    "cheerio" "^0.22.0"
+
 "hexo-bunyan@^1.0.0":
   "integrity" "sha1-shBrJlR7Iy8BlduGPLXV/4Un/TY="
   "resolved" "https://registry.npmmirror.com/hexo-bunyan/download/hexo-bunyan-1.0.0.tgz"
@@ -1443,7 +1450,7 @@
   dependencies:
     "ejs" "^2.6.1"
 
-"hexo-renderer-marked@^4.0.0":
+"hexo-renderer-marked@^4.1.0":
   "integrity" "sha1-My6arudZgdibpKtun3XONZBOd4A="
   "resolved" "https://registry.nlark.com/hexo-renderer-marked/download/hexo-renderer-marked-4.1.0.tgz"
   "version" "4.1.0"
