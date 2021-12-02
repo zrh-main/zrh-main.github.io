@@ -1,9 +1,9 @@
 ---
 title: Java面试题
 tags:
-  - Java
+  - Java重点
 categories:
-  后端
+  Java
 ---
 
 1. jdk，jre，jvm的含义以及三者之间的关系?

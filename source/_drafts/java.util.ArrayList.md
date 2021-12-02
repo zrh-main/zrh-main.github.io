@@ -1,10 +1,9 @@
 ---
 title: ArrayList
 tags:
-  - Java
-  - Java常用类
+  - Java重点类
 categories:
-  后端
+  Java
 ---
 
 ## ArrayList

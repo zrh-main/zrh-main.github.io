@@ -1,9 +1,8 @@
 ---
 title: node版本管理工具-nvmw
 tags:
-  - node
   - nvmw
-categories: 后端
+categories: node
 date: 2021-11-15 21:32:03
 ---
 

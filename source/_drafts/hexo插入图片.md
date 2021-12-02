@@ -1,7 +1,7 @@
 ---
 title: hexo插入图片
-tags:
-  - hexo
+categories:
+  hexo
 ---
 
 ## HEXO插入图片

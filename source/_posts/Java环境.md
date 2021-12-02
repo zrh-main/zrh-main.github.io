@@ -1,9 +1,8 @@
 ---
 title: Java环境
 tags:
-  - Java
   - Java重点
-categories: 后端
+categories: Java
 date: 2021-12-02 14:09:58
 ---
 
