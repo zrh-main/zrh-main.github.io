@@ -1,7 +1,7 @@
 ---
 title: ArrayList
 tags:
-  - Java重点类
+  - Java常用类
 categories:
   Java
 ---
