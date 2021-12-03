@@ -6,7 +6,6 @@ categories: Java
 date: 2021-12-02 14:09:58
 ---
 
-
 ## 虚拟机——JVM
 * 概述:
   * JVM（Java Virtual Machine ）: Java虚拟机，简称JVM，是Java程序的运行环境，是Java 最具吸引力的特性之一。 
