@@ -3,7 +3,7 @@ title: ArrayList
 tags:
   - Java常用类
 categories:
-  Java
+  - Java
 ---
 
 ## ArrayList
