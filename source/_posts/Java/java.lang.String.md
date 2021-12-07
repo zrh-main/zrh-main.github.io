@@ -7,13 +7,22 @@ categories:
 ---
 
 ### 概述:
-> 是和字符串相关的类。  位于java.lang包
+> 是和字符串相关的类。  位于java.lang包 
+> 使用final修饰(最终类)
+
+### StringBuilder类与StringBuffer类
+字符串拼接的 + 在底层为StringBuilder类的append()
+append(String):在原有字符串拼接
+StringBuffer类是同步的,因此耗时,所以出现了StringBuilder类
 
 ### 构造方法:
 * new String() 
   *  初始化一个新创建的 String 对象，使其表示一个空字符序列。
 * new String("abc") 
   *  初始化一个新创建的 String 对象，使其表示一个与参数相同的字符序列
+
+### 内存
+字符串常量池和运行时常量池逻辑上属于方法区，但是实际存放在堆内存中
 
 ### 常见问题(面试题):
 * String s = “hello” 和String s = new String(“hello”)区别
@@ -41,10 +50,8 @@ categories:
 #### 案例如下
 ``` Java
 public static void main(String[] args) {
-/*
- * equals  比较两个字符串的内容是否相同
- */
 
+  //  equals  比较两个字符串的内容是否相同
   // 这里的str1直接指向常量池中"123"的地址值
   String str1 = "123";
   // 这里的str2指向堆中new String("123")的地址值
@@ -57,45 +64,35 @@ public static void main(String[] args) {
       System.out.println("equals比较内容相同");
   }
 
-/*
- * length    获取字符串的长度
- */
-
+  //  length    获取字符串的长度
   String str3 = "123456";
   //获取字符串str3的长度
   System.out.println(str3.length());
 
-/*
- * charAt   获取指定索引位置的字符
- */
-
+  //  charAt   获取指定索引位置的字符
   String str4 = "123456";
   System.out.println(str4.charAt(0));
 
-/*
- * indexOf  获取指定字符或字符串在当前字符串中首次出现的位置,没找到返回-1
- */
-
+  //  indexOf  获取指定字符或字符串在当前字符串中首次出现的位置,没找到返回-1
   String str5 = "123456789";
   System.out.println(str5.indexOf(3));
 
-/*
- * split    将字符串以某个字符拆分成字符串数组,字符串拆分
- */
-
+  //  split    将字符串以某个字符拆分成字符串数组,字符串拆分
   String str6 = "2021-12-2";
   //接收的参数为正则,需注意特殊符号,以特殊符号拆分可以添加在[ ]之内
   System.out.println(str6.split("[-]"));
 
-/*
- * substring    截取字符串,并返回新的字符串
- */
-
+  //  substring    截取字符串,并返回新的字符串
   String str7 = "1十分1吖1放啊东方1阿发吖131516发sasafafasdfas";
   //截取索引从0-5之间(包括0,不包括5)的字符,
   System.out.println(str7.substring(5));
   //截取索引从2-12之间(包括2,不包括12)的字符
   System.out.println(str7.substring(2, 12));
+
+  //  concat 将指定字符串拼接到此字符串的末尾
+  //  参数长度为0时,返回此字符串对象;否则返回新的String对象
+  String str8 = "123"
+  System.out.println(str8.concat("abc"));
 
 }
 ```
