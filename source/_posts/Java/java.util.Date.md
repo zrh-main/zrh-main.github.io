@@ -2,15 +2,15 @@
 title: Date
 tags:
   - Java常用类
-  - Java时间日期类
+  - Java 日期,时间,日历类
 categories:
   - Java
 ---
 
-# Data
+# Date
 
 ## 概述:
-位于`java.util`;类 Date 表示特定的瞬间，精确到毫秒; 1秒 = 1000毫秒
+位于`java.util`;表示特定的瞬间，精确到毫秒; 1秒 = 1000毫秒
 
 ## 构造方法
  Date()

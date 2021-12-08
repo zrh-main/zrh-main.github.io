@@ -1,5 +1,5 @@
 ---
-title: String
+title: String+StringBuilder+StringBuffer
 tags:
   - Java常用类
 categories:
@@ -9,11 +9,6 @@ categories:
 ### 概述:
 > 是和字符串相关的类。  位于java.lang包 
 > 使用final修饰(最终类)
-
-### StringBuilder类与StringBuffer类
-字符串拼接的 + 在底层为StringBuilder类的append()
-append(String):在原有字符串拼接
-StringBuffer类是同步的,因此耗时,所以出现了StringBuilder类
 
 ### 构造方法:
 * new String() 
@@ -96,3 +91,40 @@ public static void main(String[] args) {
 
 }
 ```
+### String和 基本数据类型的转换
+- 基本数据类型转String：
+  - 把基本数据类型和一个””做拼接即可。
+- String转换为基本数据类型：
+  - 使用包装类中的parseXXX方法即可。
+
+``` Java
+String s = "520";
+int i = Integer.parseInt(s);
+```
+
+### StringBuilder类与StringBuffer类
+#### 概述
+  String类是长度不可改变的字符序列;做拼接操作的时候每次都会创建常量,非常消费内存
+  StringBuilder类是一个长度可变的字符序列;线程不安全，效率高
+  StringBuffer类是一个长度可变的字符序列;线程安全，效率低
+  StringBuilder是个字符串的缓冲区，即它是一个容器，容器中可以装很多字符串。并且能够对其中的字符串进行各种操作
+  它的内部拥有一个数组用来存放字符串内容，进行字符串拼接时，直接在数组中加入新内容。  StringBuilder会自动维护数组的扩容
+#### 构造方法
+  public StringBuilder()
+  public StringBuidler(String str)
+
+#### 常用方法
+- StringBuilder append(...)
+  - 拼接内容;字符串拼接的 + 在底层为StringBuilder类的append()
+- String toString()
+  - 转成String类型
+- StringBuffer reverse() 
+  - 内容反转
+
+
+## 面试题
+- String类与StringBuilder类与StringBuffer类的区别
+  - String是长度不可变的字符序列;一旦创建，内容不能改变
+  - StringBuilder类是一个长度可变的字符序列;线程不安全，效率高
+  - StringBuffer类是一个长度可变的字符序列;线程安全，效率低
+
