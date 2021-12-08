@@ -362,19 +362,37 @@
                 
                 
                 
+                <a href="/categories/Markdown/" title="Markdown: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F9EBEA;">Markdown
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/categories/%E5%89%8D%E7%AB%AF/" title="前端: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F9EBEA;">前端
+                            style="background-color: #F5EEF8;">前端
                         <span class="tag-length">3</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/%E5%90%8E%E7%AB%AF/" title="后端: 1">
+                <a href="/categories/hexo/" title="hexo: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F5EEF8;">后端
+                            style="background-color: #D5F5E3;">hexo
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/node/" title="node: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #E8F8F5;">node
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -383,8 +401,17 @@
                 <a href="/categories/%E7%AE%97%E6%B3%95/" title="算法: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
-                            style="background-color: #D5F5E3;">算法
+                            style="background-color: #FEF9E7;">算法
                         <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/Java/" title="Java: 18">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F8F9F9;">Java
+                        <span class="tag-length">18</span>
                     </span>
                 </a>
                 
@@ -416,19 +443,10 @@
                             
                                 
 思路：
-每轮确定一个最大值,并放入末尾
+比较相邻的元素,如果第一个比第二个大，就交换它们两个,每轮确定一个最大值,并放入末尾
 下一轮就可以少比较一个
-轮数为长度-1次
-比较的次数为长度-1-i
-
-
-实现：
-使用双重for循环
-外层循环控制轮数
-内层循环控制比较的次数
-
-
-案例: int[] arr = &#123;31, 
+每个元素都需要比较,所以轮数为长度-1次
+每比一次,就确定一个最大值,就代表一轮结束,所以比较的次数为长度-1-i   
                             
                         </div>
                         <div class="publish-info">
@@ -450,10 +468,6 @@
 
                     
                     <div class="card-action article-tags">
-                        
-                        <a href="/tags/Java/">
-                            <span class="chip bg-color">Java</span>
-                        </a>
                         
                         <a href="/tags/%E6%8E%92%E5%BA%8F/">
                             <span class="chip bg-color">排序</span>

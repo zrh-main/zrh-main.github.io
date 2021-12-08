@@ -431,10 +431,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
-                            </a>
-                        
                             <a href="/tags/%E6%8E%92%E5%BA%8F/">
                                 <span class="chip bg-color">排序</span>
                             </a>
@@ -483,10 +479,10 @@
             <div id="articleContent">
                 <ol>
 <li>思路：<ul>
-<li>每轮确定一个最大值,并放入末尾</li>
+<li>比较相邻的元素,如果第一个比第二个大，就交换它们两个,每轮确定一个最大值,并放入末尾</li>
 <li>下一轮就可以少比较一个</li>
-<li>轮数为长度-1次</li>
-<li>比较的次数为长度-1-i</li>
+<li>每个元素都需要比较,所以轮数为长度-1次</li>
+<li>每比一次,就确定一个最大值,就代表一轮结束,所以比较的次数为长度-1-i    i为当前的轮数</li>
 </ul>
 </li>
 <li>实现：<ul>
@@ -495,9 +491,10 @@
 <li>内层循环控制比较的次数</li>
 </ul>
 </li>
-<li>案例:<pre class=" language-Java"><code class="language-Java"> int[] arr = &#123;31, 345, 52, 4, 66, 34&#125;;
- for (int i = 0; i < arr.length - 1; i++) &#123;
-     for (int j = 0; j < arr.length - 1 - i; j++) &#123;
+<li>案例:<pre class=" language-Java"><code class="language-Java">public  int[] bubbleSort(int[] arr)&#123;
+ int arrLength = arr.length;
+ for (int i = 0; i < arrLength - 1; i++) &#123;
+     for (int j = 0; j < arrLength - 1 - i; j++) &#123;
          if (arr[j] > arr[j + 1]) &#123;
              arr[j] = arr[j] ^ arr[j + 1];
              arr[j + 1] = arr[j + 1] ^ arr[j];
@@ -505,7 +502,23 @@
          &#125;
      &#125;
  &#125;
- System.out.println( Arrays.toString(arr))     
+ return arr;
+&#125; 
+</code></pre>
+<pre class=" language-JavaScript"><code class="language-JavaScript">function bubbleSort(arr) &#123;
+ var len = arr.length;
+ var temp = null;
+ for (var i = 0; i < len - 1; i++) &#123;
+     for (var j = 0; j < len - 1 - i; j++) &#123;
+         if (arr[j] > arr[j+1]) &#123;        // 相邻元素两两对比
+             temp = arr[j+1];        // 元素交换
+             arr[j+1] = arr[j];
+             arr[j] = temp;
+         &#125;
+     &#125;
+ &#125;
+ return arr;
+&#125;
 </code></pre>
 </li>
 </ol>
@@ -573,10 +586,6 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
-                                </a>
-                            
                                 <a href="/tags/%E6%8E%92%E5%BA%8F/">
                                     <span class="chip bg-color">排序</span>
                                 </a>
@@ -622,18 +631,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/12/01/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
+                <a href="/2021/12/01/Java/java.util.ArrayList/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="冒泡排序">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="ArrayList">
                         
-                        <span class="card-title">冒泡排序</span>
+                        <span class="card-title">ArrayList</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -643,31 +651,26 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-01
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-01
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                        <span class="chip bg-color">排序</span>
+                    <a href="/tags/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/">
+                        <span class="chip bg-color">Java常用类</span>
                     </a>
                     
                 </div>

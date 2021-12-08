@@ -4,11 +4,478 @@
   
     
     <entry>
+      <title>DateFormat</title>
+      <link href="/2021/12/08/Java/java.text.DateFormat/"/>
+      <url>/2021/12/08/Java/java.text.DateFormat/</url>
+      
+        <content type="html"><![CDATA[<h1 id="DateFormat"><a href="#DateFormat" class="headerlink" title="DateFormat"></a>DateFormat</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述:"></a>概述:</h2><ul><li>位于<code>java.text</code>;</li><li>日期/时间格式化子类的抽象类，</li><li>通过这个类可以帮我们完成日期和文本之间的转换(可以在Date对象与String对象之间进行来回转换)</li></ul><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>  由于DateFormat为抽象类，不能直接使用，所以使用子类<code>java.text.SimpleDateFormat</code>。</p><h2 id="SimpleDateFormat-使用"><a href="#SimpleDateFormat-使用" class="headerlink" title="SimpleDateFormat 使用"></a>SimpleDateFormat 使用</h2><p>  这个类需要一个模式（格式）来指定格式化或解析的标准</p><h3 id="构造方法："><a href="#构造方法：" class="headerlink" title="构造方法："></a>构造方法：</h3><p>SimpleDateFormat(String pattern)：</p><ul><li>用给定的模式和默认语言环境的日期格式符号构造SimpleDateFormat</li><li>参数pattern是一个字符串，代表日期时间的自定义格式</li></ul><h3 id="格式规则"><a href="#格式规则" class="headerlink" title="格式规则"></a>格式规则</h3><table><thead><tr><th>标识字母(区分大小写)</th><th>含义</th></tr></thead><tbody><tr><td>y</td><td>年</td></tr><tr><td>M</td><td>月</td></tr><tr><td>d</td><td>日</td></tr><tr><td>H</td><td>时</td></tr><tr><td>m</td><td>分</td></tr><tr><td>s</td><td>秒</td></tr></tbody></table><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>创建SimpleDateFormat对象</p><pre class=" language-Java"><code class="language-Java">public class Demo02SimpleDateFormat &#123;    public static void main(String[] args) &#123;        //日期/时间字符串格式        String dateStringFormat = "yyyy-MM-dd HH:mm:ss"        // 对应的日期格式如：2018-01-16 15:06:38        DateFormat format = new SimpleDateFormat(dateStringFormat);    &#125;    &#125;</code></pre><h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><p>String format(Date date)<br>  日期对象转字符串<br>Date parse(String s)<br>  字符串转日期对象</p><h3 id="常用方法案例"><a href="#常用方法案例" class="headerlink" title="常用方法案例"></a>常用方法案例</h3><p>format使用</p><pre class=" language-Java"><code class="language-Java">import java.text.DateFormat;import java.text.SimpleDateFormat;import java.util.Date;/* Date对象转换成String*/public class DateFormatDemo &#123;    public static void main(String[] args) &#123;      //创建日期对象        Date date = new Date();        // 创建日期格式化对象,在获取格式化对象时可以指定风格        DateFormat df = new SimpleDateFormat("yyyy年MM月dd日");        //调用format将日期/时间对象转为字符串        String str = df.format(date);        System.out.println(str); // 2008年1月23日    &#125;&#125;</code></pre><p>parse使用</p><pre class=" language-Java"><code class="language-Java">import java.text.DateFormat;import java.text.SimpleDateFormat;import java.util.Date;/* 把String转换成Date对象*/public class DateFormatDemo &#123;   public static void main(String[] args) throws ParseException &#123;        // 创建日期/时间格式化对象        DateFormat df = new SimpleDateFormat("yyyy年MM月dd日");        // 日期时间字符串        String str = "2018年12月11日";        //将String转为日期/时间对象        Date date = df.parse(str);        System.out.println(date); // Tue Dec 11 00:00:00 CST 2018    &#125;&#125;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java常用类 </tag>
+            
+            <tag> Java时间日期类 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Date</title>
+      <link href="/2021/12/08/Java/java.util.Date/"/>
+      <url>/2021/12/08/Java/java.util.Date/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Data"><a href="#Data" class="headerlink" title="Data"></a>Data</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述:"></a>概述:</h2><p>位于<code>java.util</code>;类 Date 表示特定的瞬间，精确到毫秒; 1秒 = 1000毫秒</p><h2 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h2><p> Date()<br>  表示当前的时间<br> Date(long date)<br>  表示从标准基准时间（即 1970 年 1 月 1 日 00:00:00 GMT）+ 指定毫秒数(date)的时间</p><h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><p>  long getTime()<br>    表示时间对象所对应的毫秒值</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java常用类 </tag>
+            
+            <tag> Java时间日期类 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Objects</title>
+      <link href="/2021/12/08/Java/java.util.Objects/"/>
+      <url>/2021/12/08/Java/java.util.Objects/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h1><ol><li>概述:</li></ol><ul><li>在<strong>JDK7</strong>添加了一个Objects工具类</li><li>它提供了一些方法来操作对象</li></ul><ol start="2"><li>常用方法:</li></ol><ul><li>boolean equals()<br>Object的equals()容易抛出空指针异常，而Objects类中的equals方法就优化了这个问题<pre class=" language-Java"><code class="language-Java">//Objects的equals();实际还是调用了Object的equals();只是加了一些非空判断...public static boolean equals(Object a, Object b) &#123;    return (a == b) || (a != null && a.equals(b));  &#125;</code></pre></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java常用类 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Object</title>
+      <link href="/2021/12/08/Java/java.lang.Object/"/>
+      <url>/2021/12/08/Java/java.lang.Object/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述:"></a>概述:</h2><ul><li><code>java.lang.Object</code>类是Java语言中的根类，即所有类的父类</li><li>没有使用extends 继承父类的类都默认继承Object</li><li>所有的类都可以使用Object类中的方法</li></ul><h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法:"></a>常用方法:</h2><ul><li>String toString()<br>  返回该对象的字符串表示;其实该字符串内容就是 <code>对象的类型+@+内存地址值</code><br>  <font color="red">Java中直接打印对象,实际调用了对象的toString()</font></li><li>boolean equals()<br>  比较两个对象的地址值是否相同;<br>  这里推荐使用Objects的equals(); Object的equals()容易抛出空指针异常，而Objects类中的equals方法优化了这个问题</li></ul><h2 id="常用方法的使用"><a href="#常用方法的使用" class="headerlink" title="常用方法的使用"></a>常用方法的使用</h2><ul><li>toString()<br>由于toString()返回的是内存地址，而在开发中，需要按照对象的属性得到相应的字符串表现形式，因此可以重写它<br>在IntelliJ IDEA中，可以点击<code>Code</code>菜单中的<code>Generate...</code>，也可以使用快捷键<code>alt+insert</code>，点击<code>toString()</code>选项;选择需要包含的成员变量并确定进行自动代码生成</li><li>equals()<br>如果希望进行对象的内容比较，即所有或指定的部分成员变量相同就判定两个对象相同，则可以覆盖重写equals方法<br>在IntelliJ IDEA中，可以使用<code>Code</code>菜单中的<code>Generate…</code>选项，也可以使用快捷键<code>alt+insert</code>，并选择<code>equals() and hashCode()</code>进行自动代码生成</li></ul><h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><p>  == 和 equals的区别？<br>  区别:<br>    ==<br>      基本类型:比较内容是否相同<br>      引用类型:比较地址值是否相同<br>    equals<br>      只能比较引用类型;默认继承Object情况下比较地址值是否相同;<br>      Object中的equals()是用==比较的</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java常用类 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>内部类</title>
+      <link href="/2021/12/07/Java/Java%20%E5%86%85%E9%83%A8%E7%B1%BB/"/>
+      <url>/2021/12/07/Java/Java%20%E5%86%85%E9%83%A8%E7%B1%BB/</url>
+      
+        <content type="html"><![CDATA[<h1 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h1><h2 id="成员内部类"><a href="#成员内部类" class="headerlink" title="成员内部类"></a>成员内部类</h2><ol><li><p>概述:</p><ul><li>定义于另一个类的内部</li></ul></li><li><p>定义格式:</p><pre class=" language-Java"><code class="language-Java">public class 外部类名称&#123;    class 成员内部类名称&#123; &#125;   &#125;</code></pre></li><li><p>访问方式</p><ul><li>内部类访问外部类<ul><li>成员内部类可以无条件访问外部类的所有成员(属性,行为):包括private成员和静态成员</li></ul></li><li>外部类访问内部类<ul><li>创建内部类的对象,通过这个对象的引用访问</li><li>创建内部类对象的方式,例:<pre class=" language-Java"><code class="language-Java">外部类名.内部类名 对象名 = new 外部类型().new 内部类型();</code></pre></li></ul></li></ul></li><li><p>注意:</p><ol><li>内部类是一个独立的类，在编译时内部类会被编译成独立的.class文件，但是前面冠以外部类的类名和$符号 </li><li>有同名的成员变量和方法时:<ul><li>默认访问成员内部类的成员</li><li>访问外部类同名成员方式:<code>外部类.this.成员变量(成员方法)</code></li></ul></li></ol></li></ol><h2 id="局部内部类"><a href="#局部内部类" class="headerlink" title="局部内部类"></a>局部内部类</h2><ol><li><p>概述:</p><ul><li>定义于另一个类的方法或作用域中的类</li><li>不能有public,protected,private及static修饰符</li></ul></li><li><p>定义格式:</p><pre class=" language-Java"><code class="language-Java">public class 外部类名称&#123;    修饰符  返回值类型  外部类方法（参数）&#123;     class 局部内部类名称&#123;     &#125;    &#125;&#125;</code></pre></li><li><p>访问方式</p><ul><li>局部内部类访问外部类<ul><li>new 外部类名().成员(变量或方法)</li></ul></li><li>外部类访问内部类<ul><li>调用内部类所在的方法,方法内执行内部类的操作;例:<pre class=" language-Java"><code class="language-Java">public class Demo1 &#123;  public void test()&#123;    class Poto&#123;        private String name;        public void potoFun()&#123;            System.out.println("这里是局部内部类方法");        &#125;      &#125;     Poto poto =new Poto();     poto.potoFun();  &#125;  public static void main(String [] args)&#123;    new Demo1().test();  &#125;&#125;</code></pre></li></ul></li></ul></li></ol><h2 id="权限修饰符在内部类中的使用"><a href="#权限修饰符在内部类中的使用" class="headerlink" title="权限修饰符在内部类中的使用"></a>权限修饰符在内部类中的使用</h2><p>权限修饰符规则：</p><ol><li>外部类： public /(default)</li><li>成员内部类  public/protected/(default)/private</li><li>局部内部类  什么都不能写</li></ol><h2 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h2><ol><li><p>概述:</p><ul><li>是内部类的简化写法。</li><li>本质是一个<code>带具体实现的</code> <code>父类或者父接口的</code> <code> 匿名的</code> 子类对象</li></ul></li><li><p>格式:</p><pre class=" language-Java"><code class="language-Java">new 父类名或者接口名()&#123;      @Override  // 方法重写    public void method() &#123;       // 执行语句    &#125;&#125;;</code></pre></li></ol><p>注意:</p><ol><li>匿名内部类必须继承一个父类或者实现一个父接口</li><li>匿名内部类在”创建对象”的时候,只能使用唯一一次.</li><li>如果希望多次创建对象,而且类的内容一样的话,那么就必须使用单独定义的实现类.</li></ol><p>使用<br>  只使用一次对象时使用,<br>  在方法的形式参数是接口或者抽象类时，可以将匿名内部类作为参数传递;例</p><pre class=" language-Java"><code class="language-Java">//  定义接口public interface class FlyAble&#123;   public abstract void fly();&#125;//  创建匿名内部类，并调用：public class InnerDemo &#123;    public static void main(String[] args) &#123;         //创建匿名内部类,直接传递给showFly(FlyAble f)         showFly(new FlyAble()&#123;             public void fly() &#123; //方法重写              System.out.println("我飞了~~~");           &#125;         &#125;);     &#125;        public static void showFly(FlyAble f) &#123;         f.fly();                                        &#125; &#125;</code></pre><h2 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h2><ol><li><p>概述</p><ul><li>有static关键字,不依赖外部类</li><li></li></ul></li><li><p>注意:<br>不能使用外部类非静态成员</p></li><li><p>格式:</p><pre class=" language-Java"><code class="language-Java">//创建静态内部类对象外部类名.内部类名 xxx = new 外部类名.内部类名()</code></pre></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java面向对象三大特性</title>
+      <link href="/2021/12/06/Java/Java%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/"/>
+      <url>/2021/12/06/Java/Java%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/</url>
+      
+        <content type="html"><![CDATA[<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><ol><li><p>概述：<br>把类中的属性私有化，提供公共的访问方式，保证代码的安全性。</p></li><li><p>步骤：</p></li><li><p>使用private 修饰成员变量</p></li><li><p>让成员变量私有化，提供set…方法让用户可以设置值，提供get…方法让用户可以获取值。<br> private：被此关键字修饰的成员是私有成员，只能在本类中使用。</p></li><li><p>this关键字：<br>当成员变量和局部变量同名时，可以使用this.变量表示访问成员变量。</p></li></ol><h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>  子类会继承父类的所有的非私有成员（构造方法除外）;<br>  使用 extends关键字;<br>  所有的类都直接或间接继承自Object类;</p><h3 id="为什么要使用继承"><a href="#为什么要使用继承" class="headerlink" title="为什么要使用继承"></a>为什么要使用继承</h3><ul><li>好处：<ul><li>代码的复用性</li><li>是多态的前提。</li></ul></li><li>弊端：让类和类之间产生了关系(耦合的产生)         <!--   (高内聚低耦合)   --></li></ul><h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul><li>在new子类对象时,JVM会先new出父类对象</li><li>构造函数第一行默认有个super(),super是指向父类的引用</li></ul><h3 id="继承示例"><a href="#继承示例" class="headerlink" title="继承示例"></a>继承示例</h3><pre class=" language-Java"><code class="language-Java">//子类 继承 父类public class 子类名 extends 父类名&#123;&#125;</code></pre><h3 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h3><h4 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h4><ul><li>当子类出现和父类中完全相同的方法时，子类会重写父类中的方法。</li></ul><h4 id="面试题："><a href="#面试题：" class="headerlink" title="面试题："></a>面试题：</h4><ul><li>方法重载和方法重写的区别?或overwrite和overload()的区别?<ul><li>方法重载：在同一个类中，方法名相同，参数列表不同构成重载关系。</li><li>方法重写：子类出现和父类完成相同的方法时，子类会重写父类中的方法。</li></ul></li></ul><h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><ul><li>多态是同一个行为具有多个不同表现形式或形态的能力。</li><li>多态就是同一个接口，使用不同的实例而执行不同操作</li></ul><h3 id="多态存在的三个必要条件"><a href="#多态存在的三个必要条件" class="headerlink" title="多态存在的三个必要条件"></a>多态存在的三个必要条件</h3><ul><li>继承</li><li>重写</li><li>父类引用指向子类对象：Parent p = new Child();</li></ul><h3 id="多态的格式"><a href="#多态的格式" class="headerlink" title="多态的格式"></a>多态的格式</h3><pre class=" language-Java"><code class="language-Java">// 多态存在的三个必要条件//    继承//    重写//    父类引用指向子类对象：Parent p = new Child();public class Parent&#123;  public void demo()&#123;System.out.println("父类打印信息...")&#125;&#125;public class Child extends Parent&#123;// 1 继承  // 2 写父类方法  public void demo()&#123;System.out.println("子类打印信息...")&#125;&#125;public class Run&#123;  public static void main(String [] args)&#123;    // 3 父类引用指向子类对象    Parent p = new Child();  &#125;&#125;</code></pre><h3 id="多态的优点"><a href="#多态的优点" class="headerlink" title="多态的优点"></a>多态的优点</h3><ol><li>消除类型之间的耦合关系</li><li>可替换性</li><li>可扩充性</li><li>接口性</li><li>灵活性</li><li>简化性</li></ol><p>多态的好处：可以使程序有良好的扩展，并可以对所有类的对象进行通用处理</p><h3 id="多态下的成员变量访问"><a href="#多态下的成员变量访问" class="headerlink" title="多态下的成员变量访问"></a>多态下的成员变量访问</h3><p>多态下会访问父类里的成员变量<br>  访问成员变量的的两种方式:</p><ol><li>直接通过对象名称访问成员变量,看等号左边是谁,优先用谁,没有则向上找</li><li>间接通过成员方法访问: 看该方法属于谁,优先用谁,没有则向上找</li></ol><h3 id="多态下的成员方法访问"><a href="#多态下的成员方法访问" class="headerlink" title="多态下的成员方法访问"></a>多态下的成员方法访问</h3><p>在多态下成员方法的访问规则</p><ol><li>首先检查父类中是否有该方法</li><li>如果没有，则编译错误</li><li>如果有，再去调用子类的同名方法</li></ol><h3 id="引用类型转换"><a href="#引用类型转换" class="headerlink" title="引用类型转换"></a>引用类型转换</h3><p>多态的转型分为向上转型与向下转型两种：</p><h4 id="向上转型"><a href="#向上转型" class="headerlink" title="向上转型"></a>向上转型</h4><p>概述:</p><ul><li>向上转型：多态本身是子类类型向父类类型向上转换的过程，这个过程是默认的。</li><li>当父类引用指向一个子类对象时，便是向上转型。</li><li>向上转型一定是安全的没有问题的,正确的</li></ul><p>缺点:</p><ul><li>对象一但向上转型为父类,就无法调用子类原本特有的内容</li></ul><p>使用格式：</p><ul><li>父类类型 变量名 = new 子类类型(); <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 如：</span>Animal a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></li></ul><h4 id="向下转型"><a href="#向下转型" class="headerlink" title="向下转型"></a>向下转型</h4><p>概述：</p><ul><li>父类类型向子类类型向下转换的过程，这个过程是强制的。</li><li>一个已经向上转型的子类对象，将父类引用转为子类引用，可以使用强制类型转换的格式，便是向下转型。</li></ul><p>使用格式：</p><ul><li>子类类型 变量名 = (子类类型) 父类变量名;<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 如:</span>Cat c <span class="token operator">=</span><span class="token punctuation">(</span>Cat<span class="token punctuation">)</span> a<span class="token punctuation">;</span></code></pre></li></ul><h4 id="为什么要转型"><a href="#为什么要转型" class="headerlink" title="为什么要转型"></a>为什么要转型</h4><p>使用多态调用方法时，首先检查父类中是否有该方法，如果没有，则编译错误。<br>也就是说，不能调用子类拥有，而父类没有的方法。<br>编译都错误，更别说运行了。这也是多态给我们带来的一点”小麻烦”。所以，想要调用子类特有的方法，必须做向下转型。</p><h4 id="转型报错-ClassCastException"><a href="#转型报错-ClassCastException" class="headerlink" title="转型报错(ClassCastException)"></a>转型报错(ClassCastException)</h4><p><code>ClassCastException</code>，类型转换异常！<br>这是因为，这两个类型并没有任何继承关系，不符合类型转换的定义。<br>为了避免ClassCastException的发生，Java提供了<code>instanceof</code>关键字，给引用变量做类型的校验，格式如下：</p><pre class=" language-Java"><code class="language-Java">变量名 instanceof 数据类型如果变量属于该数据类型，返回true。 如果变量不属于该数据类型，返回false。</code></pre><blockquote><h2 id="多态内存描述-转载自CSDN博主学术期刊编辑"><a href="#多态内存描述-转载自CSDN博主学术期刊编辑" class="headerlink" title="多态内存描述 转载自CSDN博主学术期刊编辑"></a>多态内存描述 转载自CSDN博主<a href="https://blog.csdn.net/weixin_36349918/article/details/114140453">学术期刊编辑</a></h2><p>1：Animal a = new Cat();<br>1.1:在栈中创建区域，类型为Animal，变量名:a;<br>1.2:在堆中new Cat();占用一块区域。地址值：[0x3a4]<br>1.3:spuer()实例化父类Animal。<br>1.3.1:new Animal();占用一块区域，地址值:0x3ab;<br>1.3.2:引用着在方法区中初始化[Animal中的所有方法,该引用为：[0x754]]。<br>1.3.3:将Animal()引用赋给spuer();spuer引用着Animal();<br>1.4:在方法区中初始化Cat类的所有方法,引用值为0x343。<br>1.5:将0x3a4赋给栈中的变量a;a就开始引用Cat()。</p><hr><p>2：a.eat();<br>2.1:通过[0x3a4]找到Cat。<br>2.2:编译时期：先spuer()找到Animal中的方法。如果没有，则报错。<br>2.3:运行时：直接在Cat中找到eat(),当Cat中没有，再去Animal中找。<br>2.4:将eat()方法要方法区压栈，执行，输出:SOP(猫吃鱼);</p><hr><p>3：a = new Dog();<br>3.1:在堆new Dog(),开辟一块新区域，地址值:0x87xfds<br>3.2:spuer();实例化父类Animal<br>3.2.1:new Animal()开辟新区域，地址值0x33fa;<br>3.2.2:成员方法引用着方法区中已初始化的[0x754];<br>3.2.3:将Animal地址值0x33fa赋给spuer();;spuer引用着Animal();<br>3.3:在方法区中初始化Dog类的所有方法,引用值为0x422ac。<br>3.4:将[0x87xfds]赋给栈中的变量a; a不再引用Cat,而是引用着Dog;这时堆中的Cat已成为垃圾，等待JVM空闲时来回收。</p><hr><p>4：a.eat();<br>4.1:通过a变量引用值找到堆中标记为0x87xfds的区域。<br>4.2:编译时:先进super();去检查Animal引用的方法区中有没有eat()方法,如有没有则报错。<br>4.3:运行时:直接去Doa方法区中找到eat();如果Doa没有，再去执行super()调用父类的eat()方法。<br>4.4:从方法区中将eat()压栈，执行(SOP(‘狗吃粮’))。</p><hr><p>5：a.shudy();<br>5.1:通过a变量引用值找到堆中标记为0x87xfds的区域。<br>5.2:编译时:先进super();去检查Animal引用的方法区中有没有shudy()方法,结果Animal中没有shudy()方法，所以就在编译时期就报错。</p><hr><p>6：Dog d = (Dog)a;<br>6.1:在栈中开辟区域，存储类型为Dog,变量名d<br>6.2:将a向下转型，从Animal转为Dog来引用Dog;(将a变量赋给d)<br>6.3:a和d都指向堆中同一个Dog对象。</p><hr><p>7：d.eat();//从Dog方法中压栈执行eat()方法，然后弹栈;<br>8：d.shudy();//从Dog方法中压栈执行shudy()方法，然后弹栈;<br>9：Cat c = (Cat) a;<br>9.1:在栈中开辟一块区域，存储类型：Cat,变量名称:c<br>9.2:将a向下转型，将Anmail引用Dao转为Cat引用Dog;结果抛出类型转换异常。Dog不能被转为Cat;</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java重点 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java异常</title>
+      <link href="/2021/12/06/Java/Java%20%E5%B8%B8%E8%A7%81%E5%BC%82%E5%B8%B8/"/>
+      <url>/2021/12/06/Java/Java%20%E5%B8%B8%E8%A7%81%E5%BC%82%E5%B8%B8/</url>
+      
+        <content type="html"><![CDATA[<p>ArrayIndexOutOfBoundsException（数组下标越界异常）<br>用非法索引访问数组时抛出的异常。如果索引为负或大于等于数组大小，则该索引为非法索引</p><p>NullPointerException(空指针异常)<br>当应用程序试图在需要对象的地方使用 null 时，抛出该异常</p><p>ClassCastException(类型转换异常)<br>试图将对象强制转换为不是实例的子类时，抛出该异常。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java重点 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java接口</title>
+      <link href="/2021/12/06/Java/Java%20%E6%8E%A5%E5%8F%A3/"/>
+      <url>/2021/12/06/Java/Java%20%E6%8E%A5%E5%8F%A3/</url>
+      
+        <content type="html"><![CDATA[<h1 id="接口-英文：Interface"><a href="#接口-英文：Interface" class="headerlink" title="接口 (英文：Interface)"></a>接口 (英文：Interface)</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述:"></a>概述:</h2><p>接口在JAVA编程语言中是一个抽象类型，是抽象方法的集合，接口以<font color="red">interface</font>关键字来声明。<br>类描述对象的属性和方法;接口则包含类要实现的方法<br>除非实现接口的类是抽象类，否则该类要实现接口中的所有方法</p><h2 id="版本更新"><a href="#版本更新" class="headerlink" title="版本更新:"></a>版本更新:</h2><ul><li>接口在jdk8之前，接口中只能有抽象方法,</li><li>jdk8之后，接口中可以有默认方式和静态方法，jdk9之后可以有私有方法</li></ul><h2 id="抽象类与接口的相同点"><a href="#抽象类与接口的相同点" class="headerlink" title="抽象类与接口的相同点:"></a>抽象类与接口的相同点:</h2><ul><li>不能实例化对象</li></ul><h2 id="抽象类与接口的区别-面试题"><a href="#抽象类与接口的区别-面试题" class="headerlink" title="抽象类与接口的区别(面试题):"></a>抽象类与接口的区别(面试题):</h2><ol><li>构造方法:<ul><li>抽象类  ：有构造方法。用于子类继承父类的时候给父类成员初始化。</li><li>接口    : 没有构造方法</li></ul></li><li>成员<ul><li>抽象类  :有变量，有常量;有具体的实现方法,有抽象方法</li><li>接口    : 只有常量;jdk1.8前只能有抽象方法。jdk1.8后，可以有默认方法，静态方法，jdk1.9后可以有私有方法。</li></ul></li><li>抽象概念<ul><li>抽象类  : 抽象类对类整体进行抽象，包括属性、行为,是对一种事物的抽象，即对类抽象</li><li>接口    : 接口是对行为的抽象</li></ul></li><li>设计层面<ul><li>抽象类  :抽象类作为很多子类的父类，它是一种模板式设计;抽象类加入新的具体方法时，那么所有的子类都继承到了这个新方法</li><li>接口    :接口是一种行为规范，它是一种辐射式设计;接口加入新的抽象方法时，那么所有的子类都必须重写这个新方法</li></ul></li></ol><h2 id="定义格式"><a href="#定义格式" class="headerlink" title="定义格式"></a>定义格式</h2><pre class=" language-Java"><code class="language-Java">//  接口：public interface 类名&#123;    // 接口中只可定义常量,不可定义变量    public static final 常量名;    //   抽象方法    public abstract void training();    // 默认方法    default void fun2() &#123;        //在jdk1.8后，接口中可以有默认方法，不常用    &#125;    // 静态方法    public static void fun3() &#123;        // 在jdk1.8后，接口中可以有静态方法，不常用    &#125;    // 私有方法    private void fun4() &#123;        //jdk1.9后，接口中可以放私有方法，不常用    &#125;&#125;</code></pre><h2 id="接口的继承与实现"><a href="#接口的继承与实现" class="headerlink" title="接口的继承与实现:"></a>接口的继承与实现:</h2><ul><li>接口无法被实例化，但是可以被实现</li></ul><pre class=" language-Java"><code class="language-Java">// 接口与接口可以多重继承,也可以多次继承public interface 子接口名称 extends 父接口名称1,父接口名称2&#123;&#125;// 类与接口可以多实现public class 类名称 implements 接口名称1,接口名称2&#123;&#125;</code></pre><h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><p>判断对象的类型</p><pre class=" language-Java"><code class="language-Java">// 判断object属不属于class的类型if(object instanceof class)&#123;//是class类型为true&#125;else&#123;//不是class类型为false&#125;</code></pre><h2 id="抽象类和接口的应用场景"><a href="#抽象类和接口的应用场景" class="headerlink" title="抽象类和接口的应用场景"></a>抽象类和接口的应用场景</h2><ul><li>如果你拥有一些方法并且想让它们中的一些有默认实现，那么使用抽象类吧。</li><li>如果你想实现多重继承，那么你必须使用接口。由于Java不支持多继承，子类不能够继承多个类，但可以实现多个接口。因此你就可以使用接口来解决它。</li><li>如果基本功能在不断改变，那么就需要使用抽象类。如果不断改变基本功能并且使用接口，那么就需要改变所有实现了该接口的类。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java重点 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hexo插入图片</title>
+      <link href="/2021/12/06/hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/"/>
+      <url>/2021/12/06/hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</url>
+      
+        <content type="html"><![CDATA[<h2 id="HEXO插入图片"><a href="#HEXO插入图片" class="headerlink" title="HEXO插入图片"></a>HEXO插入图片</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-asset-image --save</code></pre><h3 id="修改-config-yml配置"><a href="#修改-config-yml配置" class="headerlink" title="修改_config.yml配置"></a>修改_config.yml配置</h3><blockquote><p>打开hexo的配置文件_config.yml找到 post_asset_folder，把这个选项从false改成true</p></blockquote><h3 id="替换插件源码"><a href="#替换插件源码" class="headerlink" title="替换插件源码"></a>替换插件源码</h3><blockquote><p>打开/node_modules/hexo-asset-image/index.js替换为如下代码:</p></blockquote><pre class=" language-JavaScript"><code class="language-JavaScript">'use strict';var cheerio=require('cheerio');function getPosition(str,m,i)&#123;return str.split(m,i).join(m).length&#125;var version=String(hexo.version).split('.');hexo.extend.filter.register('after_post_render',function(data)&#123;var config=hexo.config;if(config.post_asset_folder)&#123;var link=data.permalink;if(version.length>0&&Number(version[0])==3)var beginPos=getPosition(link,'/',1)+1;else var beginPos=getPosition(link,'/',3)+1;var endPos=link.lastIndexOf('/')+1;link=link.substring(beginPos,endPos);var toprocess=['excerpt','more','content'];for(var i=0;i<toprocess.length;i++)&#123;var key=toprocess[i];var $=cheerio.load(data[key],&#123;ignoreWhitespace:false,xmlMode:false,lowerCaseTags:false,decodeEntities:false&#125;);$('img').each(function()&#123;if($(this).attr('src'))&#123;var src=$(this).attr('src').replace('\\','/');if(!/http[s]*.*|\/\/.*/.test(src)&&!/^\s*\//.test(src))&#123;var linkArray=link.split('/').filter(function(elem)&#123;return elem!=''&#125;);var srcArray=src.split('/').filter(function(elem)&#123;return elem!=''&&elem!='.'&#125;);if(srcArray.length>1)srcArray.shift();src=srcArray.join('/');$(this).attr('src',config.root+link+src);console.info&&console.info("update link as:-->"+config.root+link+src)&#125;&#125;else&#123;console.info&&console.info("no src attr, skipped...");console.info&&console.info($(this))&#125;&#125;);data[key]=$.html()&#125;&#125;&#125;);</code></pre><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><blockquote><p>现在可以插入图片了，<br>在hexo new post photo之后就在source/_posts生成photo.md文件和photo文件夹，把要插入的图片复制到photo文件夹内，在photo.md文件里面按markdown的标准写,（我的文件名是head.jpeg）<br>比如: &nbsp;&nbsp;&nbsp;![代替图片的文字](head.jpeg)</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java 关键字</title>
+      <link href="/2021/12/03/Java/Java%20%E5%85%B3%E9%94%AE%E5%AD%97/"/>
+      <url>/2021/12/03/Java/Java%20%E5%85%B3%E9%94%AE%E5%AD%97/</url>
+      
+        <content type="html"><![CDATA[<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>概述:</p><ol><li>this表示一个对象的引用,它指向正在执行的对象. </li><li>在构造方法中,通过this关键字调用其他构造方法时,必须放在第一行, 且在构造方法中, 只能通过this调用一次其他构造方法</li></ol><p>使用</p><ol><li>调用当前对象的属性: this.属性名</li><li>调用当前对象的方法: this.方法名</li></ol><hr><h2 id="super"><a href="#super" class="headerlink" title="super"></a>super</h2><p>概述:<br>  创建子类对象的时候，会调用子类的构造方法，子类构造方法执行之前，会默认访问父类的无参构造。</p><p>使用</p><ul><li>调用父类的无参构造:   super()</li><li>调用父类的带参构造:   super(参数)</li><li>调用父类的成员变量:   super.变量名;    </li><li>调用父类的方法:       super.方法名();</li></ul><hr><h2 id="this-amp-amp-super-注意事项"><a href="#this-amp-amp-super-注意事项" class="headerlink" title="this &amp;&amp; super  !注意事项"></a>this &amp;&amp; super  !注意事项</h2><ul><li>super（参数）：调用父类中的某一个构造函数（应该为构造函数中的第一条语句）。</li><li>this（参数）：调用本类中另一种形式的构造函数（应该为构造函数中的第一条语句）。</li><li>this和super不能同时出现在一个构造函数里面，因为this必然会调用其它的构造函数，其它的构造函数必然也会有super语句的存在，所以在同一个构造函数里面有相同的语句，就失去了语句的意义，编译器也不会通过。</li><li>this()和super()都指的是对象，所以，均不可以在static环境中使用。包括：static变量,static方法，static语句块。</li></ul><hr><h2 id="extends"><a href="#extends" class="headerlink" title="extends"></a>extends</h2><p>用来表达类与类之间的继承关系;类之类只可多重继承,不可多次继承</p><pre class=" language-Java"><code class="language-Java">public class A extends B&#123;&#125;</code></pre><p>用来表达接口与接口之间的继承关系;接口与接口可以多重继承,也可以多次继承</p><pre class=" language-Java"><code class="language-Java">public interface 子接口名称 extends 父接口名称1,父接口名称2&#123;&#125;</code></pre><hr><h2 id="interface"><a href="#interface" class="headerlink" title="interface"></a>interface</h2><p>用来声明接口</p><pre class=" language-Java"><code class="language-Java">// 声明方式public interface 接口名称&#123;&#125;</code></pre><hr><h2 id="implements"><a href="#implements" class="headerlink" title="implements"></a>implements</h2><p>类用来实现接口</p><pre class=" language-Java"><code class="language-Java">// 单实现public class 类名称 implements 接口名称&#123;&#125;// 多实现public class 类名称 implements 接口名称1,接口名称2&#123;&#125;</code></pre><hr><h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><p>判断对象的类型</p><hr><h2 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h2><p>修饰符用来定义类、方法或者变量，通常放在语句的最前端。</p><h3 id="访问修饰符-权限修饰符"><a href="#访问修饰符-权限修饰符" class="headerlink" title="访问修饰符(权限修饰符)"></a>访问修饰符(权限修饰符)</h3><h4 id="权限控制表"><a href="#权限控制表" class="headerlink" title="权限控制表"></a>权限控制表</h4><ul><li>YES:可以访问</li><li>NO:不可以访问</li></ul><table><thead><tr><th>修饰符</th><th>当前类</th><th>同一包内</th><th>子孙类(同一包)</th><th>子孙类(不同包)</th><th>其他包</th></tr></thead><tbody><tr><td>public</td><td>YES</td><td>YES</td><td>YES</td><td>YES</td><td>YES</td></tr><tr><td>protected</td><td>YES</td><td>YES</td><td>YES</td><td>YES/NO</td><td>NO</td></tr><tr><td>default</td><td>YES</td><td>YES</td><td>YES</td><td>NO</td><td>NO</td></tr><tr><td>private</td><td>YES</td><td>NO</td><td>NO</td><td>NO</td><td>NO</td></tr></tbody></table><h4 id="public-公共的"><a href="#public-公共的" class="headerlink" title="public 公共的"></a>public 公共的</h4><h4 id="protected-受保护的-不能修饰外部类"><a href="#protected-受保护的-不能修饰外部类" class="headerlink" title="protected 受保护的(不能修饰外部类)"></a>protected 受保护的(不能修饰外部类)</h4><ul><li>子类与基类在同一包中：被声明为 protected 的变量、方法和构造器能被同一个包中的任何其他类访问；</li><li>子类与基类不在同一包中：那么在子类中，子类实例可以访问其从基类继承而来的 protected 方法，而不能访问基类实例的protected方法。</li></ul><h4 id="default-默认的，什么修饰符都不加"><a href="#default-默认的，什么修饰符都不加" class="headerlink" title="default 默认的，什么修饰符都不加"></a>default 默认的，什么修饰符都不加</h4><h4 id="private-私有的-不能修饰外部类"><a href="#private-私有的-不能修饰外部类" class="headerlink" title="private 私有的(不能修饰外部类)"></a>private 私有的(不能修饰外部类)</h4><h3 id="非访问修饰符-状态修饰符"><a href="#非访问修饰符-状态修饰符" class="headerlink" title="非访问修饰符(状态修饰符)"></a>非访问修饰符(状态修饰符)</h3><h4 id="static"><a href="#static" class="headerlink" title="static"></a>static</h4><p>用来修饰静态成员;包含类方法(静态方法)和类变量(静态变量)</p><ol><li>概述:<br> 有static关键字的变量为静态变量;有static关键字的方法为静态方法,统称为静态成员<br> 静态变量不赋值默认值为null<br> 静态成员在内存的方法区<br> 静态成员随着类的加载而创建,随着类的销毁而销毁</li></ol><ul><li>调用静态变量:   类名.变量名</li><li>调用静态方法:   类名.方法名()</li></ul><ol start="2"><li>注意:<br> 静态变量只有一份拷贝。局部变量不能被声明为 static 变量<br> 静态成员只能调用静态成员</li></ol><h4 id="final"><a href="#final" class="headerlink" title="final"></a>final</h4><ol><li><p>概述<br> final是一个修饰符，作用是：最终的，不可改变的意思。</p></li><li><p>作用<br> 修饰类，类为最终类，类不能被继承。<br> 修饰变量，变量为常量，只能被赋值1次，值不能改变。<br> 修饰方法，方法不能被重写</p></li><li><p>注意<br> final修饰成员变量，变量的值必须要给初始化，值不能改变。<br> final修饰局部变量，变量的值允许赋值一次，值不能改变。<br> final修饰基本类型，基本类型的值不能改变。<br> final修饰引用类型，引用类型的地址值不能改变,内部数据可以改变<br> final使用大写字母来表示</p></li><li><p>例</p><pre class=" language-Java"><code class="language-Java">//  被final修饰的类不能被继承public final class  Demo1 &#123;//  final修饰基本类型，基本类型的值不能改变。//  final修饰引用类型，引用类型的地址值不能改变;内部数据可以改变        //  final修饰成员变量    public static final String CONSTANT = "String";    public void test()&#123;        //  final修饰局部变量        final int CONSTANT = 123456;    &#125;&#125;</code></pre><h4 id="abstract"><a href="#abstract" class="headerlink" title="abstract"></a>abstract</h4><p>用来声明抽象类和抽象方法</p><pre class=" language-Java"><code class="language-Java">//抽象类public abstract 类名称&#123;//抽象方法public abstract 抽象方法名称();&#125;//接口public interface 接口名称&#123;//抽象方法public abstract 抽象方法名称();&#125;</code></pre></li></ol><h4 id="synchronized-和-volatile-修饰符，主要用于线程的编程"><a href="#synchronized-和-volatile-修饰符，主要用于线程的编程" class="headerlink" title="synchronized 和 volatile 修饰符，主要用于线程的编程"></a>synchronized 和 volatile 修饰符，主要用于线程的编程</h4>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java重点 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java抽象类</title>
+      <link href="/2021/12/03/Java/Java%20%E6%8A%BD%E8%B1%A1%E7%B1%BB(abstract)/"/>
+      <url>/2021/12/03/Java/Java%20%E6%8A%BD%E8%B1%A1%E7%B1%BB(abstract)/</url>
+      
+        <content type="html"><![CDATA[<h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul><li>Java语言中，用abstract 关键字来修饰一个类时，这个类叫作抽象类。</li><li>抽象类是它的所有子类的公共属性的集合，是包含一个或多个抽象方法的类。</li><li>抽象类可以看作是对类的进一步抽象。在面向对象领域，抽象类主要用来进行类型隐藏</li></ul><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ul><li>抽象类的作用在于将许多有关的类组织在一起，提供一个公共的类，而那些被组织在一起的具体的类作为其子类而派生出来。</li><li>抽象类刻画了公有行为的特征，并通过继承机制传送给它的派生类。</li><li>在 Java 中抽象类表示的是一种继承关系，一个类只能继承一个抽象类</li></ul><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul><li>如果一个类包含抽象方法，那么该类必须是抽象类</li><li>除抽象类不能实例化对象之外;类的其它功能和普通类一样。</li><li>抽象类不能实例化对象，所以抽象类必须被继承，才能被使用</li><li>继承抽象类的子类必须重写父类所有的抽象方法。否则，该子类也必须声明为抽象类。</li></ul><h3 id="抽象类示例"><a href="#抽象类示例" class="headerlink" title="抽象类示例"></a>抽象类示例</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> 类名称<span class="token punctuation">(</span><span class="token punctuation">)</span>；</code></pre><h2 id="抽象方法"><a href="#抽象方法" class="headerlink" title="抽象方法"></a>抽象方法</h2><h3 id="抽象方法的由来"><a href="#抽象方法的由来" class="headerlink" title="抽象方法的由来"></a>抽象方法的由来</h3><ul><li>如果要让某个方法的具体实现由它的子类确定，那么可以在父类中声明该方法为抽象方法。</li><li>抽象方法使用abstract 关键字来声明，抽象方法只包含一个方法名，而没有方法体。</li><li>Java语法规定，包含抽象方法的类就是抽象类。</li></ul><h3 id="抽象方法示例"><a href="#抽象方法示例" class="headerlink" title="抽象方法示例"></a>抽象方法示例</h3><pre class=" language-java"><code class="language-java">修饰符 <span class="token keyword">abstract</span> 返回值类型 方法名 <span class="token punctuation">(</span>参数列表<span class="token punctuation">)</span>；</code></pre><h2 id="抽象类的使用"><a href="#抽象类的使用" class="headerlink" title="抽象类的使用"></a>抽象类的使用</h2><pre class=" language-Java"><code class="language-Java">//定义抽象类public abstract class AbstractDemo &#123;    public AbstractDemo() &#123;&#125;    // 定义抽象方法    public abstract void demo();&#125;//定义继承实现类public  class AbstractDemoSon extends AbstractDemo &#123;    public AbstractDemo() &#123;&#125;    // 这里必须实现父类中的抽象方法,否则该类必须声明为抽象类    public  void demo()&#123;&#125;;&#125;</code></pre><h3 id="抽象类的使用细节"><a href="#抽象类的使用细节" class="headerlink" title="抽象类的使用细节"></a>抽象类的使用细节</h3><ol><li>抽象类不能创建对象，只能创建 子类不为抽象类(就是继承的子类不是抽象类,实现了抽象方法的类) 的对象。</li><li>抽象类中，不一定包含抽象方法，但是有抽象方法的类必定是抽象类。 </li><li>抽象类的子类，必须重写抽象父类中所有的抽象方法，否则，编译无法通过而报错。除非该子类也是抽象类。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java重点 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java面向对象</title>
+      <link href="/2021/12/02/Java/Java%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+      <url>/2021/12/02/Java/Java%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Java面向对象"><a href="#Java面向对象" class="headerlink" title="Java面向对象"></a>Java面向对象</h1><h2 id="面向对象与面向过程"><a href="#面向对象与面向过程" class="headerlink" title="面向对象与面向过程"></a>面向对象与面向过程</h2><h3 id="面向过程"><a href="#面向过程" class="headerlink" title="面向过程"></a>面向过程</h3><ol><li>概述:<blockquote><p>分析出解决问题所需的步骤，用函数把这些步骤一步一步实现，使用的时候一个一个依次调用</p></blockquote></li><li>特点:<ul><li><font color="red">强调的是功能行为</font></li><li><font color="red">关注的是解决问题需要哪些步骤</font></li></ul></li><li>优缺点:<ul><li>优点：性能比面向对象高，因为类调用时需要实例化，开销比较大，比较消耗资源;比如单片机、嵌入式开发、 Linux/Unix等一般采用面向过程开发，性能是最重要的因素。</li><li>缺点：没有面向对象易维护、易复用、易扩展</li></ul></li></ol><h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><ol><li>概述:<blockquote><p>把要解决的问题分解成各个对象，建立对象的目的不是为了完成一个步骤，而是为了描叙某个对象在整个解决问题的步骤中的属性和行为</p></blockquote></li><li>特点:<ul><li><font color="red">将功能封装进对象，强调具备了功能的对象</font></li><li><font color="red">关注的是解决问题需要哪些对象</font></li></ul></li><li>优缺点:<ul><li>优点：易维护、易复用、易扩展，由于面向对象有封装、继承、多态性的特性，可以设计出低耦合的系统，使系统 更加灵活、更加易于维护</li><li>缺点：性能比面向过程低</li></ul></li></ol><hr><h2 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h2><ol><li>概述:<blockquote><p>类 是一个模板，它描述一类对象的行为和状态,是具有相同属性和行为的一类事物的抽象。<br>对象 是类的具体体现(实例),有状态和行为;对象的状态就是属性,行为通过方法体现。</p></blockquote></li><li>创建类和创建对象的步骤<ul><li>抽取出具有相同属性和行为的一类对象，封装成一个类。</li><li>使用类去创建对象。</li></ul></li><li>创建类 格式<ul><li>找到属性和行为：<ul><li>属性一般使用变量来体现。</li><li>行为一般使用方法来体现。</li></ul></li></ul></li></ol><pre class=" language-Java"><code class="language-Java">public class 类名&#123;       //类名大写字母开头  //属性  //行为&#125;</code></pre><ol start="4"><li>创建对象 格式<ul><li>类名 对象名 = new 类名();</li></ul></li></ol><pre class=" language-Java"><code class="language-Java">Student stu1 = new Student();</code></pre><hr><h2 id="构造方法-构造器"><a href="#构造方法-构造器" class="headerlink" title="构造方法(构造器)"></a>构造方法(构造器)</h2><p>概述:</p><blockquote><p>用来创建对象的方法,只能在创建对象时调用<br>编译器会提供一个默认构造方法(无参),创建对象时至少要调用一个构造方法<br>构造方法的名称必须与类名相同,构造方法传参是为了给属性赋值,构造方法的返回值是对象的地址值<br>  　this的本质就是“创建好的的对象的地址”, 由于在构造方法调用前,对象已经创建. 因此,在构造方法中也可以使用this代表“当前对象”.</p></blockquote><pre class=" language-Java"><code class="language-Java">//无参构造方法public class 类名()&#123;&#125;</code></pre><hr><h2 id="成员变量-实例变量-属性-局部变量"><a href="#成员变量-实例变量-属性-局部变量" class="headerlink" title="成员变量(实例变量,属性),局部变量"></a>成员变量(实例变量,属性),局部变量</h2><h3 id="成员变量-实例变量-属性"><a href="#成员变量-实例变量-属性" class="headerlink" title="成员变量(实例变量,属性)"></a>成员变量(实例变量,属性)</h3><ul><li>概述:<ul><li>类中，方法外，叫做成员变量</li></ul></li></ul><h3 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h3><ul><li>概述:<ul><li>写在方法中，叫局部变量</li></ul></li></ul><h3 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h3><ul><li>局部变量不赋值不能使用，成员变量不赋值有默认值</li><li>作用范围不同，局部变量只能在定义的方法中使用，成员变量在类的所有的方法中都可以使用。</li><li>内存不同。局部变量在栈区，成员变量在堆区。</li><li>生命周期不同，局部变量会在方法被调用时创建，方法结束销毁;成员变量随着对象的创建而存在，随着对象的销毁而销毁。</li><li>如果成员变量和局部变量名字相同，优先会使用局部变量。如果想要使用成员变量，需要加上this关键字。</li><li>调用方式:<ul><li>调用成员变量:   对象.变量名</li><li>调用局部变量:   变量名</li></ul></li></ul><h2 id="静态成员-静态变量与静态方法"><a href="#静态成员-静态变量与静态方法" class="headerlink" title="静态成员: 静态变量与静态方法"></a>静态成员: 静态变量与静态方法</h2><ol><li>概述:<br> 有static关键字的变量为静态变量;有static关键字的方法为静态方法,统称为静态成员<br> 静态变量不赋值默认值为null<br> 静态成员在内存的方法区<br> 静态成员随着类的加载而创建,随着类的销毁而销毁</li></ol><ul><li>调用静态变量:   类名.变量名</li><li>调用静态方法:   类名.方法名()</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java重点 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java修饰符</title>
+      <link href="/2021/12/02/Java/Java%20%E4%BF%AE%E9%A5%B0%E7%AC%A6/"/>
+      <url>/2021/12/02/Java/Java%20%E4%BF%AE%E9%A5%B0%E7%AC%A6/</url>
+      
+        <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述:"></a>概述:</h2><blockquote><p>是一个状态修饰符。静态的意思。被此修饰符修饰的成员为静态成员。</p></blockquote><h2 id="静态"><a href="#静态" class="headerlink" title="静态:"></a>静态:</h2><p>  1）静态成员不属于对象，会随着类的加载而加载，随着类的销毁而销毁。存在方法区中。<br>  2）静态成员可以通过类名直接访问<br>  3）静态成员只能访问静态成员。<br>  例:</p><pre class=" language-Java"><code class="language-Java">public class Demo1 &#123;  //  静态成员变量  static String name;  //  静态成员方法  public static void test() &#123;    &#125;&#125;</code></pre><h2 id="代码块："><a href="#代码块：" class="headerlink" title="代码块："></a>代码块：</h2><p>静态代码块(只会执行一次，在类加载时执行)<br>构造代码块（每次创建对象都会执行，在构造方法前执行）<br>局部代码块（主要用于限制变量的作用域，了解）<br>例:</p><pre class=" language-Java"><code class="language-Java">public class Demo1 &#123;  //  静态代码块  static &#123; &#125;  //  构造代码块  &#123;  &#125;  public void test2() &#123;    //局部代码块    &#123; &#125;  &#125;&#125;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java重点 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java内存详解</title>
+      <link href="/2021/12/02/Java/Java%20%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/"/>
+      <url>/2021/12/02/Java/Java%20%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/</url>
+      
+        <content type="html"><![CDATA[<p>方法区</p><ul><li>运行时常量池</li><li>自动和方法数据</li><li>构造函数和普通方法的字节码内容</li><li>一些特殊方法<br>堆区</li></ul><p>栈区</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java重点 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java面试题</title>
+      <link href="/2021/12/02/Java/Java%20%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+      <url>/2021/12/02/Java/Java%20%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<ol><li><p>jdk，jre，jvm的含义以及三者之间的关系?</p></li><li><p>i++和++i的区别?</p></li><li><p>short s = 1,s = s + 1 有错吗？为什么？s += 1有错吗？为什么？</p></li><li><p>ArrayIndexOutOfBoundsException（数组下标越界异常）和NullPointerException(空指针异常)出现的原因是?</p></li><li><p>内存概述<br>内存是计算机的临时存储设备，当程序被启动时，会被cpu加载到内存中。</p></li><li><p>内存区域划分<br>寄存器：计算机直接使用，我们不需要管<br>本地方法栈：jvm使用操作系统功能时使用，不需要管。<br>栈区：存放局部变量，基本数据类型等。<br> 堆区：存放引用数据类型。<br>方法区：存放运行时的字节码文件。</p></li><li><p>值传递和址传递的区别?</p></li><li><p>成员变量,局部变量,静态变量之间的区别?</p></li><li><p>成员方法与静态方法的区别?</p></li><li><p>包装类的来历?</p></li><li><p>ArrayList和linkedList作用及区别,分别介绍常用的方法?</p></li><li><p>泛型的含义及使用</p></li><li><p>String s = “hello” 和 String s = new String(“hello”)的区别?</p></li><li><p>String s1 = “hello”,s1 += “word”, 问原始的s1的内容改变了 吗？</p></li><li><p>什么是类？什么是对象？</p></li><li><p>说一下面向对象三大特征：封装，继承，多态</p></li><li><p>重载与重写的区别,作用?</p></li><li><p>抽象类与接口的区别,包括使用(什么情况使用抽象类,什么情况使用接口)</p></li><li><p>super与this代表的含义</p></li><li><p>面向对象中,创建子类对象会创建父类对象吗?画出内存中父子类的关系形式</p></li><li><p>匿名内部类的使用场景及编写使用方式</p></li><li><p>==和equals的区别,以及它们之间的关系</p></li></ol><!-- 什么是类？什么是对象？面向对象三大特征：封装，继承，多态4.常用类5.关键字抽象类，final，静态6.容器集合7.异常8.数据库9.jdbc -->]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java重点 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java环境</title>
+      <link href="/2021/12/02/Java/Java%20%E7%8E%AF%E5%A2%83/"/>
+      <url>/2021/12/02/Java/Java%20%E7%8E%AF%E5%A2%83/</url>
+      
+        <content type="html"><![CDATA[<h2 id="虚拟机——JVM"><a href="#虚拟机——JVM" class="headerlink" title="虚拟机——JVM"></a>虚拟机——JVM</h2><ul><li>概述:<ul><li>JVM（Java Virtual Machine ）: Java虚拟机，简称JVM，是Java程序的运行环境，是Java 最具吸引力的特性之一。 </li></ul></li><li>特性：<ul><li>跨平台: 软件的运行，都必须在操作系统之上，而Java编写的软件可以运行在任何操作系统上，这个特性称为Java<strong>语言的跨平台特性</strong>。该特性是由JVM实现的，我们编写的程序运行在JVM上，而JVM 运行在操作系统上。<br><img src="/2021/12/02/Java/Java%20%E7%8E%AF%E5%A2%83/Java%E8%99%9A%E6%8B%9F%E6%9C%BA.png"></li></ul></li></ul><h2 id="运行时环境——JRE"><a href="#运行时环境——JRE" class="headerlink" title="运行时环境——JRE"></a>运行时环境——JRE</h2><ul><li>概述:<ul><li>JRE: Java程序的运行时环境,包含JVM和运行时需要的核心类库</li></ul></li></ul><h2 id="开发环境——JDK"><a href="#开发环境——JDK" class="headerlink" title="开发环境——JDK"></a>开发环境——JDK</h2><ul><li>概述:<ul><li>JDK: Java程序的开发工具包,包含JRE和开发使用的工具</li></ul></li><li>安装:<ul><li>Windows10搭建Java环境<ol><li>卸载<br>打开控制面板<br> -&gt;卸载程序<br> -&gt;Java(Tm)     右键卸载<br> -&gt;Java        右键卸载</li><li>安装<br>安装开发工具,修改安装路径<br>出现jre的安装,点击 X 取消安装</li><li>环境变量-&gt;系统变量<br>JAVA_HOME(没有则新增)        D:\developer\Java\jdk1.8.0_144(jdk目录)<br>CLASSPATH(没有则新增)    .;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;<br>Path(没有则新增)        %JAVA_HOME%\bin</li><li>测试环境是否配置成功<br> cmd下运行Java -version<pre class=" language-bash"><code class="language-bash">Java -version</code></pre></li></ol></li></ul></li></ul><h2 id="关系图"><a href="#关系图" class="headerlink" title="关系图"></a>关系图</h2><p><img src="/2021/12/02/Java/Java%20%E7%8E%AF%E5%A2%83/Java%E7%8E%AF%E5%A2%83%E5%85%B3%E7%B3%BB%E5%9B%BE.png"></p><p><font color="red"><strong>运行Java程序,只需安装JRE!!!</strong></font><br><font color="red"><strong>开发Java程序,必须安装JDK!!!</strong></font></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java重点 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>String</title>
+      <link href="/2021/12/02/Java/java.lang.String/"/>
+      <url>/2021/12/02/Java/java.lang.String/</url>
+      
+        <content type="html"><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述:"></a>概述:</h3><blockquote><p>是和字符串相关的类。  位于java.lang包<br>使用final修饰(最终类)</p></blockquote><h3 id="StringBuilder类与StringBuffer类"><a href="#StringBuilder类与StringBuffer类" class="headerlink" title="StringBuilder类与StringBuffer类"></a>StringBuilder类与StringBuffer类</h3><p>字符串拼接的 + 在底层为StringBuilder类的append()<br>append(String):在原有字符串拼接<br>StringBuffer类是同步的,因此耗时,所以出现了StringBuilder类</p><h3 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法:"></a>构造方法:</h3><ul><li>new String() <ul><li> 初始化一个新创建的 String 对象，使其表示一个空字符序列。</li></ul></li><li>new String(“abc”) <ul><li> 初始化一个新创建的 String 对象，使其表示一个与参数相同的字符序列</li></ul></li></ul><h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><p>字符串常量池和运行时常量池逻辑上属于方法区，但是实际存放在堆内存中</p><h3 id="常见问题-面试题"><a href="#常见问题-面试题" class="headerlink" title="常见问题(面试题):"></a>常见问题(面试题):</h3><ul><li>String s = “hello” 和String s = new String(“hello”)区别<ul><li>内存分配:<ul><li>栈区</li><li>堆区:<ul><li>常量池</li></ul></li><li>方法区</li></ul></li><li>String s = “hello”<ul><li>(常量池不存在hello时)在常量池开辟空间存放hello生成地址,栈区中的s变量指向hello生成的地址</li><li>(常量池存在hello时)栈区中的s变量指向hello的地址</li></ul></li><li>String s = new String(“hello”)<ul><li>(常量池不存在hello时)在常量池开辟空间存放hello并生成地址,堆区中开辟空间指向hello生成的地址,栈区中的s变量指向堆区中的地址</li><li>(常量池存在hello时)堆区中开辟空间指向hello生成的地址,栈区中的s变量指向堆区中的地址</li></ul></li></ul></li><li>equals和==的区别:<ul><li>基本数据类型中的==比较的是值是否相同</li><li>引用数据类型:<ul><li>==比较的是内存中的地址值是否相同</li><li>equals默认继承object的情况下比较的还是内存中的地址值,String 这里的equals比较的是字符串的内容是否相同</li></ul></li><li>String s = “hello”,s += “world”，变量s的值变了吗？<ul><li>s的值变为helloworld;但是内存中的常量池中还是存在hello;只是栈区中的s变量指向改为了helloworld</li></ul></li></ul></li></ul><h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><h4 id="案例如下"><a href="#案例如下" class="headerlink" title="案例如下"></a>案例如下</h4><pre class=" language-Java"><code class="language-Java">public static void main(String[] args) &#123;  //  equals  比较两个字符串的内容是否相同  // 这里的str1直接指向常量池中"123"的地址值  String str1 = "123";  // 这里的str2指向堆中new String("123")的地址值  String str2 = new String("123");  // 这里是栈区中str1变量所指向的地址,和堆中new String("123")的地址进行比较,所以不相同  if (str1 != str2) &#123;      System.out.println("==比较堆中的地址值不相同");  &#125;  if (str1.equals(str2)) &#123;      System.out.println("equals比较内容相同");  &#125;  //  length    获取字符串的长度  String str3 = "123456";  //获取字符串str3的长度  System.out.println(str3.length());  //  charAt   获取指定索引位置的字符  String str4 = "123456";  System.out.println(str4.charAt(0));  //  indexOf  获取指定字符或字符串在当前字符串中首次出现的位置,没找到返回-1  String str5 = "123456789";  System.out.println(str5.indexOf(3));  //  split    将字符串以某个字符拆分成字符串数组,字符串拆分  String str6 = "2021-12-2";  //接收的参数为正则,需注意特殊符号,以特殊符号拆分可以添加在[ ]之内  System.out.println(str6.split("[-]"));  //  substring    截取字符串,并返回新的字符串  String str7 = "1十分1吖1放啊东方1阿发吖131516发sasafafasdfas";  //截取索引从0-5之间(包括0,不包括5)的字符,  System.out.println(str7.substring(5));  //截取索引从2-12之间(包括2,不包括12)的字符  System.out.println(str7.substring(2, 12));  //  concat 将指定字符串拼接到此字符串的末尾  //  参数长度为0时,返回此字符串对象;否则返回新的String对象  String str8 = "123"  System.out.println(str8.concat("abc"));&#125;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java常用类 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>泛型</title>
+      <link href="/2021/12/01/Java/Java%20%E6%B3%9B%E5%9E%8B/"/>
+      <url>/2021/12/01/Java/Java%20%E6%B3%9B%E5%9E%8B/</url>
+      
+        <content type="html"><![CDATA[<ul><li><p>概述:</p><ul><li>Java 泛型是 JDK 5 中引入的一个新特性,泛型提供了编译时类型安全检测机制，该机制允许程序员在编译时检测到非法的类型。</li></ul></li><li><p>本质:</p><ul><li><font color="red">泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数</font></li><li>在不创建新的类型的情况下,通过泛型指定的不同类型来控制形参具体限制的类型</li><li>操作的数据类型被指定为一个参数,这种参数类型可以用在类,接口,方法中,分别被称为泛型类,泛型接口,泛型方法</li></ul></li><li><p>需求：写一个排序方法，能够对整型数组、字符串数组甚至其他任何类型的数组进行排序，该如何实现？</p><ul><li>答案是可以使用 Java 泛型。</li><li>使用 Java 泛型的概念，可以写一个泛型方法来对一个对象数组排序。然后，调用该泛型方法来对整型数组、浮点数数组、字符串数组等进行排序。</li></ul></li><li><p>泛型方法</p><ul><li>你可以写一个泛型方法，该方法在调用时可以接收不同类型的参数。根据传递给泛型方法的参数类型，编译器适当地处理每一个方法调用。</li></ul></li><li><p>定义泛型方法的规则：</p><ul><li>所有泛型方法声明都有一个类型参数声明部分（由尖括号分隔），该类型参数声明部分在方法返回类型之前（在下面例子中的 <E>）。</E></li><li>每一个类型参数声明部分包含一个或多个类型参数，参数间用逗号隔开。一个泛型参数，也被称为一个类型变量，是用于指定一个泛型类型名称的标识符。</li><li>类型参数能被用来声明返回值类型，并且能作为泛型方法得到的实际参数类型的占位符。</li><li>泛型方法体的声明和其他方法一样。注意类型参数只能代表引用型类型，不能是原始类型（像 int、double、char 等）。</li></ul></li><li><p>java 中泛型标记符：</p><ul><li>E - Element (在集合中使用，因为集合中存放的是元素)</li><li>T - Type（Java 类）</li><li>K - Key（键）</li><li>V - Value（值）</li><li>N - Number（数值类型）</li><li>？ - 表示不确定的 java 类型</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java重点 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ArrayList</title>
+      <link href="/2021/12/01/Java/java.util.ArrayList/"/>
+      <url>/2021/12/01/Java/java.util.ArrayList/</url>
+      
+        <content type="html"><![CDATA[<h2 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h2><p>概述:<br>    ArrayList 类是一个可以动态修改的数组，它没有固定大小的限制，可以添加或删除元素。<br>    ArrayList 继承了 AbstractList ，并实现了 List 接口<br>    ArrayList 是一个数组队列，提供了相关的添加、删除、修改、遍历等功能<br>    <font color="red"><strong>实现了基于动态数组的数据结构&nbsp;&nbsp;查询操作效率高&nbsp;&nbsp;插入和删除操作效率低</strong></font></p><p>使用: </p><ol><li>导包:   <code>import java.util.ArrayList;</code> </li><li>创建:   <code>ArrayList&lt;E&gt; objectName =new ArrayList&lt;&gt;();　 // 初始化</code></li><li>常用方法: <code>objectName.add();objectName.remove();objectName.size();objectName.get()</code></li></ol><p>案例:</p><pre class=" language-Java"><code class="language-Java">import java.util.ArrayList;public class Demo &#123;    public static void main(String[] args) &#123;        //创建 String 类型 的集合对象        ArrayList<String> list = new ArrayList<>();        // 添加元素        list.add("杨过");        //根据索引删除，返回被删除的元素        list.remove(0);             //根据元素删除，返回成功或者失败        list.remove("杨过");         //获取集合的长度大小        System.out.println("集合列表的长度为:"list.size())        //获取集合中索引为0的元素        System.out.println("集合列表中索引为0的元素内容是:"list.get(0))    &#125;&#125;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java常用类 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>冒泡排序</title>
       <link href="/2021/12/01/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"/>
       <url>/2021/12/01/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
       
-        <content type="html"><![CDATA[<ol><li>思路：<ul><li>每轮确定一个最大值,并放入末尾</li><li>下一轮就可以少比较一个</li><li>轮数为长度-1次</li><li>比较的次数为长度-1-i</li></ul></li><li>实现：<ul><li>使用双重for循环</li><li>外层循环控制轮数</li><li>内层循环控制比较的次数</li></ul></li><li>案例:<pre class=" language-Java"><code class="language-Java"> int[] arr = &#123;31, 345, 52, 4, 66, 34&#125;; for (int i = 0; i < arr.length - 1; i++) &#123;     for (int j = 0; j < arr.length - 1 - i; j++) &#123;         if (arr[j] > arr[j + 1]) &#123;             arr[j] = arr[j] ^ arr[j + 1];             arr[j + 1] = arr[j + 1] ^ arr[j];             arr[j] = arr[j] ^ arr[j + 1];         &#125;     &#125; &#125; System.out.println( Arrays.toString(arr))     </code></pre></li></ol>]]></content>
+        <content type="html"><![CDATA[<ol><li>思路：<ul><li>比较相邻的元素,如果第一个比第二个大，就交换它们两个,每轮确定一个最大值,并放入末尾</li><li>下一轮就可以少比较一个</li><li>每个元素都需要比较,所以轮数为长度-1次</li><li>每比一次,就确定一个最大值,就代表一轮结束,所以比较的次数为长度-1-i    i为当前的轮数</li></ul></li><li>实现：<ul><li>使用双重for循环</li><li>外层循环控制轮数</li><li>内层循环控制比较的次数</li></ul></li><li>案例:<pre class=" language-Java"><code class="language-Java">public  int[] bubbleSort(int[] arr)&#123; int arrLength = arr.length; for (int i = 0; i < arrLength - 1; i++) &#123;     for (int j = 0; j < arrLength - 1 - i; j++) &#123;         if (arr[j] > arr[j + 1]) &#123;             arr[j] = arr[j] ^ arr[j + 1];             arr[j + 1] = arr[j + 1] ^ arr[j];             arr[j] = arr[j] ^ arr[j + 1];         &#125;     &#125; &#125; return arr;&#125; </code></pre><pre class=" language-JavaScript"><code class="language-JavaScript">function bubbleSort(arr) &#123; var len = arr.length; var temp = null; for (var i = 0; i < len - 1; i++) &#123;     for (var j = 0; j < len - 1 - i; j++) &#123;         if (arr[j] > arr[j+1]) &#123;        // 相邻元素两两对比             temp = arr[j+1];        // 元素交换             arr[j+1] = arr[j];             arr[j] = temp;         &#125;     &#125; &#125; return arr;&#125;</code></pre></li></ol>]]></content>
       
       
       <categories>
@@ -19,8 +486,6 @@
       
       
         <tags>
-            
-            <tag> Java </tag>
             
             <tag> 排序 </tag>
             
@@ -89,19 +554,17 @@
       <link href="/2021/11/15/node%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-nvmw/"/>
       <url>/2021/11/15/node%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-nvmw/</url>
       
-        <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>nvmw 是 Windows 下的 node 管理工具<br><font color='red'>已经安装node了，则需要先卸载</font></p><h2 id="nvmw常用操作"><a href="#nvmw常用操作" class="headerlink" title="nvmw常用操作"></a>nvmw常用操作</h2><h3 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g nvmw</code></pre><h3 id="查看nvmw版本"><a href="#查看nvmw版本" class="headerlink" title="查看nvmw版本"></a>查看nvmw版本</h3><pre class=" language-bash"><code class="language-bash">nvmw -V</code></pre><h3 id="nvmw下载不同的node版本"><a href="#nvmw下载不同的node版本" class="headerlink" title="nvmw下载不同的node版本"></a>nvmw下载不同的node版本</h3><p>命令：</p><pre class=" language-bash"><code class="language-bash">nvmw <span class="token function">install</span> v版本号</code></pre><p>例：<code>nvmw install v12.13.0</code></p><h3 id="nvmw当前终端切换node版本"><a href="#nvmw当前终端切换node版本" class="headerlink" title="nvmw当前终端切换node版本"></a>nvmw当前终端切换node版本</h3><p>命令：</p><pre class=" language-bash"><code class="language-bash">nvmw use  v版本号</code></pre><p>例：<code>nvmw use v12.13.0</code></p><h3 id="nvmw永久切换node版本"><a href="#nvmw永久切换node版本" class="headerlink" title="nvmw永久切换node版本"></a>nvmw永久切换node版本</h3><p>命令：</p><pre class=" language-bash"><code class="language-bash">nvmw switch v版本号</code></pre><p>例：<code>nvmw switch  v12.13.0</code></p><h3 id="nvmw查看node版本"><a href="#nvmw查看node版本" class="headerlink" title="nvmw查看node版本"></a>nvmw查看node版本</h3><pre class=" language-bash"><code class="language-bash">nvmw <span class="token function">ls</span></code></pre>]]></content>
+        <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>nvmw 是 Windows 下的 node 管理工具<br><font color="red">已经安装node了，则需要先卸载</font></p><h2 id="nvmw常用操作"><a href="#nvmw常用操作" class="headerlink" title="nvmw常用操作"></a>nvmw常用操作</h2><h3 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g nvmw</code></pre><h3 id="查看nvmw版本"><a href="#查看nvmw版本" class="headerlink" title="查看nvmw版本"></a>查看nvmw版本</h3><pre class=" language-bash"><code class="language-bash">nvmw -V</code></pre><h3 id="nvmw下载不同的node版本"><a href="#nvmw下载不同的node版本" class="headerlink" title="nvmw下载不同的node版本"></a>nvmw下载不同的node版本</h3><p>命令：</p><pre class=" language-bash"><code class="language-bash">nvmw <span class="token function">install</span> v版本号</code></pre><p>例：<code>nvmw install v12.13.0</code></p><h3 id="nvmw当前终端切换node版本"><a href="#nvmw当前终端切换node版本" class="headerlink" title="nvmw当前终端切换node版本"></a>nvmw当前终端切换node版本</h3><p>命令：</p><pre class=" language-bash"><code class="language-bash">nvmw use  v版本号</code></pre><p>例：<code>nvmw use v12.13.0</code></p><h3 id="nvmw永久切换node版本"><a href="#nvmw永久切换node版本" class="headerlink" title="nvmw永久切换node版本"></a>nvmw永久切换node版本</h3><p>命令：</p><pre class=" language-bash"><code class="language-bash">nvmw switch v版本号</code></pre><p>例：<code>nvmw switch  v12.13.0</code></p><h3 id="nvmw查看node版本"><a href="#nvmw查看node版本" class="headerlink" title="nvmw查看node版本"></a>nvmw查看node版本</h3><pre class=" language-bash"><code class="language-bash">nvmw <span class="token function">ls</span></code></pre>]]></content>
       
       
       <categories>
           
-          <category> 后端 </category>
+          <category> node </category>
           
       </categories>
       
       
         <tags>
-            
-            <tag> node </tag>
             
             <tag> nvmw </tag>
             
@@ -140,18 +603,37 @@
     
     <entry>
       <title>Markdown</title>
+      <link href="/2021/11/15/Markdown%E6%A8%A1%E6%9D%BF/"/>
+      <url>/2021/11/15/Markdown%E6%A8%A1%E6%9D%BF/</url>
+      
+        <content type="html"><![CDATA[<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p>size调整大小;color调整颜色<br><font size="5" color="red">简介:</font></p><h2 id="文本格式"><a href="#文本格式" class="headerlink" title="文本格式"></a>文本格式</h2><p><em>斜体文本</em><br><strong>粗体文本</strong><br><em><strong>粗斜体文本</strong></em></p><h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>用三个以上的星号、来建立一个分隔线，行内不能有其他东西;可以在星号或是减号中间插入空格。   </p><hr><h2 id="空格"><a href="#空格" class="headerlink" title="空格"></a>空格</h2><p>&nbsp;&nbsp;</p><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>使用 # 号可表示 1-6 级标题，一级标题对应一个 # 号，二级标题对应两个 # 号，以此类推。</p><h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h2 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h2><h4 id="标题4"><a href="#标题4" class="headerlink" title="标题4"></a>标题4</h4><h5 id="标题5"><a href="#标题5" class="headerlink" title="标题5"></a>标题5</h5><h6 id="标题6"><a href="#标题6" class="headerlink" title="标题6"></a>标题6</h6><h2 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h2><p>使用两个以上空格加上回车 或 在段落之间隔开一个空行</p><h2 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h2><p>区块引用在段落开头使用(&gt;)符号，后面紧跟一个空格符号：</p><blockquote><p>区块引用</p></blockquote><h3 id="区块嵌套"><a href="#区块嵌套" class="headerlink" title="区块嵌套"></a>区块嵌套</h3><blockquote><p>最外层</p><blockquote><p>第一层嵌套</p><blockquote><p>第二层嵌套</p></blockquote></blockquote></blockquote><h2 id="区块中使用列表"><a href="#区块中使用列表" class="headerlink" title="区块中使用列表"></a>区块中使用列表</h2><blockquote><p>区块中使用列表</p><ol><li>第一项</li><li>第二项</li></ol><ul><li>第一项</li><li>第二项</li><li>第三项</li></ul></blockquote><h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><ul><li>无序1<ul><li>无序1-1</li><li>无序1-2</li></ul></li><li>无序2<ul><li>无序2-1</li><li>无序2-2</li></ul></li></ul><h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><ol><li>1<ol><li>1-1</li><li>2-1 </li></ol></li><li>2<ol><li>2-1</li><li>2-2</li></ol></li></ol><h2 id="有序列表与无序列表穿插使用"><a href="#有序列表与无序列表穿插使用" class="headerlink" title="有序列表与无序列表穿插使用"></a>有序列表与无序列表穿插使用</h2><ol><li>1:<ul><li>1-1</li><li>1-2</li></ul></li><li>2<ul><li>2-1</li><li>2-2</li></ul></li></ol><h2 id="列表中使用区块"><a href="#列表中使用区块" class="headerlink" title="列表中使用区块"></a>列表中使用区块</h2><p>在列表内放进区块,需要在(&gt;)前添加四个空格的缩进</p><ul><li>第一项<blockquote><p>第一项第一个<br>第一项第二个</p></blockquote></li></ul><h2 id="代码格式"><a href="#代码格式" class="headerlink" title="代码格式"></a>代码格式</h2><pre class=" language-JavaScript"><code class="language-JavaScript">123456</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Markdown </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Markdown</title>
       <link href="/2021/11/15/Markdown/"/>
       <url>/2021/11/15/Markdown/</url>
       
         <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Markdown 是轻量级标记语言，它允许使用易读易写的纯文本格式编写文档<br>Markdown 可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档<br>Markdown 编写的文档后缀为 .md 或 .markdown<br><a href="https://markdown.com.cn/">Markdown官网</a></p><h2 id="Markdown-标题"><a href="#Markdown-标题" class="headerlink" title="Markdown 标题"></a>Markdown 标题</h2><p>使用 # 号可表示 1-6 级标题，一级标题对应一个 # 号，二级标题对应两个 # 号，以此类推。</p><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 一级标题</span><span class="token comment" spellcheck="true">## 二级标题</span><span class="token comment" spellcheck="true">### 三级标题</span><span class="token comment" spellcheck="true">#### 四级标题</span><span class="token comment" spellcheck="true">##### 五级标题</span><span class="token comment" spellcheck="true">###### 六级标题</span></code></pre><h2 id="Markdown-段落"><a href="#Markdown-段落" class="headerlink" title="Markdown 段落"></a>Markdown 段落</h2><p>Markdown 段落没有格式，直接编写文字就好<br><strong>段落的换行:</strong><br><strong>使用两个以上空格加上回车 或 在段落之间隔开一个空行</strong></p><h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><pre class=" language-bash"><code class="language-bash">*斜体文本*  **粗体文本**  ***粗斜体文本***</code></pre><pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>font color<span class="token operator">=</span><span class="token string">'red'</span><span class="token operator">></span>字体颜色<span class="token operator">&lt;</span>/font<span class="token operator">></span><span class="token operator">&lt;</span>font size<span class="token operator">=</span><span class="token string">'2px'</span><span class="token operator">></span>字体大小<span class="token operator">&lt;</span>/font<span class="token operator">></span></code></pre><h3 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h3><p>用三个以上的星号、来建立一个分隔线，行内不能有其他东西;可以在星号或是减号中间插入空格。<br>下面每种写法都可以建立分隔线：</p><pre class=" language-bash"><code class="language-bash">**** * *</code></pre><h3 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h3><p>在文字的两端加上两个波浪线~~</p><pre class=" language-bash"><code class="language-bash">~~123456~~</code></pre><h3 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h3><p>下划线通过&lt;u&gt;标签来实现：</p><pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>u<span class="token operator">></span>带下划线文本<span class="token operator">&lt;</span>/u<span class="token operator">></span></code></pre><h3 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h3><p>脚注是对文本的补充说明。Markdown 脚注的格式如下:</p><pre class=" language-bash"><code class="language-bash">创建脚注格式类似这样 <span class="token punctuation">[</span>^RUNOOB<span class="token punctuation">]</span>。<span class="token punctuation">[</span>^RUNOOB<span class="token punctuation">]</span>: 菜鸟教程 -- 学的不仅是技术，更是梦想！！！</code></pre><h2 id="Markdown-列表"><a href="#Markdown-列表" class="headerlink" title="Markdown 列表"></a>Markdown 列表</h2><p>Markdown 支持有序列表和无序列表。<br>无序列表使用星号*作为列表标记，标记后要添加一个空格，再填写内容：</p><pre class=" language-bash"><code class="language-bash">* 无序列表</code></pre><p>有序列表使用数字并加上 . 号来表示，如：</p><pre class=" language-bash"><code class="language-bash">1. 有序列表12. 有序列表23. 有序列表3</code></pre><h3 id="Markdown-列表嵌套"><a href="#Markdown-列表嵌套" class="headerlink" title="Markdown 列表嵌套"></a>Markdown 列表嵌套</h3><p>列表嵌套只需在子列表中的选项前面添加四个空格即可：</p><pre class=" language-bash"><code class="language-bash">1. 第一项：    - 第一项嵌套的第一个元素    - 第一项嵌套的第二个元素2. 第二项：    - 第二项嵌套的第一个元素    - 第二项嵌套的第二个元素</code></pre><h2 id="Markdown-区块"><a href="#Markdown-区块" class="headerlink" title="Markdown 区块"></a>Markdown 区块</h2><p>区块引用在段落开头使用(&gt;)符号，后面紧跟一个空格符号：</p><pre class=" language-bash"><code class="language-bash"><span class="token operator">></span> 区块引用</code></pre><h3 id="区块是可以嵌套的"><a href="#区块是可以嵌套的" class="headerlink" title="区块是可以嵌套的"></a>区块是可以嵌套的</h3><p>一个&gt;符号是最外层，两个&gt;符号是第一层嵌套，以此类推：</p><pre class=" language-bash"><code class="language-bash"><span class="token operator">></span> 最外层<span class="token operator">></span> <span class="token operator">></span> 第一层嵌套<span class="token operator">></span> <span class="token operator">></span> <span class="token operator">></span> 第二层嵌套</code></pre><p>区块中使用列表 实例如下：</p><pre class=" language-bash"><code class="language-bash"><span class="token operator">></span> 区块中使用列表<span class="token operator">></span> 1. 第一项<span class="token operator">></span> 2. 第二项<span class="token operator">></span> + 第一项<span class="token operator">></span> + 第二项<span class="token operator">></span> + 第三项</code></pre><p>列表中使用区块<br><strong>在列表内放进区块,需要在(&gt;)前添加四个空格的缩进</strong>;实例如下：</p><pre class=" language-bash"><code class="language-bash">* 第一项    <span class="token operator">></span> 第一项第一个    <span class="token operator">></span> 第一项第二个* 第二项</code></pre><h2 id="Markdown-代码"><a href="#Markdown-代码" class="headerlink" title="Markdown 代码"></a>Markdown 代码</h2><p><strong>段落上片段的代码用反引号把它包起来 ` `</strong>   例如：</p><pre class=" language-bash"><code class="language-bash"><span class="token variable"><span class="token variable">`</span>printf<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token variable">`</span></span> </code></pre><p><strong>代码区块</strong> 使用 4 个空格或者一个制表符（Tab 键）。<br>实例如下</p><pre class=" language-bash"><code class="language-bash">    var a <span class="token operator">=</span> b    var b <span class="token operator">=</span> a</code></pre><h2 id="Markdown-链接"><a href="#Markdown-链接" class="headerlink" title="Markdown 链接"></a>Markdown 链接</h2><p>链接使用方法如下：</p><pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>链接名称<span class="token punctuation">]</span><span class="token punctuation">(</span>链接地址<span class="token punctuation">)</span></code></pre><p>或者</p><p>直接使用链接地址：</p><pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>https://www.runoob.com<span class="token operator">></span></code></pre><p>高级链接<br><strong>通过变量来设置一个链接，变量赋值在文档末尾进行</strong>：</p><pre class=" language-bash"><code class="language-bash">这个链接用 google 作为网址变量<span class="token punctuation">[</span>Google<span class="token punctuation">]</span><span class="token punctuation">[</span>google<span class="token punctuation">]</span>这个链接用 runoob 作为网址变量 <span class="token punctuation">[</span>Runoob<span class="token punctuation">]</span><span class="token punctuation">[</span>runoob<span class="token punctuation">]</span>在文档的结尾为变量赋值:<span class="token operator">&lt;</span><span class="token operator">!</span>-- 赋值操作 --<span class="token operator">></span><span class="token punctuation">[</span>google<span class="token punctuation">]</span>: http://www.google.com/<span class="token punctuation">[</span>runoob<span class="token punctuation">]</span>: http://www.runoob.com/</code></pre><h2 id="Markdown-图片"><a href="#Markdown-图片" class="headerlink" title="Markdown 图片"></a>Markdown 图片</h2><p>Markdown 图片语法格式如下：<br>开头一个感叹号 !<br>接着一个方括号，里面放上图片的替代文字<br>接着一个普通括号，里面放上图片的网址，<br>最后还可以用引号包住并加上选择性的 ‘title’ 属性的文字。</p><pre class=" language-bash"><code class="language-bash"><span class="token operator">!</span><span class="token punctuation">[</span>alt 属性文本<span class="token punctuation">]</span><span class="token punctuation">(</span>图片地址<span class="token punctuation">)</span><span class="token operator">!</span><span class="token punctuation">[</span>alt 属性文本<span class="token punctuation">]</span><span class="token punctuation">(</span>图片地址 <span class="token string">"可选标题"</span><span class="token punctuation">)</span></code></pre><p><strong>图片网址使用变量</strong>:  </p><pre class=" language-bash"><code class="language-bash">这个链接用 demo 作为网址变量 <span class="token punctuation">[</span>RUNOOB<span class="token punctuation">]</span><span class="token punctuation">[</span>demo<span class="token punctuation">]</span>.然后在文档的结尾为变量赋值<span class="token punctuation">[</span>demo<span class="token punctuation">]</span>: http://static.runoob.com/images/runoob-logo.png</code></pre><p>Markdown 没有办法指定图片的高度与宽度，如果需要可以使用普通的 &lt;img&gt; 标签。</p><pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"http://static.runoob.com/images/runoob-logo.png"</span> width<span class="token operator">=</span><span class="token string">"50%"</span><span class="token operator">></span></code></pre><h2 id="Markdown-表格"><a href="#Markdown-表格" class="headerlink" title="Markdown 表格"></a>Markdown 表格</h2><p>表格使用 | 来分隔不同的单元格，使用 - 来分隔表头和其他行。语法格式如下：</p><pre class=" language-bash"><code class="language-bash"><span class="token operator">|</span>  表头   <span class="token operator">|</span> 表头  <span class="token operator">|</span><span class="token operator">|</span>  ----  <span class="token operator">|</span> ----  <span class="token operator">|</span><span class="token operator">|</span> 单元格  <span class="token operator">|</span> 单元格 <span class="token operator">|</span><span class="token operator">|</span> 单元格  <span class="token operator">|</span> 单元格 <span class="token operator">|</span></code></pre><p>对齐方式</p><pre class=" language-bash"><code class="language-bash">-: 设置内容和标题栏居右对齐。:- 设置内容和标题栏居左对齐。:-: 设置内容和标题栏居中对齐。</code></pre><h2 id="Markdown-高级技巧"><a href="#Markdown-高级技巧" class="headerlink" title="Markdown 高级技巧"></a>Markdown 高级技巧</h2><p>不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。<br>目前支持的 HTML 元素有：&lt;kbd&gt; &lt;b&gt; &lt;i&gt; &lt;em&gt; &lt;sup&gt; &lt;sub&gt; &lt;br&gt;等 ，如：</p><pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>kbd<span class="token operator">></span>Ctrl<span class="token operator">&lt;</span>/kbd<span class="token operator">></span>+<span class="token operator">&lt;</span>kbd<span class="token operator">></span>Alt<span class="token operator">&lt;</span>/kbd<span class="token operator">></span>+<span class="token operator">&lt;</span>kbd<span class="token operator">></span>Del<span class="token operator">&lt;</span>/kbd<span class="token operator">></span> 重启电脑</code></pre><h2 id="Markdown-转义"><a href="#Markdown-转义" class="headerlink" title="Markdown 转义"></a>Markdown 转义</h2><p>如果需要显示特定的符号则需要使用转义字符，使用反斜杠转义特殊字符 \ ：</p><pre class=" language-bash"><code class="language-bash">**文本加粗** \*\* 正常显示星号 \*\*</code></pre>]]></content>
       
       
+      <categories>
+          
+          <category> Markdown </category>
+          
+      </categories>
       
-        <tags>
-            
-            <tag> Markdown </tag>
-            
-        </tags>
       
     </entry>
     
