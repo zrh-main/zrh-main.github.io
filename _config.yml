@@ -7,7 +7,8 @@
 title: ZRH博客
 subtitle: ''
 description: 'ZRH的个人博客,记录个人笔记'
-keywords: 前端,vue,html,css,JavaScript,markdown,jQuery,移动端rem,git,Gitee,GitHub,ZRH,Java,后端 
+seo: true
+keywords: ZRH博客,zrh博客
 author: zrh
 language: zh-CN
 timezone: ''
