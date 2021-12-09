@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="String, 前端,vue,html,css,JavaScript,markdown,jQuery,移动端rem,git,Gitee,GitHub">
+    <meta name="keywords" content="String+StringBuilder+StringBuffer, ZRH博客,zrh博客">
     <meta name="description" content="ZRH的个人博客,记录个人笔记">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>String | ZRH博客</title>
+    <title>String+StringBuilder+StringBuffer | ZRH博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">String</h1>
+                    <h1 class="description center-align post-title">String+StringBuilder+StringBuffer</h1>
                 </div>
             </div>
         </div>
@@ -480,7 +480,6 @@
                 <h3 id="概述"><a href="#概述" class="headerlink" title="概述:"></a>概述:</h3><blockquote>
 <p>是和字符串相关的类。  位于java.lang包<br>使用final修饰(最终类)</p>
 </blockquote>
-<h3 id="StringBuilder类与StringBuffer类"><a href="#StringBuilder类与StringBuffer类" class="headerlink" title="StringBuilder类与StringBuffer类"></a>StringBuilder类与StringBuffer类</h3><p>字符串拼接的 + 在底层为StringBuilder类的append()<br>append(String):在原有字符串拼接<br>StringBuffer类是同步的,因此耗时,所以出现了StringBuilder类</p>
 <h3 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法:"></a>构造方法:</h3><ul>
 <li>new String() <ul>
 <li> 初始化一个新创建的 String 对象，使其表示一个空字符序列。</li>
@@ -576,6 +575,43 @@
 
 &#125;
 </code></pre>
+<h3 id="String和-基本数据类型的转换"><a href="#String和-基本数据类型的转换" class="headerlink" title="String和 基本数据类型的转换"></a>String和 基本数据类型的转换</h3><ul>
+<li>基本数据类型转String：<ul>
+<li>把基本数据类型和一个””做拼接即可。</li>
+</ul>
+</li>
+<li>String转换为基本数据类型：<ul>
+<li>使用包装类中的parseXXX方法即可。</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-Java"><code class="language-Java">String s = "520";
+int i = Integer.parseInt(s);
+</code></pre>
+<h3 id="StringBuilder类与StringBuffer类"><a href="#StringBuilder类与StringBuffer类" class="headerlink" title="StringBuilder类与StringBuffer类"></a>StringBuilder类与StringBuffer类</h3><h4 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h4><p>  String类是长度不可改变的字符序列;做拼接操作的时候每次都会创建常量,非常消费内存<br>  StringBuilder类是一个长度可变的字符序列;线程不安全，效率高<br>  StringBuffer类是一个长度可变的字符序列;线程安全，效率低<br>  StringBuilder是个字符串的缓冲区，即它是一个容器，容器中可以装很多字符串。并且能够对其中的字符串进行各种操作<br>  它的内部拥有一个数组用来存放字符串内容，进行字符串拼接时，直接在数组中加入新内容。  StringBuilder会自动维护数组的扩容</p>
+<h4 id="构造方法-1"><a href="#构造方法-1" class="headerlink" title="构造方法"></a>构造方法</h4><p>  public StringBuilder()<br>  public StringBuidler(String str)</p>
+<h4 id="常用方法-1"><a href="#常用方法-1" class="headerlink" title="常用方法"></a>常用方法</h4><ul>
+<li>StringBuilder append(…)<ul>
+<li>拼接内容;字符串拼接的 + 在底层为StringBuilder类的append()</li>
+</ul>
+</li>
+<li>String toString()<ul>
+<li>转成String类型</li>
+</ul>
+</li>
+<li>StringBuffer reverse() <ul>
+<li>内容反转</li>
+</ul>
+</li>
+</ul>
+<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><ul>
+<li>String类与StringBuilder类与StringBuffer类的区别<ul>
+<li>String是长度不可变的字符序列;一旦创建，内容不能改变</li>
+<li>StringBuilder类是一个长度可变的字符序列;线程不安全，效率高</li>
+<li>StringBuffer类是一个长度可变的字符序列;线程安全，效率低</li>
+</ul>
+</li>
+</ul>
 
                 
             </div>

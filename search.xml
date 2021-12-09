@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>System</title>
+      <link href="/2021/12/08/Java/java.lang.System/"/>
+      <url>/2021/12/08/Java/java.lang.System/</url>
+      
+        <content type="html"><![CDATA[<h1 id="System"><a href="#System" class="headerlink" title="System"></a>System</h1><p>概述<br>  表示和系统操作相关的类。里面的方法都是静态的。</p><p>方法</p><ul><li><p>static long currentTimeMillis()<br>  获取当前系统时间的毫秒值</p></li><li><p>static void arraycopy(Object src, int srcPos, Object dest, int destPos, int length)<br>  实现数组拷贝</p><pre><code>参数1： 原数组参数2： 原数组中第一个要拷贝的数组元素的索引参数3： 目标数组参数4： 目标数组中第一位要放置的位置的索引参数5： 长度| 参数序号  | 参数名称  | 参数类型 | 参数含义             || -------- | -------- | -------- | ------------------- || 1        | src      | Object   | 源数组               || 2        | srcPos   | int      | 源数组索引起始位置    || 3        | dest     | Object   | 目标数组             || 4        | destPos  | int      | 目标数组索引起始位置  || 5        | length   | int      | 复制元素个数         |</code></pre></li><li><p>staitc void exit(int n)<br>  结束jvm的执行,一般用于结束系统中。       </p></li></ul><p>方法案例</p><pre class=" language-Java"><code class="language-Java">public class Demo &#123;    public static void main(String[] args) &#123;        //  获取当前系统时间        long currentSystemTimeMs = System.currentTimeMillis();        System.out.println(currentSystemTimeMs);        //  将数组中指定的数据拷贝到另一个数组中        int[] arr = &#123;21, 13, 6, 8, 55&#125;;        int[] arr2 = new int[8];        System.arraycopy(arr, 0, arr2, 1, 4);        for (int i = 0; i < arr2.length; i++) &#123;            System.out.println(arr2[i]);        &#125;        //  结束jvm的执行        int i = 1;        for (; ; ) &#123;            if (i == 2000) &#123;                System.exit(0);            &#125;            System.out.println(i);            i++;        &#125;    &#125;&#125;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java常用类 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Calendar</title>
+      <link href="/2021/12/08/Java/java.util.Calendar/"/>
+      <url>/2021/12/08/Java/java.util.Calendar/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Calendar"><a href="#Calendar" class="headerlink" title="Calendar"></a>Calendar</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul><li>表示日历的一个抽象类。</li><li>Calendar 对象能够生成为特定语言和日历风格实现日期-时间格式化所需的所有日历字段值</li></ul><h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><ul><li>static Calendar getInstance() </li><li>因为语言敏感性，Calendar类在创建对象时并非直接创建，而是通过此静态方法创建，返回子类对象;</li></ul><h2 id="常用字段"><a href="#常用字段" class="headerlink" title="常用字段"></a>常用字段</h2><p>Calendar类中提供很多成员常量，代表给定的日历字段：  </p><table><thead><tr><th>字段值</th><th>含义</th></tr></thead><tbody><tr><td>YEAR</td><td>年</td></tr><tr><td>MONTH</td><td>月（从0开始，可以+1使用）</td></tr><tr><td>DAY_OF_MONTH</td><td>月中的天（几号）</td></tr><tr><td>HOUR</td><td>时（12小时制）</td></tr><tr><td>HOUR_OF_DAY</td><td>时（24小时制）</td></tr><tr><td>MINUTE</td><td>分</td></tr><tr><td>SECOND</td><td>秒</td></tr><tr><td>DAY_OF_WEEK</td><td>周中的天（周几，周日为1，可以-1使用）</td></tr></tbody></table><h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><ul><li>set(要设置的字段，值)<ul><li>设置时间</li><li>注意：月份是从0开始的。</li></ul></li><li>get(要获取的字段)<ul><li>获取时间</li></ul></li><li>add(要设置的字段，数字)<ul><li>修改时间</li><li>第二个参数中，正数表示加时间，负数表示减少时间。</li></ul></li><li>Date getTime()<ul><li>把日历转成一个Date对象</li></ul></li></ul><h2 id="常用方法案例"><a href="#常用方法案例" class="headerlink" title="常用方法案例"></a>常用方法案例</h2><pre class=" language-Java"><code class="language-Java">import java.util.Calendar;public class Demo1 &#123;    public static void main(String[] args) &#123;        //  创建Calendar日历对象        Calendar calendar = Calendar.getInstance();        //  设置年        calendar.set(Calendar.YEAR, 2021);        //  设置月 //该类中月份是从0开始的，范围是0-11;0为1月,11为12月        calendar.set(Calendar.MONTH, 11);        //  设置日        calendar.set(Calendar.DAY_OF_MONTH, 8);        //  获取        System.out.println(calendar.get(Calendar.YEAR) + "年");        System.out.println(calendar.get(Calendar.MONTH) + 1 + "月");        System.out.println(calendar.get(Calendar.DAY_OF_MONTH) + "日");        //  修改  add方法可以对指定日历字段的值进行加减操作，如果第二个参数为正数则加上偏移量，如果为负数则减去偏移量        calendar.add(Calendar.DAY_OF_MONTH, -1);        System.out.println(calendar.get(Calendar.YEAR) + "年");        System.out.println(calendar.get(Calendar.MONTH) + 1 + "月");        System.out.println(calendar.get(Calendar.DAY_OF_MONTH) + "日");        //  转换为Date日期类型        Date date = calendar.getTime();        System.out.println(date);    &#125;&#125;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java常用类 </tag>
+            
+            <tag> Java 日期,时间,日历类 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>DateFormat</title>
       <link href="/2021/12/08/Java/java.text.DateFormat/"/>
       <url>/2021/12/08/Java/java.text.DateFormat/</url>
@@ -22,7 +74,7 @@
             
             <tag> Java常用类 </tag>
             
-            <tag> Java时间日期类 </tag>
+            <tag> Java 日期,时间,日历类 </tag>
             
         </tags>
       
@@ -35,7 +87,7 @@
       <link href="/2021/12/08/Java/java.util.Date/"/>
       <url>/2021/12/08/Java/java.util.Date/</url>
       
-        <content type="html"><![CDATA[<h1 id="Data"><a href="#Data" class="headerlink" title="Data"></a>Data</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述:"></a>概述:</h2><p>位于<code>java.util</code>;类 Date 表示特定的瞬间，精确到毫秒; 1秒 = 1000毫秒</p><h2 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h2><p> Date()<br>  表示当前的时间<br> Date(long date)<br>  表示从标准基准时间（即 1970 年 1 月 1 日 00:00:00 GMT）+ 指定毫秒数(date)的时间</p><h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><p>  long getTime()<br>    表示时间对象所对应的毫秒值</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述:"></a>概述:</h2><p>位于<code>java.util</code>;表示特定的瞬间，精确到毫秒; 1秒 = 1000毫秒</p><h2 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h2><p> Date()<br>  表示当前的时间<br> Date(long date)<br>  表示从标准基准时间（即 1970 年 1 月 1 日 00:00:00 GMT）+ 指定毫秒数(date)的时间</p><h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><p>  long getTime()<br>    表示时间对象所对应的毫秒值</p>]]></content>
       
       
       <categories>
@@ -49,7 +101,7 @@
             
             <tag> Java常用类 </tag>
             
-            <tag> Java时间日期类 </tag>
+            <tag> Java 日期,时间,日历类 </tag>
             
         </tags>
       
@@ -350,7 +402,7 @@
       <link href="/2021/12/02/Java/Java%20%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
       <url>/2021/12/02/Java/Java%20%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
       
-        <content type="html"><![CDATA[<ol><li><p>jdk，jre，jvm的含义以及三者之间的关系?</p></li><li><p>i++和++i的区别?</p></li><li><p>short s = 1,s = s + 1 有错吗？为什么？s += 1有错吗？为什么？</p></li><li><p>ArrayIndexOutOfBoundsException（数组下标越界异常）和NullPointerException(空指针异常)出现的原因是?</p></li><li><p>内存概述<br>内存是计算机的临时存储设备，当程序被启动时，会被cpu加载到内存中。</p></li><li><p>内存区域划分<br>寄存器：计算机直接使用，我们不需要管<br>本地方法栈：jvm使用操作系统功能时使用，不需要管。<br>栈区：存放局部变量，基本数据类型等。<br> 堆区：存放引用数据类型。<br>方法区：存放运行时的字节码文件。</p></li><li><p>值传递和址传递的区别?</p></li><li><p>成员变量,局部变量,静态变量之间的区别?</p></li><li><p>成员方法与静态方法的区别?</p></li><li><p>包装类的来历?</p></li><li><p>ArrayList和linkedList作用及区别,分别介绍常用的方法?</p></li><li><p>泛型的含义及使用</p></li><li><p>String s = “hello” 和 String s = new String(“hello”)的区别?</p></li><li><p>String s1 = “hello”,s1 += “word”, 问原始的s1的内容改变了 吗？</p></li><li><p>什么是类？什么是对象？</p></li><li><p>说一下面向对象三大特征：封装，继承，多态</p></li><li><p>重载与重写的区别,作用?</p></li><li><p>抽象类与接口的区别,包括使用(什么情况使用抽象类,什么情况使用接口)</p></li><li><p>super与this代表的含义</p></li><li><p>面向对象中,创建子类对象会创建父类对象吗?画出内存中父子类的关系形式</p></li><li><p>匿名内部类的使用场景及编写使用方式</p></li><li><p>==和equals的区别,以及它们之间的关系</p></li></ol><!-- 什么是类？什么是对象？面向对象三大特征：封装，继承，多态4.常用类5.关键字抽象类，final，静态6.容器集合7.异常8.数据库9.jdbc -->]]></content>
+        <content type="html"><![CDATA[<ol><li><p>jdk，jre，jvm的含义以及三者之间的关系?</p></li><li><p>i++和++i的区别?</p></li><li><p>short s = 1,s = s + 1 有错吗？为什么？s += 1有错吗？为什么？</p></li><li><p>ArrayIndexOutOfBoundsException（数组下标越界异常）和NullPointerException(空指针异常)出现的原因是?</p></li><li><p>内存概述<br>内存是计算机的临时存储设备，当程序被启动时，会被cpu加载到内存中。</p></li><li><p>内存区域划分<br>寄存器：计算机直接使用，我们不需要管<br>本地方法栈：jvm使用操作系统功能时使用，不需要管。<br>栈区：存放局部变量，基本数据类型等。<br> 堆区：存放引用数据类型。<br>方法区：存放运行时的字节码文件。</p></li><li><p>值传递和址传递的区别?</p></li><li><p>成员变量,局部变量,静态变量之间的区别?</p></li><li><p>成员方法与静态方法的区别?</p></li><li><p>包装类的来历?</p></li><li><p>ArrayList和linkedList作用及区别,分别介绍常用的方法?</p></li><li><p>泛型的含义及使用</p></li><li><p>String s = “hello” 和 String s = new String(“hello”)的区别?</p></li><li><p>String s1 = “hello”,s1 += “word”, 问原始的s1的内容改变了 吗？</p></li><li><p>什么是类？什么是对象？</p></li><li><p>说一下面向对象三大特征：封装，继承，多态</p></li><li><p>重载与重写的区别,作用?</p></li><li><p>抽象类与接口的区别,包括使用(什么情况使用抽象类,什么情况使用接口)</p></li><li><p>super与this代表的含义</p></li><li><p>面向对象中,创建子类对象会创建父类对象吗?画出内存中父子类的关系形式</p></li><li><p>匿名内部类的使用场景及编写使用方式</p></li><li><p>==和equals的区别,以及它们之间的关系</p></li><li><p>获取当前系统时间的方式,写出2-3种</p></li></ol><!-- 什么是类？什么是对象？面向对象三大特征：封装，继承，多态4.常用类5.关键字抽象类，final，静态6.容器集合7.异常8.数据库9.jdbc -->]]></content>
       
       
       <categories>
@@ -396,11 +448,11 @@
     
     
     <entry>
-      <title>String</title>
+      <title>String+StringBuilder+StringBuffer</title>
       <link href="/2021/12/02/Java/java.lang.String/"/>
       <url>/2021/12/02/Java/java.lang.String/</url>
       
-        <content type="html"><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述:"></a>概述:</h3><blockquote><p>是和字符串相关的类。  位于java.lang包<br>使用final修饰(最终类)</p></blockquote><h3 id="StringBuilder类与StringBuffer类"><a href="#StringBuilder类与StringBuffer类" class="headerlink" title="StringBuilder类与StringBuffer类"></a>StringBuilder类与StringBuffer类</h3><p>字符串拼接的 + 在底层为StringBuilder类的append()<br>append(String):在原有字符串拼接<br>StringBuffer类是同步的,因此耗时,所以出现了StringBuilder类</p><h3 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法:"></a>构造方法:</h3><ul><li>new String() <ul><li> 初始化一个新创建的 String 对象，使其表示一个空字符序列。</li></ul></li><li>new String(“abc”) <ul><li> 初始化一个新创建的 String 对象，使其表示一个与参数相同的字符序列</li></ul></li></ul><h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><p>字符串常量池和运行时常量池逻辑上属于方法区，但是实际存放在堆内存中</p><h3 id="常见问题-面试题"><a href="#常见问题-面试题" class="headerlink" title="常见问题(面试题):"></a>常见问题(面试题):</h3><ul><li>String s = “hello” 和String s = new String(“hello”)区别<ul><li>内存分配:<ul><li>栈区</li><li>堆区:<ul><li>常量池</li></ul></li><li>方法区</li></ul></li><li>String s = “hello”<ul><li>(常量池不存在hello时)在常量池开辟空间存放hello生成地址,栈区中的s变量指向hello生成的地址</li><li>(常量池存在hello时)栈区中的s变量指向hello的地址</li></ul></li><li>String s = new String(“hello”)<ul><li>(常量池不存在hello时)在常量池开辟空间存放hello并生成地址,堆区中开辟空间指向hello生成的地址,栈区中的s变量指向堆区中的地址</li><li>(常量池存在hello时)堆区中开辟空间指向hello生成的地址,栈区中的s变量指向堆区中的地址</li></ul></li></ul></li><li>equals和==的区别:<ul><li>基本数据类型中的==比较的是值是否相同</li><li>引用数据类型:<ul><li>==比较的是内存中的地址值是否相同</li><li>equals默认继承object的情况下比较的还是内存中的地址值,String 这里的equals比较的是字符串的内容是否相同</li></ul></li><li>String s = “hello”,s += “world”，变量s的值变了吗？<ul><li>s的值变为helloworld;但是内存中的常量池中还是存在hello;只是栈区中的s变量指向改为了helloworld</li></ul></li></ul></li></ul><h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><h4 id="案例如下"><a href="#案例如下" class="headerlink" title="案例如下"></a>案例如下</h4><pre class=" language-Java"><code class="language-Java">public static void main(String[] args) &#123;  //  equals  比较两个字符串的内容是否相同  // 这里的str1直接指向常量池中"123"的地址值  String str1 = "123";  // 这里的str2指向堆中new String("123")的地址值  String str2 = new String("123");  // 这里是栈区中str1变量所指向的地址,和堆中new String("123")的地址进行比较,所以不相同  if (str1 != str2) &#123;      System.out.println("==比较堆中的地址值不相同");  &#125;  if (str1.equals(str2)) &#123;      System.out.println("equals比较内容相同");  &#125;  //  length    获取字符串的长度  String str3 = "123456";  //获取字符串str3的长度  System.out.println(str3.length());  //  charAt   获取指定索引位置的字符  String str4 = "123456";  System.out.println(str4.charAt(0));  //  indexOf  获取指定字符或字符串在当前字符串中首次出现的位置,没找到返回-1  String str5 = "123456789";  System.out.println(str5.indexOf(3));  //  split    将字符串以某个字符拆分成字符串数组,字符串拆分  String str6 = "2021-12-2";  //接收的参数为正则,需注意特殊符号,以特殊符号拆分可以添加在[ ]之内  System.out.println(str6.split("[-]"));  //  substring    截取字符串,并返回新的字符串  String str7 = "1十分1吖1放啊东方1阿发吖131516发sasafafasdfas";  //截取索引从0-5之间(包括0,不包括5)的字符,  System.out.println(str7.substring(5));  //截取索引从2-12之间(包括2,不包括12)的字符  System.out.println(str7.substring(2, 12));  //  concat 将指定字符串拼接到此字符串的末尾  //  参数长度为0时,返回此字符串对象;否则返回新的String对象  String str8 = "123"  System.out.println(str8.concat("abc"));&#125;</code></pre>]]></content>
+        <content type="html"><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述:"></a>概述:</h3><blockquote><p>是和字符串相关的类。  位于java.lang包<br>使用final修饰(最终类)</p></blockquote><h3 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法:"></a>构造方法:</h3><ul><li>new String() <ul><li> 初始化一个新创建的 String 对象，使其表示一个空字符序列。</li></ul></li><li>new String(“abc”) <ul><li> 初始化一个新创建的 String 对象，使其表示一个与参数相同的字符序列</li></ul></li></ul><h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><p>字符串常量池和运行时常量池逻辑上属于方法区，但是实际存放在堆内存中</p><h3 id="常见问题-面试题"><a href="#常见问题-面试题" class="headerlink" title="常见问题(面试题):"></a>常见问题(面试题):</h3><ul><li>String s = “hello” 和String s = new String(“hello”)区别<ul><li>内存分配:<ul><li>栈区</li><li>堆区:<ul><li>常量池</li></ul></li><li>方法区</li></ul></li><li>String s = “hello”<ul><li>(常量池不存在hello时)在常量池开辟空间存放hello生成地址,栈区中的s变量指向hello生成的地址</li><li>(常量池存在hello时)栈区中的s变量指向hello的地址</li></ul></li><li>String s = new String(“hello”)<ul><li>(常量池不存在hello时)在常量池开辟空间存放hello并生成地址,堆区中开辟空间指向hello生成的地址,栈区中的s变量指向堆区中的地址</li><li>(常量池存在hello时)堆区中开辟空间指向hello生成的地址,栈区中的s变量指向堆区中的地址</li></ul></li></ul></li><li>equals和==的区别:<ul><li>基本数据类型中的==比较的是值是否相同</li><li>引用数据类型:<ul><li>==比较的是内存中的地址值是否相同</li><li>equals默认继承object的情况下比较的还是内存中的地址值,String 这里的equals比较的是字符串的内容是否相同</li></ul></li><li>String s = “hello”,s += “world”，变量s的值变了吗？<ul><li>s的值变为helloworld;但是内存中的常量池中还是存在hello;只是栈区中的s变量指向改为了helloworld</li></ul></li></ul></li></ul><h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><h4 id="案例如下"><a href="#案例如下" class="headerlink" title="案例如下"></a>案例如下</h4><pre class=" language-Java"><code class="language-Java">public static void main(String[] args) &#123;  //  equals  比较两个字符串的内容是否相同  // 这里的str1直接指向常量池中"123"的地址值  String str1 = "123";  // 这里的str2指向堆中new String("123")的地址值  String str2 = new String("123");  // 这里是栈区中str1变量所指向的地址,和堆中new String("123")的地址进行比较,所以不相同  if (str1 != str2) &#123;      System.out.println("==比较堆中的地址值不相同");  &#125;  if (str1.equals(str2)) &#123;      System.out.println("equals比较内容相同");  &#125;  //  length    获取字符串的长度  String str3 = "123456";  //获取字符串str3的长度  System.out.println(str3.length());  //  charAt   获取指定索引位置的字符  String str4 = "123456";  System.out.println(str4.charAt(0));  //  indexOf  获取指定字符或字符串在当前字符串中首次出现的位置,没找到返回-1  String str5 = "123456789";  System.out.println(str5.indexOf(3));  //  split    将字符串以某个字符拆分成字符串数组,字符串拆分  String str6 = "2021-12-2";  //接收的参数为正则,需注意特殊符号,以特殊符号拆分可以添加在[ ]之内  System.out.println(str6.split("[-]"));  //  substring    截取字符串,并返回新的字符串  String str7 = "1十分1吖1放啊东方1阿发吖131516发sasafafasdfas";  //截取索引从0-5之间(包括0,不包括5)的字符,  System.out.println(str7.substring(5));  //截取索引从2-12之间(包括2,不包括12)的字符  System.out.println(str7.substring(2, 12));  //  concat 将指定字符串拼接到此字符串的末尾  //  参数长度为0时,返回此字符串对象;否则返回新的String对象  String str8 = "123"  System.out.println(str8.concat("abc"));&#125;</code></pre><h3 id="String和-基本数据类型的转换"><a href="#String和-基本数据类型的转换" class="headerlink" title="String和 基本数据类型的转换"></a>String和 基本数据类型的转换</h3><ul><li>基本数据类型转String：<ul><li>把基本数据类型和一个””做拼接即可。</li></ul></li><li>String转换为基本数据类型：<ul><li>使用包装类中的parseXXX方法即可。</li></ul></li></ul><pre class=" language-Java"><code class="language-Java">String s = "520";int i = Integer.parseInt(s);</code></pre><h3 id="StringBuilder类与StringBuffer类"><a href="#StringBuilder类与StringBuffer类" class="headerlink" title="StringBuilder类与StringBuffer类"></a>StringBuilder类与StringBuffer类</h3><h4 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h4><p>  String类是长度不可改变的字符序列;做拼接操作的时候每次都会创建常量,非常消费内存<br>  StringBuilder类是一个长度可变的字符序列;线程不安全，效率高<br>  StringBuffer类是一个长度可变的字符序列;线程安全，效率低<br>  StringBuilder是个字符串的缓冲区，即它是一个容器，容器中可以装很多字符串。并且能够对其中的字符串进行各种操作<br>  它的内部拥有一个数组用来存放字符串内容，进行字符串拼接时，直接在数组中加入新内容。  StringBuilder会自动维护数组的扩容</p><h4 id="构造方法-1"><a href="#构造方法-1" class="headerlink" title="构造方法"></a>构造方法</h4><p>  public StringBuilder()<br>  public StringBuidler(String str)</p><h4 id="常用方法-1"><a href="#常用方法-1" class="headerlink" title="常用方法"></a>常用方法</h4><ul><li>StringBuilder append(…)<ul><li>拼接内容;字符串拼接的 + 在底层为StringBuilder类的append()</li></ul></li><li>String toString()<ul><li>转成String类型</li></ul></li><li>StringBuffer reverse() <ul><li>内容反转</li></ul></li></ul><h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><ul><li>String类与StringBuilder类与StringBuffer类的区别<ul><li>String是长度不可变的字符序列;一旦创建，内容不能改变</li><li>StringBuilder类是一个长度可变的字符序列;线程不安全，效率高</li><li>StringBuffer类是一个长度可变的字符序列;线程安全，效率低</li></ul></li></ul>]]></content>
       
       
       <categories>
@@ -475,7 +527,7 @@
       <link href="/2021/12/01/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"/>
       <url>/2021/12/01/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
       
-        <content type="html"><![CDATA[<ol><li>思路：<ul><li>比较相邻的元素,如果第一个比第二个大，就交换它们两个,每轮确定一个最大值,并放入末尾</li><li>下一轮就可以少比较一个</li><li>每个元素都需要比较,所以轮数为长度-1次</li><li>每比一次,就确定一个最大值,就代表一轮结束,所以比较的次数为长度-1-i    i为当前的轮数</li></ul></li><li>实现：<ul><li>使用双重for循环</li><li>外层循环控制轮数</li><li>内层循环控制比较的次数</li></ul></li><li>案例:<pre class=" language-Java"><code class="language-Java">public  int[] bubbleSort(int[] arr)&#123; int arrLength = arr.length; for (int i = 0; i < arrLength - 1; i++) &#123;     for (int j = 0; j < arrLength - 1 - i; j++) &#123;         if (arr[j] > arr[j + 1]) &#123;             arr[j] = arr[j] ^ arr[j + 1];             arr[j + 1] = arr[j + 1] ^ arr[j];             arr[j] = arr[j] ^ arr[j + 1];         &#125;     &#125; &#125; return arr;&#125; </code></pre><pre class=" language-JavaScript"><code class="language-JavaScript">function bubbleSort(arr) &#123; var len = arr.length; var temp = null; for (var i = 0; i < len - 1; i++) &#123;     for (var j = 0; j < len - 1 - i; j++) &#123;         if (arr[j] > arr[j+1]) &#123;        // 相邻元素两两对比             temp = arr[j+1];        // 元素交换             arr[j+1] = arr[j];             arr[j] = temp;         &#125;     &#125; &#125; return arr;&#125;</code></pre></li></ol>]]></content>
+        <content type="html"><![CDATA[<ol><li>思路：<ul><li>比较相邻的元素,如果第一个比第二个大，就交换它们两个,每轮确定一个最大值,并放入末尾</li><li>下一轮就可以少比较一个</li><li>每个元素都需要比较,所以轮数为长度-1次</li><li>每比一次,就确定一个最大值,就代表一轮结束,所以比较的次数为长度-1-i&nbsp;&nbsp;i为当前的轮数</li></ul></li><li>实现：<ul><li>使用双重for循环</li><li>外层循环控制轮数</li><li>内层循环控制比较的次数</li></ul></li><li>案例:<pre class=" language-Java"><code class="language-Java">public  int[] bubbleSort(int[] arr)&#123; int arrLength = arr.length; for (int i = 0; i < arrLength - 1; i++) &#123;     for (int j = 0; j < arrLength - 1 - i; j++) &#123;         if (arr[j] > arr[j + 1]) &#123;             arr[j] = arr[j] ^ arr[j + 1];             arr[j + 1] = arr[j + 1] ^ arr[j];             arr[j] = arr[j] ^ arr[j + 1];         &#125;     &#125; &#125; return arr;&#125; </code></pre><pre class=" language-JavaScript"><code class="language-JavaScript">function bubbleSort(arr) &#123; var len = arr.length; var temp = null; for (var i = 0; i < len - 1; i++) &#123;     for (var j = 0; j < len - 1 - i; j++) &#123;         if (arr[j] > arr[j+1]) &#123;        // 相邻元素两两对比             temp = arr[j+1];        // 元素交换             arr[j+1] = arr[j];             arr[j] = temp;         &#125;     &#125; &#125; return arr;&#125;</code></pre></li></ol>]]></content>
       
       
       <categories>
