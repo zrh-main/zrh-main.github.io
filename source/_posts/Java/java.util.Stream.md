@@ -12,7 +12,7 @@ tags:
 ## 聚合操作
 - 聚合操作 类似SQL语句一样的操作， 比如filter, map, reduce, find, match, sorted等。
 
-## 概述:
+## 概述
 - Stream是Java 8提供的新功能，是对集合（Collection）对象功能的增强，能对集合对象进行各种非常便利、高效的聚合操作- （aggregate operation），或者大批量数据操作 (bulk data operation)。
 - Stream流其实是一个集合元素的函数模型，不是集合，也不是数据结构，其本身并不存储任何元素（或其地址值），Stream是一个来自数据源的元素队列。它是有关算法和计算的，它更像一个高级版本的 Iterator。
 - 元素是特定类型的对象，形成一个队列。 Java中的Stream并不会存储元素，而是按需计算。
@@ -138,3 +138,7 @@ public class Demo{
   }
 }
 ```
+
+## for、foreach、stream 哪家的效率更高？
+1万以内的数据，for循环的性能要高于foreach和stream；
+数据量上去之后（1000万），三种遍历方式基本已经没有什么差距了，但是Stream提供并行处理，在数据量大了之后，效率会明显增强。（但是单核CPU，Stream并行处理可能会效率更慢）
