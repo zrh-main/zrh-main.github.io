@@ -20,7 +20,13 @@ categories:
   - boolean equals()
       比较两个对象的地址值是否相同;
       这里推荐使用Objects的equals(); Object的equals()容易抛出空指针异常，而Objects类中的equals方法优化了这个问题
-
+  - Object clone()
+      创建并返回此对象的副本
+      在执行clone操作的时候，不会调用构造函数
+      `clone()`本身是浅拷贝;拷贝对象返回的是一个新的对象，而不是一个对象的引用地址；
+      拷贝对象已经包含原来对象的信息，而不是对象的初始信息，即每次拷贝动作不是针对一个全新对象的创建。
+      注意:Object类本身并不实现接口`Cloneable`;如果使用clone(),必须实现`Cloneable`接口;否则会报`CloneNotSupportedException`异常
+      使用:<font color='red'>轻量级的对象可以使用new，其他对象可以使用clone</font>
 ## 常用方法的使用
   - toString()
     由于toString()返回的是内存地址，而在开发中，需要按照对象的属性得到相应的字符串表现形式，因此可以重写它

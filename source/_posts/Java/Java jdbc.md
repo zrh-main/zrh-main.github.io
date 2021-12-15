@@ -35,7 +35,8 @@ categories:
     `ResultSet rs = stat.executeQuery( "select * from user where username = '"+username+"' and password = '" + password +"'");`
 6. 处理结果
     - ``` Java
-      while(rs.next()){ //next()结果集中存在下一个结果,返回true;否则返回false
+      //next()    结果集中存在下一个结果,返回true;否则返回false
+      while(rs.next()){ 
         //  获取数据
         int id = rs.getInt("id");
         String name = rs.getString("name");
@@ -100,7 +101,7 @@ public class Run {
   ``` Java
     //  使用连接对象创建sql预编译语句对象
     PreparedStatement prepareStatement = connection.prepareStatement("insert into student values (null,?,?,?)");
-    //  填充占位符
+    //  填充占位符  占位符从1开始,类型为要填充的数据类型
     prepareStatement.setString(1, "赵六");
     prepareStatement.setInt(2, 18);
     prepareStatement.setDouble(3, 95);
