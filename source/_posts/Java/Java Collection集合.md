@@ -180,3 +180,83 @@ public class Demo {
     }
 }
 ```
+
+## 子接口详解
+
+### List接口
+
+  - 位于`java.util.List`包
+  - 特点:有序，有索引，可重复
+  - 子类
+    - `java.util.ArrayList`
+      - 结构:数组结构
+      - 特点:元素增删慢，查询快
+    - `java.util.LinkedList`
+      - 结构:链表结构
+      - 特点:元素查询慢,增删快
+    - `Vector`
+
+### Set接口
+
+  - 位于`java.util.Set`包
+  - 特点:没有索引，不可重复
+  - 子类
+    - `java.util.HashSet`
+      - 结构:哈希表
+      - 特点:元素无序，不可重复
+    - `java.util.LinkedHashSet`    
+      - 结构:哈希表+链表
+      - 特点:元素有序，不可重复
+    - `java.util.treeSet`
+      - 结构:红黑树
+      - 特点:查询速度非常快
+
+### 哈希表
+
+  - 在jdk8之前，底层是数组+链表。
+  - 在jdk8之后，底层是数组+链表/红黑树（当同一个哈希值对应的元素多于7个，会自动的把链表变成红黑树）
+
+#### 哈希冲突
+  - 两个没有任何联系的字符串的哈希值竟然一样，这个现象叫哈希冲突。
+
+#### set集合的去重原理：
+  1. 先使用哈希值进行对比，如果没有一样的，直接存储  hasCode()
+  2. 如果有哈希值一样的，那么会用equals方法来比较内容，如果内容不同，存		储，如果内容相同，说明存在，不存储
+ ![](哈希表.png)
+
+#### 注意：
+  - 用set集合来存储元素，如果存储自定义的数据类型，那么类中必须重写equals和hasCode方法，来保证set集合去重。
+
+### 可变参数：
+  - 在jdk1.5后，有可变参数的新特性。
+
+#### 格式：
+修饰符 返回值类型 方法名(参数类型... 形参名){  }
+
+#### 注意：
+  1. 可变参数的本质是一个数组。
+  2. 如果一个方法有多个参数，但只能有一个可变参数，可变参数必须是最后一个参数。
+  3. 如果一个方法的参数中有可变参数，那么可以不传递可变参数。
+
+#### 案例
+``` Java
+/*
+  可变参数
+  修饰符 返回值类型 方法名 (int... a){}
+  当我们方法传递参数的时候，我们不知道传递几个，可使用可变参数
+ */
+public class Test1 {
+    public static void main(String[] args) {
+        getSum(3,5,11,8);
+    }
+
+    //求和
+    public static void getSum(int... arr){
+        System.out.println(arr.length);
+        System.out.println(arr[0]);
+        System.out.println(arr[1]);
+        System.out.println(arr[2]);
+        System.out.println(arr[3]);
+}
+```
+
