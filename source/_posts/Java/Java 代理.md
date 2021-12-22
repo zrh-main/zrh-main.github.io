@@ -86,10 +86,10 @@ public class StaticProxyTest {
     1. 代理对象不需要实现接口或继承父类
     2. 代理对象的生成利用JDK的Api，在JVM内存中动态的构建Proxy对象。
     3. 需要使用`java.lang.reflect.Proxy`类的`static Object newProxyInstance(ClassLoader loader, Class<?>[] interfaces,InvocationHandler invocationHandler)`
-#### newProxyInstance(ClassLoader loader, Class<?>[] interfaces,InvocationHandler invocationHandler)详解
-  - ClassLoader loader：指定当前目标对象使用类加载器，获取加载器的方法是固定的；
-  - Class<?>[] interfaces：目标对象实现的接口的类型，使用泛型方式确认类型
-  - InvocationHandler invocationHandler:事件处理,执行目标对象的方法时，会触发事件处理器的方法，会把当前执行目标对象的方法作为参数传入。
+    - newProxyInstance(ClassLoader loader, Class<?>[] interfaces,InvocationHandler invocationHandler)详解
+        - ClassLoader loader：指定当前目标对象使用类加载器，获取加载器的方法是固定的；
+        - Class<?>[] interfaces：目标对象实现的接口的类型，使用泛型方式确认类型
+        - InvocationHandler invocationHandler:事件处理,执行目标对象的方法时，会触发事件处理器的方法，会把当前执行目标对象的方法作为参数传入。
 
 #### 动态代理案例
 AdminServiceImpl.java和AdminService.java和原来一样
