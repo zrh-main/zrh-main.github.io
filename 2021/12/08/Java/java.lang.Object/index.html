@@ -485,8 +485,7 @@
 <h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法:"></a>常用方法:</h2><ul>
 <li>String toString()<br>  返回该对象的字符串表示;其实该字符串内容就是 <code>对象的类型+@+内存地址值</code><br>  <font color="red">Java中直接打印对象,实际调用了对象的toString()</font></li>
 <li>boolean equals()<br>  比较两个对象的地址值是否相同;<br>  这里推荐使用Objects的equals(); Object的equals()容易抛出空指针异常，而Objects类中的equals方法优化了这个问题</li>
-</ul>
-<h2 id="常用方法的使用"><a href="#常用方法的使用" class="headerlink" title="常用方法的使用"></a>常用方法的使用</h2><ul>
+<li>Object clone()<br>  创建并返回此对象的副本<br>  在执行clone操作的时候，不会调用构造函数<br>  <code>clone()</code>本身是浅拷贝;拷贝对象返回的是一个新的对象，而不是一个对象的引用地址；<br>  拷贝对象已经包含原来对象的信息，而不是对象的初始信息，即每次拷贝动作不是针对一个全新对象的创建。<br>  注意:Object类本身并不实现接口<code>Cloneable</code>;如果使用clone(),必须实现<code>Cloneable</code>接口;否则会报<code>CloneNotSupportedException</code>异常<br>  使用:<font color="red">轻量级的对象可以使用new，其他对象可以使用clone</font><h2 id="常用方法的使用"><a href="#常用方法的使用" class="headerlink" title="常用方法的使用"></a>常用方法的使用</h2></li>
 <li>toString()<br>由于toString()返回的是内存地址，而在开发中，需要按照对象的属性得到相应的字符串表现形式，因此可以重写它<br>在IntelliJ IDEA中，可以点击<code>Code</code>菜单中的<code>Generate...</code>，也可以使用快捷键<code>alt+insert</code>，点击<code>toString()</code>选项;选择需要包含的成员变量并确定进行自动代码生成</li>
 <li>equals()<br>如果希望进行对象的内容比较，即所有或指定的部分成员变量相同就判定两个对象相同，则可以覆盖重写equals方法<br>在IntelliJ IDEA中，可以使用<code>Code</code>菜单中的<code>Generate…</code>选项，也可以使用快捷键<code>alt+insert</code>，并选择<code>equals() and hashCode()</code>进行自动代码生成</li>
 </ul>
