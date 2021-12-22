@@ -117,3 +117,16 @@ categories:
 
 44. 哈希结构的集合中添加元素
   - 先调用hashCode，唯一则存储，不唯一则再调用equals，结果相同则不再存储，结果不同则散列到其他位置。因为hashCode效率更高（仅为一个int值），比较起来更快
+
+45. Apache和Apache Tomcat的区别是什么？
+  - Apache 和 Tomcat 都是web网络服务器，两者既有联系又有区别
+  - Apache是web服务器（静态解析，如HTML），tomcat是java应用服务器（动态解析，如JSP）
+  - Tomcat只是一个servlet(jsp也翻译成servlet)容器，可以认为是apache的扩展，但可以独立于apache运行
+  - Apache和Tomcat是独立的，在同一台服务器上可以集成
+  - Apache和Tomcat整合使用
+      如果客户端请求的是静态页面，则只需要Apache服务器响应请求；
+      如果客户端请求动态页面，则是Tomcat服务器响应请求，将解析的JSP等网页代码解析后回传给Apache服务器，再经Apache返回给浏览器端。
+      这是因为jsp是服务器端解释代码的，Tomcat只做动态代码解析，Apache回传解析好的静态代码，Apache+Tomcat这样整合就可以减少Tomcat的服务开销。
+  - APACHE+TOMCAT+JDK整合的好处：
+      如果客户端请求的是静态页面，则只需要Apache服务器响应请求 如果客户端请求动态页面，则是Tomcat服务器响应请求
+      因为jsp是服务器端解释代码的，这样整合就可以减少Tomcat的服务开销
