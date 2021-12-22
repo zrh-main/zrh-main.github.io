@@ -92,3 +92,28 @@ categories:
 37. 什么是哈希冲突
 
 38. Collection和Collections的区别？
+
+39. HashSet集合与Map的关系
+  - HashSet类中有一个全局变量HashMap map,然后在HashSet的构造函数中有一句话map=new HashMap(),说明在创建HashSet类对象的时候底层创建了一个HashMap对象
+
+40. hashCode的本质
+  - 帮助HashMap和HashSet集合加快插入的效率，当插入一个数据时，通过hashCode能够快速地计算插入位置，就不需要从头到尾地使用equlas方法进行比较
+
+41. 自定义类型的实例对象使用set存储或作为Map的键需要做什么?
+  - 因为 Set 存储的是不重复的对象，依据 hashCode 和 equals 进行判断，所以 Set 存储的对象必须重写这两个方法
+  - 如果自定义对象作为 Map 的键，那么必须重写 hashCode 和 equals
+
+42. 为什么重写equals
+  - Object类的equals，比较的是对象的地址值
+  - 如果希望比较对象的值是否相同，必须重写equals方法
+
+43. 为什么重写equals就必须重写hashCode?
+  1. equals()和hashCode()的作用
+    - equals()  用来比较两个对象是否相等;没有重写比较两个对象的地址值(地址值不会相同),若是想让两个内容相同的对象在equals后得到true，则需重写equals方法
+    - hashCode()  用来返回对象的hash码值,通常情况下，我们都不会使用到这个方法;本质是为了帮助HashMap和HashSet集合加快插入的效率
+  2. 为什么只要重写了equals方法，就必须重写hashCode
+    - 主要是针对一些使用到了hashCode方法的集合，比如HashMap、HashSet等
+    - 当equals方法被重写时，两个对象的内容相同即代表相同;但是如果没有重写hashCode方法,向hash结构的集合中添加这两个对象时,两个都会添加成功,因为没有重写hascode，生成的是两个hash值，在hash集合看来就是两个对象;说明这里必须重写hashCode(),两个内容相同的对象hash值相同,hash结构才会认为是一个对象;
+
+44. 哈希结构的集合中添加元素
+  - 先调用hashCode，唯一则存储，不唯一则再调用equals，结果相同则不再存储，结果不同则散列到其他位置。因为hashCode效率更高（仅为一个int值），比较起来更快

@@ -99,7 +99,8 @@ categories:
 
 ###### 注意：
   - 用set集合来存储元素，如果存储自定义的数据类型，那么类中必须重写equals和hasCode方法，来保证set集合去重。
-
+###### HashSet集合与Map的关系
+  - HashSet类中有一个全局变量HashMap map,然后在HashSet的构造函数中有一句话map=new HashMap(),说明在创建HashSet类对象的时候底层创建了一个HashMap对象
 ### Collection 常用方法
 Collection是父接口，因此在Collection中定义了(List和Set)通用的一些方法，这些方法可用于操作所有的单列集合
 * `boolean add(E e)`：      添加元素
