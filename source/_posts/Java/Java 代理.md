@@ -1,7 +1,7 @@
 ---
 title: Java 代理
 tags:
-  - Java重点
+  - Java 设计模式
 categories: Java
 date: 2021-12-22 14:53:58
 ---
