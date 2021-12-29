@@ -172,10 +172,12 @@ categories:
   - 字段数据1和字段数据2参与运算
     - `select 字段名1 + 字段名2 from 表名;`
 
-### ifnull
+### NULL值替换
+  - coalesce(字段名,替换值,替换值)
   - IFNULL(字段名,替换值)
   - 如果字段名对应的值不是NULL,返回值，否则返回替换值;类型为数字或字符串
   - 例:`SELECT IFNULL(`mgr`,5) FROM `emp` WHERE `id`=7839;`若mgr的值不为null返回该值,否则返回5
+  - 例:`SELECT coalesce(`mgr`, '总数') FROM `emp` WHERE `id`=7839;`若mgr的值不为null返回该值,否则返回总数
 
 ### 条件查询
   - 对记录进行过滤
@@ -226,11 +228,12 @@ categories:
   - `count(*)`或`count(1)`返回总记录数
 
 ### 分组
-  - 关键字: `group by`用来分组 `having`用来筛选分组后的数据(条件)
-  - 语法: `select 字段 from 表名 where 条件  group by 分组字段 [having 条件];`
+  - 关键字: `group by`用来分组 `having`用来筛选分组后的数据(条件) with rollup 在分组统计数据的基础上再统计汇总
+  - 语法: `select 字段 from 表名 where 条件  group by 分组字段 with rollup having 条件;`
   - 注意: <font color='red'>若加上分组;查询的字段只能是聚合函数或者分组的字段</font>
   - 例:查询学生表以性别分组的 性别和平均成绩(成绩保留1位小数)`select sex,TRUNCATE (avg(score),1) from student group by sex;`
   - 分组后再使用条件筛选数据`select sex,TRUNCATE (avg(score),1) from student group by sex HAVING TRUNCATE (avg(score),1) > 80;`
+  - 分组统计数据的基础上再进行统计汇总`SELECT name, SUM(signin) as signin_count FROM  employee_tbl GROUP BY name WITH ROLLUP;`
   - where和having的区别?(面试题)
       - where是对分组前的条件进行限定。having是对分组后的内容进行限定
       - where后面不能加聚合函数，having后可以跟聚合函数
@@ -276,3 +279,13 @@ categories:
   5. 查询商品价格是200或800或者2000的所有商品
     - SELECT `id`,`name`,`price`,`category_name` FROM `product` WHERE `price` IN(200,800,2000);
 
+## 外键
+
+## 创建表时设置外键
+  - `create table 表名(字段名,字段类型...,primary key(主键名),constraint '新建约束名' foreign key ('外键名') references 参照主键表名('主键名'));`
+
+## 创建好的表添加外键约束
+  - `alter table 表名 add constraimt 约束名称 foreign key(外键字段名) references 参照主键表名(主键字段名);`
+
+## 删除外键
+  - `alter table 表名 drop foreign key 外键名;`

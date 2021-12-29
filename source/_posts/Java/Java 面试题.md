@@ -145,3 +145,9 @@ Object中有一个clone方法，为什么还必须要实现Cloneable接口呢，
 答案：不是。显然jvm的开发者也意识到通过new方式来生成对象占据了开发者生成对象的绝大部分，所以对于利用new操作生成对象进行了优化。
 
 结论：轻量级的对象可以使用new，其他对象可以使用clone。
+
+
+46. DataSource 和DriverManager的区别
+  1. 获取的对象不同。DataSource主要是获取数据库连接池，而DriverManager主要是获取数据库连接，通过管理JDBC驱动程序来建立连接。
+  2. DataSource中封装了DriverManager的使用
+  3. DataSource创建的connection可以被复用，而DriverManager的则不行

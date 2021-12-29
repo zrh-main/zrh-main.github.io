@@ -113,6 +113,7 @@ public class Run {
 ## 事务
 
 ### JDBC中的事务
+由Connection连接对象调用
 - `void setAutoCommit(boolean autoCommit)`参数true或false;如果设置为 false，表示关闭自动提交，相当于开启事务
 - `void commit()`	提交事务
 - `void rollback()`	回滚事务
