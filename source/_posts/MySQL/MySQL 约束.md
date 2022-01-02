@@ -60,6 +60,7 @@ categories:
 ### 删除索引的语法
   `DROP INDEX 索引名 ON 表名; `
 ### 唯一索引
+  unique
   索引列的值必须唯一，但允许有空值。如果是组合索引，则列值的组合必须唯一
   `CREATE UNIQUE INDEX 索引名 ON 表名(字段名(长度))`
 ### 修改表结构

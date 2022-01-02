@@ -1,77 +1,39 @@
-MySQL 临时表在我们需要保存一些临时数据时是非常有用的。临时表只在当前连接可见，当关闭连接时，Mysql会自动删除表并释放所有空间。
+---
+title: MySQL 临时表
+tags:
+  - MySQL
+categories:
+  MySQL
+---
+# 临时表
 
-临时表在MySQL 3.23版本中添加，如果你的MySQL版本低于 3.23版本就无法使用MySQL的临时表。不过现在一般很少有再使用这么低版本的MySQL数据库服务了。
+## 概述
+用来保存一些临时数据 ; 临时表在MySQL 3.23版本中添加
 
-MySQL临时表只在当前连接可见，如果你使用PHP脚本来创建MySQL临时表，那每当PHP脚本执行完成后，该临时表也会自动销毁。
+## 特性
+只在当前连接可见
+使用 SHOW TABLES命令显示数据表列表时，无法看到 临时表
 
-如果你使用了其他MySQL客户端程序连接MySQL数据库服务器来创建临时表，那么只有在关闭客户端程序时才会销毁临时表，当然你也可以手动销毁。
+## 创建
+使用关键字`TEMPORARY`
 
-实例
-以下展示了使用MySQL 临时表的简单实例，以下的SQL代码可以适用于PHP脚本的mysql_query()函数。
-
-mysql> CREATE TEMPORARY TABLE SalesSummary (
-    -> product_name VARCHAR(50) NOT NULL
-    -> , total_sales DECIMAL(12,2) NOT NULL DEFAULT 0.00
-    -> , avg_unit_price DECIMAL(7,2) NOT NULL DEFAULT 0.00
-    -> , total_units_sold INT UNSIGNED NOT NULL DEFAULT 0
+``` SQL
+CREATE TEMPORARY TABLE tmp_test_2012-03-12 (
+`id` INT UNIQUE PRIMARY key,
+`name` varchar(20),
+`age` TINYINT
 );
-Query OK, 0 rows affected (0.00 sec)
+```
 
-mysql> INSERT INTO SalesSummary
-    -> (product_name, total_sales, avg_unit_price, total_units_sold)
-    -> VALUES
-    -> ('cucumber', 100.25, 90, 2);
+用查询直接创建临时表：
+``` SQL
+CREATE TEMPORARY TABLE 临时表名 AS (SELECT *  FROM 旧的表名 LIMIT 0,10000);
+```
 
-mysql> SELECT * FROM SalesSummary;
-+--------------+-------------+----------------+------------------+
-| product_name | total_sales | avg_unit_price | total_units_sold |
-+--------------+-------------+----------------+------------------+
-| cucumber     |      100.25 |          90.00 |                2 |
-+--------------+-------------+----------------+------------------+
-1 row in set (0.00 sec)
-当你使用 SHOW TABLES命令显示数据表列表时，你将无法看到 SalesSummary表。
+## 删除
+自动销毁: 关闭连接时，Mysql会自动删除表并释放空间
+手动销毁: `drop table 表名`
 
-如果你退出当前MySQL会话，再使用 SELECT命令来读取原先创建的临时表数据，那你会发现数据库中没有该表的存在，因为在你退出时该临时表已经被销毁了。
 
-删除MySQL 临时表
-默认情况下，当你断开与数据库的连接后，临时表就会自动被销毁。当然你也可以在当前MySQL会话使用 DROP TABLE 命令来手动删除临时表。
+   
 
-以下是手动删除临时表的实例：
-
-mysql> CREATE TEMPORARY TABLE SalesSummary (
-    -> product_name VARCHAR(50) NOT NULL
-    -> , total_sales DECIMAL(12,2) NOT NULL DEFAULT 0.00
-    -> , avg_unit_price DECIMAL(7,2) NOT NULL DEFAULT 0.00
-    -> , total_units_sold INT UNSIGNED NOT NULL DEFAULT 0
-);
-Query OK, 0 rows affected (0.00 sec)
-
-mysql> INSERT INTO SalesSummary
-    -> (product_name, total_sales, avg_unit_price, total_units_sold)
-    -> VALUES
-    -> ('cucumber', 100.25, 90, 2);
-
-mysql> SELECT * FROM SalesSummary;
-+--------------+-------------+----------------+------------------+
-| product_name | total_sales | avg_unit_price | total_units_sold |
-+--------------+-------------+----------------+------------------+
-| cucumber     |      100.25 |          90.00 |                2 |
-+--------------+-------------+----------------+------------------+
-1 row in set (0.00 sec)
-mysql> DROP TABLE SalesSummary;
-mysql>  SELECT * FROM SalesSummary;
-ERROR 1146: Table 'RUNOOB.SalesSummary' doesn't exist
- MySQL 索引MySQL 复制表 
-1 篇笔记 写笔记
-   Ishinary
-
-  128***3211@qq.com
-
-255
-用查询直接创建临时表的方式：
-
-CREATE TEMPORARY TABLE 临时表名 AS
-(
-    SELECT *  FROM 旧的表名
-    LIMIT 0,10000
-);

@@ -25,7 +25,7 @@ categories:
     - c3p0是一个开放源代码的JDBC连接池，它在lib目录中与Hibernate一起发布,包括了实现jdbc3和jdbc2扩展规范说明的Connection 和Statement 池的DataSources 对象
     - c3p0有自动回收空闲连接功能
   - dbcp  
-    - 依赖Jakarta commons-pool对象池机制的数据库连接池.DBCP可以直接的在应用程序中使用，Tomcat的数据源使用的就是DBCP
+    - 依赖Jakarta commons-pool对象池机制的数据库连接池.DBCP可以直接的在应用程序中使用，Tomcat的数据源使用的就是DBCP;DBCP（DataBase Connection Pool）数据库连接池，是apache上的一个java连接池项目，也是tomcat使用的连接池组件。单独使用dbcp需要两个包：commons-dbcp.jar,commons-pool.jar
     - dbcp没有自动回收空闲连接的功能
   - druid 
     - 阿里提供的连接池技术

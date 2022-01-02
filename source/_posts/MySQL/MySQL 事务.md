@@ -78,3 +78,18 @@ categories:
   `ROLLBACK TO identifier` 把事务回滚到标记点；
 - 设置隔离级别
   `SET TRANSACTION`用来设置事务的隔离级别。InnoDB 存储引擎提供事务的隔离级别有READ UNCOMMITTED、READ COMMITTED、REPEATABLE READ 和 SERIALIZABLE。
+
+## 嵌套事务,子事务
+使用保留点 `SAVEPOINT`
+
+savepoint 是在数据库事务处理中实现“子事务”（subtransaction），也称为嵌套事务的方法
+事务可以回滚到 savepoint 而不影响 savepoint 创建前的变化, 不需要放弃整个事务
+ROLLBACK 回滚的用法可以设置保留点 SAVEPOINT，执行多条操作时，回滚到想要的那条语句之前
+
+### 使用 SAVEPOINT
+SAVEPOINT 保留点名称;    // 声明一个 savepoint
+ROLLBACK TO 保留点名称;  // 回滚到savepoint
+删除 SAVEPOINT
+`保留点再事务处理完成（执行一条 ROLLBACK 或 COMMIT）后自动释放`
+MySQL5 以来，可以用:
+`RELEASE SAVEPOINT 保留点名称;`  -- 删除指定保留点
