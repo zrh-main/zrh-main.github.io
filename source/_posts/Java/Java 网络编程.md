@@ -79,4 +79,7 @@ categories:
   - 在Java中，提供了两个类用于实现TCP通信程序
     - 客户端：`java.net.Socket` 类
     - 服务端：`java.net.ServerSocket`类
+  - 在Java中,用于通信程序数据传递的类
+    - `socket.getInputStream()`输入流(读取)
+    - `socket.getOutputStream()`输出流(写入)
 

@@ -18,7 +18,7 @@ categories:
 ## 注意
   - Xxx.properties文件内容案例
     内容是key=value的形式,<font color='red'>注意value后方不能存在空格;如果存在,读取在Java中的数据也会存在空格</font>
-    ``` 
+    ``` Poperties
     driver=com.mysql.jdbc.Driver
     url=jdbc:mysql://127.0.0.1:3306/db1?useUnicode=true&characterEncoding=utf-8
     username=root
