@@ -151,3 +151,7 @@ Object中有一个clone方法，为什么还必须要实现Cloneable接口呢，
   1. 获取的对象不同。DataSource主要是获取数据库连接池，而DriverManager主要是获取数据库连接，通过管理JDBC驱动程序来建立连接。
   2. DataSource中封装了DriverManager的使用
   3. DataSource创建的connection可以被复用，而DriverManager的则不行
+
+47. TCP与UDP的区别;TCP协议的三次握手,四次挥手
+
+48. 网络通信的三要素
