@@ -1,14 +1,19 @@
 ---
 title: Java Servlet
-date: 2022-1-03 16:09:58
+date: 2022-01-03 19:49:57
 tags:
   - Java重点
 categories:
   Java
 ---
 
+
 # Servlet
 
+## 起源
+  HTML只能用来保存静态内容，而静态页面很难满足实际应用的需要，因此，动态页面的概念被引入
+  所谓动态页面，指的是能够根据不同时间、不同用户而显示不同内容的页面，例如常见的论坛、留言板、电子商务网站等都是通过动态页面来实现的
+  那么如何才能生成动态页面呢？其中一种方法是采用公共网关接口（Common Gateway Interface，CGI）。`CGI`是一种用Perl脚本编写的程序，可以用来生成动态页面，而另一种方式则是采用`Servlet`技术。
 ## 概述
   - Servlet（Server Applet），全称Java Servlet ; 用Java编写的`服务器端程序`
   - 狭义的Servlet是指Java语言实现的一个接口
@@ -69,3 +74,15 @@ Servlet容器(tomcat)将Servlet类载入内存，使用反射生成Servlet实例
     `servlet`与`servlet-mapping`中的`servlet-name`必须一致
   - 方式二
     servlet3.0后，支持类注解配置:`@webServlet("/访问路径")`
+
+## jsp和jspx的区别
+  jsp的格式，其中包含“<%”声明符，jsp文件通常在服务器端处理后呈现为html代码，尽管jsp通常的目的是处理web页面，但是jsp的代码呈现却不是我们希望的html或xml格式，代码非常混乱，这也是为什么出现jspx
+  jspx完全符号xml语法规范，这种规范化会带来很多的好处，我们编码会方便很多，如xml形式方便代码格式化，便于编辑呈现
+  jspx：以xml语法来书写jsp的文件，自定义的映射类型, jspx = jsp + XML
+
+## JSP与Servlet有何异同
+
+JSP与Servlet的相同点为：JSP可以被看作一个特殊的Servlet，它只不过是对Servlet的扩展，只要是JSP可以完成的工作，使用Servlet都可以完成，例如生成动态页面。由于JSP页面最终要被转换成Servlet来运行，因此处理请求实际上是编译后的Servlet
+
+## idea和tomcat的相关配置
+1.idea会为每一个tomcat部署的项目单独创建一份配置文件
