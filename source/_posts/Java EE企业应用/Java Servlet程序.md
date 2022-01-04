@@ -2,13 +2,20 @@
 title: Java Servlet
 date: 2022-01-03 19:49:57
 tags:
-  - Java重点
+  - Java EE网络应用
 categories:
   Java
 ---
 
 
 # Servlet
+
+## 静态资源与动态资源
+  - 静态资源
+    前端的固定页面，包含HTML、CSS、JS、图片等，不需要查数据库也不需要请求处理，直接就能够显示，想修改内容则必须修改页面
+  - 动态资源
+    需要程序处理或者从数据库中读数据，能够根据不同的条件在页面显示不同的数据，内容更新不需要修改页面
+    `servlet` `jsp` `asp` `html(Ajax)`
 
 ## 概述
   - Servlet（Server Applet），全称Java Servlet ; 用Java编写的`服务器端程序`
