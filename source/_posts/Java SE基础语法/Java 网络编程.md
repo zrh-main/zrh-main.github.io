@@ -21,7 +21,7 @@ categories:
 
 ## 网络通信协议
 - 概述:计算机在通信的过程中通信双方都必须要遵守的规则，称之为网络通信协议
-- 常见协议
+## 常见协议
   - TCP通信协议
     - 传输控制协议;需要建立链接，连接建立成功之后才可以通信
     - 特点：
@@ -65,15 +65,6 @@ categories:
     - tomcat：8080
     - https:443
 
-## 常见的http状态码:
-  - 200 OK：服务器成功处理了请求（这个是我们见到最多的）
-  - 301 Moved Permanently：资源移动。所请求资源自动到新的URL，浏览器自动跳转到新的URL
-  - 304 Not Modified：服务端的资源与客户端上一次请求的一致，不需要重新传输，客户端使用本地缓存的即可
-  - 400 Bad Request：用于告诉客户端它发送了一个错误的请求
-  - 404 Not Found：(页面丢失)未找到资源
-  - 500 Internal Server Error：服务器内部出现了错误
-  - 501 Internal Server Error：服务器遇到一个错误，使其无法对请求提供服务
-
 ## TCP通信协议
   - 概述  TCP通信能实现两台计算机之间的数据交互，通信的两端，要严格区分为客户端（Client）与服务端（Server）
   - 在Java中，提供了两个类用于实现TCP通信程序
@@ -90,3 +81,45 @@ categories:
   - 动态资源
     需要程序处理或者从数据库中读数据，能够根据不同的条件在页面显示不同的数据，内容更新不需要修改页面但是访问速度不及静态页面
     servlet jsp asp html(Ajax)
+
+## 案例(模拟tomcat服务器--半成品简易版)
+
+``` Java
+public class Server {
+    public static void main(String[] args) throws IOException {
+        ServerSocket serverSocket = new ServerSocket(8850);
+        while (true) {
+            try {
+                //  监听客户端连接
+                Socket socket = serverSocket.accept();
+                InputStream socketInputStream = socket.getInputStream();
+                //  把网络字节输入流转换为字符流
+                BufferedReader br = new BufferedReader(new InputStreamReader(socketInputStream));
+                //  读取第一行
+                String line = br.readLine();
+                //  截取出访问的路径
+                String path = line.split(" ")[1].substring(1);      // day15/reg.html
+                //  获取网络字节输出流
+                OutputStream socketOutputStream = socket.getOutputStream();
+                //  先把http的协议头回写给客户端
+                socketOutputStream.write("HTTP/1.1 200 OK\r\n".getBytes());
+                socketOutputStream.write("ConTent-Type:text/html\r\n".getBytes());
+                socketOutputStream.write("\r\n".getBytes());
+                //  读取浏览器请求的文件
+                FileInputStream fileInputStream = new FileInputStream("day3/web/"+path);
+                byte[] bytes = new byte[1024];
+                int len;
+                //  将文件写回给浏览器
+                while ((len = fileInputStream.read(bytes)) != -1) {
+                    socketOutputStream.write(bytes, 0, len);
+                }
+                //  释放资源
+                fileInputStream.close();
+                socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+```
