@@ -18,9 +18,16 @@ categories:
     `servlet` `jsp` `asp` `html(Ajax)`
 
 ## 概述
-  - Servlet（Server Applet），全称Java Servlet ; 用Java编写的`服务器端程序`
+  - Servlet 是运行在 Web 服务器或应用服务器上的程序;全称Java Servlet;用Java编写的`服务器端程序`
   - 狭义的Servlet是指Java语言实现的一个接口
   - 广义的Servlet是指任何实现了这个Servlet接口的类
+  - 位置: `tomcat/lib`存在servlet包
+## 优点
+  - 性能更好
+  - Servlet 在 Web 服务器的地址空间内执行。没有必要再创建一个单独的进程来处理每个客户端请求
+  - Servlet 是独立于平台的，因为它们是用 Java 编写的。
+  - 服务器上的 Java 安全管理器执行了一系列限制，以保护服务器计算机上的资源。因此，Servlet 是可信的。
+  - Java 类库的全部功能对 Servlet 来说都是可用的。它可以通过 sockets 和 RMI 机制与 applets、数据库或其他软件进行交互
 
 ## 运行环境
   - 运行于Servlet容器中
@@ -47,6 +54,7 @@ Servlet容器(tomcat)将Servlet类载入内存，使用反射生成Servlet实例
   - `void init()`：初始化方法，在第一次访问时执行，只执行1次
     - 可以来执行初始化工作。调用这个方法时，Servlet容器会传入一个ServletConfig对象从而对Servlet对象进行初始化
   - `void service(ServletRequest sq, ServletResponse sp)`：提供服务的方法，每次访问时都会执行，执行多次
+    - 用来处理客户端的请求
   - `void destory()`：销毁的方法。在Servlet容器正常关闭之后执行1次
     - 常用来清除内存占用,释放资源
 
@@ -76,3 +84,29 @@ Servlet容器(tomcat)将Servlet类载入内存，使用反射生成Servlet实例
     使用方式:
       `@webServlet(urlPatterns={访问路径1,访问路径2})`
       `@webServlet(value={访问路径1,访问路径2})`value可以简写可以省略
+
+
+## Servlet体系结构及使用
+  - `Servlet`接口
+    - 某个类实现了`Servlet`接口之后，能够被服务器识别并使用;
+    - 常用的方法是`service`,但是需要重写所有方法
+  - `GenericServlet`抽象类实现了`Servlet`接口
+    - 这个类把除了servier方法之外的方法都做了空实现;
+    - 可以继承`GenericServlet`抽象类;只需要重写`service`方法就够了，当用别的方法的时，再重写别的方法
+  - `HTTPServlet`抽象类   
+    - HttpServlet类继承自`GenericServlet`抽象类,并且对http协议的处理做了一些封装,更方便使用
+    - <font color='red'>推荐使用继承该类的方式进行Servlet的开发</font>
+
+## HttpServlet使用
+
+### 方法
+  - `void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {//post请求进入此方法}`
+  - `void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {//get请求进入此方法}`
+
+### Servlet资源路径的相关配置
+  1. 一个Servlet可以定义多个访问路径： 			
+  `@webServlet({"/demo4","/demo44","/demo444"})`
+  2. 路径的定义规则：
+    - /xxx ：路径匹配
+    - /xxx/xxx  ：多层路径，目录结构
+    - *.do   XXX.do就可以访问
