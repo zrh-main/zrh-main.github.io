@@ -38,7 +38,7 @@ categories:
 
 ## 注意
   - **<font color='red' size='4.8'>Servlet类型的类都是单例模式,每个类都只能有一个实例,存在线程安全问题</font>**
-    
+  - **<font color='red' size='4.8'>避免在Servlet中定义成员变量</font>**  
 ## 工作原理
 Servlet容器(tomcat)将Servlet类载入内存，使用反射生成Servlet实例并调用它具体的方法
 ![](tomcat工作机制.gif)
