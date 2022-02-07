@@ -1,5 +1,5 @@
 ---
-title: Java 代理
+title: Java 代理模式
 tags:
   - Java 设计模式
 categories: 设计模式

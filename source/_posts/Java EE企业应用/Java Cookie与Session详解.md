@@ -161,3 +161,13 @@ session以属性,值的方式存储
   - `void setAttribute(String name, Object value)`  设置名称和值到该 session 会话
   - `void setMaxInactiveInterval(int interval)` 设置 session 会话过期时间,以`秒`为单位
 
+5、session的特点？
+答：
+当客户端关闭时，在服务器关闭、前后，获取session是否为同一个
+  - 默认情况下，不是同一个session。如果需要相同，则可以创建Cookie，键为JSESSIONID，设置最大存活时间，让cookie持久化保存。
+
+客户端不关闭，在服务器关闭后，两次获取的session是同一个吗
+  - 不是同一个
+（1）Session的钝化：在服务器正常关闭之前，将session对象序列化到硬盘上。
+（2）Session的活化：在服务器启动后，将session文件转化为内存中的session对象即可。
+  tomcat自动的把session的钝化和活化做了
