@@ -322,3 +322,216 @@ public class Test1 {
     }
 }
 ```
+## 等待唤醒机制（线程通信）
+
+### 概述
+- 等待唤醒机制，又叫做线程之间的通信。
+- 很多情况下，我们是需要让多个线程配合起来工作的，这就是线程间的通信。
+### 需要的方法
+wait()：可以使线程处于无限等待状态，必须由别的线程去唤醒。
+notify()：可以唤醒处于无限等待状态的线程。
+notifyAll()：唤醒所有处于无限等待状态的线程。
+这三个方法都属于Object类，必须由锁对象去调用。一般都使用在同步代码块或者同步方法中。
+### 案例
+``` Java
+package cn.dy.test7;
+
+/**
+ * 包子实体类：
+ *      属性：     皮，馅儿，状态
+ */
+public class BaoZi {
+    private String pi;
+    private String xian;
+    private boolean flag = false;
+
+    @Override
+    public String toString() {
+        return "BaoZi{" +
+                "pi='" + pi + '\'' +
+                ", xian='" + xian + '\'' +
+                ", flag=" + flag +
+                '}';
+    }
+
+    public BaoZi() {
+    }
+
+    public BaoZi(String pi, String xian, boolean flag) {
+        this.pi = pi;
+        this.xian = xian;
+        this.flag = flag;
+    }
+
+    public String getPi() {
+        return pi;
+    }
+
+    public void setPi(String pi) {
+        this.pi = pi;
+    }
+
+    public String getXian() {
+        return xian;
+    }
+
+    public void setXian(String xian) {
+        this.xian = xian;
+    }
+
+    public boolean isFlag() {
+        return flag;
+    }
+
+    public void setFlag(boolean flag) {
+        this.flag = flag;
+    }
+}
+package cn.dy.test7;
+/*
+    包子铺线程：
+        判断包子有没有：
+            有：自己等待，等待吃货线程去吃包子。
+            没有：
+            生产包子。
+            把包子的状态改为有包子。
+            唤醒吃货线程。
+ */
+public class BaoZiPu extends Thread {
+    //锁对象
+    private BaoZi bz ;
+
+
+    public BaoZiPu(BaoZi bz) {
+        this.bz = bz;
+    }
+
+
+    public BaoZiPu( BaoZi bz,String name) {
+        super(name);
+        this.bz = bz;
+    }
+
+
+    @Override
+    public void run() {
+        int count = 0;
+
+        for(;;){
+            synchronized (bz){
+                //如果有包子
+                if(bz.isFlag()){
+                    try {
+                        bz.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                //如果代码走到这里,说明没有包子
+                System.out.println(getName() + "：正在做包子...");
+                if(count % 2 == 0){
+                    bz.setPi("薄");
+                    bz.setXian("韭菜鸡蛋");
+                }else{
+                    bz.setPi("厚");
+                    bz.setXian("猪肉大葱");
+                }
+
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(getName() + "：包子做好了,吃货来吃吧");
+                count++;
+                //把包子的状态改为true
+                bz.setFlag(true);
+                //获取吃货线程
+                bz.notify();
+
+
+            }
+
+
+        }
+    }
+}
+package cn.dy.test7;
+
+/**
+ * 吃货线程
+ */
+public class ChiHuo extends Thread {
+
+    private BaoZi bz;
+
+
+    public ChiHuo(BaoZi bz) {
+        this.bz = bz;
+    }
+
+
+    public ChiHuo(BaoZi bz,String name) {
+        super(name);
+        this.bz = bz;
+    }
+
+    @Override
+    public void run() {
+        for(;;){
+            synchronized (bz){
+                //判断包子的状态,没有包子，就等待
+                if(!bz.isFlag()){
+                    try {
+                        bz.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                //说明有包子,可以吃包子
+                System.out.println(getName() + "：正在吃"+bz.getPi()+"皮"+bz.getXian()+"馅儿包子...");
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(getName() + "：包子吃完了，赶快去给我生产..");
+                //把包子的状态改为没有
+                bz.setFlag(false);
+                //唤醒包子铺
+                bz.notify();
+            }
+        }
+
+
+    }
+}
+package cn.dy.test7;
+
+public class Test1 {
+    public static void main(String[] args) {
+        BaoZi bz = new BaoZi();
+        //创建包子铺线程
+        BaoZiPu bzp = new BaoZiPu(bz,"包子铺");
+        ChiHuo chi = new ChiHuo(bz,"吃货");
+
+        //开启两个线程
+        bzp.start();
+        chi.start();
+    }
+}
+
+```
+## 线程池
+### 概述
+其实就是一个装线程的一个容器。
+### 优势
+1）节省创建线程，销毁线程的时间。
+2）当任务到达时，可以直接从线程池中取线程来使用。
+3）管理线程，使程序不会因为线程过多而崩溃。
+### 相关类和接口
+java给我们提供的线程池顶级的接口：Executor
+真正使用的接口：		ExecutorService
+java给我们提供了一个线程的一个工厂类：Executors  
+方法：
+static ExecutorService newFixedThreadPool(int nThreads)   线程池中线程的数量
