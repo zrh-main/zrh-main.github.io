@@ -6,10 +6,14 @@ categories:
   面试题
 ---
 
+## JavaSE面试题
 1. jdk，jre，jvm的含义以及三者之间的关系?
-
+  JVM: Java虚拟机，是Java程序的运行环境
+  JRE: Java程序的运行时环境,包含JVM和运行时需要的核心类库
+  JDK: Java程序的开发工具包,包含JRE和开发使用的工具
 2. i++和++i的区别?
-
+  i++ 先执行,后自增
+  ++i 先自增,后执行
 3. short s = 1,s = s + 1 有错吗？为什么？s += 1有错吗？为什么？
 
 4. ArrayIndexOutOfBoundsException（数组下标越界异常）和NullPointerException(空指针异常)出现的原因是?
