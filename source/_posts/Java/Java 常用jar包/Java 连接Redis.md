@@ -127,6 +127,25 @@ public class TestRedis {
     }
 
     /**
+     * 操作list person对象; 以序列化的方式存取
+     */
+    @Test
+    public void testList(){
+        
+        List<Person> list=new ArrayList<Person>();
+        list.add(new Person(1, "张三"));
+        list.add(new Person(2, "李四"));
+        
+        jedis.set("key3".getBytes(), SerializeUtil.serialize(list));
+
+        byte[] personlistbyte = jedis.get(("key3").getBytes());
+        List<Person> list1 = (List<Person>) SerializeUtil.unserialize(personlistbyte);
+        System.out.println(list1);
+
+        jedis.close();
+    }
+
+    /**
      * 操作set类型
      */
     @Test

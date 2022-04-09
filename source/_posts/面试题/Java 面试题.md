@@ -8,7 +8,7 @@ categories:
 
 ## JavaSE面试题
 1. jdk，jre，jvm的含义以及三者之间的关系?
-  JVM: Java虚拟机，是Java程序的运行环境
+  JVM: Java虚拟机，是Java程序的运行环境,
   JRE: Java程序的运行时环境,包含JVM和运行时需要的核心类库
   JDK: Java程序的开发工具包,包含JRE和开发使用的工具
 2. i++和++i的区别?
