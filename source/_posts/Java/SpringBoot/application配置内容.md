@@ -31,3 +31,8 @@ SpringBoot没有整合mybatis;mybatis提供了SpringBoot的整合方式
 mybatis.type-type-aliases-package=`com.dy.entity`
 
 
+## 注入配置文件内容方式
+``` Java
+@Value("server.port")
+private Integer port
+```

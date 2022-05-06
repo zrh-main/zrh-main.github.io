@@ -79,3 +79,15 @@ where `条件`;
     - 子查询结果是多列，则在 FROM 后面作为表进行二次查询;结果集类似于一个数组，父查询使用 IN 运算符
 3. 子查询的结果是多行多列(多行多列值)
     - 子查询结果只要是多列，肯定在 FROM 后面作为表;子查询作为表需要取别名，否则这张表没有名称则无法访问表中的字段
+
+## 自连接查询
+可用来拼接语句
+GROUP_CONCAT：group_concat( [distinct] 要连接的字段 [order by 排序字段 asc/desc ] [separator '分隔符'] )
+例:
+``` sql
+    SELECT sku_id  , GROUP_CONCAT(sale_attr_value_id  ORDER BY sp.base_sale_attr_id ASC SEPARATOR '|') value_ids
+     FROM  `sku_sale_attr_value` sv
+     INNER JOIN `spu_sale_attr_value` sp on sp.id = sv.sale_attr_value_id
+     WHERE sv.spu_id=#{spuId}
+     GROUP BY sku_id
+```

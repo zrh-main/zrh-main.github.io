@@ -292,3 +292,27 @@ categories:
 
 ## 删除外键
   - `alter table 表名 drop foreign key 外键名;`
+
+## 删除表里的重复记录
+
+`delete from 表名 where id not in( select min_id from(selectmin(id)as min_id from 表名 groupby name, sex, age )as x)`
+
+## union和union all的区别
+Union因为要进行重复值扫描，所以效率低。如果合并没有刻意要删除重复行，那么就使用Union All
+
+ 两个要联合的SQL语句 字段个数必须一样，而且字段类型要“相容”（一致）；
+
+如果我们需要将两个select语句的结果作为一个整体显示出来，我们就需要用到union或者union all关键字。union(或称为联合)的作用是将多个结果合并在一起显示出来。
+
+union和union all的区别是,union会自动压缩多个结果集合中的重复结果，而union all则将所有的结果全部显示出来，不管是不是重复。
+
+
+Union：对两个结果集进行并集操作，不包括重复行，同时进行默认规则的排序；
+
+Union All：对两个结果集进行并集操作，包括重复行，不进行排序；
+
+Intersect：对两个结果集进行交集操作，不包括重复行，同时进行默认规则的排序；
+
+Minus：对两个结果集进行差操作，不包括重复行，同时进行默认规则的排序。
+
+可以在最后一个结果集中指定Order by子句改变排序方式。
