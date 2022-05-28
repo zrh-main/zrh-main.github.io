@@ -1,0 +1,1258 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="事务, ZRH博客,zrh博客">
+    <meta name="description" content="ZRH的个人博客,记录个人笔记">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>事务 | ZRH博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">ZRH博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">ZRH博客</div>
+        <div class="logo-desc">
+            
+            ZRH的个人博客,记录个人笔记
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">事务</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Spring/">
+                                <span class="chip bg-color">Spring</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Java/" class="post-category">
+                                Java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-03-22
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h2 id="基于xml配置"><a href="#基于xml配置" class="headerlink" title="基于xml配置"></a>基于xml配置</h2><h2 id="基于注解配置"><a href="#基于注解配置" class="headerlink" title="基于注解配置"></a>基于注解配置</h2><p>第2章 Spring 中的事务控制<br>2.1Spring 事务控制我们要明确的<br>第一：JavaEE 体系进行分层开发，事务处理位于业务层，Spring 提供了分层设计业务层的事务处理解决方案。<br>第二：spring 框架为我们提供了一组事务控制的接口。具体在后面的第二小节介绍。这组接口是在<br>spring-tx-5.0.2.RELEASE.jar 中。<br>第三：spring 的事务控制都是基于 AOP 的，它既可以使用编程的方式实现，也可以使用配置的方式实现。我们学习的重点是使用配置的方式实现。<br>2.2Spring 中事务控制的 API 介绍<br>2.2.1 PlatformTransactionManager<br>此接口是 spring 的事务管理器，它里面提供了我们常用的操作事务的方法，如下图：<br>我们在开发中都是使用它的实现类，如下图：  </p>
+<p>真正管理事务的对象<br>org.springframework.jdbc.datasource.DataSourceTransactionManager 使用 Spring<br>JDBC 或 iBatis 进行持久化数据时使用<br>org.springframework.orm.hibernate5.HibernateTransactionManager<br>使用<br>Hibernate 版本进行持久化数据时使用<br>2.2.2 TransactionDefinition<br>它是事务的定义信息对象，里面有如下方法：  </p>
+<p>2.2.2.1 事务的隔离级别 </p>
+<p>2.2.2.2 事务的传播行为<br>REQUIRED:如果当前没有事务，就新建一个事务，如果已经存在一个事务中，加入到这个事务中。一般的选择（默认值）<br>SUPPORTS:支持当前事务，如果当前没有事务，就以非事务方式执行（没有事务）<br>MANDATORY：使用当前的事务，如果当前没有事务，就抛出异常<br>REQUERS_NEW:新建事务，如果当前在事务中，把当前事务挂起。<br>NOT_SUPPORTED:以非事务方式执行操作，如果当前存在事务，就把当前事务挂起<br>NEVER:以非事务方式运行，如果当前存在事务，抛出异常<br>NESTED:如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行 REQUIRED 类似的操作。<br>2.2.2.3 超时时间<br>默认值是-1，没有超时限制。如果有，以秒为单位进行设置。<br>2.2.2.4 是否是只读事务<br>建议查询时设置为只读。<br>2.2.3 TransactionStatus<br>此接口提供的是事务具体的运行状态，方法介绍如下图： </p>
+<p>2.3基于 XML 的声明式事务控制（配置方式）重点<br>2.3.1 环境搭建<br>2.3.1.1 第一步：拷贝必要的 jar 包到工程的 lib 目录 </p>
+<p>2.3.1.2 第二步：创建 spring 的配置文件并导入约束<br>此处需要导入 aop 和 tx 两个名称空间<br><?xml version="1.0" encoding="UTF-8"?><br><beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xsi:schemalocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd 
+http://www.springframework.org/schema/tx 
+http://www.springframework.org/schema/tx/spring-tx.xsd 
+http://www.springframework.org/schema/aop 
+http://www.springframework.org/schema/aop/spring-aop.xsd"><br></beans><br>2.3.1.3 第三步：准备数据库表和实体类<br>创建数据库：<br>create database spring_day04;<br>use spring_day04;<br>创建表：<br>create table account(<br>id int primary key auto_increment,<br>name varchar(40),<br>money float<br>)character set utf8 collate utf8_general_ci;<br>/** </p>
+<ul>
+<li>账户的实体 </li>
+<li>/<br>public class Account implements Serializable {<br>private Integer id;<br>private String name;<br>private Float money;<br>public Integer getId() {<br>return id;<br>}<br>public void setId(Integer id) {<br>this.id = id;<br>}<br>public String getName() {  </li>
+</ul>
+<p>return name;<br>}<br>public void setName(String name) {<br>this.name = name;<br>}<br>public Float getMoney() {<br>return money;<br>}<br>public void setMoney(Float money) {<br>this.money = money;<br>}<br>@Override<br>public String toString() {<br>return “Account [id=” + id + “, name=” + name + “, money=” + money + “]”;<br>}<br>}<br>2.3.1.4 第四步：编写业务层接口和实现类<br>/** </p>
+<ul>
+<li>账户的业务层接口 </li>
+<li>/<br>public interface IAccountService {<br>/** </li>
+<li>根据 id 查询账户信息 </li>
+<li>@param id </li>
+<li>@return </li>
+<li>/<br>Account findAccountById(Integer id);//查<br>/** </li>
+<li>转账 </li>
+<li>@param sourceName<br>转出账户名称 </li>
+<li>@param targeName<br>转入账户名称 </li>
+<li>@param money<br>转账金额 </li>
+<li>/<br>void transfer(String sourceName,String targeName,Float money);//增删改<br>}<br>/** </li>
+<li>账户的业务层实现类 </li>
+<li>/<br>public class AccountServiceImpl implements IAccountService {  </li>
+</ul>
+<p>private IAccountDao accountDao;<br>public void setAccountDao(IAccountDao accountDao) {<br>this.accountDao = accountDao;<br>}<br>@Override<br>public Account findAccountById(Integer id) {<br>return accountDao.findAccountById(id);<br>}<br>@Override<br>public void transfer(String sourceName, String targeName, Float money) {<br>//1.根据名称查询两个账户<br>Account source = accountDao.findAccountByName(sourceName);<br>Account target = accountDao.findAccountByName(targeName);<br>//2.修改两个账户的金额<br>source.setMoney(source.getMoney()-money);//转出账户减钱<br>target.setMoney(target.getMoney()+money);//转入账户加钱<br>//3.更新两个账户<br>accountDao.updateAccount(source);<br>int i=1/0;<br>accountDao.updateAccount(target);<br>}<br>}<br>2.3.1.5 第五步：编写 Dao 接口和实现类<br>/** </p>
+<ul>
+<li>账户的持久层接口 </li>
+<li>/<br>public interface IAccountDao {<br>/** </li>
+<li>根据 id 查询账户信息 </li>
+<li>@param id </li>
+<li>@return </li>
+<li>/<br>Account findAccountById(Integer id);<br>/** </li>
+<li>根据名称查询账户信息 </li>
+<li>@return  </li>
+<li>/<br>Account findAccountByName(String name);<br>/** </li>
+<li>更新账户信息 </li>
+<li>@param account </li>
+<li>/<br>void updateAccount(Account account);<br>}<br>/** </li>
+<li>账户的持久层实现类 </li>
+<li>此版本 dao，只需要给它的父类注入一个数据源 </li>
+<li>/<br>public class AccountDaoImpl extends JdbcDaoSupport implements IAccountDao {<br>@Override<br>public Account findAccountById(Integer id) {<br>List<Account> list = getJdbcTemplate().query(“select * from account where<br>id = ? “,new AccountRowMapper(),id);<br>return list.isEmpty()?null:list.get(0);<br>}<br>@Override<br>public Account findAccountByName(String name) {<br>List<Account> list = getJdbcTemplate().query(“select * from account where<br>name = ? “,new AccountRowMapper(),name);<br>if(list.isEmpty()){<br>return null;<br>}<br>if(list.size()&gt;1){<br>throw new RuntimeException(“结果集不唯一，不是只有一个账户对象”);<br>}<br>return list.get(0);<br>}<br>@Override<br>public void updateAccount(Account account) {<br>getJdbcTemplate().update(“update account set money = ? where id = ?<br>“,account.getMoney(),account.getId());<br>}<br>}<br>/** </Account></Account></li>
+<li>账户的封装类 RowMapper 的实现类  </li>
+<li>/<br>public class AccountRowMapper implements RowMapper<Account>{<br>@Override<br>public Account mapRow(ResultSet rs, int rowNum) throws SQLException {<br>Account account = new Account();<br>account.setId(rs.getInt(“id”));<br>account.setName(rs.getString(“name”));<br>account.setMoney(rs.getFloat(“money”));<br>return account;<br>}<br>} </Account></li>
+</ul>
+<p>2.3.1.6 第六步：在配置文件中配置业务层和持久层对 </p>
+<!-- 配置 service --> 
+<bean id="accountService" class="com.doyens.service.impl.AccountServiceImpl"> 
+<property name="accountDao" ref="accountDao"></property> 
+</bean> 
+<!-- 配置 dao --> 
+<bean id="accountDao" class="com.doyens.dao.impl.AccountDaoImpl"> 
+<!-- 注入 dataSource --> 
+<property name="dataSource" ref="dataSource"></property> 
+</bean> 
+<!-- 配置数据源 --> 
+<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+<property name="driverClassName" value="com.mysql.jdbc.Driver"></property> 
+<property name="url" value="jdbc:mysql:///spring_day04"></property> 
+<property name="username" value="root"></property> 
+<property name="password" value="1234"></property> 
+</bean> 
+2.3.2 配置步骤 
+2.3.2.1 第一步：配置事务管理器 
+<!-- 配置一个事务管理器 --> 
+<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
+  
+<!-- 注入 DataSource --> 
+<p><property name="dataSource" ref="dataSource"></property><br></p></bean><br>2.3.2.2 第二步：配置事务的通知引用事务管理器 <p></p>
+<!-- 事务的配置 --> 
+<p>&lt;tx:advice id=”txAdvice” transaction-manager=”transactionManager”&gt;<br><br>2.3.2.3 第三步：配置事务的属性 </p>
+<!--在 tx:advice 标签内部 配置事务的属性 --> 
+<p><a href="tx:attributes">tx:attributes</a> </p>
+<!-- 指定方法名称：是业务核心方法 
+read-only：是否是只读事务。默认 false，不只读。 
+isolation：指定事务的隔离级别。默认值是使用数据库的默认隔离级别。 
+propagation：指定事务的传播行为。 
+timeout：指定超时时间。默认值为：-1。永不超时。 
+rollback-for：用于指定一个异常，当执行产生该异常时，事务回滚。产生其他异常，事务不回滚。 
+没有默认值，任何异常都回滚。 
+no-rollback-for：用于指定一个异常，当产生该异常时，事务不回滚，产生其他异常时，事务回 
+滚。没有默认值，任何异常都回滚。 
+--> 
+<p>&lt;tx:method name=”*” read-only=”false” propagation=”REQUIRED”/&gt;<br>&lt;tx:method name=”find*” read-only=”true” propagation=”SUPPORTS”/&gt;<br><br>2.3.2.4 第四步：配置 AOP 切入点表达式 </p>
+<!-- 配置 aop --> 
+<p><a href="aop:config">aop:config</a> </p>
+<!-- 配置切入点表达式 --> 
+<p>&lt;aop:pointcut<br>expression=”execution(* com.doyens.service.impl.*.*(..))”<br>id=”pt1”/&gt;<br><br>2.3.2.5 第五步：配置切入点表达式和事务通知的对应关系 </p>
+<!-- 在 aop:config 标签内部：建立事务的通知和切入点表达式的关系 --> 
+<p>&lt;aop:advisor advice-ref=”txAdvice” pointcut-ref=”pt1”/&gt;  </p>
+<p>2.4基于注解的配置方式<br>2.4.1 环境搭建<br>2.4.1.1 第一步：拷贝必备的 jar 包到工程的 lib 目录<br>2.4.1.2 第二步：创建 spring 的配置文件导入约束并配置扫描的包<br><?xml version="1.0" encoding="UTF-8"?><br><beans xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation=" 
+http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd 
+http://www.springframework.org/schema/aop 
+http://www.springframework.org/schema/aop/spring-aop.xsd 
+http://www.springframework.org/schema/tx 
+http://www.springframework.org/schema/tx/spring-tx.xsd 
+http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context.xsd"> </beans></p>
+<!-- 配置 spring 创建容器时要扫描的包 --> 
+<p>&lt;context:component-scan base-package=”com.doyens”&gt; </p>
+<!-- 配置 JdbcTemplate-->  
+<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"> 
+<property name="dataSource" ref="dataSource"></property> 
+</bean> 
+<!-- 配置 spring 提供的内置数据源 --> 
+<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+<property name="driverClassName" value="com.mysql.jdbc.Driver"></property> 
+<property name="url" value="jdbc:mysql://localhost:3306/spring_day02"></property> 
+<property name="username" value="root"></property> 
+<property name="password" value="1234"></property> 
+</bean> 
+ 
+2.4.1.3 第三步：创建数据库表和实体类 
+和基于 xml 的配置相同。略 
+2.4.1.4 第四步：创建业务层接口和实现类并使用注解让 spring 管理 
+/** 
+* 账户的业务层实现类 
+*/ 
+@Service("accountService") 
+public class AccountServiceImpl implements IAccountService { 
+@Autowired 
+private IAccountDao accountDao; 
+//其余代码和基于 XML 的配置相同 
+} 
+2.4.1.5 第五步：创建 Dao 接口和实现类并使用注解让 spring 管理 
+/** 
+* 账户的持久层实现类 
+*/ 
+@Repository("accountDao") 
+public class AccountDaoImpl implements IAccountDao { 
+@Autowired  
+  
+<p>private JdbcTemplate jdbcTemplate;<br>//其余代码和基于 XML 的配置相同<br>}<br>2.4.2 配置步骤<br>2.4.2.1 第一步：配置事务管理器并注入数据源 </p>
+<!-- 配置事务管理器 --> 
+<p><bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"><br><property name="dataSource" ref="dataSource"></property><br></bean><br>2.4.2.2 第二步：在业务层使用@Transactional 注解<br>@Service(“accountService”)<br>@Transactional(readOnly=true,propagation=Propagation.SUPPORTS)<br>public class AccountServiceImpl implements IAccountService {<br>@Autowired<br>private IAccountDao accountDao;<br>@Override<br>public Account findAccountById(Integer id) {<br>return accountDao.findAccountById(id);<br>}<br>@Override<br>@Transactional(readOnly=false,propagation=Propagation.REQUIRED)<br>public void transfer(String sourceName, String targeName, Float money) {<br>//1.根据名称查询两个账户<br>Account source = accountDao.findAccountByName(sourceName);<br>Account target = accountDao.findAccountByName(targeName);<br>//2.修改两个账户的金额<br>source.setMoney(source.getMoney()-money);//转出账户减钱<br>target.setMoney(target.getMoney()+money);//转入账户加钱<br>//3.更新两个账户<br>accountDao.updateAccount(source);<br>//int i=1/0;<br>accountDao.updateAccount(target);  </p>
+<p>}<br>}<br>该注解的属性和 xml 中的属性含义一致。该注解可以出现在接口上，类上和方法上。<br>出现接口上，表示该接口的所有实现类都有事务支持。<br>出现在类上，表示类中所有方法有事务支持<br>出现在方法上，表示方法有事务支持。<br>以上三个位置的优先级：方法&gt;类&gt;接口<br>2.4.2.3 第三步：在配置文件中开启 spring 对注解事务的支持 </p>
+<!-- 开启 spring 对注解事务的支持 --> 
+<p>&lt;tx:annotation-driven transaction-manager=”transactionManager”/&gt;<br>2.4.3 不使用 xml 的配置方式<br>@Configuration<br>@EnableTransactionManagement<br>public class SpringTxConfiguration {<br>//里面配置数据源，配置 JdbcTemplate,配置事务管理器。在之前的步骤已经写过了。<br>}<br>第3章 Spring5 的新特性[了解]<br>3.1与 JDK 相关的升级<br>3.1.1 jdk 版本要求：<br>spring5.0 在 2017 年 9 月发布了它的 GA（通用）版本。该版本是基于 jdk8 编写的，所以 jdk8 以下版本将无法使用。同时，可以兼容 jdk9 版本。<br>tomcat 版本要求 8.5 及以上。<br>注：<br>我们使用 jdk8 构建工程，可以降版编译。但是不能使用 jdk8 以下版本构建工程。<br>由于 jdk 和 tomcat 版本的更新，我们的 IDE 也需要同时更新。(目前使用的 eclipse 4.7.2)<br>3.1.2 利用 jdk8 版本更新的内容<br>第一：基于 JDK8 的反射增强<br>请看下面的代码：  </p>
+<p>/** </p>
+<ul>
+<li></li>
+<li>@author  德源教育 </li>
+<li>@Company <a target="_blank" rel="noopener" href="http://doyens-edu.com/">http://doyens-edu.com/</a> </li>
+<li>@Version 1.0 </li>
+<li>/<br>public class Test {<br>//循环次数定义：10 亿次<br>private static final int loopCnt = 1000 * 1000 * 1000;<br>public static void main(String[] args) throws Exception {<br>//输出 jdk 的版本<br>System.out.println(“java.version=” + System.getProperty(“java.version”));<br>t1();<br>t2();<br>t3();<br>}<br>// 每次重新生成对象<br>public static void t1() {<br>long s = System.currentTimeMillis();<br>for (int i = 0; i &lt; loopCnt; i++) {<br>Person p = new Person();<br>p.setAge(31);<br>}<br>long e = System.currentTimeMillis();<br>System.out.println(“循环 10 亿次创建对象的时间：” + (e - s));<br>}<br>// 同一个对象<br>public static void t2() {<br>long s = System.currentTimeMillis();<br>Person p = new Person();<br>for (int i = 0; i &lt; loopCnt; i++) {<br>p.setAge(32);<br>}<br>long e = System.currentTimeMillis();<br>System.out.println(“循环 10 亿次给同一对象赋值的时间： “ + (e - s));<br>}<br>//使用反射创建对象<br>public static void t3() throws Exception {<br>long s = System.currentTimeMillis();  </li>
+</ul>
+<p>Class<Person> c = Person.class;<br>Person p = c.newInstance();<br>Method m = c.getMethod(“setAge”, Integer.class);<br>for (int i = 0; i &lt; loopCnt; i++) {<br>m.invoke(p, 33);<br>}<br>long e = System.currentTimeMillis();<br>System.out.println(“循环 10 亿次反射创建对象的时间：” + (e - s));<br>}<br>static class Person {<br>private int age = 20;<br>public int getAge() {<br>return age;<br>}<br>public void setAge(Integer age) {<br>this.age = age;<br>}<br>}<br>}<br>jdk1.8 版本（就是 JDK8）运行时间如下： </Person></p>
+<p>当切换到 jdk1.7 版本之后，运行时间如下： </p>
+<p>有此我们可以看出，在反射创建对象上，jdk8 确实做了加强。<br>第二：@NonNull 注解和@Nullable 注解的使用<br>用 @Nullable 和 @NotNull 注解来显示表明可为空的参数和以及返回值。这样就够在编译的时候处<br>理空值而不是在运行时抛出 NullPointerExceptions。<br>第三：日志记录方面<br>Spring Framework 5.0 带来了 Commons Logging 桥接模块的封装, 它被叫做 spring-jcl 而<br>不是标准的 Commons Logging。当然，无需任何额外的桥接，新版本也会对 Log4j 2.x, SLF4J, JUL<br>( java.util.logging) 进行自动检测。  </p>
+<p>3.2核心容器的更新<br>Spring Framework 5.0 现在支持候选组件索引作为类路径扫描的替代方案。该功能已经在类路径扫描器中<br>添加，以简化添加候选组件标识的步骤。<br>应用程序构建任务可以定义当前项目自己的 META-INF/spring.components 文件。在编译时，源模型是<br>自包含的，JPA 实体和 Spring 组件是已被标记的。<br>从索引读取实体而不是扫描类路径对于小于 200 个类的小型项目是没有明显差异。但对大型项目影响较大。<br>加载组件索引开销更低。因此，随着类数的增加，索引读取的启动时间将保持不变。<br>加载组件索引的耗费是廉价的。因此当类的数量不断增长，加上构建索引的启动时间仍然可以维持一个常数,<br>不过对于组件扫描而言，启动时间则会有明显的增长。<br>这个对于我们处于大型 Spring 项目的开发者所意味着的，是应用程序的启动时间将被大大缩减。虽然 20<br>或者 30 秒钟看似没什么，但如果每天要这样登上好几百次，加起来就够你受的了。使用了组件索引的话，就能帮<br>助你每天过的更加高效。<br>你可以在 Spring 的 Jira 上了解更多关于组件索引的相关信息。<br>3.3JetBrains Kotlin 语言支持<br>Kolin概述：是一种支持函数式编程编程风格的面向对象语言。Kotlin 运行在 JVM 之上，但运行环境并不<br>限于 JVM。<br>Kolin 的示例代码：<br>{<br>(“/movie” and accept(TEXT_HTML)).nest {<br>GET(“/“, movieHandler::findAllView)<br>GET(“/{card}”, movieHandler::findOneView)<br>}<br>(“/api/movie” and accept(APPLICATION_JSON)).nest {<br>GET(“/“, movieApiHandler::findAll)<br>GET(“/{id}”, movieApiHandler::findOne)<br>}<br>}<br>Kolin 注册 bean 对象到 spring 容器：<br>val context = GenericApplicationContext {<br>registerBean()<br>registerBean { Cinema(it.getBean()) }<br>}  </p>
+<p>3.4响应式编程风格<br>此次 Spring 发行版本的一个激动人心的特性就是新的响应式堆栈 WEB 框架。这个堆栈完全的响应式且非<br>阻塞，适合于事件循环风格的处理，可以进行少量线程的扩展。<br>Reactive Streams 是来自于 Netflix, Pivotal, Typesafe, Red Hat, Oracle, Twitter 以及<br>Spray.io 的工程师特地开发的一个 API。它为响应式编程实现的实现提供一个公共的 API，好实现<br>Hibernate 的 JPA。这里 JPA 就是这个 API, 而 Hibernate 就是实现。<br>Reactive Streams API 是 Java 9 的官方版本的一部分。在 Java 8 中, 你会需要专门引入依赖来使<br>用 Reactive Streams API。<br>Spring Framework 5.0 对于流式处理的支持依赖于 Project Reactor 来构建, 其专门实现了<br>Reactive Streams API。<br>Spring Framework 5.0 拥有一个新的 spring-webflux 模块，支持响应式 HTTP 和 WebSocket 客<br>户端。Spring Framework 5.0 还提供了对于运行于服务器之上，包含了 REST, HTML, 以及 WebSocket 风<br>格交互的响应式网页应用程序的支持。<br>在 spring-webflux 中包含了两种独立的服务端编程模型：<br>基于注解：使用到了@Controller 以及 Spring MVC 的其它一些注解；<br>使用 Java 8 lambda 表达式的函数式风格的路由和处理。<br>有 了 Spring Webflux, 你现在可以创建出 WebClient, 它是响应式且非阻塞的，可以作为<br>RestTemplate 的一个替代方案。<br>这里有一个使用 Spring 5.0 的 REST 端点的 WebClient 实现：<br>WebClient webClient = WebClient.create();<br>Mono person = webClient.get()<br>.uri(“<a target="_blank" rel="noopener" href="http://localhost:8080/movie/42&quot;">http://localhost:8080/movie/42&quot;</a>)<br>.accept(MediaType.APPLICATION_JSON)<br>.exchange()<br>.then(response -&gt; response.bodyToMono(Movie.class));<br>3.5Junit5 支持<br>完全支持 JUnit 5 Jupiter，所以可以使用 JUnit 5 来编写测试以及扩展。此外还提供了一个编程以及<br>扩展模型，Jupiter 子项目提供了一个测试引擎来在 Spring 上运行基于 Jupiter 的测试。<br>另外，Spring Framework 5 还提供了在 Spring TestContext Framework 中进行并行测试的扩展。<br>针对响应式编程模型， spring-test 现在还引入了支持 Spring WebFlux 的 WebTestClient 集成测<br>试的支持，类似于 MockMvc，并不需要一个运行着的服务端。使用一个模拟的请求或者响应， WebTestClient<br>就可以直接绑定到 WebFlux 服务端设施。<br>你可以在这里找到这个激动人心的 TestContext 框架所带来的增强功能的完整列表。<br>当然， Spring Framework 5.0 仍然支持我们的老朋友 JUnit! 在我写这篇文章的时候， JUnit 5 还<br>只是发展到了 GA 版本。对于 JUnit4， Spring Framework 在未来还是要支持一段时间的。<br>3.6依赖类库的更新<br>终止支持的类库  </p>
+<p>Portlet.<br>Velocity.<br>JasperReports.<br>XMLBeans.<br>JDO.<br>Guava.<br>支持的类库<br>Jackson 2.6+<br>EhCache 2.10+ / 3.0 GA<br>Hibernate 5.0+<br>JDBC 4.0+<br>XmlUnit 2.x+<br>OkHttp 3.x+<br>Netty 4.1+</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">zrh</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://zrh-main.github.io/2022/03/22/Java/Spring/%E4%BA%8B%E5%8A%A1/">https://zrh-main.github.io/2022/03/22/Java/Spring/%E4%BA%8B%E5%8A%A1/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">zrh</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Spring/">
+                                    <span class="chip bg-color">Spring</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/03/22/Java/Spring/Bean/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Bean实例">
+                        
+                        <span class="card-title">Bean实例</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Spring/">
+                        <span class="chip bg-color">Spring</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/03/21/Java/Spring/AOP/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="AOP(面向切面)">
+                        
+                        <span class="card-title">AOP(面向切面)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Spring/">
+                        <span class="chip bg-color">Spring</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2022</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">zrh</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
