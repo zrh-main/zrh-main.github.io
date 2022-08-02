@@ -135,3 +135,13 @@ public void whenEmptyStream_thenReturnDefaultOptional() {
 }
 ```
 总的来说，这个简单而强大的类有助于创建简单、可读性更强、比对应程序错误更少的程序
+
+## 判空方法封装
+``` java
+    public String attributeIsNull(Element item, String str) {
+        return Optional.ofNullable(item.selectSingleNode(str))
+                .map(n -> n.getText())
+                .orElse(StringUtils.EMPTY);
+    }
+
+```
