@@ -1,0 +1,1407 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="类库, ZRH博客,zrh博客">
+    <meta name="description" content="ZRH的个人博客,记录个人笔记">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>类库 | ZRH博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">ZRH博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">ZRH博客</div>
+        <div class="logo-desc">
+            
+            ZRH的个人博客,记录个人笔记
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a> -->
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">类库</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/maven/">
+                                <span class="chip bg-color">maven</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/maven/" class="post-category">
+                                maven
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-11-15
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id><a href="#" class="headerlink" title></a></h2><p>Office文档的Java处理包 POI [推荐]</p>
+<p>Apache POI是一个开源的Java读写Excel、WORD等微软OLE2组件文档的项目。目前POI已经有了Ruby版本。 结构： HSSF － 提供读写Microsoft Excel XL…</p>
+<p>Java常用工具包 Jodd [推荐]<br>Jodd 是一个开源的 Java 工具集， 包含一些实用的工具类和小型框架。简单，却很强大！ Jodd &#x3D; Tools + IoC + MVC + DB + AOP + TX + JSON + …</p>
+<p>Google的Java常用类库 Guava<br>Guava 中文是石榴的意思，该项目是 Google 的一个开源项目，包含许多 Google 核心的 Java 常用库。 目前主要包含： com.google.common.annotation…</p>
+<p>Java Base64<br>这是一个封装了 BASE64 编码的 Java 类库。 使用方法如下： String encoded &#x3D; Base64.encode(“Hello, world!”, “UTF-8”); Str…</p>
+<p>Java对象序列化框架 Kryo [推荐]<br>Kryo 是一个快速高效的Java对象图形序列化框架，主要特点是性能、高效和易用。该项目用来序列化对象到文件、数据库或者网络。 示例代码： Kryo kryo &#x3D; new Kryo(); &#x2F;&#x2F;…</p>
+<p>Protocol Buffers [推荐]<br>Protocol Buffers (ProtocolBuffer&#x2F; protobuf )是Google公司开发的一种数据描述语言，类似于XML能够将结构化数据序列化，可用于数据存储、通信协议等方…</p>
+<p>Mybatis 增强工具包 Mybatis-Plus [国产]<br>MyBatis 增强工具包，简化 CRUD 操作。 启动加载 XML 配置时注入单表 SQL 操作 ，为简化开发工作、提高生产率而生。 Maven 坐标 <a target="_blank" rel="noopener" href="http://search.maven/">http://search.maven</a>….</p>
+<p>Java 日期时间处理库 Joda-Time<br>JodaTime 提供了一组Java类包用于处理包括ISO8601标准在内的date和time。可以利用它把JDK Date和Calendar类完全替换掉，而且仍然能够提供很好的集成。 Joda…</p>
+<p>Java动态代理 CGLib<br>CGLib (Code Generation Library) 是一个强大的,高性能,高质量的Code生成类库。它可以在运行期扩展Java类与实现Java接口。Hibernate用它来实现PO字…</p>
+<p>Redis 客户端图形界面工具 RedisClient [国产]<br>RedisClient 是  Redis 客户端 GUI 工具，使用 Java swt 和jedis 编写。它将redis数据以windows资源管理器的界面风格呈现给用户，可以帮助redis开…</p>
+<p>Commons-lang<br>Commons项目中用来处理Java基本对象方法的工具类包，可以简化很多平时经常要用到的写法，例如判断字符串是否为空等等。 JavaDoc:<a target="_blank" rel="noopener" href="http://tool.oschina.net/api">http://tool.oschina.net/api</a>…</p>
+<p>Java日期时间处理类 date4j [推荐]<br>date4j是一个用于简化日期和时间操作的Java工具。可以替换java.util.Date。 示例代码： DateTime dateAndTime &#x3D; new DateTime(“2010-0…</p>
+<p>Bean 验证框架 Hibernate Validator<br>用Annotations 给类或者类的属性加上约束(constraint),在运行期检查属性值是很优雅的.Hibernate Validator就是这样的一个框架.该框架是十分容易的(就像参考文…</p>
+<p>Commons-IO<br>Commons项目中用来处理IO的一些工具类包，下面是一些示例代码： &#x2F;&#x2F;直接将IO流转成字符串 InputStream in &#x3D; new URL( “<a target="_blank" rel="noopener" href="http://jakarta.apach/">http://jakarta.apach</a>…</p>
+<p>Commons codec<br>Commons项目中用来处理常用的编码方法的工具类包，例如DES、SHA1、MD5、Base64等等。 JavaDoc:<a target="_blank" rel="noopener" href="http://www.ostools.net/apidocs/apidoc">http://www.ostools.net/apidocs/apidoc</a>…</p>
+<p>Java本地方法封装库 JNA<br>JNA（Java Native Access ）提供一组Java工具类用于在运行期动态访问系统本地库（native library：如Window的dll）而不需要编写任何Native&#x2F;JNI代…</p>
+<p>Commons Daemon [推荐]<br>Commons Daemon 可以帮你实现将一个普通的 Java 应用编程系统的一个后台服务。 例如 Tomcat 就是利用这个项目来实现作为 Linux 和 Windows 的服务启动和停止的…</p>
+<p>表达式解析执行器 IKExpression [推荐] [国产]<br>IK-Expression 是一个开源的（OpenSource)，可扩展的（Extensible），基于java语言开发的一个超轻量级（Super lightweight）的公式化语言解析执行工…</p>
+<p>文本编码自动检测 cpdetector<br>一个可以自动检测文本编码格式的项目 detector按照“谁最先返回非空的探测结果，就以该结果为准”的原则返回探测到的 字符集编码。  使用需要用到三个第三方JAR包：antlr.jar、cha…</p>
+<p>OpenDocument文档转换器 JODConverter<br>JODConverter一個Java的OpenDocument 文件轉換器，可以進行許多文件格式的轉換，它利用OpenOffice所提供的轉換介面來進行轉換工作，它能進行底下的轉換工作： Mic…</p>
+<p>Java 配置文件读写 Commons Configuration<br>Commons Configuration是一个java应用程序的配置管理类库。可以从properties或者xml文件中加载软件的配置信息，用来构建支撑软件运 行的基础环境。在一些配置文件较多…</p>
+<p>JavaBean 工具包 BeanUtils<br>commons-beanutils 是apache commons子项目中的一个软件包，其主要目的是利用反射机制对JavaBean的属性进行处理。 示例代码： Employee empl…</p>
+<p>Java 快速序列化库 FST [推荐]<br>FST fast-serialization 是重新实现的 Java 快速对象序列化的开发包。序列化速度更快（2-10倍）、体积更小，而且兼容 JDK 原生的序列化。要求 JDK 1.7 支持。…</p>
+<p>Java分页包 commons-java-pager<br>在java web开发中,分页已经成为了不可缺少的一个组件. 我曾经参与过很多的java web开发, 在不同的项目中修订了多种分页组件(或者叫分页工具类) 但是最后我发现, 无论怎么修订, 总…</p>
+<p>Java 访问 C++ 方法 JavaCPP [推荐]<br>JavaCPP提供了在Java中高效访问本地C++的方法。采用JNI技术实现，支持所有Java实现包括Android系统，Avian 和 RoboVM。 JavaCPP提供了一系列的Annota…</p>
+<p>字符集编码的自动识别 jchardet [推荐]<br>jchardet是mozilla自动字符集探测算法代码的java移植。这个算法的最初作者是frank Tang,C++源代码在<a target="_blank" rel="noopener" href="http://lxr.mozilla.org/mozilla/sou">http://lxr.mozilla.org/mozilla/sou</a>…</p>
+<p>ETL数据导入&#x2F;导出工具 HData [推荐] [国产]<br>HData是一个异构的ETL数据导入&#x2F;导出工具，致力于使用一个工具解决不同数据源（JDBC、Hive、HDFS、HBase、MongoDB、FTP、Http、CSV、Excel、Kafka等）之…</p>
+<p>Commons Pool<br>Commons Pool组件提供了一整套用于实现对象池化的框架，以及若干种各具特色的对象池实现，可以有效地减少处理对象池化时的工作量，为其它重要的工作留下更多的精力和时间。 创建新的对象并初始化…</p>
+<p>jfinal+snaker+B-JUI基础项目 JfSnPM [国产]<br>项目说明 项目为整合 Jfinal  Snaker  B-jui 的基础项目。适用于OA，后台。 演示地址 <a target="_blank" rel="noopener" href="http://jfsnpm.sturgeon.mopaas.com/">http://jfsnpm.sturgeon.mopaas.com</a> 演示地址可使用os…</p>
+<p>ReflectASM<br>ReflectASM 是一个非常小的 Java 类库，通过代码生成来提供高性能的反射处理，自动为 get&#x2F;set 字段提供访问类，访问类使用字节码操作而不是 Java 的反射技术，因此非常快。 …</p>
+<p>Google Collections<br>Google Collections Library是由Google基于Java5.0 Collections Framework开发的一套新的Java集合框架。新添加的主要类型包括： BiMa…</p>
+<p>CSV解析的Java包 openCSV<br>opencsv一个简单的CSV解析Java包。它封装了CSV格式文件的输出和读入，可以自动处理CSV格式中的特殊字符。</p>
+<p>Html2Image<br>Html2Image 是一个 Java 类库，可将 HTML 存为 GIF\PNG 和 JPG 图像，并通过 <map> 元素让该图片可点击。 示例代码： HtmlImageGenerator …</map></p>
+<p>Java 序列化库 JID<br>JID 是一个用来反序列化、更新和重新序列化 Map 对象，在 i5 2.53GHz 处理器的机器上，完成 10000 条目的操作仅需 4 毫秒。序列化和重新序列化的时间很大程度上依赖于表条目的…</p>
+<p>命令行界面构建工具 Docopt [推荐]<br>Docopt。抛弃optparse和argparse吧，使用docstrings来构建优雅的，可读性强的，并且复杂（如果你需要的话）的命令行界面。Docopt 提供多种语言版本，包括：Java、…</p>
+<p>Spring-Boot 的 Dubbox boot-dubbo [国产]<br>Boot-dubbo 项目整合了最新的 Spring Boot 和功能强大的 RPC 框架 Dubbox，两者都有优点，也都有缺点，最新版本的 Spring Boot 包含了 Metrics 模…</p>
+<p>Java序列化类库 protostuff<br>protostuff 是一个支持各种格式的一个序列化Java类库，包括 JSON、XML、YAML等格式。 示例代码： public class UserSchema implements Sc…</p>
+<p>docx的Java操作库 docx4j<br>docx4j 是一个解压的docx包(docx本身是zip包)和解析WordprocessingML格式XML的Java库 。 最新版本的 docx4j 也支持PowerPoint pptx文件…</p>
+<p>表达式语言 OGNL<br>OGNL 是一种图对象的导航语言，这是一个表达语言获取和设置属性的Java对象。您使用相同的表达都得到和设置Key-Value的属性。 该ognl.Ognl类包含方便评价方法的OGNL表达式。为…</p>
+<p>CSV格式读写库 SuperCSV<br>Super CSV 是一个速度奇快、免费跨平台的 CVS 格式数据的读写库，可以方便的处理对象、Map、列表的读写操作，以及自动化的类型转换和数据检查功能。</p>
+<p>Java邮箱地址验证 jaev<br>很显然，这个项目有点小题大做了，jaev 是一个用来验证电子邮箱地址是否有效的 Java 项目。不过它并不是这么简单，可以跟很多框架进行集成。 示例代码： ValidatorFactoryBui…</p>
+<p>Spring Session<br>Spring Session 致力于提供一个公共基础设施会话，主要功能如下： 从任意的环境中访问一个会话 (i.e. web, messaging infrastructure, etc) WE…</p>
+<p>Java表达式引擎 Aviator [国产]<br>Aviator是一个高性能、轻量级的基于java实现的表达式引擎，它动态地将String类型的表达式编译成Java ByteCode并交给JVM执行。 Aviator支持所有的关系运算符和算术运…</p>
+<p>Java国际化开发包 ICU4J<br>ICU4J 是IBM的国际化开发组件ICU的Java语言实现版本。</p>
+<p>java表达式计算 QLExpress [国产]<br> @author <a href="mailto:&#113;&#x68;&#108;&#104;&#x6c;&#50;&#48;&#x31;&#x30;&#64;&#x67;&#x6d;&#x61;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;">&#113;&#x68;&#108;&#104;&#x6c;&#50;&#48;&#x31;&#x30;&#64;&#x67;&#x6d;&#x61;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;</a>  你想知道   a love b &#x3D; ? 吗 ，你想随意定义自己的操作符号吗 ？ 请使用 QLExpress工具包 QLExpress …</p>
+<p>Java表达式语言 JUEL<br>JUEL (Java Unified Expression Language) 是 JSP 2.1 规范中的表达式语言(EL) 的 Java 实现。 示例代码： &#x2F;&#x2F; parse our exp…</p>
+<p>Java Bean 工具包 Dozer<br>Dozer是一个用来复制 JavaBean 属性的类库，类似 BeanUtils 例如： MapperIF mapper &#x3D; new DozerBeanMapper(); Destination…</p>
+<p>Java集合类 GNU Trove<br>Trove 是一个快速、轻量级 Collection 类的集合。Trove 提供所有标准 java.util Collections 类的更快的版本以及能够直接在原语（primitive）（例如…</p>
+<p>Java 实时集合框架 Javolution<br>Javolution 提供一个高性的Java集合（collection ）类库和一些实用的工具类。虽然这个类包只提供非常少的几个集合类，但是这些类就能够代替大部分java.util类。javol…</p>
+<p>Java UUID Generator<br>JUG 是一个纯 Java 的 UUID 生成器。 UUID是指在一台机器上生成的数字，它保证对在同一时空中的所有机器都是唯一的。通常平台会提供生成UUID的API。UUID按照开放软件基金会 …</p>
+<p>Java 命令行解析器 JOpt Simple [推荐]<br>JOpt Simple 是一个简单的、测试驱动的命令行解析器，支持 POSIX getopt() 和 GNU getopt_long() 示例代码： package joptsimple.exa…</p>
+<p>表达式计算引擎 Fast EL [国产]<br>Fel轻量级的高效的表达式计算引擎。 Fel在源自于企业项目，设计目标是为了不断变化的功能需求和性能需求。 Fel是开放的，引擎计算中的多个模块都可以扩展或替换。Fel的执行主要是通过函数实现,…</p>
+<p>Java Util 工具类 hutool [国产]<br>hutool 是一个Util工具类（类似之前的 common-tools），但是这个工具类依赖更少，提供更多的实用功能，可以大大加快开发的速度。里面每个类相对独立，具体请阅读注释。 </p>
+<p>Java简繁体中文互换 java-zhconverter [国产]<br>java-zhconverter是一个简繁体中文互换的Java开源类库。 示例代码： &#x2F;&#x2F; Instantiation will fetch the property file which lo…</p>
+<p>YAML解析器 SnakeYAML<br>SnakeYAML是针对java语言的YAML解析器。 特性： 完整的 YAML 1.1解析器。尤其是，SnakeYAML能够分析来自于规范的所有示例； 支持Unicode，包括UTF-8&#x2F;UT…</p>
+<p>时间格式化类库 PrettyTime<br>PrettyTime是一个开源的时间格式化类库。它能够将时间格式成易于用户阅读的格式，如”12分钟前”、”2天前”、”至今3个月”等。易于使用。完全可定制，可以创建属于自己TimeUnit和Ti…</p>
+<p>Apache Commons Exec<br>Apache Commons Exec 是 Apache 上的一个 Java 项目，提供一些常用的方法用来执行外部进程，如下面代码所示： String line &#x3D; “AcroRd32.exe …</p>
+<p>轻量级Java有限状态机 Squirrel State Machine [国产]<br>Squirrel State Machine 是基于Java的有限状态机的实现。主要实现功能包括： - 提供友好的API来构建状态机 - 提供基于注释声明状态机 - 事件驱动的状态转移 - 状态…</p>
+<p>Java 转义库 unbescape [推荐]<br>unbescape 是一个 Java 的转义库，特点是高性能和易用，而且功能强大，支持多种格式的转义，包括： HTML (HTML5 and HTML 4) XML (XML 1.0 and X…</p>
+<p>Spring Shell<br>Spring Shell 提供交互式的 Shell 可让你使用简单的基于 Spring 的编程模型来开发命令。 示例代码： @Component public class HelloWorldC…</p>
+<p>Java集合框架 fastutil<br>fastutil 在 Java 的集合框架的基础上进行扩展，主要的目的是快速存取以及低内存占用。同时也提供了一组快速的API用来读写文本和二进制文件。</p>
+<p>序列化协议 Spearal<br>Spearal 是一个全新的开源的序列化协议，旨在突破 JSON 的限制，其目标第一步是让 HTML 和原生移动应用可连接到 Java 的后端。 Spearal 主要目标是让序列化更简单，封装了…</p>
+<p>Java命令行参数处理类库 Commons CLI<br>Commons CLI 是一个用来处理命令行参数的 Java 工具包。 示例代码： CommandLineParser parser &#x3D; new PosixParser(); CommandLi…</p>
+<p>Retrolambda<br>Retrolambda 是一个 Java 类库，在 Java 5、6、7 上实现 Java 8 的 Lambda 表达式的功能。你可以通过 Retrolambda 让使用 Lambda 表达式的…</p>
+<p>Java多线程开发包 JEgg<br>JEgg 是一个框架用来减少开发可靠的多线程 Java 应用程序的复杂度。JEgg 采用的是活动对象 Active Object 设计模式。</p>
+<p>INI工具包 Java INI Package<br>Java INI Package (JavaINI) 是一个 Java 语言用来读写 INI 文件的工具包。 下面是一段示例代码： import org.dtools.ini.*; public…</p>
+<p>protobuf-java-format<br>otobuf-java-format是用于序列和反序列所有基于Google Protobuf格式的各种消息。它能够将protobuf格式还原成XML、JSON和HTML等文本格式。 示例代码： …</p>
+<p>java 公式解析 表达式解析 expression-analyzer [国产]<br>基于有限自动机和LL(1)分析法实现的公式解析器，使用java语言开发，具备以下功能： 1)         实现了算术和逻辑表达式的解析，可使用单条或多条语句，表达式中可使用注释；  2)  …</p>
+<p>CSS解析器 CSS Parser<br>CSS Parser 是一个用Java编写的用来解析 CSS 的解析库。</p>
+<p>IP 到地名映射库 ip2region [国产]<br>ip2region - 准确率99.9%的ip地址定位库，0.0x毫秒级查询，数据库文件大小只有1.5M，提供了java,php,c,python,nodejs,golang查询绑定和Binar…</p>
+<p>表达式语言解析器 Commons EL<br>Commons EL 是 Apache 组织中一个用来解析 JSP 2.0 的表达式语言的 Java 类库。 JavaDoc: <a target="_blank" rel="noopener" href="http://tool.oschina.net/apidocs/a">http://tool.oschina.net/apidocs/a</a>…</p>
+<p>高性能异步网络框架和 WEB 服务器框架 Voovan [推荐] [国产]<br>VOOVAN 开源框架 Voovan 是一个高性能异步网络框架和 HTTP 服务器框架，同时支持 HTTP 客户端抓取、动态编译支持、数据库访问封装以及 DateTime、String、Log、…</p>
+<p>Java算法包 jga<br>jga (Generic Algorithms for Java) 是一个 Java 的通用算法函数库，旨在提供一些常用的函数和表达式的封装。 示例代码： List<Fruit> citrus …</Fruit></p>
+<p>编码检测工具 juniversalchardet<br>Mozilla在很多年前就做了一个非常优秀的编码检测工具，叫chardet(java版jchardet )，后来有发布了算法更加优秀的universalchardet，用于Firefox的自动编…</p>
+<p>user-agent-utils<br>user-agent-utils 是一个用来解析 User-Agent 字符串的 Java 类库。 能识别的内容包括： 常见操作系统 常见 Web 浏览器 很多移动设备 一些平板设备 一些 Em…</p>
+<p>Java的表达式计算引擎 Expr4J<br>Expr4J 是一个Java的表达式计算引擎，可以用来计算例如在 Excel 单元格中的表达式等。 示例代码： package org.boris.expr.util; import java….</p>
+<p>Java类动态代理框架 Smartproxy<br>Smartproxy 是一个 Java 的动态类和实例代理框架，类似 java.lang.reflect.Proxy 类所作的工作，但无需调用 InvocationHandler 接口。Smar…</p>
+<p>Java高性能集合类 ConcurrentLinkedHashMap<br>ConcurrentLinkedHashMap是java.util.LinkedHashMap的一个高性能实现。主要用于软件缓存。 示例代码： EvictionListener&lt;K, V&gt; li…</p>
+<p>Aspose.Email<br>Aspose.Email 是一组控件用于轻松的开发 email 功能的应用程序、Web应用、Web服务和Windows 应用。支持 Outlook PST, EML, MSG, and MHT …</p>
+<p>分布式事务管理器 ByteTCC [国产]<br>ByteTCC是一个基于TCC（Try&#x2F;Confirm&#x2F;Cancel）机制的分布式事务管理器。兼容JTA，可以很好的与Spring容器进行集成。  一、快速入门 1.1. 加入maven依赖 …</p>
+<p>Bean Validation<br>Bean Validation 项目的目的就是为了实现 Bean Validation Specfication (JSR303) 规范，并与 TCK 兼容，支持 Java SE 5 或者更新版…</p>
+<p>Java科学计算包 JScience<br>JScience 是一个Java的科学计算包</p>
+<p>PDF生成工具包 FOP<br>FOP是由James Tauber发起的一个开源项目，原先的版本是利用xsl-fo将xml文件转换成pdf文件。但最新的版本它可以将xml文件转换成pdf，mif，pcl，txt等多种格式以及直…</p>
+<p>Java快速开发库 Beangle<br>  Beangle立足java企业软件开发，提供敏捷、基于约定(Convention Over Configuration)的脚手架和工具包。 着力以简化项目构建,并规范项目开发习惯,形成易于管…</p>
+<p>表达式解析引擎 SimpleEL [国产]<br>Simple EL是一个表达式解析引擎。它将表达式解析分成四个部分：预处理、编译、缓存和执行。这四个步骤任意一部分都可以替换，类似设计模式中的Template Method。 缺省的实现是：将表…</p>
+<p>INI文件操作类库 [ini4j]<br>[ini4j] 是一个简单的Java类库，用来读写Windows的ini配置文件。同时还包含一个 Java Perferences API 的实现。 示例代码： import org.ini4j…</p>
+<p>不使用构造方法创建对象 Objenesis<br>如果一个类没有参数为空的构造方法时候，那么你直接调用newInstance方法试图得到一个实例对象的时候是会抛出异常的。能不能有 办法绕过构造方法来实例化一个对象呢？ Objenesis 为其提…</p>
+<p>Commons Validator<br>Apache Commons Validator 组件提供了客户端和服务器端的数据验证框架。</p>
+<p>DBF的Java操作类库 JavaDBF<br>JavaDBF 是一个用来读写XBase (dBase&#x2F;DBF) 文件的 Java 类库，非常适合用来解析 DBF 数据库文件。</p>
+<p>结构化纯文本格式 OGDL<br>OGDL (Ordered Graph Data Language) 是个结构化纯文本格式，用来表示图的信息。它的语法非常简单，适用于任何简单的解析器。同时，它还是个可读的替代数据应用中的 XM…</p>
+<p>Apache DB DdlUtils<br>Apache DB DdlUtils 是一个很小型的易用的组件，用于操作数据库定义文件——DDL。通过在 XML 文件中定义数据库模型，例如表格和列，这些XML文件可以通过 Ant 的任务被植入…</p>
+<p>模拟数据生成器 Data-Processer [推荐] [国产]<br>Data-Processer 简介 1、是什么？ 它是一个模拟数据生成器。我们在测试过程中，产生完整、全面的真实数据可能比较困难。我们可以根据需求，创建对应的模版和词典，利用数据模拟生成器生成我…</p>
+<p>common-tools [国产]<br>java工具类，提供常用的功能方法，例如：时间工具、数据库连接池工具、ssh端口映射（已与数据库连接集成）、支持变量替换和自定义字符集的配置文件类、多线程工具类、文件读写工具类等等。还提供生产者…</p>
+<p>OpenOffice 的 Java 类库 jOpenDocument<br>jOpenDocument 是一个用来处理 OpenOffice.org 文档的 Java 类库，无需 OpenOffice 的支持。 使用 jOpenDocument 你能够： * 动态创建文…</p>
+<p>配置管理API Archaius<br>Archaius 包含一系列配置管理API，提供动态类型化属性、线程安全配置操作、轮询框架、回调机制等等功能。 示例代码： &#x2F;&#x2F; create a property whose value …</p>
+<p>Java的CSV解析包 CSVObjects<br>CSVObjects 是一个 Java 的类库，用来解析和处理 CSV 格式的文件，并转成 Java 的对象，无须编写解析的逻辑。</p>
+<p>Java 快速开发框架 java_framework [国产]<br> java_framework 可以帮助 Java 开发者快速开发 spring+mybatis+mysql 应用，易学易用 使用方法：直接下载导入 MyEclipse 即可。 相关截图</p>
+<p>表达式解析执行器 IK Expression [国产]<br>IK Expression是一个开源的（OpenSource)，可扩展的（Extensible），基于java语言开发的一个超轻量级（Super lightweight）的公式化语言解析执行工具…</p>
+<p>命令行参数解析库 JCommander<br>JCommander 是一个非常小的Java 类库，用来解析命令行参数。 示例代码： import com.beust.jcommander.Parameter;   public class …</p>
+<p>Java表达式解析器 JExel<br>JExel 是一个Java语言的表达式解析器，可以解析大部分基本的算式以及字符串表达式。</p>
+<p>OpenRTB<br>OpenRTB 为所有支持 protobuf 语言提供绑定，另外，它也支持 Java，例如 JSON 序列化和验证。详细信息请查看 Wiki。</p>
+<p>Java File Copy Library<br>Java File Copy Library 提供了一种简易的方法用于执行大量的文件拷贝工作，可定义批处理进行文件复制，复制的过程可通过一个进度条显示，如下图所示： 示例代码： Sour…</p>
+<p>Java文本处理工具包 ORO<br>Jakarta-ORO 是一个Java工具包用来在 Java 类中进行文本处理的功能，提供兼容 Perl5 的正则表达式、类 AWK 的正则表达式等。</p>
+<p>通用工具类 commonUtils [国产]<br>涵盖加密，日期处理，验证，网络，字符串处理，配置，文件处理，异常等工具类。</p>
+<p>protobuf​的Java开发包 jprotobuf [国产]<br>jprotobuf是针对Java程序开发一套简易类库，目的是简化java语言对protobuf类库的使用 使用jprotobuf可以无需再去了解.proto文件操作与语法，直接使用java注解定…</p>
+<p>预输入搜索 Cleo<br>Cleo 是一个灵活的软件库用于处理一些预输入和自动完成的搜索功能，该项目是 LinkedIn 公司的开源项目。 LinkedIn Typeahead 对该项目的详细介绍请看 linkedin …</p>
+<p>代码自动生成器 AutoCreate [国产]<br>autocreate 是 数据库链接采用Jfinal ActiveRecordPlugin，模板配置采用beetl，实现根据模板自动生成项目代码。 可以根据自己项目代码结构，定制属于自己的模板，…</p>
+<p>j2ee应用快速开发手架 thinker<br>thinker(像一个思想者一样去写代码) 介绍 工作中的积累，搭建的j2ee应用快速开发手架，重点在代码重构，一些常用功能的演示，工具，插件等的整理         github     gi…</p>
+<p>页面数据分页处理 SmartPagination<br>smartpagination框架的优势： 1、跨数据库：底层可以采用ORM、iBatis、JDBC等技术访问数据库，甚至可以不是数据库（比如可以是一台远程socket server）； 2、提…</p>
+<p>Java反射工具包 reflectutils<br>reflectutils 是一个适于 Java 5+ 的反射工具包。 示例代码：   List l &#x3D; ReflectUtils.getInstance().constructClass(Lis…</p>
+<p>代码生成工具 swing-generate [国产]<br>swing-generate是java swing开发的一款代码生成工具。 你可以修改模板文件进行自定义，这里使用的是velocity模板引擎， 后期会出web版本的在线模板定制 :)</p>
+<p>序列化库 FlatBuffers<br>FlatBuffers 是一个 Java 的序列化库，用于游戏和其他内存受限的应用。FlatBuffers 可以让你直接访问序列化后的数据，无需解压并进行解析的过程。同时提供很强的向前和向后兼容…</p>
+<p>Aspose.Slides for Java<br>Aspose.Slides for Java 是一个 Java 组件，用来操作 PowerPoint 幻灯片文档，无需安装 PowerPoint 环境，可导出到 PDF、嵌入音频和视频链接，生成…</p>
+<p>Java文件监控库 jpathwatch<br>jpatchwatch 是一个 Java 的库用来监控指定目录的文件变更，使用操作系统本身的功能实现，避免轮询。 可监控的操作包括： 文件创建和删除 文件修改 文件重命名 子目录修改 目录失效</p>
+<p>Flying Saucer<br>Flying Saucer 用纯 Java 编写的，可以将 XML&#x2F;XHTML 应用 CSS2.1 样式渲染为 PDF、图片。此库基本上能实现 CSS 2.1 的整体性， 并且完全符合 W3C 规范。</p>
+<p>Apache Forrest<br>Apache Forrest是一个把来自各种不同的输入数据源转换成用一种或多种输出格式(比如HTML,PDF等)来统一显示的发布系统。它基于Apache Cocoon并分离了内容与内容结构,不仅…</p>
+<p>Commons Discovery<br>Discovery 组件用来发现、查找和实现可插入式接口，提供一些一般类实例化、单件的生命周期管理的常用方法。 示例代码： import org.apache.commons.discovery…</p>
+<p>yaml 的 java 实现 JYaml<br>JYaml 是 yaml 的 java 实现，jyaml 在除了能够解析 yaml 文件外，还提供了非常方便的配置文件读取功能，比如映射属性到  Java Bean Yaml 可以映射List，…</p>
+<p>Java Bean 映射框架 Orika<br>Orika 是一个 Java Bean 映射框架。 示例代码： mapperFactory.classMap(BasicPerson.class, BasicPersonDto.class)  …</p>
+<p>Java的CSV解析包 CSVBeans<br>CSVBeans 是一个 Java 的类库，用来解析和处理 CSV 格式的文件，并转成 Java 的Bean，无须编写解析的逻辑。</p>
+<p>JFinal 基础工具包 JFinal-commons [国产]<br>JFinal-commons是JFinal2.0框架的一个基础工具包，集成众多工具，为您节约更多时间，去陪恋人、家人和朋友 :) 该项目最早是在媒体猫(java saas)中的一个maven模块…</p>
+<p>HTTPBuilder<br>如果熟悉HttpClient，那么你对 HTTPBuilder就不会感到陌生，它是对前者的封装，使之更符合Groovy的使用惯例。下面的例子摘自HTTPBuilder的文档，它充分展示 了自己的…</p>
+<p>JActor的文件持久化组件 JFile<br>JFile 是 JActor 的文件持久化组件，以及一个高吞吐量的可靠事务日志组件。</p>
+<p>高性能内存消息和事件驱动库 Chronicle<br>Chronicle 是一个超低延迟、高吞吐、持久化的消息和事件驱动的内存数据库，延迟只有16纳秒以及支持每秒钟 500-2000 万消息&#x2F;记录。</p>
+<p>Java 常用工具包 JCake [国产]<br>JCake是整合了目前Java开发过程中使用最多的：字符串处理、日期处理、邮件处理、文件处理、任务调度处理、HTTP请求处理、MD5&#x2F;AES加密解密处理的一系列工具类，方便开发人员，减少一些不必…</p>
+<p>轻量级的序列化&#x2F;反序列化工具 XBlink [国产]<br>简介： 一个轻量级的通用型序列化反序列化工具 特点： 轻 – 当前版本，无需引入任何第三方jar包，JDK1.5以上适用，大小总共120K。 易 – 简单易用，基本上只需调用一个方法就能帮你…</p>
+<p>Java的CSS工具包 SAC<br>SAC 全称是 Simple API for CSS ，是Java语言用来处理 CSS 的一个开源类库。 SAC 的 JavaDoc 文档：<a target="_blank" rel="noopener" href="http://www.oschina.net/uplo">http://www.oschina.net/uplo</a>…</p>
+<p>Java集合工具包 lambdaj<br>LambdaJ 的主要目的是简化对集合的操作。在迭代集合时，特别是在嵌套循环阶段，很容易出错，使代码的可读性变的很糟糕。而该库的目的就是来缓解这些问题。 示例代码： List sortedByA…</p>
+<p>Java 反射封装库 joor<br>jOOR 在java原生的反射基础上进行了简单的封装，使得反射使用方便不少！ 举个简单的列子，供大家参考。 java 原生反射写法： try {   Method m1 &#x3D; department…</p>
+<p>网页正文抽取算法 ContentExtractor [国产]<br>简介 ContentExtractor 是一个开源的网页正文抽取工具，用JAVA实现，具有非常高的抽取精度。 算法 ContentExtractor的网页正文抽取算法使用的是CEPR，适用于几乎…</p>
+<p>数据库分区分表的框架 TinyDbRouter [国产]<br>TinyDBRouter是一个用于进行数据库分区分表的框架，它实现在JDBC驱动层，具有更好的普适性和兼容性。 支持各种数据库，支持绝大多数SQL语句。 支持读写分离和数据分表。 同时对排序、聚…</p>
+<p>Commons CSV<br>Commons CSV 是一个用来读写各种 Comma Separated Value (CSV) 格式文件的 Java 库. Maven: <groupId>org.apache.common…</groupId></p>
+<p>EWS Java API<br>ews-java-api 是用来访问 Exchange Web 服务的 Java 客户端库，API 支持 Office 365 Exchange Online。  </p>
+<p>Excel 数据处理工具 fasterexcel [国产]<br>fastexcel 可以快速简单读取excel数据，将 Apache POI 进行了薄封装，基于注解，更加易于使用。 使用样例 FastExcel fastExcel &#x3D; new FastExc…</p>
+<p>HTML恶意代码过滤 AntiSamy<br>它是一个可确保用户输入的HTML&#x2F;CSS符合应用规范的API。换句话讲，这个API可以确保用户无法在HTML中提交恶意代码，这些恶意代码提交通常 被用于用户输入的个人资料、评论等会被服务端持久化…</p>
+<p>diff-match-patch<br>要对文本文件的进行比较的时候，可以考虑使用google-diff-match-patch，它可以进行比较、匹配和生成补丁的操作</p>
+<p>Java 生成器代码集合 Google Auto<br>Auto 是 Java 生成器源代码集合，包括： AutoFactory - 兼容 JSR-330 的工厂 AutoService - ServiceLoader 的 Provider-conf…</p>
+<p>目录比较同步助手 Direetory Helper<br>Direetory Helper 是一个用JAVA可视化的目录文件同步助手，可以比较两个目录的结构不同，然后复制不同的数据进行同步。 程序运行需要JRE1.7运行环境。 应用场景： 1.相机卡里…</p>
+<p>jMimeMagic<br>jMimeMagic 是一个用来检测文件或者数据流的 MIME 类型的 Java 类库。</p>
+<p>Java字节码操作 ASMSupport [国产]<br>当使用ASM编写的时候 很多情况下需要了解JVM底层的指令的， 并且需要对栈和本地变量显式的进行操作， 如果直接用ASM进行开发势必会付出更多的学习成本和时间成本，并且不易后期的维护。 此框架正…</p>
+<p>优先级R-Tree PRTree<br>PRTree是一个实现了优先级R-Tree以及空间索引的Java开发包，代码示例： PRTree tree &#x3D; new PRTree (new Rectangle2DConverter (), …</p>
+<p>UBB码转换 UBB2HTML<br>UBB2HTML 是一个用来将 UBB 码转换成 HTML 代码的 Java 类库。 使用方法： String html &#x3D; UBBDecoder.decode(“[b]I Love You[&#x2F;…</p>
+<p>Java对象转换库 EZMorph<br>EZMorph是一个简单的java类库用于将一种对象转换成另外一种对象。EZMorph原先是Json-lib项目中的转换器。EZMorph支持原始数据类型（Primitive），对象（Objec…</p>
+<p>JBoss Marshalling<br>JBoss Marshalling 是一个Java对象的序列化API包，修正了JDK自带的序列化包的很多问题，但又保持跟 java.io.Serializable 接口的兼容；同时增加了一些可调…</p>
+<p>Commons Chain<br>Commons Chain 是一个实现了责任链设计模式的 Java 类库。 示例代码： package org.apache.commons.chain.mailreader.commands;…</p>
+<p>OpenSymphony 公共工具类 OSCore<br>Opensympnony的组件多是精致小巧的设计，简单易用和灵活。OSCore作为是一组公共工具类，提供了丰富的常用方法的标准实现，供其他OpenSymphony组件使用。 OSCore的代码很…</p>
+<p>user-agent-parser-java<br>这是一个用来解析 User-Agent 字符串的 Java 类库。</p>
+<p>8583 报文解析框架 Simple8583<br>最近在做中国银行的一个快捷支付渠道，使用的是 ISO8583 协议，一开始用的是JPOS框架，但是感觉框架比较臃肿，而且文档也比较少。在等待银行专线的过程中，自己闭门造车做了一个简单的8583报…</p>
+<p>VCard格式读写的Java类库 cardme<br>cardme 是 RFC 2426 的 Java 实现，可方便读写 VCard 文件格式。</p>
+<p>Word文档生成 TinyDocGen [国产]<br>序言 Word文档生成在许多项目中都是需要的，目前来看有两种方案，一种是通过Apache POI工具包、iText来生成，另外一种是利用Office Open Xml规范来进行生成。各种方案各有…</p>
+<p>Java 实体类生成工具 JavaEntityBuilder [国产]<br>JavaEntityBuilder 是 Java 实体类生成工具。 简单xml 数据库配置，内置: 1.基本工具类 2.jdbc session 管理 3.实体类生成工具类 4.简易Swing界面</p>
+<p>JDBC 工具包 Midao JDBC<br>Midao JDBC 简化了 JDBC 的开发，特点是灵活、可定制、简单直观，提供大量的功能，包括事务处理、元数据操作、类型处理、检视、输入输出处理和转化，带连接池的数据源支持；缓存和懒查询执行…</p>
+<p>bean转化的利器 mapping4java [国产]<br>mapping4java，bean转化的利器，性能上快上beanutils 10倍，功能上比cglib丰富很多。国外类似的产品还有dozer(基于beanutils，性能还是一样那么烂)。 性能…</p>
+<p>轻量级的分类工具 Classifier4J<br>Classifier4J是一个轻量级的分类工具，支持贝叶斯分类、向量空间模型、信息摘要等。 简单实例代码： SimpleClassifier classifier &#x3D; new SimpleCla…</p>
+<p>Java的文本文件处理包 JSaPar<br>JSaPar 是一个根据预设模型来解析各种文本文件和CSV文件的Java类库，主要的功能包括：  * 通过一个 XML 格式的 Schema 文件来解析文本文件的格式  * Schema 也可以…</p>
+<p>Java 反射封装库 Mirror<br>给一个简单的问题带来光明的解决方案,通常用ReflectionUtil命名。 在几乎所有项目都需要依靠反射来做高级任务。但是，处理Java反射API是痛苦的。问任何使用过反射的人,他会告诉你它是…</p>
+<p>GraphQL 的 Java 实现 graphql-java<br>graphql-java 是 GraphQL 的 Java 实现。这个库的目标是用于真实的生产环境。 graphql-java 解析和执行查询 GraphQL 。它并不真正获取任何数据的：数据来…</p>
+<p>Java树形容器 JTreeMap<br>JTreeMap是一个使用 Map 的数据结构来表示树形结构的 Java 容器。</p>
+<p>跨语言对象序列化 MGen<br>MGen 是一个支持跨语言的对象序列化项目，由以下两部分组成： 源码生成的工具 ( MGen 编译器 ) 语言的支持库 MGen 类似 Gooogle 的 Protocol Buffers ，可…</p>
+<p>Bean脚本框架 BSF<br>BSF (Bean Scripting Framework) 是一组 Java 的类用来在 Java 的程序中支持脚本语言，可在脚本语言中访问 Java 的对象和方法。BSF 支持多种脚本语言，…</p>
+<p>读取应用程序配置的类库 EasyConf<br>EasyConf是一个用来读取应用程序配置的类库。EasyConf的设计目标是使得编写读取应用配置更简单。 示例代码：   public static final double EURO_TO_…</p>
+<p>JavaBean框架 UJO<br>UJO Framework为对象提供了一种有别于JavaBeans的架构。最初的想法来源于Java5.0的范型。但是，随着时间的流逝，这种架构表现一些激动人心的特性： 很轻松实现对象的自省(in…</p>
+<p>Java集合、数组和字符串整合API dollar<br>把Java中的集合，数组，字符串整合成一个统一的api。很类似JQuery中的著名的$函数。 看例子吧： &#x2F;&#x2F; 产生 0, 1, 2, 3, 4序列 List list &#x3D; $(5).toLis…</p>
+<p>命令行应用框架 Centipede<br>Centipede 是一个用来编写命令行应用程序的简单 Java 框架。 使用 Spring 框架对类路径进行自动扫描。</p>
+<p>SHA 算法类 Sha4j<br>Sha4j是一个实现了SHA-1,SHA-224,SHA-256,SHA-384和SHA-512加密算法的class。 JavaDoc: <a target="_blank" rel="noopener" href="http://www.softabar.com/site">http://www.softabar.com/site</a>…</p>
+<p>声明式的重试类库 Spring-Retry<br>Spring提供的声明式的重试类库。 示例代码： @Configuration @EnableRetry public class Application {     @Bean     pu…</p>
+<p>控制台输出彩色文字 Jansi<br>Jansi 是一个 Java 类库，它能够让你在控制台输出色彩缤纷的文字。 示例代码： AnsiConsole.systemInstall(); AnsiConsole.out.println(…</p>
+<p>Java 运行时元数据分析 Reflections<br>Reflections 通过扫描 classpath，索引元数据，允许在运行时查询这些元数据，也可以保存收集项目中多个模块的元数据信息。 使用 Reflections 可以查询以下元数据信息： …</p>
+<p>Java时间工具包 JTimepiece<br>JTimepiece 是一个用来处理Java的日期和时间的高级类库，提供许多很简单的方法，适合包括初学者和高手。</p>
+<p>命令行参数解析工具包 CmdOption<br>CmdOption 是一个简单的注解驱动的命令行参数解析工具包，你所需要做的就是简单配置对象，每个字段和方法通过注解来定义。 示例代码： public class Config { @Cmd…</p>
+<p>数据存储格式转换 DataCross [国产]<br>随着信息技术的发展，信息的存储形式越来越多样化，如：数据库，xml，Excel，文本等，数据存储形式的多样化给数据的转化带来了许多不便，DataCross 是一个开源项目，主要 用于数据转换，可…</p>
+<p>Apache BVal<br>Apache BVal 实现了 Java Bean Validation 规范 1.0</p>
+<p>springJredisCache [国产]<br>springJredisCache 基于spring+jedis的简易封装 提供jdk kryo fst等序列化方案，可自由定制且该组件已经在某手机游戏服务器得到验证和应用</p>
+<p>Java的命令行处理类库 JArgs<br>JArgs 是一个 Java 语言用来处理应用程序的命令行参数的类库。 示例代码： CmdLineParser parser &#x3D; new CmdLineParser(); CmdLinePars…</p>
+<p>Java字节码校验 BECL<br>BCEL （Byte Code Engineering Library） 包含一个名为 JustIce 字节码的校验工具，可用来获取JVM中出错的更详细信息，BCEL 在编译器、优化器和混淆器、…</p>
+<p>Java函数式编程 Funcito<br>Funcito 是一个 Java 类库，通过封装函数类型对象来简化访问你喜爱的函数式编程 APIs。</p>
+<p>无锁阻塞队列 unlock-blocking-queue [国产]<br>该组件内部是一个环形数组，受Disruptor启发而创建！ Disruptor是一个优秀的无锁队列，内部使用环形数组避免java对象的频繁受垃圾回收器回收。Disruptor本身在使用时会过于复…</p>
+<p>Property Binder<br>Property Binder 是一个 Java 类库，用来处理 properties 文件的，支持多值的key。可通过 Annotation 对 Properties 文件进行解析处理，例如下…</p>
+<p>Commons Weaver<br>作为开发者，我们偶尔会碰到一些难以用 Java 语言表达的问题，而 Java 的注解处理工具可以起到很好的效果。当你需要生成额外的类时，他们应该被视为你的第一道防线。而该项目是为了操作已有的 c…</p>
+<p>报文转换框架(SOP) TalkingBird [国产]<br>本框架的是为了解决Java语言和SOP通信报文之间转换的实际问题而产生。设计的思想是高度屏蔽报文的底层实现，提供灵活配置可能。整个框架的设计思路是，编排、反编排作业实现与配置信息加载进行解耦。目…</p>
+<p>自动更新框架 JUF<br>JUF (Java Update Framework)是一个用java写成的自动更新框架。</p>
+<p>groovy-http<br>groovy-http 是 Groovy 的 HTTP 客户端开发包，封装了 httpclient 项目。</p>
+<p>Commons Proxy<br>Commons Proxy 是 Apache 的一个之项目，封装了 Java 对象代理的一些常用方法。</p>
+<p>根据DB生成JAVABEAN及SQL的小工具 db2java [国产]<br>自己写的一个根据DB生成JAVABEAN及SQL的小工具，希望能给需要的人帮助。 在很多项目的开发中，都需要做ENTITY从DB到JAVABEAN的转换，这个工作很简单，却很烦人，希望这个能解决…</p>
+<p>Java配置文件处理类 yao-config<br>A config tool for java. 一个为程序提供配置的组件，可方便的管理程序的配置文件。得用树形节点的方式管理配置文件，结构性强！ Config cf &#x3D; new Config(“…</p>
+<p>阿里云 OSS 工具 Aliyun-Oss-Sign-URL<br>Aliyun-Oss-Sign-URL 是阿里云 OSS（针对私有bucket）的加签工具、外链工具 不依赖不依赖阿里云 OSS sdk、第三方工具包 Java、Android 平台都可以使用。…</p>
+<p>TinyCC的Java绑定版本 TCC4Java [国产]<br>TCC4Java是TinyCC(也叫做TCC，一个神奇的C编译器)的Java绑定，让Java支持使用C作为脚本语言。 TCC4Java支持以下操作系统：      Windows x86&#x2F;x64…</p>
+<p>Commons Transaction<br>Commons Transaction 旨在提供一个轻量级、标准化、高效的 Java 事务多线程编程的工具包，实现了多级锁、事务集合和事务级文件访问。</p>
+<p>Java国际化开发包 Nuiton-i18n<br>Nuiton-I18n 是一个 Java 国际化开发包，基于 ResourceBundles 类。 示例代码： I18n.init(new DefaultI18nInitializer(“myB…</p>
+<p>Java 工具类 FinalGather [国产]<br>finalGather是java项目的工具类项目 包含。日期，字符串，文件，集合，拼音。json，加密，邮件等相关,以后会持续增加增加编程效率的工具类。</p>
+<p>Java包依赖分析 jDependency<br>jDependency 是一个用来分析 Java 包依赖关系的 API 和应用程序。</p>
+<p>Java命令行参数处理 CLOPS<br>CLOPS 是一个用来处理 Java 程序中的命令行参数的类库。 示例代码： import java.io.File; import generated.WcParser; import gen…</p>
+<p>Mirror DSL<br>Mirror DSL 是一个用来简化 Java 的反射编程的类库，类似于 BeanUtils 。 如果直接使用 Java 的反射(Reflection) API，那么代码可能很长，如下： Fie…</p>
+<p>email地址检查工具 isemail<br>isemail 提供了用来校验email地址是否符合RFC标准的方法。支持DNS检验。提供PHP和Java两种实现版本。</p>
+<p>数值单位计算包 NLTE-Units [推荐] [国产]<br>NLTE-Units简介 NLTE-Units是一款完全开源、免费、跨平台的数值单位计算包，主要用于处理带单位的数据及量纲分析。NLTE-Units致力于解决科学计算中单位计算与换算的问题，目前…</p>
+<p>基于 Guava 的事件总线 Otto<br>Otto 是基于 Guava 的，增强的事件总线，强调 Android 支持。 Otto 是把应用分离成不同部分，但是仍然可以很好的进行通讯。Otto 是从 Guava forked 而来，但是…</p>
+<p>Commons Attributes<br>Commons Attributes enables Java programmers to use C#&#x2F;.Net-style attributes in their code. 示例代码： …</p>
+<p>Java不可变List类型 JavaTuples<br>javatuples 是一个非常简单的Java类库，用于创建Tuple(不可变的List)类型数据。 示例代码： LabelValue&lt;String,Operator&gt; operatorLabe…</p>
+<p>命令行参数解析类库 args4j<br>args4j 是一个小型的 Java 类库，用来解析应用的命令行参数。</p>
+<p>CGM解释和渲染 jcgm<br>jcgm是一个开源的，Java实现的，用来解释和渲染计算机图形元文件(CGM)图形的项目。</p>
+<p>mushroom [国产]<br>mushroom 是一个 metric for java 的方案，目前 v0.2 版本的源码均来自 Hadoop 1.0.4 的 metric2 package，你可以理解 v0.1 - v0….</p>
+<p>Java农历日期选择器组件 JLunarDatePicker<br>JLunarDatePicker是中国农历日期选择器，是开源的Java Swing包 示例代码： 运行结果：</p>
+<p>简单的任务管理框架 Tasklet [国产]<br>Tasklet是一个简单的任务管理框架，主要用于将一个大任务分割成许多较小的子任务，并管理这些子任务的执行。Tasklet主要有以下4个类: Task : 任务&#x2F;子任务，多个Task组成一个完整…</p>
+<p>跨平台输入日志工具 ZedLog<br>ZedLog是一个强大的跨平台输入日志工具(或键盘记录器)。它基于一个灵活的数据库记录系统，可以很容易的得到所需的数据。它可以捕获所有的键盘和鼠标事件，并支持记录到一个文件。</p>
+<p>仓库猫 CatStorage [国产]<br>CatStorage，中文名为“仓库猫”，这是一个动态处理SQL、HQL、EQL等查询语句的工具，可以通过这个工具处理复杂的查询语句。 希望这个工具就像一只看守仓库的猫咪一样，帮助你管理好数据仓…</p>
+<p>HTML元素构造 ECS<br>ECS (Element Construction Set) 是一个用 Java 对象来生成 HTML 文档的工具包。 示例代码： Html html &#x3D; new Html() …</p>
+<p>Java 按键精灵 [国产]<br>快速开发工具类，用最简洁的命令实现想要的功能。辅助模拟开发。 纯Java，跨平台，模拟按键、鼠标点击、找图、找色，实现简单按键精灵的功能 DEMO演示  辅助开发配套工具：ScreenCaptu…</p>
+<p>Deferred&#x2F;Promise 库 JDeferred<br>JDeferred 是一个 Java 的 Deferred&#x2F;Promise 库，类似 jQuery 的 Deffered 对象。 示例代码： Deferred deferred &#x3D; new De…</p>
+<p>Mybatis-Callable [国产]<br>一直以来感觉使用Mybatis查询存储过程很蹩脚，不知道有没有人和我感觉一样。写了一个拦截器，可以把储存过程的输出参数当做返回值来返回。其实也简单不了多少，只不过在设计Dao接口的时候能更统一吧…</p>
+<p>Java内存文件系统 Jimfs<br>Jimfs 是一个用于 Java 7+ 的内存中的文件系统，实现了 java.nio.file 抽象文件系统 API. Maven <dependency>   <groupId>com.goo…</groupId></dependency></p>
+<p>PJX<br>PJX支持读取，组合，处理，和生成PDF文档（注意：PJX需要 J2SE 1.4.0 或更高版本）。</p>
+<p>JDBC封装包 JdbcQuery [国产]<br>JdbcQuery是一个对JDBC操作进行封装，使得在JAVA中执行复杂的SQL语句和存储过程变得像hibernate一样的简单,并能方便的将结果集以List、Map、Array的形式返回。 1…</p>
+<p>RTree算法Java实现 JSI RTree Library<br>JSI (Java Spatial Index) RTree Library 是一个RTree算法Java实现的开源库，理论来源是Guttman1984年的一篇论文”R-trees: A Dyn…</p>
+<p>可重用的Java 组件 Vaniglia<br>Vaniglia 是一组轻量级的可重用的Java 组件，功能包括文件解析、简单通讯协议、日志、格式化、文件过滤器、队列管理、对象池管理等等。</p>
+<p>JavaBean工具包 Beanlib<br>Java Bean Library (beanlib) 是一个JavaBean的实用工具库。Beanlib 的Hibernate （ beanlib-Hibernate）尤其是方便与使用Hibe…</p>
+<p>Apache Any23<br>Apache Anything To Triples (Any23) 是一个库、web服务和命令行工具，用来从微格式、RDF、为数据、RDF&#x2F;XML、Turtle、N-Tripes 和 Quar…</p>
+<p>集群session共享组件 Uncode-Session [国产]<br>Uncode-Session 非常小巧的集群session公享组件，代码千行以内，避免使用应用容器插件的多种烦恼。 功能概述 非常小巧的集群session共享组件，类似于spring-sessi…</p>
+<p>Java对象转换包 transmorph<br>Transmorph 是一个用来转换不同 Java 对象类型的类库，支持 Primitives 类型数据和对象之间的转化，多维数组转换等等。Transmorph 无需依赖任何其他的 jar 包。…</p>
+<p>JNativeHook<br>JNativeHook 为 Java 程序提供全局的键盘和鼠标事件侦听功能。你可以来处理程序外的键盘输入和鼠标动作。当然 JNativeHook 使用了 JNI 技术调用了系统的方法来实现该功能…</p>
+<p>Javaflow<br>Sometimes it is usefull if we can capture the state of the application, its stack of function cal…</p>
+<p>java-redis-rdb [国产]<br>java-redis-rdb 是一个用来解析 Redis 的 dump.rdb 文件的 Java 开发包。</p>
+<p>java增强开发类,反射工具 absir-core [国产]<br>absir-core java核心功能扩展，帮助实现java快速开发。 absir.android(<a target="_blank" rel="noopener" href="http://www.oschina.net/p/absir.android">http://www.oschina.net/p/absir.android</a>) 依赖项目。 提…</p>
+<p>Java 的 DAO 工具 DaoSupport [国产]<br>java Dao(data access object)封装 简单方便 节省时间. 使用java对数据访问对象层做的一层封装，适合数据库为mysql. 让DaoSupport来帮你管理Dao。 …</p>
+<p>Java工具类 Skwish<br>A lightweight library for storing blobs on the file system. Skwish 是一个轻量级的Java类库，用来将二进制数据保存到文件系统中…</p>
+<p>命令行参数解析框架 Climax<br>Climax 是一个 Java 的命令行参数解析框架。示例代码： public final class Base64Main {   interface Base64 extends CLIRe…</p>
+<p>NetflixOSS 服务应用 Prana<br>Prana 是为你的 NetflixOSS 服务的应用。 Prana 很容易集成 NetflixOSS 服务，包括类似 Eureka, Ribbon, Archaius over HTTP 的 …</p>
+<p>JAVA 的流畅断言库 AssertJ<br>AssertJ 是 JAVA 的流畅断言库。 示例代码： &#x2F;&#x2F; unique entry point to get access to all assertThat methods and ut…</p>
+<p>pdfjs-dist<br>pdfjs-dist 是一个通用的 PDF.js 构建库。这是 PDF.js 源码的预先构建版本，可以通过构建脚本自动生成PDF.js。 pdf.js 是一个技术原型主要用于在 HTML5 平台…</p>
+<p>Mybatis 扩展插件 XMBG [国产]<br>XMBG 扩展自 Mybatis Generator插件，增加了一些： 扩展的方法 类型转换 命名转换（通过正则表达式） 增量生成 自定义注释 其它 XMBG的出现是因为在使用MBG的过程中发现…</p>
+<p>Spring Security 3.x+ 标签库扩展 Spring Security Taglibs Extension<br>扩展 spring security 3 + 标签库，目前仅支持 jsp。 Spring Security 3.x+ 标签库扩展 jsp 引入标签库 &lt;%@ taglib prefix&#x3D;”sec…</p>
+<p>.msg 文件解析库 msgparser<br>msgparser 是一个小型的 Java 类库用来解析 Outlook 的 .msg 文件，提供 Java 对象来访问文件的内容。msgparser 使用 Apache POI - POIFS…</p>
+<p>Java模式匹配库 JMatch<br>示例代码： static RBNode balance(int color, int value, RBTree left, RBTree right) { if (color &#x3D;&#x3D; BLA…</p>
+<p>Java 事件框架 CommonEvent [国产]<br>自己写的一个简单的 Java 事件框架。目前具备以下功能： 1.通过继承Event类，用户可自定义事件。 2.通过EventService 的fireEvent(Event e) 发出一个事件。…</p>
+<p>DBUtils的功能封装 EasyDBUtils [国产]<br>EasyDBUtils是对DBUtils的功能封装 主要功能： 简化了事务管理————只需要在业务层接口中需要管理事务的方法上进行@StartTransaction的注解声明，EasyDBUti…</p>
+<p>Java 工具包 MyTools [国产]<br>该 jar 包对 java 调用 Groovy 、JavaScript、Clojure 脚本语言的接口进行封装，方便在java程序中进行多语言混合编程 在jar中增加对URLClassLoade…</p>
+<p>jvm-serializers<br>jvm-serializers 是一个高性能的 Java 序列化库的实现。</p>
+<p>JFINAL邮件发送插件 jfinal-mail-plugin [国产]<br>    jfinal-mail-plugin是jfinal的一个邮件发送插件，支持发送普通邮件、与附件邮件，邮件内容支持通过模板生成，同时还支持多 个邮件发送源，她继承了Jfinal核心目标“开…</p>
+<p>JSON转Java Bean工具 org-json-parsetool [国产]<br>一、简介 一款轻量级 Android JSONObject 转 Java Bean 工具，也可用于使用 org.json.* 包的 Java 工程。 GitHub地址：<a target="_blank" rel="noopener" href="https://githu/">https://githu</a>…</p>
+<p>Connla<br>Connla是一个Java包用于创建可导成TXT,CSV,HTML,XHTML,XML,PDF和XLS等格式的数据集。</p>
+<p>Sql2jBean [国产]<br>一个简单的通过sql 生成javabean到本地工程中。节省了去写javabean 实体类的时间。 没什么太难的技术点，工具写完了方便大家应用。分享下。 可通过pom.xml 文件达成jar包。…</p>
+<p>轻量级快速的List实现 GapList<br>GapList 是一个 Java List 的高性能实现，下面是与 Java 自带的 List 进行性能比较：</p>
+<p>芦荟工程 a9zone [国产]<br>ALOE 芦荟工程 常用工具类(java 1.5+) 异常检查工具(Exceptions) 常用的前置检查，修改异常堆栈，定位到调用者。 异常信息的格式化输出(%s) 假异常(FakeExcep…</p>
+<p>Joda-Time 的 GWT 移植版本 goda-time<br>goda-time 是 Joda-Time 的 GWT 移植版本。</p>
+<p>Jfinal 的 SQL 插件 JFinalSQL [国产]<br>Jsql 是 Jfinal 的 SQL 插件 主要特点： SQL与JAVA代码分离 XML配置 JS语法的SQL模板引擎,简单易学 模板标签： &lt;%&#x3D;%&gt; ,例如：name &#x3D; &lt;%&#x3D;name%…</p>
+<p>对象关系映射 OMapper<br>OMapper 提供了一个简单的库用来简化对象&#x2F;Bean 与其他设计层面的映射，使用 Java 的注解。 示例代码： &#x2F;** * The Class Bean2. *&#x2F; @Mappable …</p>
+<p>JUnique<br>JUnique 库用来防止同时多次执行同一个应用程序 示例代码如下： public static void main(String[] args) {   String appId &#x3D; “myap…</p>
+<p>Expect 工具 Expectit<br>Expectit - 是纯 Java 1.6+ 实现的 Expect 工具。简单易用和可扩展，全新编写无需依赖第三方库，使用管道和非堵塞 API 基于 NIO 实现。 Maven: &lt;depen…</p>
+<p>JavaBeans 增强框架 Joda-Beans<br>Joda-Beans 是添加属性到 Java，增强 JavaBeans 的框架。Joda-Beans 提供一个 API 定义 bean 和属性模型，还带有一个代码生成器。 示例代码： Bean …</p>
+<p>C&#x2F;C++反向插件系统 PluginRuntime [国产]<br>这个项目最初的灵感来源于JNI的实现，以及C&#x2F;C++和LUA调用，目的是实现一个轻量的C&#x2F;C++反向插件系统。 目前已经实际项目中使用。 <a target="_blank" rel="noopener" href="http://blog.163.com/lvan100@">http://blog.163.com/lvan100@</a>…</p>
+<p>Java 序列化框架 laser [国产]<br>laser 是 Java 序列化框架，主要特性是速度快，序列化的字节码更小。 序列化170ms 长度14919028 反序列化143ms</p>
+<p>Properties 文件封装库 OWNER<br>OWNER 是一个简单的 Java 对 Properties 文件的封装库，假设 properties 配置如下： port&#x3D;80 hostname&#x3D;foobar.com maxThreads&#x3D;…</p>
+<p>Facebook Java 项目库 Facebook jcommon<br>jcommon 是 Facebook Java 项目用到的库，包括并发，集合，zookeeper，stats&#x2F;analytics，配置，测试等等库。</p>
+<p>Android平台的JavaScript引擎 DuktapeJava [国产]<br>DuktapeJava 是针对 Android 平台封装的 Duktape  JavaScript 引擎；实现Javascript 和 Java的无缝调用。 初始化DuktapeEngnine …</p>
+<p>Java 日期处理库 Lamma<br>Lamma 日期处理库是一个新的开发包，提供一组简单易用的 API 来做基本的日期处理和复杂任务调度。 示例代码： new Date(2014, 5, 5));    &#x2F;&#x2F; create wit…</p>
+<p>Java对象序列化和反序列化工具 Xson [国产]<br>Xson是一个Java对象序列化和反序列化程序。支持Java对象到字节数组的序列化，和从字节数组到Java对象的反序列化。 Maven: <dependency>     <groupId>c…</groupId></dependency></p>
+<p>Java 快速构建和部署服务 KIXEYE Chassis<br>KIXEYE Chassis 是提供快速构建和部署服务的Java独立库包。其特性包括： 1.REST 和 WebSocket服务器支持 -通过对方法添加元注解实现REST API和 WebSoc…</p>
+<p>队列相关的Java类 Tape<br>Tape 是一组跟队列相关的工具类，同时也适用于 Android 平台。 示例代码： &#x2F;** Listener for starting the upload service when the …</p>
+<p>java运行时查找工具 ClassGrep [国产]<br>1.简介 ClassGrep是一个java运行时查找工具。使用这个工具，可以查找出如下一些内容： 给定一个注解，查找使用了该注解的类，字段，方法 给定一个方法，查找哪些方法调用了给定的方法 给定…</p>
+<p>FEST-Reflect<br>fest-reflect为java库提供了一个接口，简化了使用反射，从而提高了可读性和类型安全。</p>
+<p>RSS Recipes<br>RSS Recipes（Recipes-RSS）是 使用一些 Netflix OSS 组件的 RSS Reader Recipes： archaius astyanax blitz4j eure…</p>
+<p>验证工具包 mint-validate [国产]<br>mint-validate 是一个轻量的 验证工具包，不含源码的jar包 9.4k，含源码的jar包 15k，一共6个java文件，无第三方依赖。validate支持自定义验证规则，并用anno…</p>
+<p>Java XML 解析器 FastXml<br>FastXml是一个简单、高性能、极少内存消耗的基于xml pull机制的java xml解析器。 性能最好的xml解析器：性能是VTD-XMl的3倍，是XPP3&#x2F;MXP1的2倍，详见性能测试数…</p>
+<p>中文语言中的时间识别 TimeNLP [国产]<br>Time-NLP 中文语句中的时间语义识别 author：shinyke 本工具是由复旦NLP中的时间分析功能修改而来，做了很多细节和功能的优化，具体如下： 泛指时间的支持，如：早上、晚上、中午…</p>
+<p>coffeescript-java<br>coffeescript-java 是一个简单的 Java 类用来将 CoffeeScript 脚本转成 JavaScript 脚本。程序直接利用 Java 的脚本引擎来实现。</p>
+<p>gnuplot 函数库 JavaPlot<br>JavaPlot 是一个允许使用纯 Java 命令来在 fly 上面创建 gnuplot plots 的函数库。相比较于其他 gnuplot Java 库，它使用的是 Java 结构来存储各种 …</p>
+<p>打包大师 Patch-Master [国产]<br>Patch-Master 是 Eclipse 插件，用于 Java 或 Java Web 项目打增量包或补丁。 维护传统 Java 或 Java Web 项目时，打全量包很危险，所以打增量包是个…</p>
+<p>Apache ODF Toolkit<br>Apache ODF Toolkit 是一个用于操作 Open Document Format (ISO&#x2F;IEC 26300 &#x3D;&#x3D; ODF) 文档的 Java 类库，这是轻量级的无需依赖其他运行环境。</p>
+<p>定宽文本解析库 uniVocity-parsers<br>uniVocity-parsers 是一个开源的Java项目。 针对CSV&#x2F;TSV&#x2F;定宽文本文件的解析，它以简洁的API开发接口提供了丰富而强大的功能。后面会做进一步介绍。 和其他解析库有所不同…</p>
+<p>用户个性化功能管理 Personal [国产]<br>Personal 工程项目主要实现页面、布局、板块的分离、开发、管理和授权，实现用户的个性化功能。管理员可以对页面、板块授权给匿名用户或者登陆用户，或者指定具体的用户。管理员可以配置页面上的某些…</p>
+<p>开源 SDK 样本集合 dianping-open-sdk [国产]<br>dianping-open-sdk 是大众点评网开源 SDK 样本集合。这些样本可以让你使用大众点评网的 API，包括 Java&#x2F;Php&#x2F;JavaScript&#x2F;iOS。 样本： dianping…</p>
+<p>suffixTrie [国产]<br>后缀Trie树的java实现</p>
+<p>INI 的处理器 TinyIni [国产]<br>TinyIni 是 INI 的处理器，主要功能如下： 支持匿名Section 支持有名Section 相同Section中支持同名键值 支持注释 支持转码 支持流式读入 支持流式写出 可以方便的…</p>
+<p>Java Web 乱码过滤器 [国产]<br>character-encoding-filter 是 Java Web 乱码过滤器。 web.xml <filter>     <filter-name>character-encoding-…</filter-name></filter></p>
+<p>lodsve-framework lodsve-framework [国产]<br>lodsve-framework My development tools, it encapsulates some open source projects, and better faci…</p>
+<p>Form-Sql-Builder-mysql [国产]<br>用 Form-Sql-Builder-mysql 将用户提交的表单自动转化成sql maven依赖 <dependency>   <groupId>org.crazycake</groupId>…</dependency></p>
+<p>Eclipse 平台组件 Thym<br>Thym 为在 Eclipse 平台行开发 Hybrid 移动应用提供了 IDE 组件和框架。提供的 IDE 组件支持 Apache Cordova 框架，不过这只是为了方便扩展到其他框架上。</p>
+<p>JMapper-Framework<br>JMapper-Framework 允许你通过注解或者 XML 动态的从一个 Java Bean 传递数据到另外一个 Bean。你可创建和增强目标对象，使用特别的逻辑映射，自动管理 XML 文件…</p>
+<p>区间树扩展 公共集合框架包 [国产]<br>网上可能找不到的集合框架（暂时只有区间树的一个扩展） 给定区间范围[1,5],[1,6],[2,10],[6,10],[4,19],[5,20]，返回关键值“10”的所有区间范围[2,10],[…</p>
+<p>依赖项分析工具 DepAn<br>DepAn 是大型项目依赖项的分析，可视化的直接操作工具。 特性： 直接在 Eclipse RCP 环境操作依赖项信息 非常大型应用的分析和可视化 Java，在类成员级别发现依赖项 导出 Fil…</p>
+<p>Google OAuth Client Library for Java<br>Google OAuth Client Library for Java(google-oauth-java-client) 是强大易用的 OAuth 1.0 和 OAuth 2.0 身份验证标…</p>
+<p>JSP 页面布局工具 jWebBox [国产]<br>这是一个JSP页面布局工具，功能和 Tiles, Sitemesh 类似(还有最近的轻量级JSP Layout和Stripes布局工具等)，用于JSP页面的布局，其特点是无须XML配置，用纯Ja…</p>
+<p>gradle-velocity-plugin<br>gradle-velocity-plugin 是一款 Velocity 模版引擎的 gradle 插件， 把 Apache velocity 模版引擎整合到了 Gradle 中，解决了 Vers…</p>
+<p>序列化工具 EasyProtocol [国产]<br>EasyProtocol是一种序列化工具，目前提供了java，c#的支持，由于它是一种二进制的格式，比使用json,xml 进行数据交换快许多。当然比起protocolbuffer这种专业的序列…</p>
+<p>Highly Scalable Java<br>该项目包含一组并发和高可伸缩性的工具类，可用于直接替换 java.util.* 或者是 java.util.concurrent.* 集合包，在多 CPU 环境下提供更好的性能。</p>
+<p>Arakhnê 基础类 AFC<br>Arakhnê.org Foundation Classes (AFC) 是一组 Java 库，提供了一些常用的工具方法。包括文件过滤、进度指示、数组、集合、VM 工具、文本处理、数学计算 (p…</p>
+<p>netflix-commons<br>netflix-commons 是 Netflix OSS 项目的常规工具包。</p>
+<p>design-pattern-forjava [国产]<br>design-pattern-forjava 基于java版的设计模式实现。 1,抽象工厂模式,提供一个创建一系列相关或互相依赖对象的接口,而无需指定他们具体的类. 2,适配器模式:将一个类的接…</p>
+<p>session 共享与监控框架 bboss-session [国产]<br>bboss session 框架，为 web 应用提供 session 共享和 session 监控功能。主要功能： 支持集群 session 共享 支持跨域跨应用 session 共享 提供强…</p>
+<p>Java 对象存储 java-dirty<br>java-dirty 是一个快速的基于文件的对象存储系统，只能往存储里添加对象，使用内存映射文件技术。 示例代码： Store<Foo> store &#x3D; Store.of(Foo.class)….</Foo></p>
+<p>Java 客户端库 google auth library java<br>google-auth-library-java 是 Java 的开源验证客户端库。</p>
+<p>简单的 HTTP 请求工具 AndroidHttpTools [国产]<br>AndroidHttpTools 是简单的 HTTP 请求工具，支持 get，post，post 文件。 &#x2F;&#x2F;————————简单示例————–…</p>
+<p>Java的序列化与反序列化工具 Redkale-Convert [国产]<br>Convert 是一个比较独立的组件，仅依赖于util包。提供Java对象的序列化与反序列化功能。支持JSON(JavaScript Object Notation)、BSON(Binary S…</p>
+<p>多维时间序列记录库 Netflix Spectator<br>Spectator 是记录多维时间序列的简单插装代码库，要求 Java 7 及以上版本。 代码示例： &#x2F;&#x2F; The Spectator class provides a static looku…</p>
+<p>综合事务系统 XADisk<br>XADisk 是一个开源的综合事务系统，支持从 Java 和 JavaEE 应用程序对文件系统进行事务性访问。使用一些简单的 API，您可以将 XADisk 部署在任何 JVM 上，无需在操作系…</p>
+<p>HTML差异比较 Daisy Diff [推荐]<br>Daisy Diff 是一个 Java 语言用来比较两个 HTML 文档差异的库。 示例： org.outerj.daisy.diff.DaisyDiff{ &#x2F;**  * Diffs two h…</p>
+<p>插件框架项目 ZeusPlugin [国产]<br>本项目为ZeusPlugin插件框架项目，ZeusPlugin为插件框架代码，app为测试插件与补丁的项目demo，testplugin为插件demo, testhotfix为补丁demo。绝大…</p>
+<p>数据CRUD操作工具​ J-hyberbin [国产]<br>simple way to coding java web.database,mvc full suport! 简单快捷的数据CRUD操作工具</p>
+<p>SlicedBread<br>SlicedBread 是一个用于简化 Java 多线程程序编写的类库。 It does so by doing away with “classic” multithreaded staple…</p>
+<p>跨语言 Bloom filter 实现 Inbloom<br>Inbloom 是跨语言的 Bloom filter 实现。Bloom filter 是由 Howard Bloom 在 1970 年提出的二进制向量数据结构，它具有很好的空间和时间效率，被用来…</p>
+<p>BaseServlet [国产]<br>BaseServlet 是个类似 struts 的功能的小工具类，一个Servlet中可以有多个请求处理方法。 客户端发送请求时，必须多给出一个参数，用来说明要调用的方法，请求处理方法的返回值和…</p>
+<p>MySQL协议解析 MysqlProtocolAnalyzer [国产]<br>MysqlProtocolAnalyzer 是一个对Mysql的通讯协议的包进行解析的库，纯java编写，输入文件可以是任意的16进制的文本文件，当然需要一定的预处理才能使用。本库是默认处理的是…</p>
+<p>JavaBean 工具 updar [国产]<br>upDar 是 JavaBean 工具：为更简洁的操作javaBean,对javaBean进行简单设置即可达到目的,减少对javaBean操作冗余代码。 演示例子 依赖的jar包 1.  jso…</p>
+<p>JRecord<br>JRecord 是一个Java工具包用来读取根据长度进行字段定义的文本文件，例如CSV ，同时也支持XML的读写。</p>
+<p>Java 动态脚本 Nicobar<br>Nicobar 是 Java 的动态脚本和模块加载器框架。Nicobar 是 Java 动态脚本框架，由一个基于 JBoss Modules 的强大的模块化加载系统驱动。 public void…</p>
+<p>BackupRotator<br>BackupRotator 是一个很小的 Java 工具包用来循环生成任何类型文件，例如备份文件和日志文件。</p>
+<p>Java 模块化类加载 JBoss Modules<br>JBoss Modules 是模块化的类加载系统。JBoss Modules 是独立实现了一个 Java 模块化（非层次的）类加载和执行环境。换句话说，就是加载所有 JARs 到一个平滑的类路径…</p>
+<p>Ecore 项目工具 Ecoretools<br>Ecoretools 组件提供一个完整的环境去创建、编辑和维护 Ecore 模型。此组件用 Ecore 图形编辑器来简化处理 Ecore 模型和链接其他现有的 Ecore 工具（Validati…</p>
+<p>JAVA通用函数式编程工具集 Style [国产]<br>Style 给 Java 8 带来其他语言高效的编程风格。 Style 通过精心挑选的方法&#x2F;类名来模拟其他语言。 Style 致力于让你的编码更加美观，进行更少的重复编码，以及提升可读性。 代码…</p>
+<p>camel-name-utils [国产]<br>用处 用来将字符串在驼峰风格跟下划线风格之间切换。对于一般人可能没用，对于写orm框架的人有点作用。 例子： company_name -&gt; companyName 安装方式 添加以下依赖到po…</p>
+<p>简单的 Java Excel 进程 sep4j [国产]<br>sep4J:  Simple Excel Processing for Java ,  通过一次静态方法调用完成 excel &lt;-&gt; List<Bean>之间的转换。 你不必手写任何 POI 相…</Bean></p>
+<p>lzmajio<br>LZMA压缩输入输出流的Java实现。</p>
+<p>动态模版工具 TemplateFx<br>TemplateFx 是个动态模版工具，允许用户生成基于一个模版和一些源代码的输出。它是用来生成基于 CLI 设备（比如：思科路由器和交换机）的配置文件。</p>
+<p>java文件增量对比库 sync4java [国产]<br>java文件增量对比库。 使用滚动算法对比两个文件的差异部分，  最终计算出所有的差异值， 将差异值与原始文件合并可得到新的文件</p>
+<p>Swift 平行脚本语言 Swift-K<br>Swift-K 是 Swift 平行脚本语言，可以用于多核、集群、云和超级计算机当中。Swift-K 主要专注于促进分布式执行任务的稳健性，尤其是计算资源（包括云和集群）的文件中执行的通用行程序。</p>
+<p>高性能平行脚本语言 Swift-T<br>Swift&#x2F;T 是用于编写执行在大规模并行应用程序功能和命令行的并行编程语言。 Swift&#x2F;T 用户指导和发行说明可已在<a target="_blank" rel="noopener" href="http://swift-lang.org/Swift-T/">http://swift-lang.org/Swift-T/</a> 中查看。如果…</p>
+<p>Cloudhopper-smpp<br>Cloudhopper-smpp 是一个高效的、可扩展的、灵活的短消息到 SMPP（Peer to Peer Protocol）的 Java 实现。支持 SMPP 协议。</p>
+<p>JSP 扩展 JSPT [国产]<br>JSPT 是一个包装了 Tomcat jaspr API 的类库。解决了JSP不能用作邮件、短信等模板的问题。 代码示例： File templateDir &#x3D; new File(“&#x2F;com&#x2F;n…</p>
+<p>轻量级兼容性依赖仲裁组件 Dependency Mediator [国产]<br>Dependency Mediator，与Karaf 和其他轻量级模块化技术（类似 osgi，类名不需要是唯一的，但是类名组合和他们定义的 ClassLoader 必须是唯一的）不同，Depen…</p>
+<p>jActiveRecord-EL [国产]<br>jActiveRecord-EL是jActiveRecord的辅助项目，简化在EL表达式中访问数据的方法，做到像操作普通JavaBean一样操作Record和Table类型的对象。适合采用了jA…</p>
+<p>TMX 的 Java 类库 Otter TMX<br>Otter 是一个用于读写 Translation Memory Exchange (TMX) 文档的 Java 类库。要求 Java 7 支持。 示例代码： TMXReader reader …</p>
+<p>moth-sequence [国产]<br>云发号器：支持多台机器并发发号，序号数据存放在共享目录序号文件中； 产生的序号能加入前后缀 能支持异常退出后，重启重用尚未使用的序号;下图是命令行运行截图： 应用程序下载：<a target="_blank" rel="noopener" href="http://git/">http://git</a>….</p>
+<p>Immutable Collections for Java<br>Immutable Collections for Java (Java不变集合类) 提供了不变的、持久化的 Java 集合类，对集合的元素添加和删除都是创建一个新的拷贝来进行。每份拷贝都共享几…</p>
+<p>表示式语言库 Ada EL<br>Ada EL 是实现一个表达式语言的库，类似 JSP 和 JSF 这种同一表达语言（Expression Languages——EL）。这个表达语言基于 Java Server Faces 和 …</p>
+<p>requestProxy [国产]<br>requestProxy 是为了把 http 以及 webserver 的简单请求进行封装，做到接口化操作http接口 快速开发,高效完成 作者博客：<a target="_blank" rel="noopener" href="http://blog.csdn.net/q">http://blog.csdn.net/q</a>…</p>
+<p>CAP 格式验证工具 CAP Library<br>CAP Library（Common Alerting Protocol Library）是 Common Alerting Protocol 格式的公开警告信息。 CAP Library 是通…</p>
+<p>Strava API 的 Java 库 JStrava<br>JStrava 是 Strava API 的 Java 库。 JStravaV3 strava&#x3D; new JStravaV3(accessToken); Athlete athlete&#x3D;stra…</p>
+<p>DNS 云控制 Java 库 Denominator<br>Denominator 是便捷的使用 Java 或者 bash 控制 DNS 云。 Denominator 是用来操作 DNS 云的 Java 库，有可插拔的后端，AWS Route53，Neu…</p>
+<p>ADP4J<br>Annotation Driven Properties For Java (ADP4J) 是一个在 Java 对象中使用注解方式来注入配置属性的类库。 示例代码： public class B…</p>
+<p>Java 内容差异比较库 Diffator<br>Diffator 是一个 Java 实现的双向的内容差异 diff 比较库，相似度范围 0.0 ~ 1.0。 示例代码： String[] wordsA &#x3D; …; String[] wor…</p>
+<p>cached-query [国产]<br>介绍 我们常常有这样的需求：当我们把memcached加入到项目后我还还要写一个 cacheUtils 或者 cacheManager 之类的类来操作memcached。并且一般的操作不外乎是这…</p>
+<p>eXo JCR<br>eXo JCR 是个强大的开源 Java Specification Request 170 实现，被认为是 Java 技术 API 的内容库。eXo JCR 的主要目的是抽象化数据存储和检索的…</p>
+<p>jSuffixArrays<br>后缀数组在文本处理方面使用非常频繁，该项目的目的就是使用 Java 实现的后缀数据。</p>
+<p>时间显示工具 TouchTime<br>TouchTime 是用在安卓智能手表上显示时间的工具，主要是为有视觉障碍的人使用的。使用它之后，只要你轻轻触摸一下安卓智能手表，即可告诉你时间。</p>
+<p>jTransfo<br>jTransfo 是一个用来轻松在传输和域对象之间进行转换的 Java 类库。通过在传输对象中使用注解进行驱动，提供 Spring 框架和 Joda-Time 的集成。</p>
+<p>内存数据结构 NetflixGraph<br>NetflixGraph (Netflix_graph)是个紧凑的内存数据结构，用来表示有向图数据。你可以使用 NetflixGraph 大大将少你应用脚本的大小，如果你的应用是 I&#x2F;O 绑定，…</p>
+<p>JBoss Serialization<br>Java 开发者接触 java.io.ObjectInputStream &amp; java.io.ObjectOutputStream 比较多，也知道当处理 writeObject 操作的时候非常慢…</p>
+<p>NASA 工具集合 CertWare<br>CertWare 是一个工具的集合，旨在支持安全可靠的项目的发展。CertWare 采用了几个结构化的参数模型，并且提供了支持书写和验证参数的选择模型。无论是文本编辑还是图形编辑都得到了实现，并…</p>
+<p>亚马逊 Kinesis 连接器 Amazon Kinesis Connector<br>Amazon Kinesis Connector 可以帮助开发者将 Amazon Kinesis 和其他 AWS 、非 AWS 服务。目前库的版本提供 Amazon DynamoDB，Amazo…</p>
+<p>Java 资源加载库 Azzet<br>Azzet 是一个简单的 Java 类库，用于从不同的源中加载资源。 示例代码： BufferedImage img &#x3D; Assets.load(“<a target="_blank" rel="noopener" href="http://www.google.com/l">http://www.google.com/l</a>…</p>
+<p>TMX 解析和渲染库 J-TMX<br>J-TMX 是一个用来解析和渲染 TMX (Translation Memory eXchange) 文件的 Java 库。使用 Java SAX 解析器来解析 TMX。 示例代码： &#x2F;&#x2F;Cre…</p>
+<p>java集合框架 Koloboke<br>Koloboke是一个精心设计的java集合框架，相比JDK的设计更加专业和高效。支持JDK6+，采用Apache 2许可证。Koloboke兼容所有的原始的集合扩展基本的接口（Collecti…</p>
+<p>用户线程模型 UTM [国产]<br>UTM 用户线程模型 在一些金融交易处理、游戏数据处理等逻辑较为复杂的领域中，各个接口可能会交叉使用和修改一些资源数据，这样就很容易导致一些并发的问题，如果对于每个资源都要考虑如何保证其并发安全…</p>
+<p>JBeret<br>JBeret 是 JSR 352 (Batch Applications for the Java Platform) 的开源实现。</p>
+<p>JVM 常规诊断库 jdiagnostics<br>jdiagnostics 是一个检查 JVM 状态和构建处理支持的常规库，可以很容易的诊断类路径问题，资源，服务加载，版本控制，XML 解析器等诸如此类的东西。jdiagnostics 是个完全…</p>
+<p>动态 Java 类代理 djcproxy<br>djcproxy 是一个小型的 Java 库，实现动态 Java 类代理。使用它可以在运行时对已存在的对象创建代理对象，用来创建面向方面特性。例如度量某个方法的执行时间，修改方法行为，记录方法执…</p>
+<p>sitemap.xml 站点描述文件生成器 gonvan-sitemap<br>sitemap.xml 站点描述文件生成器，只需要配置站点及其需过滤的目录即可。 该组件是 果凡网 <a target="_blank" rel="noopener" href="http://www.gonvan.com/">www.gonvan.com</a> 基于htmlParser编写，可直接部署到站点下。 &lt;depen…</p>
+<p>JavaScript 动态分析框架 Jalangi2<br>Jalangi2 是一个用来写 JavaScript 动态分析的框架。Jalangi2 不支持 Jalangi1 的记录和重播功能，在 Jalangi2 中，你可以找到以下几个分析： track…</p>
+<p>trivago 核心库 triava<br>triava 包含了一部分 trivago 的核心库，基于 Java 的项目：缓存，集合，匿名，并发库等等。  triava 仅仅依赖于 Java 7。</p>
+<p>OpenJDK langtools repository 镜像 error-prone-javac<br>error-prone-javac 是 OpenJDK langtools repo 镜像包。通常在 error-prone 中用来检测二进制的 javac.jar 。</p>
+<p>ThreadSanitizer ktsan<br>ktsan 是 Linux 内核上的 ThreadSanitizer，能快速探测到数据竞争。 它能够检测： C&#x2F;C++ User Manual Go User Manual High-level…</p>
+<p>用于 MVC 框架的数据获取 mvc-dataRequest [国产]<br>舍去 request.getParameter(name) 和写实体类进行注入的方式取值，对页面数据进行封装，根据页面参数自动实现操作语句组装,物理分页查询、修改、新增、删除。 目前测试过 sp…</p>
+<p>数据推送服务模块 mutouren-datapush [国产]<br>mutouren-datapush 是一个高性能数据推送服务模块，支持纯本地、单中心、多中心、混合等多种运行场景，具备缓存数据持久化，可以配置失败重试、并发等策略。除数据推送外，也可以应用在数据…</p>
+<p>Insight Engineering Platform 组件 Netflix IEP<br>Netflix IEP (Insight Engineering Platform) 是 Insight Engineering Platform 的组件，提供： 把整体平台分离成简单模块，可以…</p>
+<p>JavaEE Specs APIs JBoss-javaee-specs<br>JBoss-javaee-specs 即 JBoss JavaEE Specs APIs。这个项目提供了一套完整 APIs 所需的依赖管理关系，且此依赖关系由 Java EE 平台规范定义的。 …</p>
+<p>Aspose.Metafiles<br>Aspose.Metafiles 是一个用来管理元文件的 Java 类库。可简单快速的现实 WMF 和 EMF 文件。同时支持元文件转换。</p>
+<p>jboss-test-audit<br>jboss-test-audit 用于 TCK 测试覆盖报告的实用程序类。（Utility classes for TCK Test Coverage Report.）</p>
+<p>simhash 算法的 java 实现 simhash-java [国产]<br>simhash 算法的 java 实现。 特点 计算字符串的 simhash 通过构建智能索引来计算所有字符串之间的相似性，因此可以处理大数据 使用 使用输入文件和输出文件运行 Main inp…</p>
+<p>JBoss-common-beans<br>JBoss-common-beans 是 Java Beans 上的常用类。JBoss 属性编辑库（Property Editors library）包含了一系列 java 类型的属性编辑器设置…</p>
+<p>零依赖的序列化框架 Airy [国产]<br>Airy 是一个简单、快速、高效、零依赖的序列化框架。 安装 Airy 可从 releases page 获取。 Quickstart 快速上手     Airy airy &#x3D; new Airy…</p>
+<p>支付 SDK 的集合与重构 pay-SDK [国产]<br>各种支付SDK的集合与重构, 使用之前建议先了解各支付方式的支付流程，以便于更好的理解。支付流程在各API文档的最上方。 API 支付宝 微信支付 银联支付 无跳转Token支付 网关支付 示例…</p>
+<p>Java 拼写检查库 JaSpell<br>JaSpell 是一个 Java 的拼写检查库。基于三元搜索树实现。目前提供了英语和葡萄牙文的拼写检查支持。</p>
+<p>Java 的数据库访问层框架 Dekaf<br>Dekaf 是来自 JetBrains 公司的一个 Java 的数据库访问层框架。Dekaf 并不是一个 ORM 框架！ 目前该框架还在进一步开发中。<br>————————————————<br>版权声明：本文为CSDN博主「javartisan」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/dax1n/article/details/67040005">https://blog.csdn.net/dax1n/article/details/67040005</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">zrh</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://zrh-main.github.io/2021/11/15/Java/Maven/Java%E7%B1%BB%E5%BA%93/">https://zrh-main.github.io/2021/11/15/Java/Maven/Java%E7%B1%BB%E5%BA%93/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">zrh</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/maven/">
+                                    <span class="chip bg-color">maven</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    <!-- 
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+     -->
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/11/15/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/idea/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="idea配置">
+                        
+                        <span class="card-title">idea配置</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    开发工具
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/idea/">
+                        <span class="chip bg-color">idea</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/11/15/Java/Maven/%E4%BD%BF%E7%94%A8%E7%BB%86%E8%8A%82/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="使用细节">
+                        
+                        <span class="card-title">使用细节</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/maven/" class="post-category">
+                                    maven
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/maven/">
+                        <span class="chip bg-color">maven</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2024</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">zrh</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            <br>
+            
+            
+            
+            
+            
+          
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+ -->
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1123 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="服务限流, ZRH博客,zrh博客">
+    <meta name="description" content="ZRH的个人博客,记录个人笔记">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>服务限流 | ZRH博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">ZRH博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">ZRH博客</div>
+        <div class="logo-desc">
+            
+            ZRH的个人博客,记录个人笔记
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a> -->
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">服务限流</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/SpringBoot/">
+                                <span class="chip bg-color">SpringBoot</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Java/" class="post-category">
+                                Java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-04-26
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>服务限流，是指通过控制请求的速率或次数来达到保护服务的目的，在微服务中，我们通常会将它和熔断、降级搭配在一起使用，来避免瞬时的大量请求对系统造成负荷，来达到保护服务平稳运行的目的。</p>
+<h2 id="固定窗口算法"><a href="#固定窗口算法" class="headerlink" title="固定窗口算法"></a>固定窗口算法</h2><p>固定窗口算法通过在单位时间内维护一个计数器，能够限制在每个固定的时间段内请求通过的次数，以达到限流的效果。<br><img src="/.io//20230512092325.jpg" alt="代替图片的文字"></p>
+<p>算法实现起来也比较简单，可以通过构造方法中的参数指定时间窗口大小以及允许通过的请求数量，当请求进入时先比较当前时间是否超过窗口上边界，未越界且未超过计数器上限则可以放行请求。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FixedWindowRateLimiter</span> &#123;</span><br><span class="line">    <span class="comment">// 时间窗口大小，单位毫秒</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> windowSize;</span><br><span class="line">    <span class="comment">// 允许通过请求数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> maxRequestCount;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 当前窗口通过的请求计数</span></span><br><span class="line">    <span class="keyword">private</span> AtomicInteger count=<span class="keyword">new</span> <span class="title class_">AtomicInteger</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">// 窗口右边界</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> windowBorder;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">FixedWindowRateLimiter</span><span class="params">(<span class="type">long</span> windowSize,<span class="type">int</span> maxRequestCount)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.windowSize = windowSize;</span><br><span class="line">        <span class="built_in">this</span>.maxRequestCount = maxRequestCount;</span><br><span class="line">        windowBorder = System.currentTimeMillis()+windowSize;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="type">boolean</span> <span class="title function_">tryAcquire</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">long</span> <span class="variable">currentTime</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line">        <span class="keyword">if</span> (windowBorder &lt; currentTime)&#123;</span><br><span class="line">            log.info(<span class="string">&quot;window  reset&quot;</span>);</span><br><span class="line">            <span class="keyword">do</span> &#123;</span><br><span class="line">                windowBorder += windowSize;</span><br><span class="line">            &#125;<span class="keyword">while</span>(windowBorder &lt; currentTime);</span><br><span class="line">            count=<span class="keyword">new</span> <span class="title class_">AtomicInteger</span>(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (count.intValue() &lt; maxRequestCount)&#123;</span><br><span class="line">            count.incrementAndGet();</span><br><span class="line">            log.info(<span class="string">&quot;tryAcquire success&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            log.info(<span class="string">&quot;tryAcquire fail&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>进行测试，允许在1000毫秒内通过5个请求：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">    <span class="type">FixedWindowRateLimiter</span> <span class="variable">fixedWindowRateLimiter</span></span><br><span class="line">            <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FixedWindowRateLimiter</span>(<span class="number">1000</span>, <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (fixedWindowRateLimiter.tryAcquire()) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;执行任务&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;被限流&quot;</span>);</span><br><span class="line">            TimeUnit.MILLISECONDS.sleep(<span class="number">300</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>固定窗口算法的优点是实现简单，但是可能无法应对突发流量的情况，比如每秒允许放行100个请求，但是在0.9秒前都没有请求进来，这就造成了在0.9秒到1秒这段时间内要处理100个请求，而在1秒到1.1秒间可能会再进入100个请求，这就造成了要在0.2秒内处理200个请求，这种流量激增就可能导致后端服务出现异常。</p>
+<h2 id="滑动窗口算法"><a href="#滑动窗口算法" class="headerlink" title="滑动窗口算法"></a>滑动窗口算法</h2><p>滑动窗口算法在固定窗口的基础上，进行了一定的升级改造。<br>它的算法的核心在于将时间窗口进行了更精细的分片，将固定窗口分为多个小块，每次仅滑动一小块的时间。<br><img src="/.io//20230512092603.jpg" alt="代替图片的文字"></p>
+<p>并且在每个时间段内都维护了单独的计数器，每次滑动时，都减去前一个时间块内的请求数量，并再添加一个新的时间块到末尾，当时间窗口内所有小时间块的计数器之和超过了请求阈值时，就会触发限流操作。</p>
+<p>看一下算法的实现，核心就是通过一个int类型的数组循环使用来维护每个时间片内独立的计数器：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SlidingWindowRateLimiter</span> &#123;</span><br><span class="line">    <span class="comment">// 时间窗口大小，单位毫秒</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> windowSize;</span><br><span class="line">    <span class="comment">// 分片窗口数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> shardNum;</span><br><span class="line">    <span class="comment">// 允许通过请求数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> maxRequestCount;</span><br><span class="line">    <span class="comment">// 各个窗口内请求计数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span>[] shardRequestCount;</span><br><span class="line">    <span class="comment">// 请求总数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> totalCount;</span><br><span class="line">    <span class="comment">// 当前窗口下标</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> shardId;</span><br><span class="line">    <span class="comment">// 每个小窗口大小，毫秒</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> tinyWindowSize;</span><br><span class="line">    <span class="comment">// 窗口右边界</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> windowBorder;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">SlidingWindowRateLimiter</span><span class="params">(<span class="type">long</span> windowSize, <span class="type">int</span> shardNum, <span class="type">int</span> maxRequestCount)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.windowSize = windowSize;</span><br><span class="line">        <span class="built_in">this</span>.shardNum = shardNum;</span><br><span class="line">        <span class="built_in">this</span>.maxRequestCount = maxRequestCount;</span><br><span class="line">        shardRequestCount = <span class="keyword">new</span> <span class="title class_">int</span>[shardNum];</span><br><span class="line">        tinyWindowSize = windowSize/ shardNum;</span><br><span class="line">        windowBorder=System.currentTimeMillis();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="type">boolean</span> <span class="title function_">tryAcquire</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">long</span> <span class="variable">currentTime</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line">        <span class="keyword">if</span> (currentTime &gt; windowBorder)&#123;</span><br><span class="line">            <span class="keyword">do</span> &#123;</span><br><span class="line">                shardId = (++shardId) % shardNum;</span><br><span class="line">                totalCount -= shardRequestCount[shardId];</span><br><span class="line">                shardRequestCount[shardId]=<span class="number">0</span>;</span><br><span class="line">                windowBorder += tinyWindowSize;</span><br><span class="line">            &#125;<span class="keyword">while</span> (windowBorder &lt; currentTime);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (totalCount &lt; maxRequestCount)&#123;</span><br><span class="line">            log.info(<span class="string">&quot;tryAcquire success,&#123;&#125;&quot;</span>,shardId);</span><br><span class="line">            shardRequestCount[shardId]++;</span><br><span class="line">            totalCount++;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            log.info(<span class="string">&quot;tryAcquire fail,&#123;&#125;&quot;</span>,shardId);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>进行一下测试，对第一个例子中的规则进行修改，每1秒允许100个请求通过不变，在此基础上再把每1秒等分为10个0.1秒的窗口。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">    <span class="type">SlidingWindowRateLimiter</span> <span class="variable">slidingWindowRateLimiter</span></span><br><span class="line">            <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SlidingWindowRateLimiter</span>(<span class="number">1000</span>, <span class="number">10</span>, <span class="number">10</span>);</span><br><span class="line">    TimeUnit.MILLISECONDS.sleep(<span class="number">800</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">15</span>; i++) &#123;</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">acquire</span> <span class="operator">=</span> slidingWindowRateLimiter.tryAcquire();</span><br><span class="line">        <span class="keyword">if</span> (acquire)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;执行任务&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;被限流&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        TimeUnit.MILLISECONDS.sleep(<span class="number">10</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>程序启动后，在先休眠了一段时间后再发起请求，可以看到在0.9秒到1秒的时间窗口内放行了6个请求，在1秒到1.1秒内放行了4个请求，随后就进行了限流，解决了在固定窗口算法中相邻时间窗口内允许通过大量请求的问题。</p>
+<p>滑动窗口算法通过将时间片进行分片，对流量的控制更加精细化，但是相应的也会浪费一些存储空间，用来维护每一块时间内的单独计数，并且还没有解决固定窗口中可能出现的流量激增问题。</p>
+<h2 id="漏桶算法"><a href="#漏桶算法" class="headerlink" title="漏桶算法"></a>漏桶算法</h2><p>为了应对流量激增的问题，后续又衍生出了漏桶算法，用专业一点的词来说，漏桶算法能够进行流量整形和流量控制。</p>
+<p>漏桶是一个很形象的比喻，外部请求就像是水一样不断注入水桶中，而水桶已经设置好了最大出水速率，漏桶会以这个速率匀速放行请求，而当水超过桶的最大容量后则被丢弃。</p>
+<p><img src="/.io//20230512092749.jpg" alt="图片丢失"><br>看一下代码实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LeakyBucketRateLimiter</span> &#123;</span><br><span class="line">    <span class="comment">// 桶的容量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> capacity;</span><br><span class="line">    <span class="comment">// 桶中现存水量</span></span><br><span class="line">    <span class="keyword">private</span> AtomicInteger water=<span class="keyword">new</span> <span class="title class_">AtomicInteger</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">// 开始漏水时间</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> leakTimeStamp;</span><br><span class="line">    <span class="comment">// 水流出的速率，即每秒允许通过的请求数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> leakRate;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">LeakyBucketRateLimiter</span><span class="params">(<span class="type">int</span> capacity,<span class="type">int</span> leakRate)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.capacity=capacity;</span><br><span class="line">        <span class="built_in">this</span>.leakRate=leakRate;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="type">boolean</span> <span class="title function_">tryAcquire</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">// 桶中没有水，重新开始计算</span></span><br><span class="line">        <span class="keyword">if</span> (water.get()==<span class="number">0</span>)&#123;</span><br><span class="line">            log.info(<span class="string">&quot;start leaking&quot;</span>);</span><br><span class="line">            leakTimeStamp = System.currentTimeMillis();</span><br><span class="line">            water.incrementAndGet();</span><br><span class="line">            <span class="keyword">return</span> water.get() &lt; capacity;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 先漏水，计算剩余水量</span></span><br><span class="line">        <span class="type">long</span> <span class="variable">currentTime</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line">        <span class="type">int</span> leakedWater= (<span class="type">int</span>) ((currentTime-leakTimeStamp)/<span class="number">1000</span> * leakRate);</span><br><span class="line">        log.info(<span class="string">&quot;lastTime:&#123;&#125;, currentTime:&#123;&#125;. LeakedWater:&#123;&#125;&quot;</span>,leakTimeStamp,currentTime,leakedWater);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 可能时间不足,则先不漏水</span></span><br><span class="line">        <span class="keyword">if</span> (leakedWater != <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">leftWater</span> <span class="operator">=</span> water.get() - leakedWater;</span><br><span class="line">            <span class="comment">// 可能水已漏光，设为0</span></span><br><span class="line">            water.set(Math.max(<span class="number">0</span>,leftWater));</span><br><span class="line">            leakTimeStamp=System.currentTimeMillis();</span><br><span class="line">        &#125;</span><br><span class="line">        log.info(<span class="string">&quot;剩余容量:&#123;&#125;&quot;</span>,capacity-water.get());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (water.get() &lt; capacity)&#123;</span><br><span class="line">            log.info(<span class="string">&quot;tryAcquire success&quot;</span>);</span><br><span class="line">            water.incrementAndGet();</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            log.info(<span class="string">&quot;tryAcquire fail&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>进行一下测试，先初始化一个漏桶，设置桶的容量为3，每秒放行1个请求，在代码中每500毫秒尝试请求1次：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">    <span class="type">LeakyBucketRateLimiter</span> <span class="variable">leakyBucketRateLimiter</span></span><br><span class="line">   <span class="operator">=</span><span class="keyword">new</span> <span class="title class_">LeakyBucketRateLimiter</span>(<span class="number">3</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">15</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (leakyBucketRateLimiter.tryAcquire()) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;执行任务&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;被限流&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        TimeUnit.MILLISECONDS.sleep(<span class="number">500</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是，漏桶算法同样也有缺点，不管当前系统的负载压力如何，所有请求都得进行排队，即使此时服务器的负载处于相对空闲的状态，这样会造成系统资源的浪费。由于漏桶的缺陷比较明显，所以在实际业务场景中，使用的比较少。</p>
+<h2 id="令牌桶算法"><a href="#令牌桶算法" class="headerlink" title="令牌桶算法"></a>令牌桶算法</h2><p>令牌桶算法是基于漏桶算法的一种改进，主要在于令牌桶算法能够在限制服务调用的平均速率的同时，还能够允许一定程度内的突发调用。</p>
+<p>它的主要思想是系统以恒定的速度生成令牌，并将令牌放入令牌桶中，当令牌桶中满了的时候，再向其中放入的令牌就会被丢弃。而每次请求进入时，必须从令牌桶中获取一个令牌，如果没有获取到令牌则被限流拒绝。</p>
+<p><img src="/.io//20230512092925.jpg"><br>假设令牌的生成速度是每秒100个，并且第一秒内只使用了70个令牌，那么在第二秒可用的令牌数量就变成了130，在允许的请求范围上限内，扩大了请求的速率。当然，这里要设置桶容量的上限，避免超出系统能够承载的最大请求数量。</p>
+<p>Guava中的RateLimiter就是基于令牌桶实现的，可以直接拿来使用，先引入依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.guava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>guava<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>29.0-jre<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>进行测试，设置每秒产生5个令牌：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">acquireTest</span><span class="params">()</span>&#123;</span><br><span class="line">    RateLimiter rateLimiter=RateLimiter.create(<span class="number">5</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        <span class="type">double</span> <span class="variable">time</span> <span class="operator">=</span> rateLimiter.acquire();</span><br><span class="line">        log.info(<span class="string">&quot;等待时间：&#123;&#125;s&quot;</span>,time);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;```</span><br><span class="line"></span><br><span class="line">可以看到，每200ms左右产生一个令牌并放行请求，也就是<span class="number">1</span>秒放行<span class="number">5</span>个请求，使用RateLimiter能够很好的实现单机的限流。</span><br><span class="line"></span><br><span class="line">那么再回到我们前面提到的突发流量情况，令牌桶是怎么解决的呢？RateLimiter中引入了一个预消费的概念。在源码中，有这么一段注释：</span><br><span class="line">``` Java</span><br><span class="line"> * &lt;p&gt;It is important to note that the number of <span class="keyword">permits</span> requested &lt;i&gt;never&lt;/i&gt; affects the</span><br><span class="line"> * throttling of the request <span class="title function_">itself</span> <span class="params">(an invocation to &#123;<span class="meta">@code</span> acquire(<span class="number">1</span>)</span>&#125; and an invocation to &#123;<span class="meta">@code</span></span><br><span class="line"> * acquire(<span class="number">1000</span>)&#125; will result in exactly the same throttling, <span class="keyword">if</span> any), but it affects the throttling</span><br><span class="line"> * of the &lt;i&gt;next&lt;/i&gt; request. I.e., <span class="keyword">if</span> an expensive task arrives at an idle RateLimiter, it will be</span><br><span class="line"> * granted immediately, but it is the &lt;i&gt;next&lt;/i&gt; request that will experience extra throttling,</span><br><span class="line"> * thus paying <span class="keyword">for</span> the cost of the expensive task.</span><br></pre></td></tr></table></figure>
+<p>大意就是，申请令牌的数量不同不会影响这个申请令牌这个动作本身的响应时间，acquire(1)和acquire(1000)这两个请求会消耗同样的时间返回结果，但是会影响下一个请求的响应时间。</p>
+<p>如果一个消耗大量令牌的任务到达空闲的RateLimiter，会被立即批准执行，但是当下一个请求进来时，将会额外等待一段时间，用来支付前一个请求的时间成本。</p>
+<p>至于为什么要这么做，通过举例来引申一下。当一个系统处于空闲状态时，突然来了1个需要消耗100个令牌的任务，那么白白等待100秒是毫无意义的浪费资源行为，那么可以先允许它执行，并对后续请求进行限流时间上的延长，以此来达到一个应对突发流量的效果。</p>
+<p>看一下具体的代码示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">acquireMultiTest</span><span class="params">()</span>&#123;</span><br><span class="line">    RateLimiter rateLimiter=RateLimiter.create(<span class="number">1</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt;<span class="number">3</span>; i++) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">2</span> * i + <span class="number">1</span>;</span><br><span class="line">        log.info(<span class="string">&quot;获取&#123;&#125;个令牌&quot;</span>, num);</span><br><span class="line">        <span class="type">double</span> <span class="variable">cost</span> <span class="operator">=</span> rateLimiter.acquire(num);</span><br><span class="line">        log.info(<span class="string">&quot;获取&#123;&#125;个令牌结束，耗时&#123;&#125;ms&quot;</span>,num,cost);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;```</span><br><span class="line"></span><br><span class="line">可以看到，在第二次请求时需要<span class="number">3</span>个令牌，但是并没有等<span class="number">3</span>秒后才获取成功，而是在等第一次的<span class="number">1</span>个令牌所需要的<span class="number">1</span>秒偿还后，立即获得了<span class="number">3</span>个令牌得到了放行。同样，第三次获取<span class="number">5</span>个令牌时等待的<span class="number">3</span>秒是偿还的第二次获取令牌的时间，偿还完成后立即获取<span class="number">5</span>个新令牌，而并没有等待全部重新生成完成。</span><br><span class="line"></span><br><span class="line">除此之外RateLimiter还具有平滑预热功能，下面的代码就实现了在启动<span class="number">3</span>秒内，平滑提高令牌发放速率到每秒<span class="number">5</span>个的功能：</span><br><span class="line">``` Java</span><br><span class="line"><span class="keyword">void</span> <span class="title function_">acquireSmoothly</span><span class="params">()</span>&#123;</span><br><span class="line">    RateLimiter rateLimiter=RateLimiter.create(<span class="number">5</span>,<span class="number">3</span>, TimeUnit.SECONDS);</span><br><span class="line">    <span class="type">long</span> <span class="variable">startTimeStamp</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">15</span>; i++) &#123;</span><br><span class="line">        <span class="type">double</span> <span class="variable">time</span> <span class="operator">=</span> rateLimiter.acquire();</span><br><span class="line">        log.info(<span class="string">&quot;等待时间:&#123;&#125;s, 总时间:&#123;&#125;ms&quot;</span></span><br><span class="line">                ,time,System.currentTimeMillis()-startTimeStamp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，令牌发放时间从最开始的500ms多逐渐缩短，在3秒后达到了200ms左右的匀速发放。</p>
+<p>总的来说，基于令牌桶实现的RateLimiter功能还是非常强大的，在限流的基础上还可以把请求平均分散在各个时间段内，因此在单机情况下它是使用比较广泛的限流组件。</p>
+<h2 id="中间件限流"><a href="#中间件限流" class="headerlink" title="中间件限流"></a>中间件限流</h2><p>前面讨论的四种方式都是针对单体架构，无法跨JVM进行限流，而在分布式、微服务架构下，可以借助一些中间件进行限。Sentinel是Spring Cloud Alibaba中常用的熔断限流组件，为我们提供了开箱即用的限流方法。</p>
+<p>使用起来也非常简单，在service层的方法上添加@SentinelResource注解，通过value指定资源名称，blockHandler指定一个方法，该方法会在原方法被限流、降级、系统保护时被调用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">QueryService</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String KEY=<span class="string">&quot;query&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@SentinelResource(value = KEY,</span></span><br><span class="line"><span class="meta">            blockHandler =&quot;blockHandlerMethod&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">query</span><span class="params">(String name)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;begin query,name=&quot;</span>+name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">blockHandlerMethod</span><span class="params">(String name, BlockException e)</span>&#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;blockHandlerMethod for Query : &quot;</span> + name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配置限流规则，这里使用直接编码方式配置，指定QPS到达1时进行限流：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SentinelConfig</span> &#123;</span><br><span class="line">    <span class="meta">@PostConstruct</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">init</span><span class="params">()</span>&#123;</span><br><span class="line">        List&lt;FlowRule&gt; rules = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="type">FlowRule</span> <span class="variable">rule</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FlowRule</span>(QueryService.KEY);</span><br><span class="line">        rule.setCount(<span class="number">1</span>);</span><br><span class="line">        rule.setGrade(RuleConstant.FLOW_GRADE_QPS);</span><br><span class="line">        rule.setLimitApp(<span class="string">&quot;default&quot;</span>);</span><br><span class="line">        rules.add(rule);</span><br><span class="line">        FlowRuleManager.loadRules(rules);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在application.yml中配置sentinel的端口及dashboard地址：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">sentinel-test</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">sentinel:</span></span><br><span class="line">      <span class="attr">transport:</span></span><br><span class="line">        <span class="attr">port:</span> <span class="number">8719</span></span><br><span class="line">        <span class="attr">dashboard:</span> <span class="string">localhost:8088</span></span><br></pre></td></tr></table></figure>
+<p>启动项目后，启动sentinel-dashboard：</p>
+<p><code>java -Dserver.port=8088 -jar sentinel-dashboard-1.8.0.jar</code><br>在浏览器打开dashboard就可以看见我们设置的流控规则：</p>
+<p>图片<br>进行接口测试，在超过QPS指定的限制后，则会执行blockHandler()方法中的逻辑：</p>
+<p>图片<br>Sentinel在微服务架构下得到了广泛的使用，能够提供可靠的集群流量控制、服务断路等功能。在使用中，限流可以结合熔断、降级一起使用，成为有效应对三高系统的三板斧，来保证服务的稳定性。</p>
+<h2 id="网关限流"><a href="#网关限流" class="headerlink" title="网关限流"></a>网关限流</h2><p>网关限流也是目前比较流行的一种方式，这里我们介绍采用Spring Cloud的gateway组件进行限流的方式。</p>
+<p>在项目中引入依赖，gateway的限流实际使用的是Redis加lua脚本的方式实现的令牌桶，因此还需要引入redis的相关依赖：</p>
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-gateway</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+</dependency>
+对gateway进行配置，主要就是配一下令牌的生成速率、令牌桶的存储量上限，以及用于限流的键的解析器。这里设置的桶上限为2，每秒填充1个令牌：
+
+<p>spring:<br>  application:<br>    name: gateway-test<br>  cloud:<br>    gateway:<br>      routes:<br>        - id: limit_route<br>          uri: lb:&#x2F;&#x2F;sentinel-test<br>          predicates:<br>          - Path&#x3D;&#x2F;sentinel-test&#x2F;**<br>          filters:<br>            - name: RequestRateLimiter<br>              args:<br>                # 令牌桶每秒填充平均速率<br>                redis-rate-limiter.replenishRate: 1<br>                # 令牌桶上限<br>                redis-rate-limiter.burstCapacity: 2<br>                # 指定解析器，使用spEl表达式按beanName从spring容器中获取<br>                key-resolver: “#{@pathKeyResolver}”<br>            - StripPrefix&#x3D;1<br>  redis:<br>    host: 127.0.0.1<br>    port: 6379<br>我们使用请求的路径作为限流的键，编写对应的解析器：</p>
+<p>@Slf4j<br>@Component<br>public class PathKeyResolver implements KeyResolver {<br>    public Mono<String> resolve(ServerWebExchange exchange) {<br>        String path &#x3D; exchange.getRequest().getPath().toString();<br>        log.info(“Request path: {}”,path);<br>        return Mono.just(path);<br>    }<br>}<br>启动gateway，使用jmeter进行测试，设置请求间隔为500ms，因为每秒生成一个令牌，所以后期达到了每两个请求放行1个的限流效果，在被限流的情况下，http请求会返回429状态码。</String></p>
+<p>图片<br>除了上面的根据请求路径限流外，我们还可以灵活设置各种限流的维度，例如根据请求header中携带的用户信息、或是携带的参数等等。当然，如果不想用gateway自带的这个Redis的限流器的话，我们也可以自己实现RateLimiter接口来实现一个自己的限流工具。</p>
+<p>gateway实现限流的关键是spring-cloud-gateway-core包中的RedisRateLimiter类，以及META-INF&#x2F;scripts中的request-rate-limiter.lua这个脚本，如果有兴趣可以看一下具体是如何实现的。</p>
+<p>总结<br>总的来说，要保证系统的抗压能力，限流是一个必不可少的环节，虽然可能会造成某些用户的请求被丢弃，但相比于突发流量造成的系统宕机来说，这些损失一般都在可以接受的范围之内。前面也说过，限流可以结合熔断、降级一起使用，多管齐下，保证服务的可用性与健壮性。</p>
+<p>—END—</p>
+<p>【福利】2023 高薪课程，全面来袭（视频+笔记+源码）</p>
+<p>PS：防止找不到本篇文章，可以收藏点赞，方便翻阅查找哦。</p>
+<p>往期推荐</p>
+<p>SpringBoot 多数据源及事务解决方案</p>
+<p>卸载 Notepad++！事实已证明，它更牛逼…</p>
+<p>为什么我不建议你用阿里巴巴Java规范，而使用 Google Guava 编程？</p>
+<p>网页版的 Redis 可视化工具来了，已开源！</p>
+<p>Java 20 正式发布，超神了….</p>
+<p>3 个腾讯开源的 GitHub 项目，足够惊艳！</p>
+<p>SpringBoot 集成 Dubbo 启用 gRPC 协议</p>
+<p>阅读原文<br>阅读 2199</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">zrh</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://zrh-main.github.io/2024/04/26/%E4%B8%9A%E5%8A%A1/%E6%9C%8D%E5%8A%A1%E9%99%90%E6%B5%81/">https://zrh-main.github.io/2024/04/26/%E4%B8%9A%E5%8A%A1/%E6%9C%8D%E5%8A%A1%E9%99%90%E6%B5%81/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">zrh</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/SpringBoot/">
+                                    <span class="chip bg-color">SpringBoot</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    <!-- 
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+     -->
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/04/26/%E4%B8%9A%E5%8A%A1/spu%E4%B8%8Esku/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="sku与spu">
+                        
+                        <span class="card-title">sku与spu</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-04-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%B8%9A%E5%8A%A1/" class="post-category">
+                                    业务
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%94%B5%E5%95%86/">
+                        <span class="chip bg-color">电商</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/04/26/fastDFS%E6%9C%8D%E5%8A%A1%E5%99%A8/%E7%AE%80%E4%BB%8B/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="文件上传">
+                        
+                        <span class="card-title">文件上传</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/fastDFS%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+                        <span class="chip bg-color">fastDFS服务器</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2024</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">zrh</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            <br>
+            
+            
+            
+            
+            
+          
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+ -->
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

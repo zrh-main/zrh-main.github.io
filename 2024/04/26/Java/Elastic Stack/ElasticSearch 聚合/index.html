@@ -1,0 +1,1093 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="ZRH博客,zrh博客">
+    <meta name="description" content="ZRH的个人博客,记录个人笔记">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>ZRH博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">ZRH博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">ZRH博客</div>
+        <div class="logo-desc">
+            
+            ZRH的个人博客,记录个人笔记
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a> -->
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title"></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-04-26
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>聚合的具体结构<br>所有的聚合，无论它们是什么类型，都遵从以下的规则。</p>
+<p>使用查询中同样的 JSON 请求来定义它们，而且你是使用键 aggregations 或者是 aggs 来进行标记。需要给每个聚合起一个名字，指定它的类型以及和该类型相关的选项。<br>它们运行在查询的结果之上。和查询不匹配的文档不会计算在内，除非你使用 global 聚集将不匹配的文档囊括其中。<br>可以进一步过滤查询的结果，而不影响聚集。<br>以下是聚合的基本结构：</p>
+<p>“aggregations” : { <!-- 最外层的聚合键，也可以缩写为 aggs --><br>    “<aggregation_name>“ : { <!-- 聚合的自定义名字 --><br>        “<aggregation_type>“ : { <!-- 聚合的类型，指标相关的，如 max、min、avg、sum，桶相关的 terms、filter 等 --><br>            <aggregation_body> <!-- 聚合体：对哪些字段进行聚合，可以取字段的值，也可以是脚本计算的结果 --><br>        }<br>        [,”meta” : {  [<meta_data_body>] } ]? <!-- 元 --><br>        [,”aggregations” : { [<sub_aggregation>]+ } ]? <!-- 在聚合里面在定义子聚合 --><br>    }<br>    [,”<aggregation_name_2>“ : { … } ]* <!-- 聚合的自定义名字 2 --><br>}<br>在最上层有一个 aggregations 的键，可以缩写为 aggs。<br>在下面一层，需要为聚合指定一个名字。可以在请求的返回中看到这个名字。在同一个请求中使用多个聚合时，这一点非常有用，它让你可以很容易地理解每组结果的含义。<br>最后，必须要指定聚合的类型。<br>关于聚合分析的值来源，可以取字段的值，也可以是脚本计算的结果。</aggregation_name_2></sub_aggregation></meta_data_body></aggregation_body></aggregation_type></aggregation_name></p>
+<p>但是用脚本计算的结果时，需要注意脚本的性能和安全性；尽管多数聚集类型允许使用脚本，但是脚本使得聚集变得缓慢，因为脚本必须在每篇文档上运行。为了避免脚本的运行，可以在索引阶段进行计算。</p>
+<p>此外，脚本也可以被人可能利用进行恶意代码攻击，尽量使用沙盒（sandbox）内的脚本语言。</p>
+<p>示例<br>查询所有球员的平均年龄是多少，并对球员的平均薪水加 188（也可以理解为每名球员加 188 后的平均薪水）。</p>
+<p>POST &#x2F;player&#x2F;_search?size&#x3D;0<br>{<br>  “aggs”: {<br>    “avg_age”: {<br>      “avg”: {<br>        “field”: “age”<br>      }<br>    },<br>    “avg_salary_188”: {<br>      “avg”: {<br>        “script”: {<br>          “source”: “doc.salary.value + 188”<br>        }<br>      }<br>    }<br>  }<br>}<br>指标聚合<br>指标聚合（又称度量聚合）主要从不同文档的分组中提取统计数据，或者，从来自其他聚合的文档桶来提取统计数据。</p>
+<p>这些统计数据通常来自数值型字段，如最小或者平均价格。用户可以单独获取每项统计数据，或者也可以使用 stats 聚合来同时获取它们。更高级的统计数据，如平方和或者是标准差，可以通过 extended stats 聚合来获取。</p>
+<p>Max Aggregation<br>Max Aggregation 用于最大值统计。例如，统计 sales 索引中价格最高的是哪本书，并且计算出对应的价格的 2 倍值，查询语句如下：</p>
+<p>GET &#x2F;sales&#x2F;_search?size&#x3D;0<br>{<br>  “aggs” : {<br>    “max_price” : {<br>      “max” : {<br>        “field” : “price”<br>      }<br>    },<br>    “max_price_2” : {<br>      “max” : {<br>        “field” : “price”,<br>        “script”: {<br>          “source”: “_value * 2.0”<br>        }<br>      }<br>    }<br>  }<br>}<br>指定的 field，在脚本中可以用 _value 取字段的值。</p>
+<p>聚合结果如下：</p>
+<p>{<br>  …<br>  “aggregations”: {<br>    “max_price”: {<br>      “value”: 188.0<br>    },<br>    “max_price_2”: {<br>      “value”: 376.0<br>    }<br>  }<br>}<br>Min Aggregation<br>Min Aggregation 用于最小值统计。例如，统计 sales 索引中价格最低的是哪本书，查询语句如下：</p>
+<p>GET &#x2F;sales&#x2F;_search?size&#x3D;0<br>{<br>  “aggs” : {<br>    “min_price” : {<br>      “min” : {<br>        “field” : “price”<br>      }<br>    }<br>  }<br>}<br>聚合结果如下：</p>
+<p>{<br>  …<br>  “aggregations”: {<br>    “min_price”: {<br>      “value”: 18.0<br>    }<br>  }<br>}<br>Avg Aggregation<br>Avg Aggregation 用于计算平均值。例如，统计 exams 索引中考试的平均分数，如未存在分数，默认为 60 分，查询语句如下：</p>
+<p>GET &#x2F;exams&#x2F;_search?size&#x3D;0<br>{<br>  “aggs” : {<br>    “avg_grade” : {<br>      “avg” : {<br>        “field” : “grade”,<br>        “missing”: 60<br>      }<br>    }<br>  }<br>}<br>如果指定字段没有值，可以通过 missing 指定默认值；若未指定默认值，缺失该字段值的文档将被忽略（计算）。</p>
+<p>聚合结果如下：</p>
+<p>{<br>  …<br>  “aggregations”: {<br>    “avg_grade”: {<br>      “value”: 78.0<br>    }<br>  }<br>}<br>除了常规的平均值聚合计算外，elasticsearch 还提供了加权平均值的聚合计算，详情参见 Elasticsearch 指标聚合之 Weighted Avg Aggregation。</p>
+<p>Sum Aggregation<br>Sum Aggregation 用于计算总和。例如，统计 sales 索引中 type 字段中匹配 hat 的价格总和，查询语句如下：</p>
+<p>GET &#x2F;exams&#x2F;_search?size&#x3D;0<br>{<br>  “query” : {<br>    “constant_score” : {<br>      “filter” : {<br>        “match” : { “type” : “hat” }<br>      }<br>    }<br>  },<br>  “aggs” : {<br>    “hat_prices” : {<br>      “sum” : { “field” : “price” }<br>    }<br>  }<br>}<br>聚合结果如下：</p>
+<p>{<br>  …<br>  “aggregations”: {<br>    “hat_prices”: {<br>      “value”: 567.0<br>    }<br>  }<br>}<br>Value Count Aggregation<br>Value Count Aggregation 可按字段统计文档数量。例如，统计 books 索引中包含 author 字段的文档数量，查询语句如下：</p>
+<p>GET &#x2F;books&#x2F;_search?size&#x3D;0<br>{<br>  “aggs” : {<br>    “doc_count” : {<br>      “value_count” : { “field” : “author” }<br>    }<br>  }<br>}<br>聚合结果如下：</p>
+<p>{<br>  …<br>  “aggregations”: {<br>    “doc_count”: {<br>      “value”: 5<br>    }<br>  }<br>}<br>Cardinality Aggregation<br>Cardinality Aggregation 用于基数统计，其作用是先执行类似 SQL 中的 distinct 操作，去掉集合中的重复项，然后统计排重后的集合长度。例如，在 books 索引中对 language 字段进行 cardinality 操作可以统计出编程语言的种类数，查询语句如下：</p>
+<p>GET &#x2F;books&#x2F;_search?size&#x3D;0<br>{<br>  “aggs” : {<br>    “all_lan” : {<br>      “cardinality” : { “field” : “language” }<br>    },<br>    “title_cnt” : {<br>      “cardinality” : { “field” : “title.keyword” }<br>    }<br>  }<br>}<br>假设 title 字段为文本类型（text），去重时需要指定 keyword，表示把 title 作为整体去重，即不分词统计。</p>
+<p>聚合结果如下：</p>
+<p>{<br>  …<br>  “aggregations”: {<br>    “all_lan”: {<br>      “value”: 8<br>    },<br>    “title_cnt”: {<br>      “value”: 18<br>    }<br>  }<br>}<br>Stats Aggregation<br>Stats Aggregation 用于基本统计，会一次返回 count、max、min、avg 和 sum 这 5 个指标。例如，在 exams 索引中对 grade 字段进行分数相关的基本统计，查询语句如下：</p>
+<p>GET &#x2F;exams&#x2F;_search?size&#x3D;0<br>{<br>  “aggs” : {<br>    “grades_stats” : {<br>      “stats” : { “field” : “grade” }<br>    }<br>  }<br>}<br>聚合结果如下：</p>
+<p>{<br>  …<br>  “aggregations”: {<br>    “grades_stats”: {<br>      “count”: 2,<br>      “min”: 50.0,<br>      “max”: 100.0,<br>      “avg”: 75.0,<br>      “sum”: 150.0<br>    }<br>  }<br>}<br>Extended Stats Aggregation<br>Extended Stats Aggregation 用于高级统计，和基本统计功能类似，但是会比基本统计多出以下几个统计结果，sum_of_squares（平方和）、variance（方差）、std_deviation（标准差）、std_deviation_bounds（平均值加&#x2F;减两个标准差的区间）。在 exams 索引中对 grade 字段进行分数相关的高级统计，查询语句如下：</p>
+<p>GET &#x2F;exams&#x2F;_search?size&#x3D;0<br>{<br>  “aggs” : {<br>    “grades_stats” : {<br>      “extended_stats” : { “field” : “grade” }<br>    }<br>  }<br>}<br>聚合结果如下：</p>
+<p>{<br>  …<br>  “aggregations”: {<br>    “grades_stats”: {<br>      “count”: 2,<br>      “min”: 50.0,<br>      “max”: 100.0,<br>      “avg”: 75.0,<br>      “sum”: 150.0,<br>      “sum_of_squares”: 12500.0,<br>      “variance”: 625.0,<br>      “std_deviation”: 25.0,<br>      “std_deviation_bounds”: {<br>        “upper”: 125.0,<br>        “lower”: 25.0<br>      }<br>    }<br>  }<br>}<br>Percentiles Aggregation<br>Percentiles Aggregation 用于百分位统计。百分位数是一个统计学术语，如果将一组数据从大到小排序，并计算相应的累计百分位，某一百分位所对应数据的值就称为这一百分位的百分位数。默认情况下，累计百分位为 [ 1, 5, 25, 50, 75, 95, 99 ]。以下例子给出了在 latency 索引中对 load_time 字段进行加载时间的百分位统计，查询语句如下：</p>
+<p>GET latency&#x2F;_search<br>{<br>  “size”: 0,<br>  “aggs” : {<br>    “load_time_outlier” : {<br>      “percentiles” : {<br>        “field” : “load_time”<br>      }<br>    }<br>  }<br>}<br>需要注意的是，如上的 load_time 字段必须是数字类型。</p>
+<p>聚合结果如下：</p>
+<p>{<br>  …<br>  “aggregations”: {<br>    “load_time_outlier”: {<br>      “values” : {<br>        “1.0”: 5.0,<br>        “5.0”: 25.0,<br>        “25.0”: 165.0,<br>        “50.0”: 445.0,<br>        “75.0”: 725.0,<br>        “95.0”: 945.0,<br>        “99.0”: 985.0<br>      }<br>    }<br>  }<br>}<br>百分位的统计也可以指定 percents 参数指定百分位，如下：</p>
+<p>GET latency&#x2F;_search<br>{<br>  “size”: 0,<br>  “aggs” : {<br>    “load_time_outlier” : {<br>      “percentiles” : {<br>        “field” : “load_time”,<br>        “percents”: [60, 80, 95]<br>      }<br>    }<br>  }<br>}<br>Percentiles Ranks Aggregation<br>Percentiles Ranks Aggregation 与 Percentiles Aggregation 统计恰恰相反，就是想看当前数值处在什么范围内（百分位）， 假如你查一下当前值 500 和 600 所处的百分位，发现是 90.01 和 100，那么说明有 90.01 % 的数值都在 500 以内，100 % 的数值在 600 以内。</p>
+<p>GET latency&#x2F;_search<br>{<br>  “size”: 0,<br>    “aggs” : {<br>      “load_time_ranks” : {<br>        “percentile_ranks” : {<br>          “field” : “load_time”,<br>          “values” : [500, 600]<br>        }<br>      }<br>  }<br>}<br>同样 load_time 字段必须是数字类型。</p>
+<p>返回结果大概类似如下：</p>
+<p>{<br>  …<br>  “aggregations”: {<br>    “load_time_ranks”: {<br>      “values” : {<br>        “500.0”: 90.01,<br>        “600.0”: 100.0<br>      }<br>    }<br>  }<br>}<br>可以设置 keyed 参数为 true，将对应的 values 作为桶 key 一起返回，默认是 false。</p>
+<p>GET latency&#x2F;_search<br>{<br>  “size”: 0,<br>  “aggs”: {<br>    “load_time_ranks”: {<br>      “percentile_ranks”: {<br>        “field”: “load_time”,<br>        “values”: [500, 600],<br>        “keyed”: true<br>      }<br>    }<br>  }<br>}<br>返回结果如下：</p>
+<p>{<br>  …<br>  “aggregations”: {<br>    “load_time_ranks”: {<br>      “values”: [<br>        {<br>          “key”: 500.0,<br>          “value”: 90.01<br>        },<br>        {<br>          “key”: 600.0,<br>          “value”: 100.0<br>        }<br>      ]<br>    }<br>  }<br>}<br>桶聚合<br>bucket 可以理解为一个桶，它会遍历文档中的内容，凡是符合某一要求的就放入一个桶中，分桶相当于 SQL 中的 group by。从另外一个角度，可以将指标聚合看成单桶聚合，即把所有文档放到一个桶中，而桶聚合是多桶型聚合，它根据相应的条件进行分组。</p>
+<p>桶聚合种类<br>种类	描述&#x2F;场景<br>词项聚合（Terms Aggregation）	用于分组聚合，让用户得知文档中每个词项的频率，它返回每个词项出现的次数。<br>差异词项聚合（Significant Terms Aggregation）	它会返回某个词项在整个索引中和在查询结果中的词频差异，这有助于我们发现搜索场景中有意义的词。<br>过滤器聚合（Filter Aggregation）	指定过滤器匹配的所有文档到单个桶（bucket），通常这将用于将当前聚合上下文缩小到一组特定的文档。<br>多过滤器聚合（Filters Aggregation）	指定多个过滤器匹配所有文档到多个桶（bucket）。<br>范围聚合（Range Aggregation）	范围聚合，用于反映数据的分布情况。<br>日期范围聚合（Date Range Aggregation）	专门用于日期类型的范围聚合。<br>IP 范围聚合（IP Range Aggregation）	用于对 IP 类型数据范围聚合。<br>直方图聚合（Histogram Aggregation）	可能是数值，或者日期型，和范围聚集类似。<br>时间直方图聚合（Date Histogram Aggregation）	时间直方图聚合，常用于按照日期对文档进行统计并绘制条形图。<br>空值聚合（Missing Aggregation）	空值聚合，可以把文档集中所有缺失字段的文档分到一个桶中。<br>地理点范围聚合（Geo Distance Aggregation）	用于对地理点（geo point）做范围统计。<br>Terms Aggregation<br>Terms Aggregation 用于词项的分组聚合。最为经典的用例是获取 X 中最频繁（top frequent）的项目，其中 X 是文档中的某个字段，如用户的名称、标签或分类。由于 terms 聚集统计的是每个词条，而不是整个字段值，因此通常需要在一个非分析型的字段上运行这种聚集。原因是, 你期望“big data”作为词组统计，而不是“big”单独统计一次，“data”再单独统计一次。</p>
+<p>用户可以使用 terms 聚集，从分析型字段（如内容）中抽取最为频繁的词条。还可以使用这种信息来生成一个单词云。</p>
+<p>{<br>  “aggs”: {<br>    “profit_terms”: {<br>      “terms”: { &#x2F;&#x2F; terms 聚合 关键字<br>        “field”: “profit”,<br>        ……<br>      }<br>    }<br>  }<br>}<br>在 terms 分桶的基础上，还可以对每个桶进行指标统计，也可以基于一些指标或字段值进行排序。示例如下：</p>
+<p>{<br>  “aggs”: {<br>    “item_terms”: {<br>      “terms”: {<br>        “field”: “item_id”,<br>        “size”: 1000,<br>        “order”:[{<br>          “gmv_stat”: “desc”<br>        },{<br>          “gmv_180d”: “desc”<br>        }]<br>      },<br>      “aggs”: {<br>        “gmv_stat”: {<br>          “sum”: {<br>            “field”: “gmv”<br>          }<br>        },<br>        “gmv_180d”: {<br>          “sum”: {<br>            “script”: “doc[‘gmv_90d’].value*2”<br>          }<br>        }<br>      }<br>    }<br>  }<br>}<br>返回的结果如下：</p>
+<p>{<br>  …<br>  “aggregations”: {<br>    “hospital_id_agg”: {<br>      “doc_count_error_upper_bound”: 0,<br>      “sum_other_doc_count”: 260,<br>      “buckets”: [<br>        {<br>          “key”: 23388,<br>          “doc_count”: 18,<br>          “gmv_stat”: {<br>            “value”: 176220<br>          },<br>          “gmv_180d”: {<br>            “value”: 89732<br>          }<br>        },<br>        {<br>          “key”: 96117,<br>          “doc_count”: 16,<br>          “gmv_stat”: {<br>            “value”: 129306<br>          },<br>          “gmv_180d”: {<br>            “value”: 56988<br>          }<br>        },<br>        …<br>      ]<br>    }<br>  }<br>}<br>默认情况下返回按文档计数从高到低的前 10 个分组，可以通过 size 参数指定返回的分组数。</p>
+<p>关于 terms aggregation 的更多内容，请查看 elasticsearch terms 聚合查询详解。</p>
+<p>Filter Aggregation<br>Filter Aggregation 是过滤器聚合，可以把符合过滤器中的条件的文档分到一个桶中，即是单分组聚合。</p>
+<p>{<br>  “aggs”: {<br>    “age_terms”: {<br>      “filter”: {“match”:{“gender”:”F”}},<br>      “aggs”: {<br>        “avg_age”: {<br>          “avg”: {<br>            “field”: “age”<br>          }<br>        }<br>      }<br>    }<br>  }<br>}<br>Filters Aggregation<br>Filters Aggregation 是多过滤器聚合，可以把符合多个过滤条件的文档分到不同的桶中，即每个分组关联一个过滤条件，并收集所有满足自身过滤条件的文档。</p>
+<p>{<br>  “size”: 0,<br>  “aggs”: {<br>    “messages”: {<br>      “filters”: {<br>        “filters”: {<br>          “errors”: { “match”: { “body”: “error” } },<br>          “warnings”: { “match”: { “body”: “warning” } }<br>        }<br>      }<br>    }<br>  }<br>}<br>在这个例子里，我们分析日志信息。聚合会创建两个关于日志数据的分组，一个收集包含错误信息的文档，另一个收集包含告警信息的文档。而且每个分组会按月份划分。</p>
+<p>{<br>  …<br>  “aggregations”: {<br>    “messages”: {<br>      “buckets”: {<br>        “errors”: {<br>          “doc_count”: 1<br>        },<br>        “warnings”: {<br>          “doc_count”: 2<br>        }<br>      }<br>    }<br>  }<br>}<br>Range Aggregation<br>Range Aggregation 范围聚合是一个基于多组值来源的聚合，可以让用户定义一系列范围，每个范围代表一个分组。在聚合执行的过程中，从每个文档提取出来的值都会检查每个分组的范围，并且使相关的文档落入分组中。注意，范围聚合的每个范围内包含 from 值但是排除 to 值。</p>
+<p>{<br>  “aggs”: {<br>    “age_range”: {<br>      “range”: {<br>        “field”: “age”,<br>          “ranges”: [{<br>            “to”: 25<br>          },<br>          {<br>            “from”: 25,<br>            “to”: 35<br>          },<br>          {<br>            “from”: 35<br>          }]<br>        },<br>        “aggs”: {<br>          “bmax”: {<br>            “max”: {<br>              “field”: “balance”<br>            }<br>          }<br>        }<br>      }<br>    }<br>  }<br>}<br>返回结果如下：</p>
+<p>{<br>  …<br>  “aggregations”: {<br>    “age_range”: {<br>      “buckets”: [{<br>        “key”: “<em>-25.0”,<br>        “to”: 25,<br>        “doc_count”: 225,<br>        “bmax”: {<br>          “value”: 49587<br>        }<br>      },<br>      {<br>        “key”: “25.0-35.0”,<br>        “from”: 25,<br>        “to”: 35,<br>        “doc_count”: 485,<br>        “bmax”: {<br>          “value”: 49795<br>        }<br>      },<br>      {<br>        “key”: “35.0-</em>“,El<br>        “from”: 35,<br>        “doc_count”: 290,<br>        “bmax”: {<br>          “value”: 49989<br>        }<br>      }]<br>    }<br>  }<br>}</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">zrh</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://zrh-main.github.io/2024/04/26/Java/Elastic%20Stack/ElasticSearch%20%E8%81%9A%E5%90%88/">https://zrh-main.github.io/2024/04/26/Java/Elastic%20Stack/ElasticSearch%20%E8%81%9A%E5%90%88/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">zrh</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    <!-- 
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+     -->
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/04/26/Java/Elastic%20Stack/ElasticSearch%20%E9%9B%86%E7%BE%A4/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="ElasticSearch 集群">
+                        
+                        <span class="card-title">ElasticSearch 集群</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-04-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/" class="post-category">
+                                    全文检索
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ElasticSearch/">
+                        <span class="chip bg-color">ElasticSearch</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/">
+                        <span class="chip bg-color">全文检索</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/">
+                        <span class="chip bg-color">站内搜索</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/04/26/Java/Elastic%20Stack/ElasticSearch%20%E7%B4%A2%E5%BC%95/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="ElasticSearch 索引">
+                        
+                        <span class="card-title">ElasticSearch 索引</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/" class="post-category">
+                                    全文检索
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ElasticSearch/">
+                        <span class="chip bg-color">ElasticSearch</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/">
+                        <span class="chip bg-color">全文检索</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/">
+                        <span class="chip bg-color">站内搜索</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2024</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">zrh</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            <br>
+            
+            
+            
+            
+            
+          
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+ -->
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
