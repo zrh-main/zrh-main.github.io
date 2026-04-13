@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ZRH博客,zrh博客">
+    <meta name="keywords" content="Redis面试题, ZRH博客,zrh博客">
     <meta name="description" content="ZRH的个人博客,记录个人笔记">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ZRH博客</title>
+    <title>Redis面试题 | ZRH博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -266,12 +266,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">Redis面试题</h1>
                 </div>
             </div>
         </div>
@@ -385,12 +385,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                                <span class="chip bg-color">面试题</span>
+                            </a>
+                        
+                            <a href="/tags/Redis/">
+                                <span class="chip bg-color">Redis</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
+                                面试题
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -423,60 +440,99 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h4><ol>
-<li><p>Redis 是什么？核心优势是什么？<br>Redis 是基于内存的键值对数据库，支持多种数据结构。<br>核心优势：① 高性能（纯内存操作，单线程模型）；② 高可用（主从、哨兵、集群）；③ 功能丰富（缓存、分布式锁、消息队列都能做）；④ 支持持久化，数据不丢。</p>
-</li>
-<li><p>Redis 为什么这么快？<br>核心原因：① 纯内存操作，避免磁盘 IO；② 单线程模型，无线程切换、锁竞争开销；③ 用 IO 多路复用（epoll）处理网络请求，高效管理连接；④ 数据结构优化（比如跳表、压缩列表）。</p>
-</li>
-<li><p>Redis 支持哪些数据类型？各自典型场景？<br>String：缓存、计数器、分布式锁（setnx）；<br>Hash：存储对象（比如用户信息），节省内存；<br>List：消息队列、最新列表（比如朋友圈动态）；<br>Set：去重、抽奖、交集并集（比如共同好友）；<br>ZSet：排序场景（比如排行榜、延时队列）；<br>补充：还有 Bitmap（布隆过滤器）、Geo（地理位置）等扩展类型。</p>
-</li>
-<li><p>Redis 持久化有哪两种方式？区别是什么？<br>RDB：快照持久化，定时把内存数据快照保存到磁盘；优点是恢复快，缺点是可能丢数据；<br>AOF：日志持久化，记录所有写命令，重启时重放命令恢复；优点是数据更安全，缺点是文件大、恢复慢；<br>生产常用：RDB+AOF 混合，兼顾性能和数据安全。<br>二、核心原理类（进阶考察）</p>
-</li>
-<li><p>Redis 缓存穿透、缓存击穿、缓存雪崩是什么？怎么解决？<br>缓存穿透：请求不存在的 key，每次都查数据库；解决：布隆过滤器拦截、空值缓存；<br>缓存击穿：热点 key 过期，大量请求打数据库；解决：热点 key 永不过期、互斥锁；<br>缓存雪崩：大量 key 同时过期，数据库扛不住；解决：过期时间加随机值、集群部署、限流降级。</p>
-</li>
-<li><p>Redis 主从复制原理？<br>① 从库连接主库，发送 SYNC 命令；<br>② 主库执行 bgsave 生成 RDB 文件，同时记录新的写命令；<br>③ 主库把 RDB 文件和新命令发给从库；<br>④ 从库加载 RDB，执行新命令，和主库数据同步；<br>⑤ 后续主库有写操作，实时同步给从库（增量复制）。</p>
-</li>
-<li><p>Redis 哨兵（Sentinel）的作用？核心流程？<br>哨兵是监控 Redis 集群的工具，核心作用：① 监控主从节点是否存活；② 主库故障时自动切换（选新主库）；③ 通知客户端主库地址变更。<br>核心流程：主库宕机→哨兵集群投票→选一个从库升主→其他从库同步新主→通知客户端。</p>
-</li>
-<li><p>Redis 集群（Cluster）原理？如何分片？<br>Redis 集群是分布式方案，解决单节点容量和性能瓶颈：<br>① 采用哈希槽（16384 个）分片，槽位 &#x3D; CRC16(key) % 16384；<br>② 每个节点负责一部分槽位，数据按槽位分布；<br>③ 主从复制：每个主节点有从节点，故障时从节点升主；<br>④ 客户端请求时，先定位槽位对应的节点，再发请求。</p>
-</li>
-<li><p>Redis 分布式锁的实现方式？注意点？<br>核心实现（SETNX）：SET key value NX EX 30（NX：不存在才设置，EX：自动过期）。<br>注意点：① 设置过期时间，避免死锁；② 用 Lua 脚本保证解锁原子性（先判断 value 是自己的，再删除）；③ 过期时间要大于业务执行时间，或加续期（Redisson）。<br>三、数据结构类（高频加分项）</p>
-</li>
-<li><p>String 底层实现？<br>底层是简单动态字符串（SDS），和 Java String 区别：① 可修改；② 预分配空间，减少扩容开销；③ 记录长度，获取长度 O (1)。<br>小字符串用 embstr 编码，大字符串用 raw 编码。</p>
-</li>
-<li><p>Hash 底层实现？<br>小哈希：压缩列表（ziplist），节省内存；<br>大哈希：哈希表（hashtable），查询更快；<br>触发切换的条件：哈希元素数超过阈值，或单个元素值过大。</p>
-</li>
-<li><p>ZSet 底层实现？<br>小 ZSet：压缩列表；<br>大 ZSet：跳表（skiplist）+ 哈希表；<br>跳表优势：插入、删除、查询都是 O (logN)，比红黑树实现简单。</p>
-</li>
-<li><p>Redis 过期键的删除策略？<br>三种策略：<br>① 惰性删除：访问时才检查是否过期，过期则删除（节省 CPU，可能内存泄漏）；<br>② 定期删除：每隔一段时间，随机抽查部分过期键删除（平衡 CPU 和内存）；<br>③ Redis 用 “惰性删除 + 定期删除” 结合，配合内存淘汰策略兜底。</p>
-</li>
-</ol>
-<p>四、实战应用类（场景考察）</p>
+                <h2 id="Redis-是什么？核心优势是什么？"><a href="#Redis-是什么？核心优势是什么？" class="headerlink" title="Redis 是什么？核心优势是什么？"></a>Redis 是什么？核心优势是什么？</h2><p>Redis 是基于内存的键值对数据库，支持多种数据结构。<br>核心优势：</p>
 <ol>
-<li><p>如何保证缓存和数据库的数据一致性？<br>核心原则：最终一致性，常用方案：<br>① 先更数据库，再删缓存（避免并发问题）；<br>② 缓存删除失败则重试（比如用 MQ）；<br>③ 读多写少场景：加延迟双删（删缓存→更数据库→延迟 1s 再删缓存）。</p>
-</li>
-<li><p>Redis 集群扩容怎么做？<br>① 新增节点，加入集群；<br>② 迁移哈希槽（把旧节点的槽位迁移到新节点）；<br>③ 迁移过程中，Redis 会自动处理请求，不影响业务（无缝扩容）。</p>
-</li>
-<li><p>Redis 出现内存泄漏怎么排查？<br>① 用info memory查看内存使用情况；<br>② 用redis-cli –bigkeys找出大 key；<br>③ 检查过期键策略，是否有大量过期键没删除；<br>④ 检查业务代码，是否有大量无用 key 没清理。<br>五、性能优化类（进阶考察）</p>
-</li>
-<li><p>如何优化 Redis 性能？<br>① 用批量操作（pipeline）减少网络请求；<br>② 避免大 key（拆分大 key，比如大 Hash 拆成多个小 Hash）；<br>③ 合理设置过期时间，避免内存浪费；<br>④ 开启持久化优化（比如 AOF 重写、RDB 定时调整）；<br>⑤ 集群部署，分摊压力。</p>
-</li>
-<li><p>Redis 为什么要避免大 key？<br>① 删除大 key 会阻塞单线程，导致请求卡顿；<br>② 大 key 同步到从库耗时久，主从延迟大；<br>③ 占用内存多，内存淘汰时开销大。</p>
-</li>
-<li><p>Redis 管道（pipeline）的作用？原理？<br>作用：批量发送命令，减少网络往返次数，提升并发；<br>原理：客户端把多个命令打包发送，Redis 一次性执行，批量返回结果（注意：pipeline 不是原子操作）</p>
-</li>
+<li>高性能（纯内存操作，单线程模型）；</li>
+<li>高可用（主从、哨兵、集群）；</li>
+<li>功能丰富（缓存、分布式锁、消息队列都能做）；</li>
+<li>支持持久化，数据不丢</li>
 </ol>
+<h2 id="Redis-使用"><a href="#Redis-使用" class="headerlink" title="Redis 使用"></a>Redis 使用</h2><p>redis是一个非关系型数据库,项目中主要是用来存储热点数据,减轻数据库压力<br>​应用场景：缓存、消息队列、实时排行榜、分布式锁、计数器等</p>
+<h2 id="Redis-支持哪些数据类型？各自典型场景？"><a href="#Redis-支持哪些数据类型？各自典型场景？" class="headerlink" title="Redis 支持哪些数据类型？各自典型场景？"></a>Redis 支持哪些数据类型？各自典型场景？</h2><p>String：缓存、计数器、分布式锁（setnx）；<br>Hash：存储对象（比如用户信息），节省内存；<br>List：消息队列、最新列表（比如朋友圈动态）；<br>Set：去重、抽奖、交集并集（比如共同好友）；<br>ZSet：排序场景（比如排行榜、延时队列）；<br>补充：还有 Bitmap（布隆过滤器）、Geo（地理位置）等扩展类型。</p>
+<h2 id="Redis-为什么这么快？"><a href="#Redis-为什么这么快？" class="headerlink" title="Redis 为什么这么快？"></a>Redis 为什么这么快？</h2><p>核心原因：</p>
+<ol>
+<li>纯内存操作，避免磁盘 IO；</li>
+<li>单线程模型，无线程切换、锁竞争开销；</li>
+<li>用 IO 多路复用（epoll）处理网络请求，高效管理连接；</li>
+<li>数据结构优化（比如跳表、压缩列表）。</li>
+</ol>
+<h2 id="Redis-持久化有哪两种方式？区别是什么？"><a href="#Redis-持久化有哪两种方式？区别是什么？" class="headerlink" title="Redis 持久化有哪两种方式？区别是什么？"></a>Redis 持久化有哪两种方式？区别是什么？</h2><p>RDB：快照持久化，定时把内存数据快照保存到磁盘；优点是恢复快，缺点是可能丢数据；<br>AOF：日志持久化，记录所有写命令，重启时重放命令恢复；优点是数据更安全，缺点是文件大、恢复慢；<br>生产常用：RDB+AOF 混合，兼顾性能和数据安全。</p>
+<h2 id="Redis-缓存穿透、缓存击穿、缓存雪崩是什么？怎么解决？"><a href="#Redis-缓存穿透、缓存击穿、缓存雪崩是什么？怎么解决？" class="headerlink" title="Redis 缓存穿透、缓存击穿、缓存雪崩是什么？怎么解决？"></a>Redis 缓存穿透、缓存击穿、缓存雪崩是什么？怎么解决？</h2><p>缓存穿透：请求不存在的 key，每次都查数据库；解决：布隆过滤器拦截、空值缓存；<br>缓存击穿：热点 key 过期，大量请求打数据库；解决：热点 key 永不过期、互斥锁；<br>缓存雪崩：大量 key 同时过期，数据库扛不住；解决：过期时间加随机值、集群部署、限流降级。</p>
+<h2 id="Redis-出现内存泄漏怎么排查？"><a href="#Redis-出现内存泄漏怎么排查？" class="headerlink" title="Redis 出现内存泄漏怎么排查？"></a>Redis 出现内存泄漏怎么排查？</h2><p>① 用info memory查看内存使用情况；<br>② 用redis-cli –bigkeys找出大 key；<br>③ 检查过期键策略，是否有大量过期键没删除；<br>④ 检查业务代码，是否有大量无用 key 没清理。</p>
+<h2 id="Redis-事务如何保证原子性？"><a href="#Redis-事务如何保证原子性？" class="headerlink" title="Redis 事务如何保证原子性？"></a>Redis 事务如何保证原子性？</h2><p>Redis 事务不支持回滚，核心是通过一次性执行、命令队列化、错误处理机制实现弱原子性<br>弱原子性：要么队列中所有命令都执行，要么都不执行；但执行过程中若出现运行时错误（如对字符串做自增），错误命令会失败，其他命令仍会执行，不会回滚。<br>而 MySQL 是强原子性：一个语句失败，整个事务回滚，所有操作恢复原状。</p>
+<h3 id="Redis-是否支持回滚？"><a href="#Redis-是否支持回滚？" class="headerlink" title="Redis 是否支持回滚？"></a>Redis 是否支持回滚？</h3><p>​不支持传统回滚：Redis 事务不提供 ROLLBACK，若某条命令失败，后续命令仍会执行。<br>​替代方案：通过乐观锁（WATCH）或 Lua 脚本实现原子性操作</p>
+<h2 id="如何用-Redis-实现分布式锁"><a href="#如何用-Redis-实现分布式锁" class="headerlink" title="如何用 Redis 实现分布式锁"></a>如何用 Redis 实现分布式锁</h2><ol>
+<li>Redisson 分布式锁 + Redis 操作（项目主流方案，你高频使用）<br>核心原理：用 Redisson 实现 Redis 分布式锁，先加锁再执行所有 Redis 操作，保证同一时间只有一个客户端操作该 key，从根本上避免并发和原子性问题；<br>优势：实现简单，高并发下性能稳定，适配你 500+QPS 的库存扣减场景。</li>
+<li>使用 Lua 脚本（Redis 原子性最优方案，企业高级用法）<br>核心原理：Redis 会一次性执行整个 Lua 脚本，执行过程中不会被其他命令打断，天然保证原子性；可在脚本中做逻辑判断 + 多命令执行，甚至实现错误回滚（通过代码逻辑）；<br>优势：原子性最强，减少网络请求（一次脚本执行替代多次 Redis 命令），高并发下性能最优。</li>
+</ol>
+<h2 id="Redis-过期键的删除策略？"><a href="#Redis-过期键的删除策略？" class="headerlink" title="Redis 过期键的删除策略？"></a>Redis 过期键的删除策略？</h2><p>三种策略：</p>
+<ol>
+<li>惰性删除：访问时才检查是否过期，过期则删除（节省 CPU，可能内存泄漏）；</li>
+<li>定期删除：每隔一段时间，随机抽查部分过期键删除（平衡 CPU 和内存）；</li>
+<li>Redis 用 “惰性删除 + 定期删除” 结合，配合内存淘汰策略兜底。</li>
+</ol>
+<h2 id="Redis-管道（pipeline）的作用？原理？"><a href="#Redis-管道（pipeline）的作用？原理？" class="headerlink" title="Redis 管道（pipeline）的作用？原理？"></a>Redis 管道（pipeline）的作用？原理？</h2><p>作用：批量发送命令，减少网络往返次数，提升并发；<br>原理：客户端把多个命令打包发送，Redis 一次性执行，批量返回结果（注意：pipeline 不是原子操作）</p>
+<h2 id="如何保证缓存和数据库的数据一致性？"><a href="#如何保证缓存和数据库的数据一致性？" class="headerlink" title="如何保证缓存和数据库的数据一致性？"></a>如何保证缓存和数据库的数据一致性？</h2><p>核心原则：最终一致性，常用方案：</p>
+<ol>
+<li>先更数据库，再删缓存（避免并发问题）；</li>
+<li>缓存删除失败则重试（比如用 MQ）；</li>
+<li>读多写少场景：加延迟双删（删缓存→更数据库→延迟 1s 再删缓存）。</li>
+</ol>
+<h2 id="如何优化-Redis-性能？"><a href="#如何优化-Redis-性能？" class="headerlink" title="如何优化 Redis 性能？"></a>如何优化 Redis 性能？</h2><ol>
+<li>用批量操作（pipeline）减少网络请求；</li>
+<li>避免大 key（拆分大 key，比如大 Hash 拆成多个小 Hash）；</li>
+<li>合理设置过期时间，避免内存浪费；</li>
+<li>开启持久化优化（比如 AOF 重写、RDB 定时调整）；</li>
+<li>集群部署，分摊压力。</li>
+</ol>
+<h2 id="数据结构类（高频加分项）"><a href="#数据结构类（高频加分项）" class="headerlink" title="数据结构类（高频加分项）"></a>数据结构类（高频加分项）</h2><ol>
+<li>String 底层实现？<br>底层是简单动态字符串（SDS），和 Java String 区别：① 可修改；② 预分配空间，减少扩容开销；③ 记录长度，获取长度 O (1)。<br>小字符串用 embstr 编码，大字符串用 raw 编码。</li>
+<li>Hash 底层实现？<br>小哈希：压缩列表（ziplist），节省内存；<br>大哈希：哈希表（hashtable），查询更快；<br>触发切换的条件：哈希元素数超过阈值，或单个元素值过大。</li>
+<li>ZSet 底层实现？<br>小 ZSet：压缩列表；<br>大 ZSet：跳表（skiplist）+ 哈希表；<br>跳表优势：插入、删除、查询都是 O (logN)，比红黑树实现简单。</li>
+</ol>
+<h2 id="Redis集群"><a href="#Redis集群" class="headerlink" title="Redis集群"></a>Redis集群</h2><h3 id="主从复制集群"><a href="#主从复制集群" class="headerlink" title="主从复制集群"></a>主从复制集群</h3><p>主节点（master）写数据，从节点（slave）读数据，实现读写分离，提升读的并发能力；<br>主节点故障后可手动切换到从节点，是哨兵 &#x2F; 分片集群的基础</p>
 <ul>
-<li>Redisson 分布式锁<br>Redis 官方推荐，Hash+Lua 脚本保原子性，看门狗每 10 秒续期 30 秒；<br>支持可重入 &#x2F; 防误删 &#x2F; 集群，项目按 SKU 加锁，lock 加锁、finally 解锁，避库存超卖。</li>
+<li>核心角色<br>主节点（Master）：唯一可写节点，处理所有写请求<br>从节点（Slave）：只读节点，同步主节点数据，处理所有读请求</li>
+<li>项目适配场景<br>读多写少，可采用主从集群：主节点处理缓存更新（写），从节点处理查询（读），提升读并发能力；<br>缺点：主节点故障后需手动切换，无法自动容灾，适合中小规模项目</li>
 </ul>
-<p>Redis 常用数据类型 + 项目落地？<br>答：Hash 做航天云膜分仓库库存统计；String 存简单配置；ZSet 做 ES 搜索排序；List 存临时消息数据。</p>
-<p>Redis 缓存穿透 &#x2F; 击穿 &#x2F; 雪崩怎么解？<br>答：穿透：布隆过滤器 &#x2F; 空值缓存；击穿：热点 key 永不过期 &#x2F; 互斥锁；雪崩：过期时间加随机值 + Redis+Caffeine 二级缓存。</p>
-<p>Redisson 分布式锁比 Redis 原生 SETNX 好在哪？<br>答：SETNX 易造成死锁、需手动设置过期时间，还可能释放他人锁；Redisson 封装重入锁、自动续期、公平锁，解决网络延迟问题，项目高并发场景均使用</p>
-<h3 id="Redis-1"><a href="#Redis-1" class="headerlink" title="Redis"></a>Redis</h3><p>redis是一个非关系型数据库,项目中主要是用来存储热点数据,减轻数据库压力</p>
-<h4 id="持久化方式"><a href="#持久化方式" class="headerlink" title="持久化方式"></a>持久化方式</h4><p>它的持久化方式有两种,一种是RDB,另一种是AOF<br>RDB是以快照的方式来存储的,也是redis默认的持久化方式,每隔一段时间进行存储<br>AOF是在配置文件配置,每秒持久化一次或每次操作持久化一次。</p>
-<h4 id="Redis-支持哪些数据类型"><a href="#Redis-支持哪些数据类型" class="headerlink" title="Redis 支持哪些数据类型"></a>Redis 支持哪些数据类型</h4><p>我记得有5种数据类型,分别是<br>字符串<br>​列表（List）​：双端链表，支持 push&#x2F;pop 操作。<br>​哈希（Hash）​：键值对的集合，适合存储对象。<br>​集合（Set）​：无序不重复元素集合，支持交集、并集等操作。<br>​有序集合（Sorted Set）​：元素按分数排序，适合排行榜。</p>
-<h4 id="Redis集群如何搭建"><a href="#Redis集群如何搭建" class="headerlink" title="Redis集群如何搭建"></a>Redis集群如何搭建</h4><p>在项目中，我们是用 ​Redis Cluster 搭建集群，核心步骤如下：</p>
-<p>​环境：6 节点（3 主 3 从），独立端口部署，关闭保护模式。<br>​配置：统一配置 cluster-enabled yes、cluster-replicas 1，指定唯一 cluster-config-file。<br>​创建：用 redis-cli –cluster create 命令一键生成集群，自动分配主从和槽位。<br>​验证：通过 CLUSTER INFO 和 CLUSTER NODES 检查状态，确保 cluster_state:ok。<br>​容灾：测试主节点宕机后从节点自动提升，保障业务连续性。<br>一句话总结：基于官方工具自动化部署，3 主 3 从，无中心架构，兼顾性能和高可用</p>
+<h3 id="Redis-主从复制原理？"><a href="#Redis-主从复制原理？" class="headerlink" title="Redis 主从复制原理？"></a>Redis 主从复制原理？</h3><ol>
+<li>从库连接主库，发送 SYNC 命令；</li>
+<li>主库执行 bgsave 生成 RDB 文件，同时记录新的写命令；</li>
+<li>主库把 RDB 文件和新命令发给从库；</li>
+<li>从库加载 RDB，执行新命令，和主库数据同步；</li>
+<li>后续主库有写操作，实时同步给从库（增量复制）。</li>
+</ol>
+<h3 id="哨兵模式集群（主从-哨兵，自动容灾，企业主流）"><a href="#哨兵模式集群（主从-哨兵，自动容灾，企业主流）" class="headerlink" title="哨兵模式集群（主从 + 哨兵，自动容灾，企业主流）"></a>哨兵模式集群（主从 + 哨兵，自动容灾，企业主流）</h3><p>在主从复制基础上，增加哨兵节点（Sentinel），实现主节点故障自动切换（无需人工干预），解决主从集群的单点故障问题，是企业中读多写少、数据量适中场景的首选</p>
+<ul>
+<li>核心角色<br>主 &#x2F; 从节点：和主从集群一致，负责数据存储和读写分离；<br>哨兵节点：监控主从节点状态，主节点故障时自动将最优从节点升级为主节点，并通知其他从节点同步新主节点，同时通知业务系统（如你的 Spring Boot 项目）更新 Redis 地址。</li>
+<li>项目适配场景<br>哨兵模式：既实现读写分离提升性能，又能自动容灾，主节点故障后秒级切换，保证库存服务不中断；<br>缺点：所有节点存储全量数据，无法解决海量数据存储问题（如单节点内存不足）。</li>
+<li>项目对接技巧（你的 Spring Boot 项目如何连接哨兵集群）<br>无需配置具体 Redis 主从地址，直接配置哨兵地址，Spring Boot 会自动从哨兵获取主节点地址，故障切换后自动更新：</li>
+</ul>
+<h4 id="Redis-哨兵（Sentinel）的作用？核心流程？"><a href="#Redis-哨兵（Sentinel）的作用？核心流程？" class="headerlink" title="Redis 哨兵（Sentinel）的作用？核心流程？"></a>Redis 哨兵（Sentinel）的作用？核心流程？</h4><p>哨兵是监控 Redis 集群的工具，核心作用：</p>
+<ol>
+<li>监控主从节点是否存活；</li>
+<li>主库故障时自动切换（选新主库）；</li>
+<li>通知客户端主库地址变更。<br>核心流程：主库宕机→哨兵集群投票→选一个从库升主→其他从库同步新主→通知客户端。</li>
+</ol>
+<h3 id="分片集群（Redis-Cluster，海量数据-高并发，大型微服务项目）"><a href="#分片集群（Redis-Cluster，海量数据-高并发，大型微服务项目）" class="headerlink" title="分片集群（Redis Cluster，海量数据 + 高并发，大型微服务项目）"></a>分片集群（Redis Cluster，海量数据 + 高并发，大型微服务项目）</h3><p>哨兵模式的全量数据存储问题，将海量数据分片存储到不同主节点，每个主节点只存储部分数据，同时搭配从节点实现高可用，支持水平扩容（新增节点即可扩容），适合数据量巨大、读写并发极高的微服务项目</p>
+<ul>
+<li>核心特性<br>分片规则：采用哈希槽（Hash Slot） 机制，Redis 集群共有16384 个哈希槽，每个主节点分配部分槽位，数据根据key的哈希值映射到对应槽位的节点；<br>节点角色：至少3 主 3 从（6 节点），每个主节点对应 1 个从节点，主节点负责写 + 槽位管理，从节点负责读 + 容灾；<br>自动容灾：主节点故障时，其从节点自动升级为主节点，接管槽位；<br>无中心节点：所有节点平等，可互相通信，客户端连接任意节点即可访问全集群数据</li>
+</ul>
+<h2 id="Redis-分片集群（Cluster）原理？如何分片？"><a href="#Redis-分片集群（Cluster）原理？如何分片？" class="headerlink" title="Redis 分片集群（Cluster）原理？如何分片？"></a>Redis 分片集群（Cluster）原理？如何分片？</h2><ol>
+<li>采用哈希槽（16384 个）分片，槽位 &#x3D; CRC16(key) % 16384；</li>
+<li>每个节点负责一部分槽位，数据按槽位分布；</li>
+<li>主从复制：每个主节点有从节点，故障时从节点升主；</li>
+<li>客户端请求时，先定位槽位对应的节点，再发请求。</li>
+</ol>
+<h2 id="Redis-三种集群的区别及适用场景"><a href="#Redis-三种集群的区别及适用场景" class="headerlink" title="Redis 三种集群的区别及适用场景"></a>Redis 三种集群的区别及适用场景</h2><p>开发中常用 Redis 主从、哨兵、分片三种集群：</p>
+<ol>
+<li>主从集群是基础，实现读写分离，提升读并发，但主节点故障需手动切换，适合中小规模读多写少场景；</li>
+<li>哨兵模式基于主从，增加哨兵实现主节点故障自动切换，解决单点故障，是企业主流,保证核心业务高可用；</li>
+<li>分片集群采用哈希槽机制，将数据分片存储，支持海量数据和水平扩容，解决单节点内存瓶颈，缺点是不支持跨槽位多 key 操作。</li>
+</ol>
+<h2 id="Redis-集群扩容怎么做？"><a href="#Redis-集群扩容怎么做？" class="headerlink" title="Redis 集群扩容怎么做？"></a>Redis 集群扩容怎么做？</h2><p>① 新增节点，加入集群；<br>② 迁移哈希槽（把旧节点的槽位迁移到新节点）；<br>③ 迁移过程中，Redis 会自动处理请求，不影响业务（无缝扩容）。</p>
+<h2 id="Redis集群实战避坑（你项目中踩过的坑-注意事项）"><a href="#Redis集群实战避坑（你项目中踩过的坑-注意事项）" class="headerlink" title="Redis集群实战避坑（你项目中踩过的坑 &#x2F; 注意事项）"></a>Redis集群实战避坑（你项目中踩过的坑 &#x2F; 注意事项）</h2><p>生产环境必开持久化：开启 AOF+RDB 混合持久化，防止集群故障导致数据丢失；<br>节点密码统一：所有主从 &#x2F; 哨兵 &#x2F; 分片节点密码必须一致，否则同步 &#x2F; 监控失败；<br>禁止单服务器模拟集群：生产环境必须用独立服务器，单服务器多端口模拟会因服务器故障导致整个集群瘫痪；<br>分片集群 key 设计：若需多 key 操作，用哈希标签（如{user}_1、{user}_2）让多个 key 映射到同一槽位；<br>监控与扩容：生产环境用 Redis-Exporter+Prometheus 监控集群状态，分片集群通过redis-cli –cluster add-node实现无缝扩容。<br>基础配置：关闭防火墙 &#x2F; 开放 Redis 端口（6379 &#x2F; 哨兵 26379）、禁用透明大页、配置内核参数；所有节点密码统一，开启AOF+RDB 混合持久化（防止数据丢失，贴合你库存 &#x2F; 课程数据核心场景）。</p>
+<h2 id="Redis集群如何搭建"><a href="#Redis集群如何搭建" class="headerlink" title="Redis集群如何搭建"></a>Redis集群如何搭建</h2><p>服务器环境：CentOS7&#x2F;8 Linux 服务器，哨兵模式至少 2 台（1 主 1 从 + 哨兵），分片集群建议 6 台（3 主 3 从，企业标配）；Redis 版本选 5.0+（你项目中主流稳定版）。<br>基础配置：关闭防火墙 &#x2F; 开放 Redis 端口（6379 &#x2F; 哨兵 26379）、禁用透明大页、配置内核参数；所有节点密码统一，开启AOF+RDB 混合持久化（防止数据丢失，贴合你库存 &#x2F; 课程数据核心场景）。<br>项目适配：哨兵模式用于航天云膜库存扣减、分布式锁、双缓存比对等核心高可用场景；分片集群用于青松职考 10 万 + 课程数据索引、元数据集成平台日均 10 万 + 数据存储等海量数据场景。</p>
 
                 
             </div>
@@ -540,7 +596,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                                    <span class="chip bg-color">面试题</span>
+                                </a>
+                            
+                                <a href="/tags/Redis/">
+                                    <span class="chip bg-color">Redis</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -590,9 +654,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="MySQL面试题">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">MySQL面试题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -607,11 +671,27 @@
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            zrh
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
+                                    面试题
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%85%B6%E5%AE%83%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                        <span class="chip bg-color">其它面试题</span>
+                    </a>
+                    
                 </div>
                 
             </div>

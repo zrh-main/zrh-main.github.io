@@ -454,7 +454,7 @@ yarn config set sass_binary_site http:&#x2F;&#x2F;cdn.npm.taobao.org&#x2F;dist&#
 <h3 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h3><p>yarn config list &#x2F;&#x2F; 显示所有配置项<br>yarn config get <key> &#x2F;&#x2F; 显示某配置项<br>yarn config delete <key> &#x2F;&#x2F; 删除某配置项<br>yarn config set <key> <value> [-g|–global] &#x2F;&#x2F; 设置配置项</value></key></key></key></p>
 <h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p>yarn install &#x2F;&#x2F; 安装 package.json 里所有包, 并将包及它的所有依赖项保存进 yarn.lock<br>yarn install –flat &#x2F;&#x2F; 安装一个包的单一版本<br>yarn install –force &#x2F;&#x2F; 强制重新下载所有包<br>yarn install –production &#x2F;&#x2F; 只安装 dependencies 里的包<br>yarn install –no-lockfile &#x2F;&#x2F; 不读取或生成 yarn.lock<br>yarn install –pure-lockfile &#x2F;&#x2F; 不生成 yarn.lock</p>
 <h3 id="添加依赖-会更新-package-json-和-yarn-lock"><a href="#添加依赖-会更新-package-json-和-yarn-lock" class="headerlink" title="添加依赖 (会更新 package.json 和 yarn.lock)"></a>添加依赖 (会更新 package.json 和 yarn.lock)</h3><p>yarn add [package] &#x2F;&#x2F; 在当前的项目中添加一个依赖包, 会自动更新到 package.json 和 yarn.lock 文件中<br>yarn add [package]@[version] &#x2F;&#x2F; 安装指定版本, 这里指的是主要版本, 如果需要精确到小版本, 使用 - E 参数<br>yarn add [package]@[tag] &#x2F;&#x2F; 安装某个 tag(比如 beta,next 或者 latest)<br>默认安装包的主要版本里的最新版本, 下面两个命令可以指定版本:</p>
-<h3 id="指定版本"><a href="#指定版本" class="headerlink" title="指定版本"></a>指定版本</h3><p>yarn add –exact&#x2F;-E &#x2F;&#x2F; 安装包的精确版本。例如 yarn add <a href="mailto:&#x66;&#111;&#111;&#x40;&#49;&#46;&#x32;&#x2e;&#51;">&#x66;&#111;&#111;&#x40;&#49;&#46;&#x32;&#x2e;&#51;</a> 会接受 1.9.1 版, 但是 yarn add <a href="mailto:&#102;&#111;&#x6f;&#x40;&#x31;&#46;&#50;&#46;&#51;">&#102;&#111;&#x6f;&#x40;&#x31;&#46;&#50;&#46;&#51;</a> –exact 只会接受 1.2.3 版<br>yarn add –tilde&#x2F;-T &#x2F;&#x2F; 安装包的次要版本里的最新版。例如 yarn add <a href="mailto:&#102;&#111;&#x6f;&#x40;&#49;&#x2e;&#50;&#46;&#51;">&#102;&#111;&#x6f;&#x40;&#49;&#x2e;&#50;&#46;&#51;</a> –tilde 会接受 1.2.9, 但不接受 1.3.0</p>
+<h3 id="指定版本"><a href="#指定版本" class="headerlink" title="指定版本"></a>指定版本</h3><p>yarn add –exact&#x2F;-E &#x2F;&#x2F; 安装包的精确版本。例如 yarn add <a href="mailto:&#x66;&#111;&#111;&#64;&#x31;&#x2e;&#x32;&#x2e;&#x33;">&#x66;&#111;&#111;&#64;&#x31;&#x2e;&#x32;&#x2e;&#x33;</a> 会接受 1.9.1 版, 但是 yarn add <a href="mailto:&#x66;&#x6f;&#111;&#64;&#49;&#46;&#x32;&#x2e;&#x33;">&#x66;&#x6f;&#111;&#64;&#49;&#46;&#x32;&#x2e;&#x33;</a> –exact 只会接受 1.2.3 版<br>yarn add –tilde&#x2F;-T &#x2F;&#x2F; 安装包的次要版本里的最新版。例如 yarn add <a href="mailto:&#102;&#x6f;&#x6f;&#x40;&#x31;&#46;&#50;&#46;&#x33;">&#102;&#x6f;&#x6f;&#x40;&#x31;&#46;&#50;&#46;&#x33;</a> –tilde 会接受 1.2.9, 但不接受 1.3.0</p>
 <h3 id="发布包"><a href="#发布包" class="headerlink" title="发布包"></a>发布包</h3><p>yarn publish</p>
 <h3 id="移除一个包"><a href="#移除一个包" class="headerlink" title="移除一个包"></a>移除一个包</h3><p>yarn remove <packageName>: 移除一个包, 会自动更新 package.json 和 yarn.lock</packageName></p>
 <h3 id="更新一个依赖"><a href="#更新一个依赖" class="headerlink" title="更新一个依赖"></a>更新一个依赖</h3><p>yarn upgrade 用于更新包到基于规范范围的最新版本</p>
@@ -585,6 +585,63 @@ yarn config set sass_binary_site http:&#x2F;&#x2F;cdn.npm.taobao.org&#x2F;dist&#
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/2021/11/15/Node/npm%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="npm-&gt;包管理工具">
+                        
+                        <span class="card-title">npm-&gt;包管理工具</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            NPM是随同NodeJS一起安装的包管理工具
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/node/" class="post-category">
+                                    node
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/npm/">
+                        <span class="chip bg-color">npm</span>
+                    </a>
+                    
+                    <a href="/tags/node/">
+                        <span class="chip bg-color">node</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/">
+                        <span class="chip bg-color">包管理工具</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2021/11/15/Node/nvm%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/">
                     <div class="card-image">
                         
@@ -601,9 +658,9 @@ yarn config set sass_binary_site http:&#x2F;&#x2F;cdn.npm.taobao.org&#x2F;dist&#
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -629,55 +686,6 @@ yarn config set sass_binary_site http:&#x2F;&#x2F;cdn.npm.taobao.org&#x2F;dist&#
                     
                     <a href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/">
                         <span class="chip bg-color">版本管理工具</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/11/15/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/idea/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="idea配置">
-                        
-                        <span class="card-title">idea配置</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-15
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="post-category">
-                                    开发工具
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/idea/">
-                        <span class="chip bg-color">idea</span>
                     </a>
                     
                 </div>

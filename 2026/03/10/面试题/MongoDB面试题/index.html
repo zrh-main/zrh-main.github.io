@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="中间件面试题, ZRH博客,zrh博客">
+    <meta name="keywords" content="MongoDB面试题, ZRH博客,zrh博客">
     <meta name="description" content="ZRH的个人博客,记录个人笔记">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>中间件面试题 | ZRH博客</title>
+    <title>MongoDB面试题 | ZRH博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -266,12 +266,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">中间件面试题</h1>
+                    <h1 class="description center-align post-title">MongoDB面试题</h1>
                 </div>
             </div>
         </div>
@@ -391,8 +391,8 @@
                                 <span class="chip bg-color">面试题</span>
                             </a>
                         
-                            <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/">
-                                <span class="chip bg-color">中间件</span>
+                            <a href="/tags/MongoDB/">
+                                <span class="chip bg-color">MongoDB</span>
                             </a>
                         
                     </div>
@@ -416,7 +416,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2026-03-04
+                    2026-03-10
                 </div>
                 
 
@@ -440,34 +440,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><h3 id="Redis-是什么？核心特点有哪些？实际项目中怎么用的？"><a href="#Redis-是什么？核心特点有哪些？实际项目中怎么用的？" class="headerlink" title="Redis 是什么？核心特点有哪些？实际项目中怎么用的？"></a>Redis 是什么？核心特点有哪些？实际项目中怎么用的？</h3><p>Redis 是基于内存的 NoSQL 数据库,存储键值对结构数据<br>核心特点有 5 个：</p>
-<ul>
-<li>纯内存操作，性能极高，QPS 可达 10 万 +；</li>
-<li>单线程模型 + IO 多路复用，无线程切换开销；</li>
-<li>数据结构丰富，支持 String&#x2F;Hash&#x2F;List 等；</li>
-<li>支持持久化、主从、集群，保证数据安全和高可用；</li>
-<li>单命令原子性，适合高并发场景。</li>
-</ul>
-<p>项目中航天云膜库存系统：用 Hash 存多仓库 SKU 库存（key&#x3D;stock:skuId，field &#x3D; 仓库 ID，value &#x3D; 库存数），String 存单个核心库存，List 做库存扣减任务队列，还基于 Redis 实现分布式锁，保证多实例库存扣减原子性。</p>
-<h3 id="Redis-单线程模型为什么这么快？单线程会有什么瓶颈？"><a href="#Redis-单线程模型为什么这么快？单线程会有什么瓶颈？" class="headerlink" title="Redis 单线程模型为什么这么快？单线程会有什么瓶颈？"></a>Redis 单线程模型为什么这么快？单线程会有什么瓶颈？</h3><p>快的核心原因有 3 点：</p>
-<ul>
-<li>纯内存操作，彻底避免磁盘 IO 的耗时；</li>
-<li>单线程无线程切换、锁竞争的开销，减少资源消耗；</li>
-<li>基于 epoll 实现 IO 多路复用，高效处理多客户端的网络连接，非阻塞 IO。<br>单线程的瓶颈也很明显：①单个命令执行时间过长（如大 key 操作、hgetall）会阻塞整个线程，导致所有请求排队；②无法利用多核 CPU 的算力。所以项目中我会严格禁止大 key 操作，拆分大 Hash，避免慢命令阻塞 Redis。</li>
-</ul>
-<h3 id="Redis-常用的数据结构有哪些？分别在项目中用在什么场景？"><a href="#Redis-常用的数据结构有哪些？分别在项目中用在什么场景？" class="headerlink" title="Redis 常用的数据结构有哪些？分别在项目中用在什么场景？"></a>Redis 常用的数据结构有哪些？分别在项目中用在什么场景？</h3><p>核心用的有 5 种，全在库存系统中落地了：①String：存单个 SKU 的核心库存、订单状态，简单高效，支持 incr&#x2F;decr 原子操作；②Hash：核心存多仓库 SKU 库存，一个 key 对应一个 SKU，field 区分仓库，比多个 String 更节省内存；③List：做库存扣减的异步任务队列，用 lpush&#x2F;rpop 实现先进先出，缓解高并发压力；④Set：存某商品的关联 SKU，实现去重和交集 &#x2F; 并集查询；⑤ZSet：按库存数量排序 SKU，做库存不足的优先级告警，按 score 排序快速获取低库存商品。</p>
-<h3 id="Redis-的单命令原子性，怎么理解？和事务有什么区别？"><a href="#Redis-的单命令原子性，怎么理解？和事务有什么区别？" class="headerlink" title="Redis 的单命令原子性，怎么理解？和事务有什么区别？"></a>Redis 的单命令原子性，怎么理解？和事务有什么区别？</h3><p>Redis 的单命令原子性，是指单个 Redis 命令的执行是 “一次性完成” 的，中间不会被其他命令打断，这是由单线程模型保证的，比如 incr、decr、hincrby，库存系统中用 decrby 做库存扣减，就是利用单命令原子性避免超卖。<br>和 Redis 事务的区别很大：①Redis 事务是通过 multi&#x2F;exec 标记命令集，不保证原子性，中间命令执行失败，后续命令仍会执行；②事务没有回滚机制，执行错误只能手动处理；③单命令原子性是天然的，事务是手动封装的。项目中我只用单命令原子性处理核心业务（如库存扣减），几乎不用 Redis 事务，复杂事务会放到业务层实现。                         </p>
-<h3 id="Redis-有哪几种持久化机制？各自的优缺点是什么？项目中怎么选的？"><a href="#Redis-有哪几种持久化机制？各自的优缺点是什么？项目中怎么选的？" class="headerlink" title="Redis 有哪几种持久化机制？各自的优缺点是什么？项目中怎么选的？"></a>Redis 有哪几种持久化机制？各自的优缺点是什么？项目中怎么选的？</h3><p>核心有 RDB、AOF 两种，还有 RDB+AOF 的混合持久化，三者各有优劣：<br>①RDB：定时对内存做全量快照，生成二进制文件；优点是文件小、恢复速度快，对主进程性能影响小；缺点是会丢失快照到宕机之间的数据；<br>②AOF：记录所有写命令，重启时重放命令恢复数据；优点是数据一致性高，默认每秒刷盘仅丢 1 秒数据；缺点是文件体积大，恢复速度比 RDB 慢；<br>③混合持久化：AOF 文件前半段是 RDB 快照，后半段是增量命令，兼顾恢复速度和一致性。<br>项目中航天云膜库存系统用的是混合持久化，因为库存数据要求 “不丢少量数据、故障快速恢复”：混合持久化既保证了数据一致性（仅丢 1 秒数据，可通过双缓存比对修正），又能让 Redis 故障后快速加载，不影响仓库核心业务，同时比纯 AOF 节省磁盘空间。</p>
-<h3 id="Redis-的过期键删除策略有哪些？为什么要多种结合？"><a href="#Redis-的过期键删除策略有哪些？为什么要多种结合？" class="headerlink" title="Redis 的过期键删除策略有哪些？为什么要多种结合？"></a>Redis 的过期键删除策略有哪些？为什么要多种结合？</h3><p>Redis 用 <strong>“惰性删除 + 定期删除 + 内存淘汰策略”</strong> 三种结合的方式，单一策略无法兼顾性能和内存占用：<br>①惰性删除：只有访问键时才检查是否过期，过期则删除；优点是减少 CPU 无意义消耗，缺点是过期键长期不访问会占用内存，导致内存泄漏；<br>②定期删除：每隔 100ms 随机抽查部分过期键删除，抽查比例可配置；优点是主动清理过期键，缺点是无法清理所有过期键；<br>③内存淘汰策略：当 Redis 内存达到 maxmemory 时，触发淘汰（如 volatile-lru 淘汰过期键中最少使用的），是最后一道防线。<br>三种结合既避免了 CPU 空耗，又防止了内存泄漏，项目中我给库存缓存设置 1 小时过期，配合这三种策略，有效释放了无效库存数据的内存。</p>
-<h3 id="什么是-Redis-的缓存穿透、缓存击穿、缓存雪崩？各自怎么解决？（项目必讲）"><a href="#什么是-Redis-的缓存穿透、缓存击穿、缓存雪崩？各自怎么解决？（项目必讲）" class="headerlink" title="什么是 Redis 的缓存穿透、缓存击穿、缓存雪崩？各自怎么解决？（项目必讲）"></a>什么是 Redis 的缓存穿透、缓存击穿、缓存雪崩？各自怎么解决？（项目必讲）</h3><p>这是 Redis 缓存的三大核心问题，我在库存系统中都做了针对性解决，核心区别是触发原因和影响范围不同：<br>①缓存穿透：请求不存在的键（如非法 SKUId&#x3D;9999），缓存和 DB 都无数据，请求直击 DB，导致 DB 压力剧增；解决方案：空值缓存（缓存 null，过期 1 分钟）+ 布隆过滤器（提前过滤不存在的 SKUId），项目中我用布隆过滤器做了第一层拦截，空值缓存做第二层，彻底解决；<br>②缓存击穿：热点键（如秒杀商品 SKU）缓存过期，大量请求同时直击 DB；解决方案：热点数据永不过期 + 互斥锁（Redisson 分布式锁），项目中我把核心热销膜材的库存缓存设为永不过期，避免击穿；<br>③缓存雪崩：大量缓存同一时间过期，或 Redis 集群宕机，导致所有请求直击 DB，DB 被压垮；解决方案：过期时间加随机值（如 1 小时 ±10 分钟）+Redis 主从 &#x2F; 集群保证高可用 + 业务层限流降级，项目中给所有库存缓存的过期时间加了随机值，同时部署主从集群，从未出现过雪崩。</p>
-<h3 id="Redis-的内存淘汰策略有哪些？项目中用的哪种？为什么？"><a href="#Redis-的内存淘汰策略有哪些？项目中用的哪种？为什么？" class="headerlink" title="Redis 的内存淘汰策略有哪些？项目中用的哪种？为什么？"></a>Redis 的内存淘汰策略有哪些？项目中用的哪种？为什么？</h3><p>Redis 的内存淘汰策略分两大类，核心常用的有 4 种：①volatile-lru：淘汰过期键中最近最少使用的；②allkeys-lru：淘汰所有键中最近最少使用的；③volatile-ttl：淘汰过期键中剩余过期时间最短的；④noeviction：默认策略，不淘汰，内存满时直接拒绝写操作。<br>项目中库存系统用的是volatile-lru，原因很简单：①库存系统所有缓存都设置了过期时间，无需淘汰未过期键；②volatile-lru 优先淘汰最少使用的过期库存数据，保留高频访问的核心库存缓存，符合业务需求；③如果用 noeviction 会导致写操作失败（如库存扣减无法更新缓存），用 allkeys-lru 可能误删未过期的核心缓存，都不合适。<br>三、Redis 高可用（核心，3 题）</p>
-<h3 id="Redis-主从复制的核心原理是什么？项目中怎么用的？"><a href="#Redis-主从复制的核心原理是什么？项目中怎么用的？" class="headerlink" title="Redis 主从复制的核心原理是什么？项目中怎么用的？"></a>Redis 主从复制的核心原理是什么？项目中怎么用的？</h3><p>主从复制是 Redis 高可用的基础，核心作用是主库写、从库读，分担查询压力，同时做数据备份，核心流程分 3 步：①连接建立：从库发送 PSYNC 命令给主库，建立同步连接；②全量同步：主库生成 RDB 快照，发送给从库，从库加载 RDB 完成初始同步；③增量同步：主库将后续所有写命令通过复制缓冲区同步到从库，保证主从数据一致。<br>项目中航天云膜库存系统部署了1 主 2 从的主从架构：主库负责处理库存扣减、更新的写操作，2 个从库负责处理库存查询、统计的读操作，把 80% 的读请求分流到从库，大幅降低主库压力，同时从库做数据备份，主库故障时可快速切换。</p>
-<h3 id="Redis-哨兵（Sentinel）的核心功能是什么？项目中怎么部署的？"><a href="#Redis-哨兵（Sentinel）的核心功能是什么？项目中怎么部署的？" class="headerlink" title="Redis 哨兵（Sentinel）的核心功能是什么？项目中怎么部署的？"></a>Redis 哨兵（Sentinel）的核心功能是什么？项目中怎么部署的？</h3><p>哨兵是 Redis 的高可用监控和故障转移工具，解决了主从架构 “主库宕机后手动切换” 的问题，核心有 3 个功能：①监控：持续监控主从库的存活状态，判断是否在线；②自动故障转移：主库宕机时，通过投票选举从库成为新主库，更新所有从库和客户端的配置；③通知：通过脚本向运维发送告警（如钉钉、短信），同时通知客户端主库地址变更。<br>项目中我部署了3 个哨兵节点（奇数节点，保证投票有效性），和 1 主 2 从的 Redis 节点分开部署，哨兵节点会定期检测主库状态，主库宕机后 10 秒内就能完成故障转移，几乎不影响库存系统的正常使用。</p>
-<h3 id="Redis-集群（Cluster）的核心原理是什么？和主从-哨兵的区别是什么？"><a href="#Redis-集群（Cluster）的核心原理是什么？和主从-哨兵的区别是什么？" class="headerlink" title="Redis 集群（Cluster）的核心原理是什么？和主从 + 哨兵的区别是什么？"></a>Redis 集群（Cluster）的核心原理是什么？和主从 + 哨兵的区别是什么？</h3><p>Redis 集群主要解决主从 + 哨兵架构的单机容量和性能瓶颈，核心原理是槽位分片 + 主从复制：①将数据按16384 个槽位分布到不同主节点，通过键的哈希值计算槽位，实现数据分片；②每个主节点都有对应的从节点，主节点宕机时，从节点自动升为主节点，保证高可用；③集群无中心节点，节点间互相通信，同步槽位和节点信息。<br>和主从 + 哨兵的核心区别：①主从 + 哨兵是单主架构，所有写操作都在一个主库，存在单机性能和容量瓶颈；②集群是多主架构，多个主库同时处理写操作，分散压力，支持水平扩容；③主从 + 哨兵负责故障转移，集群自身集成了故障转移能力，无需单独部署哨兵。<br>项目中如果库存数据量持续增大，会从主从 + 哨兵升级为 6 节点集群（3 主 3 从），按 SKU 哈希值分布槽位，提升系统的处理能力和容量。<br>四、Redis 实战场景（贴合项目，2 题）</p>
-<h3 id="项目中怎么实现-Redis-分布式锁的？手写和-Redisson-有什么区别？为什么选-Redisson？"><a href="#项目中怎么实现-Redis-分布式锁的？手写和-Redisson-有什么区别？为什么选-Redisson？" class="headerlink" title="项目中怎么实现 Redis 分布式锁的？手写和 Redisson 有什么区别？为什么选 Redisson？"></a>项目中怎么实现 Redis 分布式锁的？手写和 Redisson 有什么区别？为什么选 Redisson？</h3><p>分布式锁是解决多实例跨 JVM 并发问题的核心，项目中库存扣减用的是Redisson 实现的分布式锁，先说说手写和 Redisson 的区别，再讲 Redisson 的实现：<br>①手写 Redis 锁：核心用set key value NX EX 30（NX &#x3D; 不存在才设置，EX &#x3D; 过期时间），释放锁用 Lua 脚本（避免误释放）；但缺点很明显：过期时间难控制，业务执行时间超过过期时间会导致锁提前释放，引发并发问题；<br>②Redisson 分布式锁：基于 Redis Hash 结构 + Lua 脚本实现，解决了手写的所有问题，核心特性：支持可重入（同一线程可多次获取锁）、看门狗机制（每隔 10 秒自动给锁续期，业务执行完自动停止，避免锁提前释放）、支持公平锁 &#x2F; 非公平锁，还能适配 Redis 集群。<br>项目中我按SKU 粒度加锁（锁 key&#x3D;stock:lock:${skuId}），避免全局锁导致的并发性能下降，用lock()加锁，finally 中用unlock()释放，保证多实例下库存扣减的原子性，彻底避免超卖。</p>
-<h3 id="项目中如何保证-Redis-缓存和-MySQL-数据库的数据一致性？"><a href="#项目中如何保证-Redis-缓存和-MySQL-数据库的数据一致性？" class="headerlink" title="项目中如何保证 Redis 缓存和 MySQL 数据库的数据一致性？"></a>项目中如何保证 Redis 缓存和 MySQL 数据库的数据一致性？</h3><p>库存系统中库存数据同时存在 Redis（缓存）和 MySQL（持久化），核心采用 <strong>「先更 DB，再删缓存」</strong> 的策略，避免缓存脏数据，同时做了失败重试兜底，核心步骤：<br>库存扣减时，先更新 MySQL 的库存数据，保证数据持久化的正确性；<br>再删除 Redis 对应的库存缓存，而非更新缓存（避免多线程更新缓存导致的不一致）；<br>若删除缓存失败，通过RabbitMQ 消息队列做重试，保证缓存最终被删除；<br>当有查询请求时，Redis 缓存不存在，会从 MySQL 查询最新数据，再写入 Redis，完成缓存更新。<br>这种策略比 “先删缓存，再更 DB” 更安全，避免了线程间的竞争导致的脏数据，项目中通过这种方式，保证了 Redis 和 MySQL 的库存数据最终一致性，配合每日双缓存比对，盘点准确率达 99.8%。<br>五、Redis 性能调优（面试加分，2 题）</p>
-<h3 id="项目中做了哪些-Redis-性能优化？核心要点有哪些？"><a href="#项目中做了哪些-Redis-性能优化？核心要点有哪些？" class="headerlink" title="项目中做了哪些 Redis 性能优化？核心要点有哪些？"></a>项目中做了哪些 Redis 性能优化？核心要点有哪些？</h3><p>针对库存系统的高并发场景，我从命令、数据、配置、部署四个方面做了 Redis 优化，核心要点有 5 个：①禁止大 key 和慢命令：拆分大 Hash（如按仓库拆分库存 Hash），不用 hgetall、keys * 等慢命令，用 hscan、scan 分批查询；②合理设置过期时间：加随机值避免雪崩，核心热点数据永不过期；③优化内存配置：设置 maxmemory，选择 volatile-lru 淘汰策略，避免内存耗尽；④读写分离：主从架构，主写从读，分流 80% 的读请求；⑤网络和部署优化：开启 tcp_nodelay 减少网络延迟，Redis 节点和应用节点同机房部署，降低网络耗时。<br>优化后 Redis 的响应时间稳定在 1ms 内，QPS 能支撑 500 + 的库存高并发扣减，无阻塞和超时问题。</p>
-<h3 id="Redis-为什么会出现阻塞？项目中怎么排查和解决的？"><a href="#Redis-为什么会出现阻塞？项目中怎么排查和解决的？" class="headerlink" title="Redis 为什么会出现阻塞？项目中怎么排查和解决的？"></a>Redis 为什么会出现阻塞？项目中怎么排查和解决的？</h3><p>Redis 阻塞的核心原因是单线程被占用，导致命令无法及时执行，项目中遇到过的阻塞原因有 3 种，对应有明确的排查和解决方法：<br>①慢命令 &#x2F; 大 key 操作：如 hgetall 查询大 Hash、删除大 key，会阻塞单线程；排查：用slowlog get查看慢查询日志，用redis-cli –bigkeys查找大 key；解决：拆分大 key，用分批命令替代全量查询，删除大 key 用 unlink（异步删除）；<br>②持久化耗时：RDB 生成快照、AOF 重写会占用 CPU，导致主进程阻塞；排查：用info persistence查看持久化状态；解决：将持久化操作放到低峰期，开启 AOF 重写的后台执行；<br>③内存不足 &#x2F; 交换分区：Redis 内存达到 maxmemory，频繁触发淘汰策略，或使用交换分区（磁盘 IO）；排查：用info memory查看内存使用，用top查看 swap 使用；解决：增大 Redis 内存，优化淘汰策略，关闭 Redis 的交换分区。<br>项目中我会定期监控 Redis 的慢查询和大 key，提前优化，避免阻塞问题，同时搭建了 Redis 监控平台，实时监控 CPU、内存、响应时间，有问题及时告警</p>
+                <h2 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h2><p>​什么是 MongoDB？<br>​定位：面向文档的 NoSQL 数据库，以 BSON（二进制 JSON）格式存储数据，支持动态模式（Schema-less）。<br>​特点：<br>灵活的数据模型（文档、数组、嵌套结构）。<br>高可扩展性（分片集群支持水平扩展）。<br>支持复杂查询和聚合操作。<br>​应用场景：内容管理系统、实时日志分析、物联网数据存储、用户行为分析等</p>
+<h3 id="​常用查询操作符"><a href="#​常用查询操作符" class="headerlink" title="​常用查询操作符"></a>​常用查询操作符</h3><p>​比较操作符：$eq（等于）、$gt（大于）、$in（在列表中）。<br>​逻辑操作符：$and、$or、$not。<br>​正则表达式：{ name: { $regex: &#x2F;^A&#x2F; } }（匹配以 A 开头的名称）。<br>​范围查询：{ date: { $gte: ISODate(“2023-01-01”) } }</p>
 
                 
             </div>
@@ -494,7 +468,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://zrh-main.github.io/2026/03/04/%E9%9D%A2%E8%AF%95%E9%A2%98/%E4%B8%AD%E9%97%B4%E4%BB%B6%E9%9D%A2%E8%AF%95%E9%A2%98/">https://zrh-main.github.io/2026/03/04/%E9%9D%A2%E8%AF%95%E9%A2%98/%E4%B8%AD%E9%97%B4%E4%BB%B6%E9%9D%A2%E8%AF%95%E9%A2%98/</a>
+                    <a href="https://zrh-main.github.io/2026/03/10/%E9%9D%A2%E8%AF%95%E9%A2%98/MongoDB%E9%9D%A2%E8%AF%95%E9%A2%98/">https://zrh-main.github.io/2026/03/10/%E9%9D%A2%E8%AF%95%E9%A2%98/MongoDB%E9%9D%A2%E8%AF%95%E9%A2%98/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -536,8 +510,8 @@
                                     <span class="chip bg-color">面试题</span>
                                 </a>
                             
-                                <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/">
-                                    <span class="chip bg-color">中间件</span>
+                                <a href="/tags/MongoDB/">
+                                    <span class="chip bg-color">MongoDB</span>
                                 </a>
                             
                         </div>
@@ -585,13 +559,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2026/03/10/%E9%9D%A2%E8%AF%95%E9%A2%98/RabbitMQ%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                <a href="/2026/04/13/Jenkins/Jenkins/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="RabbitMQ 基础面试题">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Jenkins">
                         
-                        <span class="card-title">RabbitMQ 基础面试题</span>
+                        <span class="card-title">Jenkins</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -602,8 +576,61 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2026-03-10
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-04-13
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
+                                    运维
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Jenkins/">
+                        <span class="chip bg-color">Jenkins</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E9%83%A8%E7%BD%B2/">
+                        <span class="chip bg-color">自动打包部署</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2026/03/10/%E9%9D%A2%E8%AF%95%E9%A2%98/SpringCloud+SpringCloudAliBaBa%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="SpringCloud+SpringCloudAliBaBa 面试题">
+                        
+                        <span class="card-title">SpringCloud+SpringCloudAliBaBa 面试题</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-03-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -619,61 +646,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/RabbitMQ/">
-                        <span class="chip bg-color">RabbitMQ</span>
-                    </a>
-                    
                     <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
                         <span class="chip bg-color">面试题</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2026/03/03/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/%E7%AE%80%E4%BB%8B/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="软件架构简介">
-                        
-                        <span class="card-title">软件架构简介</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-03-03
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/" class="post-category">
-                                    软件架构
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
+                    <a href="/tags/SpringCloud/">
+                        <span class="chip bg-color">SpringCloud</span>
+                    </a>
                     
-                    <a href="/tags/Java%E9%9D%A2%E8%AF%95%E9%A2%98/">
-                        <span class="chip bg-color">Java面试题</span>
+                    <a href="/tags/SpringCloudAliBaBa/">
+                        <span class="chip bg-color">SpringCloudAliBaBa</span>
                     </a>
                     
                 </div>

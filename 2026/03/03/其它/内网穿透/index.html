@@ -508,7 +508,7 @@
 <h1 id="frpc-ini-1"><a href="#frpc-ini-1" class="headerlink" title="frpc.ini"></a>frpc.ini</h1><p>[common]<br>server_addr &#x3D; x.x.x.x<br>server_port &#x3D; 7000</p>
 <h1 id="用于身份验证，请自行修改，要保证服务端与客户端一致-2"><a href="#用于身份验证，请自行修改，要保证服务端与客户端一致-2" class="headerlink" title="用于身份验证，请自行修改，要保证服务端与客户端一致"></a>用于身份验证，请自行修改，要保证服务端与客户端一致</h1><p>token &#x3D; abcdefgh</p>
 <p>[ssh]<br>type &#x3D; tcp<br>local_ip &#x3D; 127.0.0.1<br>local_port &#x3D; 22<br>remote_port &#x3D; 6000<br>2.通过 SSH 访问内网机器，假设用户名为 test：</p>
-<p>ssh -oPort&#x3D;6000 <a href="mailto:&#x74;&#x65;&#115;&#x74;&#x40;&#x78;&#x2e;&#120;&#46;&#x78;&#46;&#120;">&#x74;&#x65;&#115;&#x74;&#x40;&#x78;&#x2e;&#120;&#46;&#x78;&#46;&#120;</a></p>
+<p>ssh -oPort&#x3D;6000 <a href="mailto:&#116;&#101;&#x73;&#x74;&#64;&#x78;&#x2e;&#120;&#46;&#x78;&#46;&#120;">&#116;&#101;&#x73;&#x74;&#64;&#x78;&#x2e;&#120;&#46;&#x78;&#46;&#120;</a></p>
 <ol start="3">
 <li>通过自定义域名访问部署于内网的 Web 服务<br>有时想要让其他人通过域名访问或者测试我们在本地搭建的 Web 服务，但是由于本地机器没有公网 IP，无法将域名解析到本地的机器，通过 frp 就可以实现这一功能，以下示例为 http 服务，https 服务配置方法相同， vhost_http_port 替换为 vhost_https_port， type 设置为 https 即可。</li>
 </ol>

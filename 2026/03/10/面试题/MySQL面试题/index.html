@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ZRH博客,zrh博客">
+    <meta name="keywords" content="MySQL面试题, ZRH博客,zrh博客">
     <meta name="description" content="ZRH的个人博客,记录个人笔记">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ZRH博客</title>
+    <title>MySQL面试题 | ZRH博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -266,12 +266,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">MySQL面试题</h1>
                 </div>
             </div>
         </div>
@@ -385,12 +385,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/MySQL/">
+                                <span class="chip bg-color">MySQL</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%85%B6%E5%AE%83%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                                <span class="chip bg-color">其它面试题</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
+                                面试题
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -423,51 +440,28 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h4><p>一、基础概念类（入门必问）</p>
-<ol>
-<li>MySQL 常用存储引擎有哪些？区别是什么？<br>InnoDB（默认）：支持事务、行级锁，适合高并发、数据一致性要求高的场景（比如订单、用户表）；<br>MyISAM：不支持事务和行锁，只支持表锁，查询快，适合读多写少的场景（比如日志、统计报表）；<br>核心区别：InnoDB 注重事务和并发，MyISAM 注重查询性能；InnoDB 用聚簇索引，MyISAM 用非聚簇索引。</li>
-<li>什么是事务？ACID 特性分别是什么？<br>事务是一组原子性的 SQL 操作，要么全执行，要么全不执行。<br>A（原子性）：操作不可拆分，要么全成，要么全回滚；<br>C（一致性）：事务执行前后，数据符合业务规则（比如转账后总金额不变）；<br>I（隔离性）：多个事务并发执行，互相不干扰；<br>D（持久性）：事务提交后，数据永久保存到磁盘。</li>
-<li>MySQL 事务隔离级别有哪些？默认是什么？<br>读未提交（Read Uncommitted）：能读到其他事务未提交的数据（脏读）；<br>读已提交（Read Committed）：只能读到已提交的数据（解决脏读，存在不可重复读）；<br>可重复读（Repeatable Read，默认）：同一事务内多次读结果一致（解决不可重复读，存在幻读）；<br>串行化（Serializable）：完全串行执行，无并发问题，性能最差；<br>补充：InnoDB 通过 MVCC 解决了可重复读下的幻读问题。</li>
-<li>什么是脏读、不可重复读、幻读？<br>脏读：读到其他事务未提交的脏数据；<br>不可重复读：同一事务内，多次读同一数据，结果不一样（被其他事务修改提交了）；<br>幻读：同一事务内，多次执行同一查询，结果行数不一样（被其他事务插入 &#x2F; 删除了）。</li>
-</ol>
-<p>核心：建库建表时明确指定，避免乱码。<br>二、索引原理类（进阶必问）</p>
-<ol>
-<li>索引是什么？作用是什么？<br>索引是 MySQL 优化查询的数据结构（B + 树为主），作用：① 加快查询速度；② 减少数据扫描行数；③ 辅助排序分组。<br>注意：索引会减慢插入 &#x2F; 更新 &#x2F; 删除速度，因为要维护索引结构。</li>
-<li>索引有哪些类型？<br>按数据结构：B + 树索引（主流）、哈希索引（Memory 引擎）、全文索引（MyISAM&#x2F;InnoDB）；<br>按功能：主键索引（唯一非空）、唯一索引（唯一可空）、普通索引、联合索引；<br>按物理存储：聚簇索引（InnoDB 主键，数据和索引存在一起）、非聚簇索引（MyISAM，数据和索引分开）。</li>
-<li>为什么 MySQL 索引用 B + 树而不是 B 树 &#x2F; 红黑树？<br>对比 B 树：B + 树叶子节点用链表连接，范围查询更高效；非叶子节点只存索引，内存能存更多节点，IO 更少；<br>对比红黑树：树高度高（百万数据要 20 层），磁盘 IO 次数多，查询慢；B + 树高度低（百万数据 3-4 层），IO 少。</li>
-<li>什么是最左前缀匹配原则？<br>联合索引（比如 a,b,c）要遵循 “从左到右” 匹配，只有查询条件包含索引最左列（a），索引才会生效：<br>生效：where a&#x3D;1、where a&#x3D;1 and b&#x3D;2、where a&#x3D;1 and b&#x3D;2 and c&#x3D;3；<br>失效：where b&#x3D;2、where c&#x3D;3、where a&#x3D;1 and c&#x3D;3。</li>
-<li>哪些情况索引会失效？<br>① 查询条件用了函数 &#x2F; 运算（比如 where id+1&#x3D;10）；<br>② 用了 like % xxx（模糊查询左通配）；<br>③ 联合索引不满足最左前缀；<br>④ 用了 or（两边字段都无索引）；<br>⑤ 数据类型隐式转换（比如字符串字段传数字）。<br>三、事务 &amp; 锁机制类（高频加分项）</li>
-<li>InnoDB 行锁和表锁的区别？什么时候会升级为表锁？<br>行锁：只锁行数据，并发高，InnoDB 默认；<br>表锁：锁整张表，并发低，MyISAM 默认；<br>行锁升级表锁的情况：① 没有走索引，InnoDB 会全表扫描并锁全表；② 锁的行太多，MySQL 自动升级为表锁。</li>
-<li>什么是死锁？如何避免和解决？<br>死锁：多个事务互相持有对方需要的锁，互相等待，导致卡住。<br>避免：① 按固定顺序加锁；② 控制事务大小，缩短锁持有时间；③ 加锁时设置超时时间；<br>解决：① 用 show engine innodb status 查看死锁日志；② 手动 kill 掉卡住的事务；③ 开启 innodb_deadlock_detect 自动检测死锁并回滚。</li>
-<li>MVCC 是什么？原理是什么？<br>MVCC（多版本并发控制）：InnoDB 实现隔离级别的核心，让不同事务看到不同版本的数据，避免加锁。<br>原理：① 每行数据有隐藏列（创建版本号、删除版本号）；② 事务有自己的版本号；③ 查询时只取版本号符合条件的数据，不用加锁。</li>
-<li>什么是间隙锁？作用是什么？<br>间隙锁是 InnoDB 在可重复读级别下的锁，锁的是 “行之间的间隙”（比如 id&#x3D;1 和 id&#x3D;3 之间的区间）。<br>作用：防止幻读，比如事务 A 锁住 id 1-3 的间隙，事务 B 就不能插入 id&#x3D;2 的数据。<br>四、性能优化类（实战重点）</li>
-<li>如何优化 MySQL 查询性能？<br>① 加合适的索引（避免冗余索引、无效索引）；<br>② 优化 SQL：避免 select *、减少 join、不用子查询；<br>③ 分库分表（数据量大时）；<br>④ 读写分离（主库写，从库读）；<br>⑤ 配置优化：调大缓存（innodb_buffer_pool_size）、优化连接数。</li>
-<li>分库分表的方式有哪些？适用场景？<br>水平分表（按行分）：比如用户表按 id 哈希分到多个表；适合单表数据量过大（比如千万级）；<br>垂直分表（按列分）：比如用户表拆成基础信息表和详情表；适合字段多、大字段多的表；<br>分库：按业务模块分（比如订单库、用户库）；适合单库压力过大。</li>
-<li>慢查询日志怎么用？如何优化慢 SQL？<br>开启慢查询日志：配置 slow_query_log&#x3D;1，long_query_time&#x3D;1（超过 1s 的 SQL 记录）；<br>分析慢 SQL：用 explain 看执行计划（重点看 type、key、rows）；<br>优化：① 加索引；② 改写 SQL（比如拆大 SQL、不用子查询）；③ 避免全表扫描。</li>
-<li>如何优化 MySQL 写入性能？<br>① 批量插入（insert into … values (…),(…)）；<br>② 关闭自动提交（begin&#x2F;commit）；<br>③ 减少索引（写入时少维护索引）；<br>④ 调大 innodb_buffer_pool_size，减少磁盘 IO；<br>⑤ 分库分表，分摊写入压力。</li>
-<li>索引太多会有什么问题？如何优化？<br>问题：① 写入 &#x2F; 更新 &#x2F; 删除变慢，因为要维护多个索引；② 占用更多磁盘空间；③ MySQL 优化器选择索引的耗时增加；<br>优化：① 删除冗余索引（比如联合索引 a,b 和单独索引 a）；② 删除未使用的索引；③ 合并相似索引。<br>五、故障排查类（场景考察）</li>
-<li>MySQL 主从复制原理？主从延迟怎么解决？<br>原理：① 主库把写操作记录到 binlog；② 从库连主库，拉取 binlog；③ 从库执行 binlog，同步数据；<br>主从延迟解决：① 升级硬件；② 减少从库压力（比如从库只负责读，不做统计）；③ 用半同步复制；④ 分库分表，分摊同步压力。</li>
-<li>数据库连接池参数怎么调？（比如 Druid）<br>核心参数：① initialSize（初始连接数）；② maxActive（最大连接数）；③ minIdle（最小空闲数）；④ maxWait（获取连接超时时间）；<br>调优原则：① 最大连接数不要超过 MySQL 的 max_connections；② 初始连接数设为业务峰值的 50%；③ 空闲连接回收时间合理（避免频繁创建销毁连接）。</li>
-<li>MySQL 磁盘满了怎么处理？<br>① 先删除无用日志（慢查询日志、binlog）；② 清理大表数据（归档后删除）；③ 分表分库，迁移部分数据；④ 扩容磁盘。</li>
-<li>如何恢复误删的数据？<br>① 有备份：用备份 + binlog 恢复到误删前的时间点；<br>② 无备份：用 binlog2sql 解析 binlog，找回删除的 SQL，反向执行；<br>③ 预防：开启 binlog，定期备份，操作前先备份。</li>
-</ol>
+                <h2 id="MySQL-常用存储引擎有哪些？区别是什么？"><a href="#MySQL-常用存储引擎有哪些？区别是什么？" class="headerlink" title="MySQL 常用存储引擎有哪些？区别是什么？"></a>MySQL 常用存储引擎有哪些？区别是什么？</h2><p>InnoDB（默认）：支持事务、行级锁,表锁，适合高并发、数据一致性要求高的场景（比如订单、用户表）；<br>MyISAM：不支持事务和行锁，只支持表锁，查询快，适合读多写少的场景（比如日志、统计报表）；<br>核心区别：InnoDB 注重事务和并发，MyISAM 注重查询性能；InnoDB 用聚簇索引，MyISAM 用非聚簇索引。</p>
+<h2 id="事务的ACID-原则分别是什么？"><a href="#事务的ACID-原则分别是什么？" class="headerlink" title="事务的ACID 原则分别是什么？"></a>事务的ACID 原则分别是什么？</h2><p>事务是一组原子性的 SQL 操作，要么全执行，要么全不执行。<br>A（原子性）：操作不可拆分，要么全成，要么全回滚；<br>C（一致性）：事务执行前后，数据符合业务规则（比如转账后总金额不变）；<br>I（隔离性）：多个事务并发执行，互相不干扰；<br>D（持久性）：事务提交后，数据永久保存到磁盘。</p>
+<h2 id="MySQL-事务隔离级别有哪些？默认是什么？"><a href="#MySQL-事务隔离级别有哪些？默认是什么？" class="headerlink" title="MySQL 事务隔离级别有哪些？默认是什么？"></a>MySQL 事务隔离级别有哪些？默认是什么？</h2><p>读未提交（脏读）：能读到其他事务未提交的数据；<br>读已提交（解决脏读，存在不可重复读）：只能读到其他事务已提交的数据，但同一事务内多次读结果可能不同；<br>可重复读（解决不可重复读，存在幻读）：MySQL 默认级别，同一事务内多次读结果一致，I可重复读级别通过 MVCC（多版本并发控制）+ 间隙锁 解决了幻读问题；<br>串行化（Serializable）：完全串行执行，无并发问题，性能最差；</p>
+<h2 id="InnoDB-如何解决可重复读下的幻读？"><a href="#InnoDB-如何解决可重复读下的幻读？" class="headerlink" title="InnoDB 如何解决可重复读下的幻读？"></a>InnoDB 如何解决可重复读下的幻读？</h2><p>MVCC 解决了 “查询层面的幻读”，Next-Key Lock（间隙锁 + 行锁）解决了 “写操作层面的幻读”</p>
 <ul>
-<li><p>MySQL 聚簇索引和非聚簇索引的区别？<br>答：聚簇索引（主键）的索引与数据存储在一起，叶子节点是数据行；非聚簇索引叶子节点是主键值，查询需回表；项目中建联合索引减少回表操作。</p>
-</li>
-<li><p>MySQL 事务隔离级别？默认是哪个？<br>答：读未提交、读已提交、可重复读、串行化；默认是可重复读，可解决脏读、不可重复读问题，满足项目业务数据一致性需求。</p>
-</li>
-<li><p>高并发下 MySQL 写操作怎么保证一致性？<br>答：通过事务保证操作原子性；库存扣减等场景用 Redisson 分布式锁；修改配置表 &#x2F; 商品信息用乐观锁（加版本号），防止并发数据覆盖。</p>
-</li>
-<li><p>MySQL 索引优化，常用的索引优化方法有哪些,怎么判断一个 SQL 该加索引，加索引有啥注意事项？<br>首先看 SQL 的 where 条件、联表字段，高频查询的字段适合加；注意事项就是别给高频更新的字段加，也别加太多，不然增删改会变慢，复合索引要注意最左匹配原则</p>
-</li>
-<li><p>MySQL 索引失效常见场景？<br>答：like % xxx、字段类型不匹配、or 连接非索引字段、排序字段无索引；项目中优化 like 写法后恢复走索引。</p>
-</li>
-<li><p>MySQL慢查询分析，怎么定位慢查询<br>先开启 MySQL 慢查询日志，用 explain 分析 SQL 执行计划，看是否走索引、有无全表扫描。优化方法主要有：给查询条件和联表字段建合适的索引，避免建冗余索引；拆分复合索引，遵循最左匹配原则；优化子查询为联表查询，减少回表操作，元数据平台里把 3.2 秒的接口优化到 1.5 秒，主要就是重构索引 + 改写 SQL。</p>
-</li>
+<li>MVCC（多版本并发控制）<br>原理：InnoDB 为每行数据维护多个版本，事务读取时会根据 “事务 ID” 读取自己可见的版本</li>
+<li>Next-Key Lock（间隙锁）<br>原理：这是 InnoDB 的行锁升级，不仅锁定记录本身，还锁定记录之间的 “间隙”（比如 age &lt;25 会锁定 0-25 的所有间隙）。</li>
 </ul>
-<h4 id="MySQL的索引"><a href="#MySQL的索引" class="headerlink" title="MySQL的索引"></a>MySQL的索引</h4><p><strong>核心作用</strong><br>MySQL索引的核心作用主要就是用来提升查询的效率<br><strong>类型</strong><br>分为四个类型<br>B-Tree索引(默认的类型),哈希索引(Memory引擎专用),全文索引,组合索引<br><strong>注意</strong><br>覆盖索引只需包含 SELECT 和 WHERE 中的字段即可<br>每个索引占用额外磁盘空间,会增加维护成本<br>建立的索引不能过多,否则会降低 写入的速度</p>
-<h4 id="​事务的-ACID"><a href="#​事务的-ACID" class="headerlink" title="​事务的 ACID"></a>​事务的 ACID</h4><p>​原子性（Atomicity）​：事务要么全部成功，要么全部回滚。<br>​一致性（Consistency）​：事务前后数据保持逻辑一致性。<br>​隔离性（Isolation）​：通过锁 保证并发事务互不干扰。<br>​持久性（Durability）​：提交后数据永久保存（通过 redo log 实现）。</p>
-<h4 id="MySQL分库分表后-动态切换数据源是如何实现的"><a href="#MySQL分库分表后-动态切换数据源是如何实现的" class="headerlink" title="MySQL分库分表后,动态切换数据源是如何实现的"></a>MySQL分库分表后,动态切换数据源是如何实现的</h4><p>这块是MyBatis-Plus 插件,mybatis-mate-sharding-dynamic自动完成路由和连接切换;<br>在配置文件 中配置多个数据源，并指定默认数据源;在类或方法上使用@DS注解</p>
+<h2 id="索引是什么？作用是什么？"><a href="#索引是什么？作用是什么？" class="headerlink" title="索引是什么？作用是什么？"></a>索引是什么？作用是什么？</h2><p>索引是 MySQL 优化查询的数据结构（B + 树为主）<br>作用：</p>
+<ol>
+<li>加快查询速度；</li>
+<li>减少数据扫描行数；</li>
+<li>辅助排序分组。<br><strong>类型</strong><br>分为四个类型<br>B-Tree索引(默认的类型),哈希索引(Memory引擎专用),全文索引,组合索引<br><strong>注意</strong><br>覆盖索引只需包含 SELECT 和 WHERE 中的字段即可<br>每个索引占用额外磁盘空间,会增加维护成本<br>建立的索引不能过多,否则会降低 写入的速度</li>
+</ol>
+<h2 id="索引有哪些类型？"><a href="#索引有哪些类型？" class="headerlink" title="索引有哪些类型？"></a>索引有哪些类型？</h2><p>按数据结构：B + 树索引（主流）、哈希索引（Memory 引擎）、全文索引（MyISAM&#x2F;InnoDB）；<br>按功能：主键索引（唯一非空）、唯一索引（唯一可空）、普通索引、联合索引；<br>按物理存储：聚簇索引（InnoDB 主键，数据和索引存在一起）、非聚簇索引（MyISAM，数据和索引分开）。</p>
+<h2 id="为什么-MySQL-索引用-B-树而不是-B-树-红黑树？"><a href="#为什么-MySQL-索引用-B-树而不是-B-树-红黑树？" class="headerlink" title="为什么 MySQL 索引用 B + 树而不是 B 树 &#x2F; 红黑树？"></a>为什么 MySQL 索引用 B + 树而不是 B 树 &#x2F; 红黑树？</h2><p>对比 B 树：B + 树叶子节点用链表连接，范围查询更高效；非叶子节点只存索引，内存能存更多节点，IO 更少；<br>对比红黑树：树高度高（百万数据要 20 层），磁盘 IO 次数多，查询慢；B + 树高度低（百万数据 3-4 层），IO 少。</p>
+<h2 id="InnoDB-行锁和表锁的区别？什么时候会升级为表锁？"><a href="#InnoDB-行锁和表锁的区别？什么时候会升级为表锁？" class="headerlink" title="InnoDB 行锁和表锁的区别？什么时候会升级为表锁？"></a>InnoDB 行锁和表锁的区别？什么时候会升级为表锁？</h2><p>行锁：只锁行数据，并发高，InnoDB 默认；<br>表锁：锁整张表，并发低，MyISAM 默认；<br>行锁升级表锁的情况：</p>
+<ol>
+<li>没有走索引，InnoDB 会全表扫描并锁全表；</li>
+<li>锁的行太多，MySQL 自动升级为表锁。</li>
+</ol>
+<h2 id="什么是死锁？如何避免和解决？"><a href="#什么是死锁？如何避免和解决？" class="headerlink" title="什么是死锁？如何避免和解决？"></a>什么是死锁？如何避免和解决？</h2><p>死锁：多个事务互相持有对方需要的锁，互相等待，导致卡住。<br>避免：1 按固定顺序加锁；2 控制事务大小，缩短锁持有时间；3 加锁时设置超时时间；<br>解决：1 用 show engine innodb status 查看死锁日志；2 手动 kill 掉卡住的事务；3 开启 innodb_deadlock_detect 自动检测死锁并回滚。</p>
 <h4 id="MySQL内连接-外连接是什么"><a href="#MySQL内连接-外连接是什么" class="headerlink" title="MySQL内连接,外连接是什么"></a>MySQL内连接,外连接是什么</h4><p>核心区别<br>内连接	<br>只返回​两个表中满足连接条件的公共数据<br><code>SELECT columns FROM table1 INNER JOIN table2 ON table1.key = table2.key;</code><br>​外连接<br>左外连接（LEFT JOIN）<br>​定义：返回左表的所有记录，以及右表中匹配的记录。如果右表无匹配，则用 NULL 填充<br><code>SELECT columns FROM table1 LEFT JOIN table2  ON table1.key = table2.key;</code><br>右外连接（RIGHT JOIN）<br>​定义：返回右表的所有记录，以及左表中匹配的记录。如果左表无匹配，则用 NULL 填充<br><code>SELECT columns FROM table1 RIGHT JOIN table2  ON table1.key = table2.key;</code></p>
 <h4 id="MySQL中UNION-操作符有什么用"><a href="#MySQL中UNION-操作符有什么用" class="headerlink" title="MySQL中UNION 操作符有什么用"></a>MySQL中UNION 操作符有什么用</h4><p>MySQL UNION 操作符用于连接两个以上的 SELECT 语句的结果组合到一个结果集合中</p>
 <pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT &#96;字段名1&#96;,&#96;字段名2&#96;, ... &#96;字段名n&#96; FROM &#96;表名1&#96;
@@ -478,39 +472,76 @@ where &#96;条件&#96;;
 -- DISTINCT: 可选，删除结果集中重复的数据。默认情况下 UNION 操作符已经删除了重复数据，所以 DISTINCT 修饰符对结果没啥影响。
 -- ALL: 可选，返回所有结果集，包含重复数据。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
 <h4 id="where和having的区别？"><a href="#where和having的区别？" class="headerlink" title="where和having的区别？"></a>where和having的区别？</h4><p>where是对分组前的条件进行限定。having是对分组后的内容进行限定。<br>where后面不能加聚合函数，having后可以跟聚合函数。</p>
-<ol>
-<li>查询中不使用select * 的原因<br>增加查询分析器解析成本。</li>
-</ol>
-<p>增减字段容易与 resultMap 配置不一致。<br>不需要的列会增加数据传输时间和网络开销<br>对于无用的大字段，如 varchar、blob、text，会增加 io 操作<br>失去MySQL优化器“覆盖索引”策略优化的可能性<br>2. 主键ID生成方案<br>主键id的生成方案<br>数据库中主键id的生成方案，主要有三种<br>数据库自增ID<br>采用随机数生成不重复的ID<br>采用jdk提供的uuid</p>
+<h2 id="主键ID生成方案"><a href="#主键ID生成方案" class="headerlink" title="主键ID生成方案"></a>主键ID生成方案</h2><p>数据库中主键id的生成方案，主要有三种<br>数据库自增ID<br>采用随机数生成不重复的ID<br>采用jdk提供的uuid</p>
 <p>主键id性能排列<br>自增ID &gt; 雪花算法生成的ID &gt;uuid生成的ID。</p>
 <p>实际使用<br>在实际使用过程中，推荐使用主键自增ID和雪花算法生成的随机ID。</p>
-<ol start="3">
-<li>联合索引的优势<br> 减少开销<br> 覆盖索引<br> 效率高</li>
-<li>索引是建的越多越好吗<br>数据量小的表不需要建立索引，建立会增加额外的索引开销</li>
+<ol start="8">
+<li>delete，drop，truncate 都有删除表的作用，区别在于：</li>
+<li>delete 和 truncate 仅仅删除表数据，drop 连表数据和表结构一起删除，打个比方，delete 是单杀，truncate 是团灭，drop 是把电脑摔了。</li>
+<li>delete 是 DML 语句，操作完以后如果没有不想提交事务还可以回滚，truncate 和 drop 是 DDL 语句，操作完马上生效，不能回滚，打个比方，delete 是发微信说分手，后悔还可以撤回，truncate 和 drop 是直接扇耳光说滚，不能反悔。</li>
+<li>执行的速度上，drop&gt;truncate&gt;delete，打个比方，drop 是神舟火箭，truncate 是和谐号动车，delete 是自行车。</li>
 </ol>
-<p>不经常引用的列不要建立索引，因为不常用，即使建立了索引也没有多大意义</p>
-<p>经常频繁更新的列不要建立索引，因为肯定会影响插入或更新的效率</p>
-<p>数据重复且分布平均的字段，因此他建立索引就没有太大的效果（例如性别字段，只有男女，不适合建立索引）</p>
-<p>数据变更需要维护索引，意味着索引越多维护成本越高。</p>
-<ol start="5">
-<li>什么情况下考虑分库分表？</li>
+<h2 id="数据库连接池参数怎么调？（比如-Druid）"><a href="#数据库连接池参数怎么调？（比如-Druid）" class="headerlink" title="数据库连接池参数怎么调？（比如 Druid）"></a>数据库连接池参数怎么调？（比如 Druid）</h2><p>核心参数：① initialSize（初始连接数）；② maxActive（最大连接数）；③ minIdle（最小空闲数）；④ maxWait（获取连接超时时间）；<br>调优原则：① 最大连接数不要超过 MySQL 的 max_connections；② 初始连接数设为业务峰值的 50%；③ 空闲连接回收时间合理（避免频繁创建销毁连接）。</p>
+<h2 id="MySQL-磁盘满了怎么处理？"><a href="#MySQL-磁盘满了怎么处理？" class="headerlink" title="MySQL 磁盘满了怎么处理？"></a>MySQL 磁盘满了怎么处理？</h2><p>① 先删除无用日志（慢查询日志、binlog）；② 清理大表数据（归档后删除）；③ 分表分库，迁移部分数据；④ 扩容磁盘。</p>
+<h2 id="如何恢复误删的数据？"><a href="#如何恢复误删的数据？" class="headerlink" title="如何恢复误删的数据？"></a>如何恢复误删的数据？</h2><p>① 有备份：用备份 + binlog 恢复到误删前的时间点；<br>② 无备份：用 binlog2sql 解析 binlog，找回删除的 SQL，反向执行；<br>③ 预防：开启 binlog，定期备份，操作前先备份。</p>
+<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><h3 id="如何优化-MySQL-写入性能？"><a href="#如何优化-MySQL-写入性能？" class="headerlink" title="如何优化 MySQL 写入性能？"></a>如何优化 MySQL 写入性能？</h3><ol>
+<li>批量插入（insert into … values (…),(…)）；</li>
+<li>关闭自动提交（begin&#x2F;commit）；</li>
+<li>减少索引（写入时少维护索引）；</li>
+<li>调大 innodb_buffer_pool_size，减少磁盘 IO；</li>
+<li>分库分表，分摊写入压力。</li>
 </ol>
-<p>IO瓶颈<br>第一种：磁盘读IO瓶颈，热点数据太多，数据库缓存放不下，每次查询会产生大量的IO，降低查询速度-&gt;分库和垂直分表<br>第二种：网络IO瓶颈，请求的数据太多，网络带宽不够 -&gt;分库<br>CPU瓶颈<br>第一种：SQl问题：如SQL中包含join,group by, order by，非索引字段条件查询等，增加CPU运算的操作-&gt;SQL优化，建立合适的索引，在业务Service层进行业务计算。<br>第二种：单表数据量太大，查询时扫描的行太多，SQl效率低，增加CPU运算的操作。-&gt;水平分表。<br>能不分就不分<br>数据量过大，正常运维影响业务访问<br>随着业务发展，需要对某些字段垂直拆分<br>数据量快速增长<br>6. 分库分表带来的问题<br>事务一致性问题<br>分布式事务<br>当更新内容同时存在于不同库找那个，不可避免会带来跨库事务问题。跨分片事务也是分布式事务，没有简单的方案，一般可使用“XA协议”和“两阶段提交”处理。分布式事务能最大限度保证了数据库操作的原子性。但在提交事务时需要协调多个节点，推后了提交事务的时间点，延长了事务的执行时间，导致事务在访问共享资源时发生冲突或死锁的概率增高。随着数据库节点的增多，这种趋势会越来越严重，从而成为系统在数据库层面上水平扩展的枷锁。<br>最终一致性<br>对于那些性能要求很高，但对一致性要求不高的系统，往往不苛求系统的实时一致性，只要在允许的时间段内达到最终一致性即可，可采用事务补偿的方式。与事务在执行中发生错误立刻回滚的方式不同，事务补偿是一种事后检查补救的措施，一些常见的实现方法有：对数据进行对账检查，基于日志进行对比，定期同标准数据来源进行同步等。<br>跨节点关联查询join问题<br>切分之前，系统中很多列表和详情表的数据可以通过join来完成，但是切分之后，数据可能分布在不同的节点上，此时join带来的问题就比较麻烦了，考虑到性能，尽量避免使用Join查询。解决的一些方法：<br>全局表<br>全局表，也可看做“数据字典表”，就是系统中所有模块都可能依赖的一些表，为了避免库join查询，可以将这类表在每个数据库中都保存一份。这些数据通常很少修改，所以不必担心一致性的问题。<br>字段冗余<br>一种典型的反范式设计，利用空间换时间，为了性能而避免join查询。例如，订单表在保存userId的时候，也将userName也冗余的保存一份，这样查询订单详情顺表就可以查到用户名userName，就不用查询买家user表了。但这种方法适用场景也有限，比较适用依赖字段比较少的情况，而冗余字段的一致性也较难保证。<br>数据组装<br>在系统service业务层面，分两次查询，第一次查询的结果集找出关联的数据id，然后根据id发起器二次请求得到关联数据，最后将获得的结果进行字段组装。这是比较常用的方法。<br>ER分片<br>关系型数据库中，如果已经确定了表之间的关联关系（如订单表和订单详情表），并且将那些存在关联关系的表记录存放在同一个分片上，那么就能较好地避免跨分片join的问题，可以在一个分片内进行join。在1:1或1：n的情况下，通常按照主表的ID进行主键切分。<br>跨节点分页、排序、函数问题<br>跨节点多库进行查询时，会出现limit分页、order by 排序等问题。分页需要按照指定字段进行排序，当排序字段就是分页字段时，通过分片规则就比较容易定位到指定的分片；当排序字段非分片字段时，就变得比较复杂.需要先在不同的分片节点中将数据进行排序并返回，然后将不同分片返回的结果集进行汇总和再次排序，最终返回给用户 </p>
-<ol start="7">
-<li><p>delete和truncate的区别</p>
-</li>
-<li><p>delete，drop，truncate 都有删除表的作用，区别在于：</p>
-</li>
-<li><p>delete 和 truncate 仅仅删除表数据，drop 连表数据和表结构一起删除，打个比方，delete 是单杀，truncate 是团灭，drop 是把电脑摔了。</p>
-</li>
-<li><p>delete 是 DML 语句，操作完以后如果没有不想提交事务还可以回滚，truncate 和 drop 是 DDL 语句，操作完马上生效，不能回滚，打个比方，delete 是发微信说分手，后悔还可以撤回，truncate 和 drop 是直接扇耳光说滚，不能反悔。</p>
-</li>
-<li><p>执行的速度上，drop&gt;truncate&gt;delete，打个比方，drop 是神舟火箭，truncate 是和谐号动车，delete 是自行车。</p>
-</li>
+<h3 id="如何优化-MySQL-查询性能？"><a href="#如何优化-MySQL-查询性能？" class="headerlink" title="如何优化 MySQL 查询性能？"></a>如何优化 MySQL 查询性能？</h3><ol>
+<li>加合适的索引（避免冗余索引、无效索引）；</li>
+<li>优化 SQL：避免 select *、减少 join、不用子查询；</li>
+<li>分库分表（数据量大时）；</li>
+<li>读写分离（主库写，从库读）；</li>
+<li>配置优化：调大缓存（innodb_buffer_pool_size）、优化连接数。</li>
 </ol>
-<p> where和having的区别？（！！）<br>where是对分组前查询的内容进行条件过滤。having是对分组后的内容进行限定。<br>where后面不能加聚合函数，having后可以跟聚合函数。</p>
+<h2 id="MySQL-索引优化，常用的索引优化方法有哪些-怎么判断一个-SQL-该加索引，加索引有啥注意事项？"><a href="#MySQL-索引优化，常用的索引优化方法有哪些-怎么判断一个-SQL-该加索引，加索引有啥注意事项？" class="headerlink" title="MySQL 索引优化，常用的索引优化方法有哪些,怎么判断一个 SQL 该加索引，加索引有啥注意事项？"></a>MySQL 索引优化，常用的索引优化方法有哪些,怎么判断一个 SQL 该加索引，加索引有啥注意事项？</h2><p>首先看 SQL 的 where 条件、联表字段，高频查询的字段适合加；<br>注意事项就是别给高频更新的字段加，也别加太多，不然增删改会变慢，复合索引要注意最左匹配原则</p>
+<h2 id="什么是最左前缀匹配原则？"><a href="#什么是最左前缀匹配原则？" class="headerlink" title="什么是最左前缀匹配原则？"></a>什么是最左前缀匹配原则？</h2><p>以联合索引 idx_abc(a,b,c) 为例</p>
+<ol>
+<li>完全匹配（最理想）<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 匹配 a → b → c，索引全生效</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span> <span class="token keyword">WHERE</span> a<span class="token operator">=</span><span class="token number">1</span> <span class="token operator">AND</span> b<span class="token operator">=</span><span class="token number">2</span> <span class="token operator">AND</span> c<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>匹配最左前缀（部分生效）<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 只匹配 a，索引生效（仅用 a 列索引）</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span> <span class="token keyword">WHERE</span> a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 匹配 a → b，索引生效（用 a+b 列索引）</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span> <span class="token keyword">WHERE</span> a<span class="token operator">=</span><span class="token number">1</span> <span class="token operator">AND</span> b<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>跳过左侧列（索引失效）<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 跳过 a，直接查 b，索引完全失效（全表扫描）</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span> <span class="token keyword">WHERE</span> b<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 跳过 b，查 a+c，仅 a 列索引生效，c 列无法使用索引</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span> <span class="token keyword">WHERE</span> a<span class="token operator">=</span><span class="token number">1</span> <span class="token operator">AND</span> c<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 直接查 c，索引完全失效</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span> <span class="token keyword">WHERE</span> c<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>特殊情况：条件顺序不影响（MySQL 会优化）<br>联合索引的匹配只看是否包含最左列，不看 where 条件的书写顺序，因为 MySQL 会自动调整条件顺序：<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 虽然顺序是 b,a，但包含 a（最左列），索引仍生效</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span> <span class="token keyword">WHERE</span> b<span class="token operator">=</span><span class="token number">2</span> <span class="token operator">AND</span> a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+– 等价于 WHERE a&#x3D;1 AND b&#x3D;2，MySQL 优化后命中索引</li>
+</ol>
+<h2 id="索引失效场景"><a href="#索引失效场景" class="headerlink" title="索引失效场景"></a>索引失效场景</h2><ol>
+<li>查询条件用了函数 &#x2F; 运算（比如 where id+1&#x3D;10）；</li>
+<li>用了 like % xxx（模糊查询左通配）；</li>
+<li>联合索引不满足最左前缀；</li>
+<li>用了 or（两边字段都无索引）；</li>
+<li>数据类型隐式转换（比如字符串字段传数字）。</li>
+<li>使用 is null &#x2F; is not null（除非字段是唯一索引）；</li>
+<li>使用 !&#x3D; &#x2F; &lt;&gt; &#x2F; not in（大概率失效）；</li>
+</ol>
+<h2 id="索引太多会有什么问题？如何优化？"><a href="#索引太多会有什么问题？如何优化？" class="headerlink" title="索引太多会有什么问题？如何优化？"></a>索引太多会有什么问题？如何优化？</h2><p>问题：1 写入 &#x2F; 更新 &#x2F; 删除变慢，因为要维护多个索引；2 占用更多磁盘空间；3 MySQL 优化器选择索引的耗时增加；<br>优化：1 删除冗余索引（比如联合索引 a,b 和单独索引 a）；2 删除未使用的索引；3 合并相似索引。</p>
+<h2 id="MySQL-聚簇索引和非聚簇索引的区别？"><a href="#MySQL-聚簇索引和非聚簇索引的区别？" class="headerlink" title="MySQL 聚簇索引和非聚簇索引的区别？"></a>MySQL 聚簇索引和非聚簇索引的区别？</h2><p>聚簇索引（主键）的索引与数据存储在一起，叶子节点是数据行；非聚簇索引叶子节点是主键值，查询需回表；项目中建联合索引减少回表操作。</p>
+<h2 id="高并发下-MySQL-写操作怎么保证一致性？"><a href="#高并发下-MySQL-写操作怎么保证一致性？" class="headerlink" title="高并发下 MySQL 写操作怎么保证一致性？"></a>高并发下 MySQL 写操作怎么保证一致性？</h2><p>答：通过事务保证操作原子性；库存扣减等场景用 Redisson 分布式锁；修改配置表 &#x2F; 商品信息用乐观锁（加版本号），防止并发数据覆盖。</p>
+<h2 id="慢查询优化步骤"><a href="#慢查询优化步骤" class="headerlink" title="慢查询优化步骤"></a>慢查询优化步骤</h2><p>开启慢查询日志：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">set</span> <span class="token keyword">global</span> slow_query_log<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">-- 临时开启</span>
+<span class="token keyword">set</span> <span class="token keyword">global</span> long_query_time<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">-- 记录超过1s的SQL</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>用 explain 分析执行计划：<br>重点看 type（最好是 ref&#x2F;range，最差是 all 全表扫描）；<br>看 key（是否用到索引）、rows（扫描行数）；<br>优化手段：加索引、改写 SQL（如子查询改 JOIN）、拆分大 SQL</p>
+<h2 id="分库分表"><a href="#分库分表" class="headerlink" title="分库分表"></a>分库分表</h2><h3 id="MySQL分库分表后-动态切换数据源是如何实现的"><a href="#MySQL分库分表后-动态切换数据源是如何实现的" class="headerlink" title="MySQL分库分表后,动态切换数据源是如何实现的"></a>MySQL分库分表后,动态切换数据源是如何实现的</h3><p>这块是MyBatis-Plus 插件,mybatis-mate-sharding-dynamic自动完成路由和连接切换;<br>在配置文件 中配置多个数据源，并指定默认数据源;在类或方法上使用@DS注解</p>
+<h3 id="什么时候分库分表"><a href="#什么时候分库分表" class="headerlink" title="什么时候分库分表"></a>什么时候分库分表</h3><p>单表触发分表的核心阈值（实战硬指标）<br>数据量：InnoDB 引擎单表数据量超过 500 万行（或数据文件超过 10GB），B + 树索引会深度过大（超过 3 层），查询时磁盘 IO 次数剧增，响应时间大幅变慢；<br>并发量：单表写并发超过 1000 QPS、读并发超过 5000 QPS，数据库连接池占满，写操作出现阻塞，锁竞争加剧；<br>性能指标：单表查询响应时间超过 2 秒，即使做了索引优化、SQL 调优也无法改善；日常增删改操作频繁出现锁等待、死锁。<br>单库触发分库的核心阈值（实战硬指标）<br>单库数据量：超过 200GB，数据库备份 &#x2F; 恢复时间过长，运维成本剧增；<br>单库并发量：超过 3000 QPS，数据库服务器 CPU、IO、内存资源被占满，无法通过升级硬件解决；<br>业务隔离：不同业务模块（如库存、订单、用户）共用一个库，相互影响（如订单模块高并发写导致用户模块查询变慢），需要按业务分库。</p>
+<h3 id="分库分表的方式有哪些？适用场景？"><a href="#分库分表的方式有哪些？适用场景？" class="headerlink" title="分库分表的方式有哪些？适用场景？"></a>分库分表的方式有哪些？适用场景？</h3><p>水平分表（按行分）：比如用户表按 id 哈希分到多个表；适合单表数据量过大（比如千万级）；<br>垂直分表（按列分）：比如用户表拆成基础信息表和详情表；适合字段多、大字段多的表；<br>分库：按业务模块分（比如订单库、用户库）；适合单库压力过大。</p>
+<h3 id="MySQL-主从复制原理？主从延迟怎么解决？"><a href="#MySQL-主从复制原理？主从延迟怎么解决？" class="headerlink" title="MySQL 主从复制原理？主从延迟怎么解决？"></a>MySQL 主从复制原理？主从延迟怎么解决？</h3><p>原理：① 主库把写操作记录到 binlog；② 从库连主库，拉取 binlog；③ 从库执行 binlog，同步数据；<br>主从延迟解决：① 升级硬件；② 减少从库压力（比如从库只负责读，不做统计）；③ 用半同步复制；④ 分库分表，分摊同步压力。</p>
+<h2 id="数据迁移"><a href="#数据迁移" class="headerlink" title="数据迁移"></a>数据迁移</h2><h3 id="如果两张表结构一样，要把表-B-的-100-万条数据插到表-A-里，我一般这么做："><a href="#如果两张表结构一样，要把表-B-的-100-万条数据插到表-A-里，我一般这么做：" class="headerlink" title="如果两张表结构一样，要把表 B 的 100 万条数据插到表 A 里，我一般这么做："></a>如果两张表结构一样，要把表 B 的 100 万条数据插到表 A 里，我一般这么做：</h3><p>首先用 insert into … select 这种方式，直接在数据库里批量导数据，<br>会分批处理，比如每次插 1 万条，避免锁表时间太长、数据库压力过大。<br>如果追求更快，我会先把表 A 的索引、外键先临时关掉，插完再重新开启，这样插入速度会快很多。<br>业务允许的话，也可以先清空表 A，再一次性导入，效率更高。<br>如果是跨服务器迁移，就用 mysqldump 导出再导入，或者用 CSV 文件导入的方式。<br>整体思路就是：尽量数据库层批量操作，分批插入，减少锁表和性能问题。</p>
 
                 
             </div>
@@ -574,7 +605,15 @@ where &#96;条件&#96;;
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">MySQL</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%85%B6%E5%AE%83%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                                    <span class="chip bg-color">其它面试题</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -624,9 +663,9 @@ where &#96;条件&#96;;
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="ElasticSearch面试题">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">ElasticSearch面试题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -641,11 +680,27 @@ where &#96;条件&#96;;
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            zrh
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
+                                    面试题
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ElasticSearch/">
+                        <span class="chip bg-color">ElasticSearch</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%85%B6%E5%AE%83%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                        <span class="chip bg-color">其它面试题</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -661,9 +716,9 @@ where &#96;条件&#96;;
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Redis面试题">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">Redis面试题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -678,11 +733,27 @@ where &#96;条件&#96;;
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            zrh
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
+                                    面试题
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                        <span class="chip bg-color">面试题</span>
+                    </a>
+                    
+                    <a href="/tags/Redis/">
+                        <span class="chip bg-color">Redis</span>
+                    </a>
+                    
                 </div>
                 
             </div>

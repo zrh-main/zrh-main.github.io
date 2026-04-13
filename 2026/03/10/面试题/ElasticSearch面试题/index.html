@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ZRH博客,zrh博客">
+    <meta name="keywords" content="ElasticSearch面试题, ZRH博客,zrh博客">
     <meta name="description" content="ZRH的个人博客,记录个人笔记">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ZRH博客</title>
+    <title>ElasticSearch面试题 | ZRH博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -271,7 +271,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">ElasticSearch面试题</h1>
                 </div>
             </div>
         </div>
@@ -385,12 +385,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/ElasticSearch/">
+                                <span class="chip bg-color">ElasticSearch</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%85%B6%E5%AE%83%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                                <span class="chip bg-color">其它面试题</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
+                                面试题
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -423,25 +440,28 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="ElasticSearch"><a href="#ElasticSearch" class="headerlink" title="ElasticSearch"></a>ElasticSearch</h4><ul>
-<li><p>ES 是什么？和 Lucene 什么关系？<br>ES 是基于 Lucene 封装的分布式搜索引擎，提供全文检索、数据分析。<br>Lucene 是底层的检索库，ES 把它做成了分布式、易用、高可用的服务。</p>
-</li>
-<li><p>核心概念：index、document、shard、replica<br>index：相当于数据库的库<br>document：一条数据，相当于行<br>shard：分片，把索引拆分成多个块，提高并发和容量<br>replica：副本，备份数据，提高可用性，分担查询压力</p>
-</li>
-<li><p>什么是倒排索引？<br>倒排索引就是关键词对应文档 ID，而不是文档对应关键词。<br>这样搜关键词时能快速定位到哪些文档包含它，是 ES 快的核心原因。</p>
-</li>
-<li><p>text 和 keyword 区别？<br>text：会分词，用于全文搜索<br>keyword：不分词，用于精确匹配、排序、聚合</p>
-</li>
-</ul>
-<p>ES 为什么查询快？核心是什么？<br>答：核心是倒排索引，按关键词匹配文档，无需全表扫描；项目均用 IK 分词器，适配专业词汇，提升检索准确性</p>
-<p>ES 怎么实现多维度筛选 + 检索提速？<br>答：筛选字段建 keyword 索引，使用 bool 查询：must 放关键词检索，filter 放多维度筛选条件（filter 不参与评分且可缓存）；项目中合理设置分片，将热点数据预热至内存，保证检索响应 &lt; 500ms。</p>
-<p>性能优化</p>
-<ol>
+                <h2 id="ES-是什么？和-Lucene-什么关系？"><a href="#ES-是什么？和-Lucene-什么关系？" class="headerlink" title="ES 是什么？和 Lucene 什么关系？"></a>ES 是什么？和 Lucene 什么关系？</h2><p>ES 是基于 Lucene 封装的分布式搜索引擎，提供全文检索、数据分析。<br>Lucene 是底层的检索库，ES 把它做成了分布式、易用、高可用的服务。</p>
+<h2 id="ES的核心概念：index、document、shard、replica"><a href="#ES的核心概念：index、document、shard、replica" class="headerlink" title="ES的核心概念：index、document、shard、replica"></a>ES的核心概念：index、document、shard、replica</h2><p>index：相当于数据库的库<br>document：一条数据，相当于行<br>shard：分片，把索引拆分成多个块，提高并发和容量<br>replica：副本，备份数据，提高可用性，分担查询压力</p>
+<h2 id="什么是倒排索引？"><a href="#什么是倒排索引？" class="headerlink" title="什么是倒排索引？"></a>什么是倒排索引？</h2><p>倒排索引就是关键词对应文档 ID，而不是文档对应关键词。<br>这样搜关键词时能快速定位到哪些文档包含它，是 ES 快的核心原因。</p>
+<h2 id="​ElasticSearch中match和term的区别"><a href="#​ElasticSearch中match和term的区别" class="headerlink" title="​ElasticSearch中match和term的区别"></a>​ElasticSearch中match和term的区别</h2><p>match   分词,适用于 text 类型字段,适用于模糊匹配<br>term    不分词,适用于 keyword 类型字段,适用于精确匹配</p>
+<h2 id="text-和-keyword-区别？"><a href="#text-和-keyword-区别？" class="headerlink" title="text 和 keyword 区别？"></a>text 和 keyword 区别？</h2><p>text：会分词，用于全文搜索<br>keyword：不分词，用于精确匹配、排序、聚合</p>
+<h2 id="ES-为什么查询快？核心是什么？"><a href="#ES-为什么查询快？核心是什么？" class="headerlink" title="ES 为什么查询快？核心是什么？"></a>ES 为什么查询快？核心是什么？</h2><p>答：核心是倒排索引，按关键词匹配文档，无需全表扫描；项目均用 IK 分词器，适配专业词汇，提升检索准确性</p>
+<h2 id="ES-怎么实现多维度筛选-检索提速？"><a href="#ES-怎么实现多维度筛选-检索提速？" class="headerlink" title="ES 怎么实现多维度筛选 + 检索提速？"></a>ES 怎么实现多维度筛选 + 检索提速？</h2><p>答：筛选字段建 keyword 索引，使用 bool 查询：must 放关键词检索，filter 放多维度筛选条件（filter 不参与评分且可缓存）；项目中合理设置分片，将热点数据预热至内存，保证检索响应 &lt; 500ms。</p>
+<h2 id="ES-怎么性能优化"><a href="#ES-怎么性能优化" class="headerlink" title="ES 怎么性能优化"></a>ES 怎么性能优化</h2><ol>
 <li>怎么提高写入速度？<br>用 bulk 批量写入<br>调大 refresh_interval，减少段生成<br>写入时临时关掉副本，写完再开<br>提前定义 mapping，不动态创建字段</li>
 <li>怎么提高查询速度？<br>能用 filter 就不用 query，filter 会缓存<br>聚合、排序用 keyword，不用 text<br>深分页用 search_after 或 scroll，不用 from+size<br>只查需要的字段，别全返回</li>
 <li>分片怎么设？<br>单分片建议 10~50GB<br>分片太少：并发上不去<br>分片太多：管理开销大，查询慢</li>
 </ol>
-<p>MySQL 数据怎么同步到 ES？<br>主流用 Canal 监听 binlog，实时同步到 ES。<br>也可以定时任务增量同步，或业务双写。<br>2. 什么是冷热分离？<br>热数据：放高性能节点，高频读写<br>冷数据：放低配节点，只查不写<br>用 ILM 生命周期自动管理。<br>3. 集群加节点会发生什么？<br>ES 会自动分片重平衡，把数据均匀分到新节点，提高整体性能。<br>4. 慢查询怎么排查？<br>开慢查询日志<br>用 profile 看每一步耗时<br>看节点负载、线程、分片状态</p>
+<h2 id="MySQL-数据怎么同步到-ES？"><a href="#MySQL-数据怎么同步到-ES？" class="headerlink" title="MySQL 数据怎么同步到 ES？"></a>MySQL 数据怎么同步到 ES？</h2><p>主流用 Canal 监听 binlog，实时同步到 ES。<br>也可以定时任务增量同步，或业务双写。</p>
+<h2 id="什么是冷热分离？"><a href="#什么是冷热分离？" class="headerlink" title="什么是冷热分离？"></a>什么是冷热分离？</h2><p>热数据：放高性能节点，高频读写<br>冷数据：放低配节点，只查不写<br>用 ILM 生命周期自动管理。</p>
+<h2 id="集群加节点会发生什么？"><a href="#集群加节点会发生什么？" class="headerlink" title="集群加节点会发生什么？"></a>集群加节点会发生什么？</h2><p>ES 会自动分片重平衡，把数据均匀分到新节点，提高整体性能。</p>
+<h2 id="慢查询怎么排查？"><a href="#慢查询怎么排查？" class="headerlink" title="慢查询怎么排查？"></a>慢查询怎么排查？</h2><p>开慢查询日志<br>用 profile 看每一步耗时<br>看节点负载、线程、分片状态</p>
+<h3 id="​ElasticSearch-的常见问题与解决方案"><a href="#​ElasticSearch-的常见问题与解决方案" class="headerlink" title="​ElasticSearch 的常见问题与解决方案"></a>​ElasticSearch 的常见问题与解决方案</h3><ul>
+<li>​数据不一致问题<br>​原因：副本同步延迟或节点故障。<br>​解决：监控副本状态，确保 number_of_replicas 合理，避免网络分区。</li>
+<li>​查询性能瓶颈<br>​原因：全表扫描、未命中索引。<br>​解决：使用 _explain 分析查询计划，优化索引和查询语句。<br>​- 集群脑裂（Split Brain）​<br>​原因：网络分区导致多个主节点。<br>​解决：配置 discovery.zen.minimum_master_nodes 至少为 (number_of_master_nodes &#x2F; 2) + 1。</li>
+</ul>
+<p>ElasticSearch 是分布式搜索与分析领域的核心工具，掌握其核心原理（倒排索引、分片副本）、查询优化（聚合、路由）、集群管理（高可用、监控）及故障排查是面试成功的关键。<br>实际应用中需结合业务场景设计合理的索引策略，并通过性能调优（JVM、分页、缓存）保障系统稳定性。</p>
+<h2 id="ElasticSearch-集群如何搭建的"><a href="#ElasticSearch-集群如何搭建的" class="headerlink" title="ElasticSearch 集群如何搭建的"></a>ElasticSearch 集群如何搭建的</h2><p>ElasticSearch7.10.2 集群：<br>集群采用 3 主 2 从架构，主节点负责分片管理和写操作，从节点负责读操作和容灾，所有节点统一配置内核参数、禁用透明大页，保证集群稳定性；<br>创建课程索引时指定3 主分片 + 1 副本，分片均匀分配到主节点，副本分配到从节点，同时安装 IK 分词器实现中文全文检索，设置 1s 刷新间隔实现数据实时索引；<br>项目中通过 Spring Data Elasticsearch 对接集群，使用keyword做精确查询、text+IK做模糊检索，结合动态加权排序算法，实现课程 &#x2F; 名师 &#x2F; 知识点多维度检索，搜索响应时间控制在 500ms 内；<br>同时做了批量操作、热点缓存、冷热数据分离等优化，适配 10 万 + 课程数据的高并发检索需求，高峰期系统稳定运行。</p>
 
                 
             </div>
@@ -505,7 +525,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/ElasticSearch/">
+                                    <span class="chip bg-color">ElasticSearch</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%85%B6%E5%AE%83%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                                    <span class="chip bg-color">其它面试题</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -555,9 +583,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="项目面试题">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">项目面试题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -572,11 +600,27 @@
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            zrh
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
+                                    面试题
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%85%B6%E5%AE%83%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                        <span class="chip bg-color">其它面试题</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%A1%B9%E7%9B%AE/">
+                        <span class="chip bg-color">项目</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -592,9 +636,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="MySQL面试题">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">MySQL面试题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -609,11 +653,27 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            zrh
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
+                                    面试题
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%85%B6%E5%AE%83%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                        <span class="chip bg-color">其它面试题</span>
+                    </a>
+                    
                 </div>
                 
             </div>

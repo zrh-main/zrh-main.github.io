@@ -445,7 +445,9 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h2><p>MyBatis 是一个​持久层框架，专注于 SQL 映射和数据库操作，通过简单的 XML 或注解配置即可实现高效的数据访问</p>
-<h3 id="Mybatis中-与-区别"><a href="#Mybatis中-与-区别" class="headerlink" title="Mybatis中#{}与${}区别"></a>Mybatis中#{}与${}区别</h3><p>​**#{}<strong>：安全、高效，适用于常规参数绑定。在SQL动态解析之后，编译将#{}替换为占位符？去替换参数，可以防止sql注入<br>​</strong>${}**：灵活但危险，仅用于动态结构（如表名、列名），需严格校验参数。是进行字符串拼接，直接取出参数值，放到sql语句中<br>​能用 #{} 就不用 ${}，除非必须动态拼接 SQL 结构</p>
+<h3 id="Mybatis中-与-区别"><a href="#Mybatis中-与-区别" class="headerlink" title="Mybatis中#{}与${}区别"></a>Mybatis中#{}与${}区别</h3><p>​**#{}<strong>：#{}是预编译处理，会把参数变成SQL里的占位符?，能防SQL注入，安全又高效<br>​</strong>${}**： ${} 是直接字符串拼接，参数值会原样插到 SQL 里</p>
+<h3 id="mybatis中一对多-多对一怎么映射"><a href="#mybatis中一对多-多对一怎么映射" class="headerlink" title="mybatis中一对多,多对一怎么映射"></a>mybatis中一对多,多对一怎么映射</h3><p>多对一用association标签<br>一对多用collection</p>
+<h3 id="mybatis主键回填"><a href="#mybatis主键回填" class="headerlink" title="mybatis主键回填"></a>mybatis主键回填</h3><p>在标签中使用keyproperty属性,值为id</p>
 <h3 id="Mybatis缓存策略"><a href="#Mybatis缓存策略" class="headerlink" title="Mybatis缓存策略"></a>Mybatis缓存策略</h3><p>一级缓存<br>同一个 SqlSession 中有效。默认开启<br>​生命周期：<br>当执行 insert、update、delete 操作时，一级缓存会被清空。<br>SqlSession 关闭时，缓存自动清除。<br>​适用场景：<br>同一会话内多次查询相同数据</p>
 <p>二级缓存（Second Level Cache）​<br>Mapper 级别，跨 SqlSession 共享。<br>​生命周期：<br>需手动启用，配置在 Mapper XML 或注解中。<br>默认使用 LRU（最近最少使用）淘汰策略。<br>支持多种缓存实现（如 Ehcache、Redis）。<br>​适用场景：<br>跨会话的频繁查询（如热点数据）。<br>数据变动不频繁的静态数据（如字典表）</p>
 <h3 id="Mybatis执行流程"><a href="#Mybatis执行流程" class="headerlink" title="Mybatis执行流程"></a>Mybatis执行流程</h3><ol>
@@ -460,6 +462,13 @@
 </ol>
 <h3 id="Mybatis中resultMap和resultType区别"><a href="#Mybatis中resultMap和resultType区别" class="headerlink" title="Mybatis中resultMap和resultType区别"></a>Mybatis中resultMap和resultType区别</h3><p>resultType：<br>适用于列名与属性名一致的场景，优先选择 resultType，简化配置。<br>resultMap：<br>​复杂场景使用 列名不一致、需要关联查询或嵌套映射时，使用 resultMap。</p>
 <p>​能用 resultType 就不用 resultMap，除非必须自定义映射逻辑</p>
+<h3 id="MyBatis-怎么处理结果集映射的？字段名不一样咋办？"><a href="#MyBatis-怎么处理结果集映射的？字段名不一样咋办？" class="headerlink" title="MyBatis 怎么处理结果集映射的？字段名不一样咋办？"></a>MyBatis 怎么处理结果集映射的？字段名不一样咋办？</h3><p>简单的就直接用 resultType，字段名和数据库列名一致的话，直接映射到实体类就行。<br>要是字段名不一样，比如数据库里是 create_time，实体类是 createTime，就用 resultMap 做映射，在 XML 里配一下列名和属性名的对应关系就行。</p>
+<h3 id="MyBatis-怎么做分页？"><a href="#MyBatis-怎么做分页？" class="headerlink" title="MyBatis 怎么做分页？"></a>MyBatis 怎么做分页？</h3><p>普通场景用 PageHelper，大数据量分页 + 选字段 + 游标查询。</p>
+<h3 id="Mapper-无实现类为啥能执行？"><a href="#Mapper-无实现类为啥能执行？" class="headerlink" title="Mapper 无实现类为啥能执行？"></a>Mapper 无实现类为啥能执行？</h3><p>MyBatis 动态代理，自动生成代理类，解析 SQL 执行。</p>
+<h3 id="MyBatis-性能问题怎么解？"><a href="#MyBatis-性能问题怎么解？" class="headerlink" title="MyBatis 性能问题怎么解？"></a>MyBatis 性能问题怎么解？</h3><p>加索引、分页查、抽离公共 SQL，避免全表扫描和大结果集。</p>
+<h3 id="MyBatis-和-Spring-怎么整合？"><a href="#MyBatis-和-Spring-怎么整合？" class="headerlink" title="MyBatis 和 Spring 怎么整合？"></a>MyBatis 和 Spring 怎么整合？</h3><p>Spring 托管 SqlSessionFactory，扫描 Mapper 生成代理对象，直接注入使用。</p>
+<h3 id="MyBatis-怎么处理关联查询？"><a href="#MyBatis-怎么处理关联查询？" class="headerlink" title="MyBatis 怎么处理关联查询？"></a>MyBatis 怎么处理关联查询？</h3><p>一对一用 association，一对多用 collection，在 resultMap 里嵌套配置。</p>
+<h3 id="MyBatis-插件用过啥？原理是啥？"><a href="#MyBatis-插件用过啥？原理是啥？" class="headerlink" title="MyBatis 插件用过啥？原理是啥？"></a>MyBatis 插件用过啥？原理是啥？</h3><p>用过 PageHelper，原理是拦截 Executor&#x2F;StatementHandler 核心组件的方法。</p>
 <h2 id="MybatisPlus"><a href="#MybatisPlus" class="headerlink" title="MybatisPlus"></a>MybatisPlus</h2>
                 
             </div>
@@ -585,9 +594,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Redis面试题">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">Redis面试题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -602,11 +611,27 @@
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            zrh
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
+                                    面试题
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                        <span class="chip bg-color">面试题</span>
+                    </a>
+                    
+                    <a href="/tags/Redis/">
+                        <span class="chip bg-color">Redis</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -622,9 +647,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="SpringBoot 基础面试题">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Spring 面试题">
                         
-                        <span class="card-title">SpringBoot 基础面试题</span>
+                        <span class="card-title">Spring 面试题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -652,12 +677,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SpringBoot/">
-                        <span class="chip bg-color">SpringBoot</span>
-                    </a>
-                    
                     <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
                         <span class="chip bg-color">面试题</span>
+                    </a>
+                    
+                    <a href="/tags/Spring/">
+                        <span class="chip bg-color">Spring</span>
                     </a>
                     
                 </div>

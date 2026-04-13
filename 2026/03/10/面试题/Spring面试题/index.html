@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="SpringBoot 基础面试题, ZRH博客,zrh博客">
+    <meta name="keywords" content="Spring 面试题, ZRH博客,zrh博客">
     <meta name="description" content="ZRH的个人博客,记录个人笔记">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>SpringBoot 基础面试题 | ZRH博客</title>
+    <title>Spring 面试题 | ZRH博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -266,12 +266,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">SpringBoot 基础面试题</h1>
+                    <h1 class="description center-align post-title">Spring 面试题</h1>
                 </div>
             </div>
         </div>
@@ -387,12 +387,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/SpringBoot/">
-                                <span class="chip bg-color">SpringBoot</span>
-                            </a>
-                        
                             <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
                                 <span class="chip bg-color">面试题</span>
+                            </a>
+                        
+                            <a href="/tags/Spring/">
+                                <span class="chip bg-color">Spring</span>
                             </a>
                         
                     </div>
@@ -440,226 +440,28 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="SpringMVC和SpringBoot的区别"><a href="#SpringMVC和SpringBoot的区别" class="headerlink" title="SpringMVC和SpringBoot的区别"></a>SpringMVC和SpringBoot的区别</h2><p>SpringBoot包含了Spring和SpringMVC;是它们两个的升级版</p>
-<h2 id="SpringBoot的核心注解"><a href="#SpringBoot的核心注解" class="headerlink" title="SpringBoot的核心注解"></a>SpringBoot的核心注解</h2><p>@EnableAutoConfiguration<br>开启自动化配置<br>@SpringBootConfiguration<br>用来声明当前类是SpringBoot应用的配置类，项目中只能有一个<br>@SpringBootApplication<br>相当于SpringBoot中的@EnableAutoConfiguration和Spring中的@ComponentScan</p>
-<h4 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h4><p>Spring Boot 核心优势？<br>答：约定大于配置，自动配置省手动操作；起步依赖一键引入技术栈；内嵌服务器直接运行，提升开发效率。<br>SpringBoot 高频面试题（精简口语版）<br>一、核心特性类（入门必问）</p>
-<ol>
-<li>SpringBoot 是什么？核心优势是什么？<br>SpringBoot 是简化 Spring 开发的框架，核心是 “约定大于配置”。<br>优势：① 自动配置，不用写大量 XML；② 内嵌 Tomcat&#x2F;Jetty，直接 jar 包运行；③ 起步依赖，一键引入所需依赖，避免版本冲突；④ 简化监控、部署。</li>
-<li>什么是 SpringBoot 的自动配置？原理是什么？<br>自动配置就是不用手动配置，框架根据引入的依赖自动初始化 Bean。<br>原理：① 启动时加载 META-INF&#x2F;spring&#x2F;org.springframework.boot.autoconfigure.AutoConfiguration.imports 里的配置类；② 通过 @Conditional 条件注解（如有没有某个类）判断是否生效；③ 结合 @EnableAutoConfiguration 开启自动配置。</li>
-<li>SpringBoot 的起步依赖（Starter）是什么？<br>起步依赖是封装好的依赖包，比如 spring-boot-starter-web，引入它就自动包含 web 开发需要的 SpringMVC、Tomcat 等所有依赖，还统一了版本，不用自己一个个加，避免版本冲突。</li>
-<li>SpringBoot 有哪些核心注解？<br>核心是 @SpringBootApplication，它包含三个关键注解：<br>① @SpringBootConfiguration：就是 @Configuration，标识配置类；<br>② @EnableAutoConfiguration：开启自动配置；<br>③ @ComponentScan：扫描当前包及子包的 Bean。</li>
-<li>SpringBoot 如何实现热部署？<br>常用两种方式：<br>① 引入 spring-boot-devtools 依赖，修改代码后自动重启（轻量，重启快）；<br>② 用 Spring Loaded 插件，支持类加载级别的热更新，不用重启应用。<br>二、核心原理类（进阶考察）</li>
-<li>SpringBoot 启动流程（简单说）<br>① 执行 main 方法，调用 SpringApplication.run ()；<br>② 初始化 SpringApplication，加载初始化器、监听器；<br>③ 启动上下文（ApplicationContext），刷新容器；<br>④ 执行自动配置，扫描并注册 Bean；<br>⑤ 启动内嵌容器（如 Tomcat）；<br>⑥ 执行 Runner 接口（ApplicationRunner&#x2F;CommandLineRunner），完成启动。</li>
-<li>如何禁用某个自动配置类？<br>两种方式：<br>① @SpringBootApplication (exclude &#x3D; 要禁用的配置类.class)；<br>② 配置文件里加：spring.autoconfigure.exclude &#x3D; 配置类全路径。<br>比如禁用数据源自动配置：exclude &#x3D; DataSourceAutoConfiguration.class。</li>
-<li>SpringBoot 中配置加载顺序？<br>优先级从高到低：<br>① 命令行参数 &gt; ② 系统环境变量 &gt; ③ 应用外部的 application.yml&#x2F;properties &gt; ④ 应用内部的配置文件 &gt; ⑤ 默认配置。</li>
-<li>SpringBoot 如何自定义 Starter？<br>三步：<br>① 写核心功能的自动配置类（加 @Configuration、@Conditional）；<br>② 在 META-INF&#x2F;spring&#x2F;org.springframework.boot.autoconfigure.AutoConfiguration.imports 里注册这个配置类；<br>③ 打包成 starter 依赖，别人引入就能用。</li>
-<li>SpringBoot 和 SpringCloud 的关系？<br>SpringBoot 是基础，解决单体应用的快速开发；<br>SpringCloud 是微服务框架，基于 SpringBoot 封装，提供服务注册、发现、熔断、网关等微服务能力，没有 SpringBoot 就用不了 SpringCloud。<br>三、实战应用类（场景考察）</li>
-<li>SpringBoot 如何配置多环境？<br>① 写多个配置文件：application-dev.yml（开发）、application-prod.yml（生产）；<br>② 主配置文件里指定激活环境：spring.profiles.active&#x3D;dev；<br>③ 也可以启动时用命令行指定：–spring.profiles.active&#x3D;prod。</li>
-<li>SpringBoot 如何整合 MyBatis？<br>① 引入 mybatis-spring-boot-starter 依赖；<br>② 配置文件里写数据库连接、MyBatis 映射文件路径；<br>③ 启动类加 @MapperScan（指定 Mapper 接口包路径），或 Mapper 接口加 @Mapper 注解；<br>④ 写 Mapper 接口和 SQL 映射文件（或注解写 SQL）。</li>
-<li>SpringBoot 如何处理全局异常？<br>① 写一个全局异常处理类，加 @RestControllerAdvice；<br>② 方法上加 @ExceptionHandler（指定处理的异常类型）；<br>③ 方法里封装统一的返回结果（如 code、msg、data），返回给前端。</li>
-<li>SpringBoot 如何实现接口参数校验？<br>① 引入 spring-boot-starter-validation 依赖；<br>② DTO 字段上加校验注解（如 @NotBlank、@NotNull、@Min）；<br>③ 接口参数前加 @Valid（或 @Validated）；<br>④ 结合全局异常处理，捕获 MethodArgumentNotValidException，返回校验失败信息。</li>
-<li>SpringBoot 项目如何打包部署？<br>① 用 Maven&#x2F;Gradle 打包：mvn clean package；<br>② 打包后是可执行的 jar 包，直接 java -jar 包名.jar 就能运行；<br>③ 生产环境可配合 nohup 后台运行，或做成系统服务。<br>四、性能优化类（高频加分项）</li>
-<li>SpringBoot 如何优化性能？<br>① 关闭不用的自动配置；<br>② 配置 JVM 参数（调整堆内存、垃圾收集器）；<br>③ 开启 Gzip 压缩，减少网络传输；<br>④ 用连接池（如 HikariCP，默认）优化数据库连接；<br>⑤ 接口加缓存（Redis），减少数据库查询；<br>⑥ 异步处理（@Async）耗时操作。</li>
-<li>SpringBoot 内置的连接池是什么？为什么快？<br>默认是 HikariCP，快的原因：<br>① 轻量，代码少；<br>② 优化了连接获取逻辑，减少锁竞争；<br>③ 自动检测无效连接，回收快。</li>
-<li>如何减少 SpringBoot 启动时间？<br>① 关闭不必要的自动配置；<br>② 延迟加载非核心 Bean（@Lazy）；<br>③ 减少启动时扫描的包范围（@ComponentScan 指定包）；<br>④ 排除不用的 starter 依赖。</li>
-</ol>
-<h4 id="Spring-Security-做了什么？"><a href="#Spring-Security-做了什么？" class="headerlink" title="Spring Security 做了什么？"></a>Spring Security 做了什么？</h4><p>答：接口级鉴权、角色分级；<br>茶悦项目用 OAuth2.0 实现 SSO 单点登录；<br>配置 CORS 跨域、XSS&#x2F;CSRF 防护，敏感字段 AES 加密。</p>
-<h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>Java中的 ​Spring 框架 是一个开源的 ​企业级应用开发框架，广泛应用于构建模块化、松散耦合的 Java 应用程序</p>
-<h3 id="核心特性"><a href="#核心特性" class="headerlink" title="核心特性"></a>核心特性</h3><h4 id="控制反转-IOC-依赖注入（DI）"><a href="#控制反转-IOC-依赖注入（DI）" class="headerlink" title="控制反转(IOC)依赖注入（DI）"></a>控制反转(IOC)依赖注入（DI）</h4><p>​概念：对象的创建和依赖关系的管理由 Spring 容器负责，而非开发者手动实例化。<br>​实现方式：通过 ​依赖注入（DI, Dependency Injection）​，将对象的依赖关系注入到容器中。<br>例:属性注入,setter注入,构造函数注入</p>
-<h4 id="面向切面编程（AOP）"><a href="#面向切面编程（AOP）" class="headerlink" title="面向切面编程（AOP）"></a>面向切面编程（AOP）</h4><p>概念：将横切关注点（如日志、事务管理）从业务逻辑中分离，通过切面（Aspect）统一处理。<br>例:日志切面,早期的事务切面<br>​示例：定义一个日志切面：</p>
-<h3 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h3><p>Spring 框架由多个模块组成，开发者可按需选择组合：</p>
-<table>
-<thead>
-<tr>
-<th>​模块</th>
-<th>​功能描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>​Spring Core</td>
-<td>提供 IoC 容器和 DI 功能，是其他模块的基础。</td>
-</tr>
-<tr>
-<td>​Spring MVC</td>
-<td>基于 MVC 模式的 Web 框架，用于构建 RESTful API 或传统 Web 应用。</td>
-</tr>
-<tr>
-<td>​Spring Data</td>
-<td>简化数据库访问（如 JPA、JDBC），支持多种数据源（MySQL、MongoDB 等）。</td>
-</tr>
-<tr>
-<td>​Spring Security</td>
-<td>提供身份认证、授权、攻击防护等安全功能。</td>
-</tr>
-<tr>
-<td>​Spring Boot</td>
-<td>快速构建独立运行的 Spring 应用，内置自动配置和嵌入式服务器（如 Tomcat）。</td>
-</tr>
-<tr>
-<td>​Spring Cloud</td>
-<td>微服务架构工具集，支持服务发现、配置管理、分布式事务等（如 Netflix OSS 集成）。</td>
-</tr>
-</tbody></table>
+                <h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><h3 id="Spring的核心特性"><a href="#Spring的核心特性" class="headerlink" title="Spring的核心特性"></a>Spring的核心特性</h3><p><strong>控制反转(IOC)</strong><br>​概念：核心是把对象的创建和依赖管理交给 Spring 容器，而非手动 new，解决代码耦合问题<br>​实现方式：通过 ​依赖注入（DI）​，将对象的依赖关系注入到容器中。<br>例:构造函数注入,setter注入,属性注入</p>
+<p><strong>面向切面编程（AOP）</strong><br>AOP 就是面向切面编程，将横切关注点（日志、权限、事务、限流等通用功能）从业务逻辑中分离;通过切面（Aspect）统一处理。<br>AOP使用:<br> 定义切点（比如用 execution 表达式匹配要增强的方法），再根据需求写不同的通知：比如 @Before 前置通知记录方法入参，@Around 环绕通知统计方法耗时，@AfterThrowing 异常通知记录错误日志；<br>@Around 最强的通知，能控制目标方法是否执行（前置+后置+异常都能处理）</p>
+<h3 id="Spring面向切面不生效场景"><a href="#Spring面向切面不生效场景" class="headerlink" title="Spring面向切面不生效场景"></a>Spring面向切面不生效场景</h3><p>同类内部调用会让注解失效，要通过代理对象调用；<br>切点别写太宽，避免性能损耗；<br>异常自己捕获会导致事务不回滚，要按需配置rollbackFor；<br>不要在切面里写耗时逻辑，优先异步处理；<br>私有 &#x2F; 静态方法无法被 AOP 拦截，注解要加在 public 方法上</p>
 <h3 id="Bean-的作用域"><a href="#Bean-的作用域" class="headerlink" title="Bean 的作用域"></a>Bean 的作用域</h3><p>​Singleton​（默认）：全局唯一实例。<br>​Prototype：每次请求创建新实例。<br>​Request&#x2F;Session：Web 应用中，每个请求或会话生成独立实例。</p>
-<h3 id="Bean的生命周期"><a href="#Bean的生命周期" class="headerlink" title="Bean的生命周期"></a>Bean的生命周期</h3><p><strong>实例化 → 属性填充 → 初始化 → 使用 → 销毁</strong><br>Spring启动,查找并加载需要Spring管理的Bean,进行Bean的实例化放入Spring容器中,<br>通过@Autowired或@Resource注解注入实例化的Bean对象<br>有自定义初始化方法的(@Bean注解),调用初始化方法<br>调用该对象的属性或方法<br>调用后,若该对象不再使用,则调用该对象的destory进行销毁</p>
-<h3 id="Bean-作用域与生命周期"><a href="#Bean-作用域与生命周期" class="headerlink" title="Bean 作用域与生命周期"></a>Bean 作用域与生命周期</h3><table>
-<thead>
-<tr>
-<th>​作用域</th>
-<th>​生命周期特点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>​singleton​（默认）</td>
-<td>每个容器中唯一实例，初始化一次，容器关闭时销毁。</td>
-</tr>
-<tr>
-<td>​prototype</td>
-<td>每次请求创建新实例，生命周期由调用方管理（容器不负责销毁）。</td>
-</tr>
-<tr>
-<td>​request	Web</td>
-<td>应用中，每个 HTTP 请求创建新实例，请求结束后销毁（需启用 ContextLoaderListener）。</td>
-</tr>
-<tr>
-<td>​session	Web</td>
-<td>应用中，每个 Session 创建新实例，Session 结束后销毁。</td>
-</tr>
-<tr>
-<td>​application	Web</td>
-<td>应用中，每个 ServletContext 生命周期内唯一实例。</td>
-</tr>
-</tbody></table>
-<h3 id="Spring中的单例Bean怎么保证线程安全"><a href="#Spring中的单例Bean怎么保证线程安全" class="headerlink" title="Spring中的单例Bean怎么保证线程安全"></a>Spring中的单例Bean怎么保证线程安全</h3><p>使用ThreadLocal,将需要的可变成员变量放在ThreadLocal中<br> <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java"> @Service
-public class RequestContext &#123;
-    private static final ThreadLocal&lt;String&gt; userThreadLocal &#x3D; new ThreadLocal&lt;&gt;();
-
-    public void setUser(String user) &#123;
-        userThreadLocal.set(user);
-    &#125;
-
-    public String getUser() &#123;
-        return userThreadLocal.get();
-    &#125;
-
-    public void clear() &#123;
-        userThreadLocal.remove(); &#x2F;&#x2F; 避免内存泄漏
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
-<h3 id="Spring中的-Autowired和-Resource"><a href="#Spring中的-Autowired和-Resource" class="headerlink" title="Spring中的@Autowired和@Resource"></a>Spring中的@Autowired和@Resource</h3><p>在 Spring 框架中，@Autowired 和 @Resource 都是用于依赖注入的注解<br>核心区别</p>
-<table>
-<thead>
-<tr>
-<th>​特性</th>
-<th>​@Autowired</th>
-<th>​@Resource</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>​来源</td>
-<td>Spring 框架原生注解</td>
-<td>JSR-250 标准注解（Java EE 规范）</td>
-</tr>
-<tr>
-<td>​注入方式</td>
-<td>默认按类型（ByType），可结合 @Qualifier 指定名称</td>
-<td>默认按名称（ByName），若名称未匹配则回退到按类型（ByType）</td>
-</tr>
-<tr>
-<td>​可选性</td>
-<td>支持可选依赖（required &#x3D; false）</td>
-<td>不支持可选性，未找到 Bean 时抛出异常</td>
-</tr>
-<tr>
-<td>​适用范围</td>
-<td>支持构造函数、Setter 方法、字段、任意注解参数</td>
-<td>支持字段、Setter 方法，不支持构造函数注入</td>
-</tr>
-<tr>
-<td>​与 Spring 集成</td>
-<td>深度集成 Spring 功能（如 @Primary、@Qualifier）</td>
-<td>仅依赖 JSR-250 标准，与 Spring 无关</td>
-</tr>
-<tr>
-<td>​代码可移植性</td>
-<td>Spring 专属，脱离 Spring 无法使用</td>
-<td>Java 标准，可移植性更强</td>
-</tr>
-</tbody></table>
-<h3 id="Spring的注入方式"><a href="#Spring的注入方式" class="headerlink" title="Spring的注入方式"></a>Spring的注入方式</h3><p>构造函数注入<br>Setter 方法注入<br>​方法注入<br>字段注入</p>
-<h3 id="Spring如何管理事务"><a href="#Spring如何管理事务" class="headerlink" title="Spring如何管理事务"></a>Spring如何管理事务</h3><p>Spring提供事务管理器的类DataSourceTransactionManager;配置了一些jdbc连接驱动<br>Spring提供​启用事务管理：通过注解（@EnableTransactionManagement）告诉Spring,启动事务管理<br>在要使用事务方法上配置Transactional注解</p>
-<h3 id="Spring中的事务传播特性"><a href="#Spring中的事务传播特性" class="headerlink" title="Spring中的事务传播特性"></a>Spring中的事务传播特性</h3><p>Spring 提供了 7 种传播行为,通过 @Transactional(propagation &#x3D; …) 注解配置;常用的有两种<br>一种是required  如果当前存在事务，则加入该事务；如果当前没有事务，则新建一个事务<br>一种是supports  如果当前存在事务，则加入该事务；如果当前没有事务，则以非事务方式执行</p>
+<h3 id="Bean的生命周期"><a href="#Bean的生命周期" class="headerlink" title="Bean的生命周期"></a>Bean的生命周期</h3><p><strong>实例化 → 属性填充-&gt;前置处理 → 初始化 -&gt;后置处理→ 使用 → 销毁</strong><br>先实例化，调用构造方法创建对象；<br>然后填充属性，依赖注入；<br>再执行各种 Aware 接口，让 Bean 拿到容器信息；<br>然后执行 前置处理器；<br>再执行初始化方法，@PostConstruct、afterPropertiesSet、init-method；<br>再执行后置处理器，AOP 代理在这里生成；<br>之后就是使用bean的属性或方法；<br>容器关闭时执行销毁方法。</p>
+<h3 id="Spring中的-Autowired和-Resource"><a href="#Spring中的-Autowired和-Resource" class="headerlink" title="Spring中的@Autowired和@Resource"></a>Spring中的@Autowired和@Resource</h3><p>在 Spring 框架中，@Autowired 和 @Resource 都是用于依赖注入的注解<br>​@Resource<br>Java EE 规范注解,默认按名称（ByName），若名称未匹配则回退到按类型<br>​@Autowired<br>Spring 框架注解,默认按类型（ByType），可结合 @Qualifier 指定名称</p>
+<h3 id="Spring-AOP动态代理-JDK动态代理vsCGLIB动态代理"><a href="#Spring-AOP动态代理-JDK动态代理vsCGLIB动态代理" class="headerlink" title="Spring AOP动态代理:JDK动态代理vsCGLIB动态代理"></a>Spring AOP动态代理:JDK动态代理vsCGLIB动态代理</h3><p>jdk动态代理:<br>只能代理实现了接口的类<br>利用java反射机制生成代理对象<br>CGLIB代理:<br>可以代理没有接口的实现类<br>通过继承目标类 生成子类做为代理</p>
+<p>SPring选择使用:目标类有接口用默认用jdk代理,没有接口用CGLIB代理</p>
+<h3 id="Spring如何管理-使用事务"><a href="#Spring如何管理-使用事务" class="headerlink" title="Spring如何管理,使用事务"></a>Spring如何管理,使用事务</h3><p>Spring管理事务主要分两种方式:<br>一种是声明式事务,不用写代码，加注解就行;<br>一种是 编程式事务,手动写代码控制,很少用<br>声明式事务:<br>在Service方法上加@Transactional注解，就能自动管理事务——方法执行成功提交，抛运行时异常就回滚；<br>还能通过注解参数指定隔离级别、传播行为</p>
+<h3 id="Spring事务传播机制-传播行为"><a href="#Spring事务传播机制-传播行为" class="headerlink" title="Spring事务传播机制(传播行为)"></a>Spring事务传播机制(传播行为)</h3><p>常用的传播行为:<br>required如果当前存在事务，则加入该事务；如果当前没有事务，则新建一个事务<br>supports  如果当前存在事务，则加入该事务；如果当前没有事务，则以非事务方式执行<br>REQUIRES_NEW 是不管有没有，都新建一个独立事务，把旧事务挂起。</p>
+<h3 id="Spring事务失效场景"><a href="#Spring事务失效场景" class="headerlink" title="Spring事务失效场景"></a>Spring事务失效场景</h3><p>Spring事务是否基于面向切面实现<br>方法不是 public；<br>同类内部方法调用，没走代理；<br>异常被 catch 住没抛出去；<br>用了不支持事务的传播机制；<br>类没被 Spring 管理；<br>数据库引擎不支持事务。</p>
 <h2 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h2><p>SpringMVC 是基于 ​MVC 设计模式 的 Web 框架，其核心组件包括 ​DispatcherServlet、处理器映射、处理器适配器、Controller、视图解析器 等</p>
-<h3 id="​MVC-设计模式"><a href="#​MVC-设计模式" class="headerlink" title="​MVC 设计模式"></a>​MVC 设计模式</h3><p>Model（模型）<br>封装应用程序的数据和业务逻辑。<br>与数据库、文件系统或其他持久化存储交互。<br>提供数据验证、状态管理和业务规则处理</p>
-<p>View（视图）<br>负责数据的展示（UI 渲染）。<br>接收用户输入（如表单提交、按钮点击）。</p>
-<p>Controller（控制器）​<br>接收用户请求（如 HTTP 请求）。<br>协调 Model 和 View 的交互：<br>调用 Model 处理业务逻辑或数据操作。<br>将处理结果传递给 View 进行渲染</p>
-<p>MVC 是一种通过 ​职责分离 提升代码质量的经典设计模式，其核心思想是：<br>​Model：管理数据和业务逻辑。<br>​View：负责界面展示。<br>​Controller：协调 Model 和 View 的交互</p>
+<h3 id="​MVC-设计模式"><a href="#​MVC-设计模式" class="headerlink" title="​MVC 设计模式"></a>​MVC 设计模式</h3><p>MVC 是一种通过 ​职责分离 提升代码质量的设计模式，其核心思想是：<br>​Model：管理数据和业务逻辑。<br>​View：负责界面展示。<br>​Controller：协调 Model 和 View 的交互</p>
 <h3 id="SpringMVC的执行流程"><a href="#SpringMVC的执行流程" class="headerlink" title="SpringMVC的执行流程"></a>SpringMVC的执行流程</h3><p>用户请求 → DispatcherServlet → HandlerMapping → HandlerAdapter → Controller → ModelAndView →  → View渲染 → 响应返回</p>
-<p>客户端发送请求到DispatcherServlet,<br>DispatcherServlet将请求映射到对应的(Controller)来调用业务层执行,<br>然后返回执行结果(ModelAndView)给DispatcherServlet<br>DispatcherServlet再将结果传给(ViewResolver)用来数据渲染;<br>ViewResolver再将渲染的数据返回给DispatcherServlet;<br>最后由DispatcherServlet将渲染的数据响应给客户端</p>
-<h3 id="SpringMVC与Spring是如何整合的"><a href="#SpringMVC与Spring是如何整合的" class="headerlink" title="SpringMVC与Spring是如何整合的"></a>SpringMVC与Spring是如何整合的</h3><p>SpringMVC 与 Spring 的整合核心在于：<br>​依赖注入：通过 Spring 容器管理组件生命周期和依赖关系。<br>​分层架构：分离业务逻辑（Service）、数据访问（DAO）和 Web 控制（Controller）。<br>​配置统一：通过父子上下文和注解驱动简化配置。<br>​扩展性：支持 AOP、拦截器等增强功能。<br>这种整合使得开发者可以专注于业务逻辑，同时享受 Spring 生态的强大功能和灵活性</p>
-<h2 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h2><p>Spring Boot 是 Spring 框架的扩展，通过自动化配置和约定优于配置的理念，开发者不必进行繁琐的配置，专注于业务实现。<br>其核心价值在于：<br>​快速启动：内嵌服务器、起步依赖简化项目搭建。<br>​自动配置：根据依赖自动完成 Spring 配置。<br>​生产就绪：内置监控、安全等企业级功能。</p>
-<p>无论是单体应用还是微服务，Spring Boot 都是Java 开发的首选</p>
-<h3 id="SpringBoot核心注解"><a href="#SpringBoot核心注解" class="headerlink" title="SpringBoot核心注解"></a>SpringBoot核心注解</h3><p>@SpringBootApplication	启动类入口，组合了自动配置、组件扫描等功能。<br>@Configuration	定义配置类，替代 XML 配置。<br>@Bean	手动注册 Bean 到 Spring 容器。<br>@RestController	构建 RESTful API 控制器。<br>@EnableAutoConfiguration	自动根据依赖配置 Spring Bean（隐式启用）。<br>@EnableScheduling	启用定时任务调度。<br>@EnableCaching	启用缓存功能。</p>
-<p>​主启动类：<br>放在根包路径下，确保 @ComponentScan 能扫描到所有组件。<br>​按需启用功能：<br>仅在需要时添加 @Enable* 注解（如缓存、事务）。<br>​避免过度配置：<br>优先使用 Spring Boot 的自动配置，减少手动 @Bean 定义。</p>
-<h2 id="集群与分布式"><a href="#集群与分布式" class="headerlink" title="集群与分布式"></a>集群与分布式</h2><p>集群（Cluster）​<br>​概念：一组通过高速网络互联的物理或虚拟服务器，协同工作以提升系统的性能、可靠性或扩展性。<br>​目标：通过资源聚合（如计算、存储、网络）实现高可用性或高性能。<br>​特点：<br>节点通常位于同一数据中心或相近网络环境。<br>节点间共享负载（如负载均衡集群）或共同完成任务（如高性能计算集群）。</p>
-<p>​分布式系统（Distributed System）​<br>​概念：由多个独立计算机节点通过网络连接组成的系统，节点协同完成统一任务，对外表现为单一系统。<br>​目标：通过跨节点协作实现资源共享、容错性和地理分布支持。<br>​特点：<br>节点可分布在不同地理位置，甚至异构环境（不同硬件、操作系统）。<br>强调数据一致性（如分布式数据库）或任务协调（如区块链）。</p>
-<h2 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h2><h3 id="什么是微服务"><a href="#什么是微服务" class="headerlink" title="什么是微服务"></a>什么是微服务</h3><p>我理解的微服务就是将应用程序拆分成多个小型、独立的服务;每个服务专注于单一的业务功能<br>Java这块的微服务,我对SpringCloud和SpringCloudAlibaba比较了解</p>
-<ul>
-<li><p>SpringCloud是基于SpringBoot专为分布式微服务架构而实现<br>它的核心组件有<br>​Eureka	         注册中心,服务注册与发现（AP协议，高可用）<br>Gateway         网关<br>Feign           它负责微服务间的  API 调用<br>​Ribbon          负载均衡（与RestTemplate结合使用）<br>Resilience4j    熔断降级、线程隔离</p>
-</li>
-<li><p>SpringCloudAlibaba是由阿里专为云原生架构设计的一套微服务框架<br>它的核心组件有<br>nacos           注册中心;它的作用类似于​Eureka<br>OpenFeign       服务调用,基于 HTTP REST<br>Dubbo           服务调用,基于 RPC服务<br>Sentinel        负责流量控制、熔断降级、负载均衡<br>RocketMQ        消息队列</p>
-</li>
-</ul>
-<h3 id="负载均衡机制"><a href="#负载均衡机制" class="headerlink" title="负载均衡机制"></a>负载均衡机制</h3><p>我记得有好多种;常用的有两种<br>一种是轮询机制,就是1,2,3;这样一个一个调用,完了再次循环调用<br>还有就是随机的方式,这种就是随机选个服务调用</p>
-<h3 id="熔断机制"><a href="#熔断机制" class="headerlink" title="熔断机制"></a>熔断机制</h3><p>它是微服务架构中用于防止系统雪崩的机制<br>熔断的工作流程分为三个状态</p>
-<ul>
-<li><p>闭合状态（Closed）​<br>正常情况，请求正常调用下游服务。<br>若失败次数超过阈值（如连续5次失败），触发熔断，进入打开状态。</p>
-</li>
-<li><p>打开状态（Open）​<br>直接拒绝所有请求，返回错误或降级结果。<br>经过一段时间后（如5秒），进入半开状态。</p>
-</li>
-<li><p>​半开状态（Half-Open）​<br>允许少量请求尝试调用下游服务。<br>若请求成功，则关闭熔断，恢复正常；若失败，则重新打开熔断</p>
-</li>
-</ul>
-<h3 id="技术选型建议"><a href="#技术选型建议" class="headerlink" title="技术选型建议"></a>技术选型建议</h3><p>​选择 Spring Cloud 的情况：</p>
-<ul>
-<li>团队熟悉 Spring 生态，需高度定制化。</li>
-<li>项目需兼容多平台（如非阿里云环境）。</li>
-<li>希望使用成熟稳定的组件（如 Eureka、Resilience4j）。<br>​选择 Spring Cloud Alibaba 的情况：</li>
-<li>已使用阿里云或计划上云。</li>
-<li>需要开箱即用的分布式事务、流量治理。</li>
-<li>追求高性能和高可用性（如 Nacos 动态配置）。</li>
-</ul>
-<p>​总结<br>​Spring Cloud 是微服务领域的“通用标准”，适合需要灵活性和广泛生态支持的项目。<br>​Spring Cloud Alibaba 是“云原生专家”，适合阿里云用户或需要一站式高可用解决方案的场景</p>
-<h2 id="​Spring、SpringMVC、Spring-Boot、Spring-Cloud-的关系"><a href="#​Spring、SpringMVC、Spring-Boot、Spring-Cloud-的关系" class="headerlink" title="​Spring、SpringMVC、Spring Boot、Spring Cloud 的关系"></a>​Spring、SpringMVC、Spring Boot、Spring Cloud 的关系</h2><table>
-<thead>
-<tr>
-<th>​技术</th>
-<th>​是否必需</th>
-<th>​核心目标</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>​Spring</td>
-<td>是</td>
-<td>提供基础依赖注入、AOP 等核心功能。</td>
-</tr>
-<tr>
-<td>​Spring MVC</td>
-<td>可选</td>
-<td>构建 Web 应用，处理 HTTP 请求（可被 Spring Boot 替代）。</td>
-</tr>
-<tr>
-<td>​Spring Boot</td>
-<td>推荐</td>
-<td>简化 Spring 应用的配置与部署（Web 或非 Web）。</td>
-</tr>
-<tr>
-<td>​Spring Cloud</td>
-<td>可选</td>
-<td>解决分布式系统中的服务治理问题（需基于 Spring Boot）。</td>
-</tr>
-</tbody></table>
-<p>总结<br>​Spring 是地基，提供基础能力。<br>​Spring MVC 是 Web 开发的专用工具，可被 Spring Boot 自动化替代。<br>​Spring Boot 是加速器，简化 Spring 应用的开发和部署。<br>​Spring Cloud 是扩展包，专为分布式微服务架构设计，依赖 Spring Boot 的自动化能力。<br>协作逻辑：<br>Spring → Spring Boot → Spring Cloud，层层递进，最终支撑从单体应用到分布式系统的演进。</p>
+<p>用户发请求到的 DispatcherServlet（前端控制器）；<br>DispatcherServlet 根据 URL 匹配将请求映射到到对应的 Controller 方法；<br>去调用这个 Controller，执行业务逻辑（比如查数据库）；<br>Controller 执行完返回 ModelAndView给 DispatcherServlet；<br>DispatcherServlet 把 ModelAndView 传给 ViewResolver（视图解析器），解析后渲染页面 &#x2F; 组装 JSON 数据；<br>最后 DispatcherServlet 把渲染好的结果响应给用户。</p>
+<h2 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h2><h3 id="SpringBoot常用注解"><a href="#SpringBoot常用注解" class="headerlink" title="SpringBoot常用注解"></a>SpringBoot常用注解</h3><p>@SpringBootApplication	启动类入口，组合了自动配置、组件扫描等功能。<br>@Configuration	定义配置类，替代 XML 配置。<br>@Bean	手动注册 Bean 到 Spring 容器。<br>@RestController	构建 RESTful API 控制器。<br>@EnableAutoConfiguration	自动根据依赖配置 Spring Bean（隐式启用）。<br>@EnableScheduling	启用定时任务调度。<br>@EnableCaching	启用缓存功能。</p>
+<h3 id="SpringBoot-如何实现热部署？"><a href="#SpringBoot-如何实现热部署？" class="headerlink" title="SpringBoot 如何实现热部署？"></a>SpringBoot 如何实现热部署？</h3><p>常用两种方式：<br>① 引入 spring-boot-devtools 依赖，修改代码后自动重启（轻量，重启快）；<br>② 用 Spring Loaded 插件，支持类加载级别的热更新，不用重启应用。</p>
+<h3 id="SpringBoot-启动流程"><a href="#SpringBoot-启动流程" class="headerlink" title="SpringBoot 启动流程"></a>SpringBoot 启动流程</h3><p>① 执行 main 方法，调用 SpringApplication.run ()；<br>② 初始化 SpringApplication，加载初始化容器、监听器；<br>③ 启动上下文（ApplicationContext），刷新容器；<br>④ 执行自动配置，扫描并注册 Bean；<br>⑤ 启动内嵌容器（如 Tomcat）；<br>⑥ 执行 Runner 接口（ApplicationRunner&#x2F;CommandLineRunner），完成启动。</p>
+<h3 id="SpringBoot-如何自定义-Starter？"><a href="#SpringBoot-如何自定义-Starter？" class="headerlink" title="SpringBoot 如何自定义 Starter？"></a>SpringBoot 如何自定义 Starter？</h3><p>三步：<br>① 写核心功能的自动配置类（加 @Configuration、@Conditional）；<br>② 在 META-INF&#x2F;spring&#x2F;org.springframework.boot.autoconfigure.AutoConfiguration.imports 里注册这个配置类；<br>③ 打包成 starter 依赖，别人引入就能用。</p>
+<h3 id="SpringBoot-如何优化性能？"><a href="#SpringBoot-如何优化性能？" class="headerlink" title="SpringBoot 如何优化性能？"></a>SpringBoot 如何优化性能？</h3><p>① 关闭不用的自动配置；<br>② 配置 JVM 参数（调整堆内存、垃圾收集器）；<br>③ 开启 Gzip 压缩，减少网络传输；<br>④ 用连接池（如 HikariCP，默认）优化数据库连接；<br>⑤ 接口加缓存（Redis），减少数据库查询；<br>⑥ 异步处理（@Async）耗时操作。</p>
+<h3 id="SpringBoot自动配置原理"><a href="#SpringBoot自动配置原理" class="headerlink" title="SpringBoot自动配置原理"></a>SpringBoot自动配置原理</h3><p>启动类的 @EnableAutoConfiguration 开启自动配置。<br>会去读 META-INF 下的配置文件，加载所有自动配置类。<br>再通过 @Conditional 系列注解判断是否满足条件，满足就创建 Bean。<br>做到约定大于配置，减少手写配置。</p>
+<h3 id="SpringBoot-怎么在启动时把数据加载到-Redis？"><a href="#SpringBoot-怎么在启动时把数据加载到-Redis？" class="headerlink" title="SpringBoot 怎么在启动时把数据加载到 Redis？"></a>SpringBoot 怎么在启动时把数据加载到 Redis？</h3><p>有三种常用方式：<br>@PostConstruct，Bean 初始化完就执行；<br>ApplicationRunner，项目完全启动成功后执行，最推荐；<br>ContextRefreshedEvent 事件监听，容器启动完执行。<br>实际开发中我一般用 ApplicationRunner，因为最安全，能保证所有依赖都加载完成。</p>
 
                 
             </div>
@@ -724,12 +526,12 @@ public class RequestContext &#123;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/SpringBoot/">
-                                    <span class="chip bg-color">SpringBoot</span>
-                                </a>
-                            
                                 <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
                                     <span class="chip bg-color">面试题</span>
+                                </a>
+                            
+                                <a href="/tags/Spring/">
+                                    <span class="chip bg-color">Spring</span>
                                 </a>
                             
                         </div>

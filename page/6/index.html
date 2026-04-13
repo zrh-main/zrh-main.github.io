@@ -318,75 +318,25 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2026/03/03/Java/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E4%BC%98%E9%9B%85%E5%81%9C%E6%9C%BA/">
+                    <a href="/2026/03/03/Java/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E8%AE%BF%E9%97%AE%E9%87%8F%E8%BE%83%E5%A4%A7/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="关闭SpringBoot服务">
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="访问量较大">
                             
-                            <span class="card-title">关闭SpringBoot服务</span>
+                            <span class="card-title">访问量较大</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                前言优雅关机确保应用关闭时，通知应用进程释放所占用的资源线程池，shutdown（不接受新任务等待处理完）还是shutdownNow（调用 Thread.interrupt进行中断）socket 链接，比如：netty、mq告知注册中心快速
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-03-03
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Java/" class="post-category">
-                                    Java
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
+                                引发问题访问量较大,可能引发:服务器宕机;客户体验度不好
+解决方案优化SQL语句避免直接查询数据库,使用缓存这里使用redis进行缓存
 
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Java-%E6%A1%86%E6%9E%B6/">
-                            <span class="chip bg-color">Java 框架</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2026/03/03/Java/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="异步编程">
-                            
-                            <span class="card-title">异步编程</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                概述
-串行化执行改为并行化执行
-
-串行化:纵向执行
-
-并行化:横向执行Java异步关键类:CompletableFuture
-
-
-CompletableFutureJava 8新增CompletableFutureCompletableFu
+添加缓存依赖(pom) &lt;!-- redis -->
+&lt;dependency>
+    &
                             
                         </div>
                         <div class="publish-info">
@@ -470,25 +420,22 @@ CompletableFutureJava 8新增CompletableFutureCompletableFu
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2026/03/03/Java/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E8%AE%BF%E9%97%AE%E9%87%8F%E8%BE%83%E5%A4%A7/">
+                    <a href="/2026/03/03/Java/SpringMVC/REST%20%E9%A3%8E%E6%A0%BC%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="访问量较大">
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="REST(restful) 风格请求配置">
                             
-                            <span class="card-title">访问量较大</span>
+                            <span class="card-title">REST(restful) 风格请求配置</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                引发问题访问量较大,可能引发:服务器宕机;客户体验度不好
-解决方案优化SQL语句避免直接查询数据库,使用缓存这里使用redis进行缓存
-
-添加缓存依赖(pom) &lt;!-- redis -->
-&lt;dependency>
-    &
+                                概述REST（英文：Representational State Transfer，简称 REST）REST 并没有一个明确的标准，而像是一种设计的风格
+restful 的优点结构清晰、符合标准、易于理解、扩展方便
+restful 的特性：
                             
                         </div>
                         <div class="publish-info">
@@ -511,8 +458,8 @@ CompletableFutureJava 8新增CompletableFutureCompletableFu
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
-                            <span class="chip bg-color">常见问题及解决方案</span>
+                        <a href="/tags/SpringMVC/">
+                            <span class="chip bg-color">SpringMVC</span>
                         </a>
                         
                     </div>
@@ -522,22 +469,22 @@ CompletableFutureJava 8新增CompletableFutureCompletableFu
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2026/03/03/Java/SpringMVC/REST%20%E9%A3%8E%E6%A0%BC%E8%AF%B7%E6%B1%82%E9%85%8D%E7%BD%AE/">
+                    <a href="/2026/03/03/Java/SpringMVC/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="REST(restful) 风格请求配置">
+                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="文件上传">
                             
-                            <span class="card-title">REST(restful) 风格请求配置</span>
+                            <span class="card-title">文件上传</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                概述REST（英文：Representational State Transfer，简称 REST）REST 并没有一个明确的标准，而像是一种设计的风格
-restful 的优点结构清晰、符合标准、易于理解、扩展方便
-restful 的特性：
+                                前端请求基本要素enctype 取值必须是：multipart&#x2F;form-datamethod 属性取值必须是 Post
+依赖jar包jar 包：Commons-fileupload 和 commons-io
+例前端页面&lt;f
                             
                         </div>
                         <div class="publish-info">
@@ -633,55 +580,6 @@ restful 的特性：
                             
                                 字符串controller 方法返回字符串可以指定逻辑视图名，通过视图解析器解析为物理视图地址。
 &#x2F;&#x2F;指定逻辑视图名，经过视图解析器解析为 jsp 物理路径：&#x2F;WEB-INF&#x2F;pages&#x2F;s
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-03-03
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Java/" class="post-category">
-                                    Java
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/SpringMVC/">
-                            <span class="chip bg-color">SpringMVC</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2026/03/03/Java/SpringMVC/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="文件上传">
-                            
-                            <span class="card-title">文件上传</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                前端请求基本要素enctype 取值必须是：multipart&#x2F;form-datamethod 属性取值必须是 Post
-依赖jar包jar 包：Commons-fileupload 和 commons-io
-例前端页面&lt;f
                             
                         </div>
                         <div class="publish-info">
@@ -885,6 +783,92 @@ restful 的特性：
                         </div>
                     </div>
 
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2026/03/03/Java/SpringBoot/%E6%A0%A1%E9%AA%8C+%E5%BC%82%E5%B8%B8/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                SpringBoot 中使用 @Valid 注解 + Exception 全局处理器优雅处理参数验证点击关注 👉 JAVA 2022-08-31 17:35 发表于天津
+作者：超级小豆丁
+http://www.mydlq.club/art
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-03-03
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                zrh
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2026/03/03/Java/SpringBoot/%E6%B3%A8%E5%85%A5%E6%96%B9%E5%BC%8F/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="SpringBoot拦截器注入方式">
+                            
+                            <span class="card-title">SpringBoot拦截器注入方式</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                基础架构application.properties文件内容
+jdbc.driverClassName&#x3D;com.mysql.jdbc.Driver
+jdbc.url&#x3D;jdbc:mysql:&#x2F;&#x2F;loca
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-03-03
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Java-%E6%A1%86%E6%9E%B6/">
+                            <span class="chip bg-color">Java 框架</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>

@@ -440,70 +440,95 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a>RabbitMQ</h4><p>一、基础概念类（入门必问）</p>
+                <h2 id="RabbitMQ-是什么？核心优势是什么？"><a href="#RabbitMQ-是什么？核心优势是什么？" class="headerlink" title="RabbitMQ 是什么？核心优势是什么？"></a>RabbitMQ 是什么？核心优势是什么？</h2><p>RabbitMQ 是基于 AMQP 协议的开源消息队列，主打高可用、易扩展。<br>核心优势：</p>
 <ol>
-<li><p>RabbitMQ 是什么？核心优势是什么？<br>RabbitMQ 是基于 AMQP 协议的开源消息队列，主打高可用、易扩展。<br>核心优势：① 支持多种消息模式（直连、主题、扇形等）；② 高可用（集群、镜像队列）；③ 灵活的路由策略；④ 支持消息确认、持久化，保证可靠性。</p>
-</li>
-<li><p>RabbitMQ 核心组件有哪些？各自作用？<br>生产者：发消息的应用；<br>消费者：收消息的应用；<br>交换机（Exchange）：接收生产者消息，根据路由规则转发到队列；<br>队列（Queue）：存储消息，给消费者消费；<br>绑定（Binding）：连接交换机和队列，设置路由规则；<br>虚拟主机（VHost）：隔离不同业务的消息（权限、资源隔离）；<br>连接 &#x2F; 信道（Connection&#x2F;Channel）：Connection 是 TCP 连接，Channel 是连接内的轻量级通道，减少 TCP 创建开销。</p>
-</li>
-<li><p>RabbitMQ 有哪些交换机类型？各自场景？<br>Direct（直连）：按精确的 Routing Key 匹配，一对一（比如订单支付通知）；<br>Fanout（扇形）：广播，把消息发给所有绑定的队列，无路由规则（比如日志广播）；<br>Topic（主题）：按通配符（#&#x2F;*）匹配 Routing Key，多对多（比如按用户类型推送消息）；<br>Headers：按消息头匹配，很少用（不如 Topic 灵活）。</p>
-</li>
-<li><p>什么是死信队列？应用场景？<br>死信队列是存储 “死信” 的队列，死信是指无法被消费的消息（比如过期、被拒、队列满）。<br>场景：① 处理消费失败的消息（比如订单超时未支付）；② 消息重试失败后归档，方便排查；③ 防止无效消息堆积。</p>
-</li>
-<li><p>什么是延迟队列？怎么实现？<br>延迟队列是消息延迟指定时间后才被消费的队列（比如订单 15 分钟未支付自动取消）。<br>实现方式：① 用 RabbitMQ 的延迟插件（推荐，简单）；② 结合死信队列 + TTL（消息过期后进入死信队列，实现延迟）。<br>二、核心原理类（进阶考察）</p>
-</li>
-<li><p>RabbitMQ 消息发送的基本流程？<br>① 生产者建立 TCP 连接，创建 Channel；<br>② 生产者声明交换机、队列，绑定交换机和队列；<br>③ 生产者通过 Channel 发送消息到交换机；<br>④ 交换机根据路由规则，把消息转发到对应队列；<br>⑤ 消息持久化（若配置），等待消费者消费。</p>
-</li>
-<li><p>RabbitMQ 消费模式有哪些？区别是什么？<br>推模式（Basic.Consume）：MQ 主动推消息给消费者，适合高并发（默认）；<br>拉模式（Basic.Get）：消费者主动去 MQ 拉消息，适合低并发、按需消费；<br>核心区别：推模式实时性高，需控制推送速率（避免压垮消费者）；拉模式可控性强，但实时性差。</p>
-</li>
-<li><p>RabbitMQ 集群原理？为什么需要镜像队列？<br>集群原理：节点之间同步元数据（交换机、队列结构），不同节点存储不同队列的数据，实现负载分担；<br>镜像队列：把队列复制到多个节点，解决单节点故障导致队列数据丢失的问题，保证高可用（生产必配）。</p>
-</li>
-<li><p>信道（Channel）的作用？为什么不用直接用 Connection？<br>Channel 是 Connection 内的轻量级通道，共享一个 TCP 连接：<br>① TCP 连接创建开销大（三次握手），Channel 避免频繁创建销毁 TCP；<br>② 每个 Channel 有独立的 ID，可并发操作，兼顾性能和资源占用；<br>③ 一个 Connection 可创建多个 Channel，满足多线程消费 &#x2F; 生产需求。</p>
-</li>
-<li><p>RabbitMQ 消息的 TTL 是什么？怎么设置？<br>TTL 是消息的过期时间，超过时间未消费则变为死信。<br>设置方式：① 队列级别：给队列设 TTL，所有消息都有相同过期时间；② 消息级别：发消息时指定 TTL，不同消息可设不同时间；</p>
-</li>
+<li>支持多种消息模式（直连、主题、扇形等）；</li>
+<li>高可用（集群、镜像队列）；</li>
+<li>灵活的路由策略；</li>
+<li>支持消息确认、持久化，保证可靠性。</li>
 </ol>
-<p>注意：消息级别 TTL 优先级高于队列级别。<br>三、消息可靠性类（高频必问）</p>
+<h2 id="RabbitMQ-核心组件有哪些？各自作用？"><a href="#RabbitMQ-核心组件有哪些？各自作用？" class="headerlink" title="RabbitMQ 核心组件有哪些？各自作用？"></a>RabbitMQ 核心组件有哪些？各自作用？</h2><p>生产者：发消息的应用；<br>消费者：收消息的应用；<br>交换机（Exchange）：接收生产者消息，根据路由规则转发到队列；<br>队列（Queue）：存储消息，给消费者消费；<br>绑定（Binding）：连接交换机和队列，设置路由规则；<br>虚拟主机（VHost）：隔离不同业务的消息（权限、资源隔离）；<br>连接 &#x2F; 信道（Connection&#x2F;Channel）：Connection 是 TCP 连接，Channel 是连接内的轻量级通道，减少 TCP 创建开销。</p>
+<h2 id="RabbitMQ-有哪些交换机类型？各自场景？"><a href="#RabbitMQ-有哪些交换机类型？各自场景？" class="headerlink" title="RabbitMQ 有哪些交换机类型？各自场景？"></a>RabbitMQ 有哪些交换机类型？各自场景？</h2><p>Direct（直连）：按精确的 Routing Key 匹配，一对一（比如订单支付通知）；<br>Fanout（扇形）：广播，把消息发给所有绑定的队列，无路由规则（比如日志广播）；<br>Topic（主题）：按通配符（#&#x2F;*）匹配 Routing Key，多对多（比如按用户类型推送消息）；<br>Headers：按消息头匹配，很少用（不如 Topic 灵活）。</p>
+<h2 id="RabbitMQ-消息发送的基本流程？"><a href="#RabbitMQ-消息发送的基本流程？" class="headerlink" title="RabbitMQ 消息发送的基本流程？"></a>RabbitMQ 消息发送的基本流程？</h2><ol>
+<li>生产者建立 TCP 连接，创建 Channel；</li>
+<li>生产者声明交换机、队列，绑定交换机和队列；</li>
+<li>生产者通过 Channel 发送消息到交换机；</li>
+<li>交换机根据路由规则，把消息转发到对应队列；</li>
+<li>消息持久化（若配置），等待消费者消费。</li>
+</ol>
+<h2 id="RabbitMQ-的消息传递流程是怎样的"><a href="#RabbitMQ-的消息传递流程是怎样的" class="headerlink" title="RabbitMQ 的消息传递流程是怎样的"></a>RabbitMQ 的消息传递流程是怎样的</h2><p>​生产者发送消息到交换机，交换机根据路由规则（如路由键匹配）将消息转发到对应的队列，​消费者从队列订阅并获取消息</p>
+<h2 id="什么是死信队列？应用场景？"><a href="#什么是死信队列？应用场景？" class="headerlink" title="什么是死信队列？应用场景？"></a>什么是死信队列？应用场景？</h2><p>死信是指无法被消费的消息（比如过期、被拒、队列满）,死信队列就是存储 “死信” 的队列<br>场景：</p>
 <ol>
-<li><p>如何保证 RabbitMQ 消息不丢失？（核心）<br>从三个环节保障：<br>① 生产端：开启确认机制（Publisher Confirm），确保消息到交换机；开启返回机制（Publisher Return），确保消息到队列；<br>② 服务端：交换机、队列、消息都开启持久化，防止 MQ 宕机丢失；<br>③ 消费端：关闭自动确认，消费成功后手动确认（Basic.Ack），失败则拒绝（Basic.Nack），避免消费一半宕机丢失。</p>
-</li>
-<li><p>消息重复消费怎么解决？<br>核心：让消费逻辑幂等（多次执行结果一致）。<br>实现方式：① 给消息加唯一 ID（比如订单号），消费前查 Redis&#x2F;Mongo，已消费则跳过；② 数据库操作加唯一索引，重复插入报错则忽略；③ 分布式锁，消费时加锁，避免并发重复消费。</p>
-</li>
-<li><p>消息堆积怎么解决？<br>① 临时扩容：增加消费者实例，提高消费速度；<br>② 优化消费逻辑：简化业务、异步处理，提高单消费者处理效率；<br>③ 分流：把堆积队列的消息转发到多个队列，多消费者并行消费；<br>④ 预防：合理设置队列大小、限流，生产端削峰（比如用限流插件）。</p>
-</li>
-<li><p>生产端确认机制（Publisher Confirm）怎么用？<br>① 开启确认模式：channel.confirmSelect ()；<br>② 同步确认：等待 MQ 返回确认结果，失败则重试；<br>③ 异步确认：注册回调函数，收到确认 &#x2F; 失败通知后处理（推荐，性能高）；<br>核心：确保消息成功到达 MQ 交换机，失败则重试或记录日志。</p>
-</li>
-<li><p>消费端手动确认的三种方式？<br>Basic.Ack：确认消费成功，MQ 删除消息；<br>Basic.Nack：拒绝消费，可指定是否重新入队（requeue&#x3D;true）；<br>Basic.Reject：拒绝单条消息，功能和 Nack 类似，但只能拒单条；<br>注意：失败重试时要设置重试次数，避免无限循环。<br>四、实战应用类（场景考察）</p>
-</li>
-<li><p>如何实现消息重试？<br>① 消费失败时，Basic.Nack (requeue&#x3D;true) 重新入队（简单，但可能频繁重试）；<br>② 结合死信队列：重试 N 次后，消息进入死信队列，人工排查；<br>③ 用重试框架：比如 Spring Retry，设置重试次数、间隔，失败后走降级逻辑。</p>
-</li>
-<li><p>RabbitMQ 如何做限流？<br>① 消费端限流：Basic.Qos (prefetchCount&#x3D;10)，指定消费者最多预取 10 条消息，处理完再取，避免压垮消费者；<br>② 生产端限流：控制发送速率（比如加令牌桶），或用 MQ 的流控机制（避免 MQ 堆积）。</p>
-</li>
-<li><p>如何实现消息的顺序消费？<br>① 单队列 + 单消费者：简单但并发低；<br>② 分区队列：按顺序关键字（比如订单 ID 哈希）发送到固定队列，每个队列一个消费者，保证同关键字消息顺序消费；<br>注意：必须保证生产者发送顺序、队列存储顺序、消费者消费顺序一致。</p>
-</li>
-<li><p>RabbitMQ 如何实现事务消息？<br>RabbitMQ 本身不支持事务消息，用 “本地消息表 + 重试” 实现最终一致性：<br>① 生产端：先写本地消息表（状态待发送），再发 MQ 消息；<br>② 收到 MQ 确认后，更新消息表为已发送；<br>③ 定时扫描本地消息表，重发未确认的消息；<br>④ 消费端：消费成功后，通知生产端更新状态，失败则重试。</p>
-</li>
-<li><p>RabbitMQ 监控重点看哪些指标？<br>① 队列指标：消息堆积数、入队 &#x2F; 出队速率；<br>② 连接 &#x2F; 信道：活跃连接数、信道数（避免过多）；<br>③ 消费者指标：消费速率、未确认消息数；<br>④ 节点指标：CPU、内存、磁盘使用率（避免磁盘满导致 MQ 不可用）。<br>五、故障排查类（加分项）</p>
-</li>
-<li><p>消息发送成功但消费者收不到，怎么排查？<br>① 查交换机和队列是否绑定，路由 Key 是否匹配；<br>② 查消息是否过期（TTL），是否变成死信；<br>③ 查消费者是否正常运行，是否开启手动确认但未 Ack；<br>④ 查 MQ 日志，看是否有转发失败、权限不足的报错。</p>
-</li>
-<li><p>RabbitMQ 节点宕机怎么处理？<br>① 有镜像队列：故障节点的队列自动切换到其他节点，无数据丢失，消费者重新连接即可；<br>② 无镜像队列：重启节点，恢复数据（若开启持久化），或从备份恢复；<br>③ 预防：配置镜像队列、集群，定期备份数据。</p>
-</li>
-<li><p>消费端阻塞怎么排查？<br>① 查消费者日志，看是否有死循环、慢 SQL、远程调用超时；<br>② 查 MQ 的未确认消息数，若持续增加，说明消费阻塞；<br>③ 重启消费者实例，临时恢复，再优化消费逻辑。</p>
-</li>
+<li>处理消费失败的消息（比如订单超时未支付）；</li>
+<li>消息重试失败后归档，方便排查；</li>
+<li>防止无效消息堆积。</li>
 </ol>
+<h2 id="什么是延迟队列？怎么实现？"><a href="#什么是延迟队列？怎么实现？" class="headerlink" title="什么是延迟队列？怎么实现？"></a>什么是延迟队列？怎么实现？</h2><p>延迟队列是消息延迟指定时间后才被消费的队列（比如订单 15 分钟未支付自动取消）。<br>实现方式：</p>
+<ol>
+<li>用 RabbitMQ 的延迟插件（推荐，简单）；</li>
+<li>结合死信队列 + TTL（消息过期后进入死信队列，实现延迟）。</li>
+</ol>
+<h2 id="RabbitMQ-消费模式有哪些？区别是什么？"><a href="#RabbitMQ-消费模式有哪些？区别是什么？" class="headerlink" title="RabbitMQ 消费模式有哪些？区别是什么？"></a>RabbitMQ 消费模式有哪些？区别是什么？</h2><p>推模式（Basic.Consume）：MQ 主动推消息给消费者，适合高并发（默认）；<br>拉模式（Basic.Get）：消费者主动去 MQ 拉消息，适合低并发、按需消费；<br>核心区别：推模式实时性高，需控制推送速率（避免压垮消费者）；拉模式可控性强，但实时性差。</p>
+<h2 id="信道（Channel）的作用？为什么不用直接用-Connection？"><a href="#信道（Channel）的作用？为什么不用直接用-Connection？" class="headerlink" title="信道（Channel）的作用？为什么不用直接用 Connection？"></a>信道（Channel）的作用？为什么不用直接用 Connection？</h2><p>Channel 是 Connection 内的轻量级通道，共享一个 TCP 连接：</p>
+<ol>
+<li>TCP 连接创建开销大（三次握手），Channel 避免频繁创建销毁 TCP；</li>
+<li>每个 Channel 有独立的 ID，可并发操作，兼顾性能和资源占用；</li>
+<li>一个 Connection 可创建多个 Channel，满足多线程消费 &#x2F; 生产需求。</li>
+</ol>
+<h2 id="RabbitMQ-消息的-TTL-是什么？怎么设置？"><a href="#RabbitMQ-消息的-TTL-是什么？怎么设置？" class="headerlink" title="RabbitMQ 消息的 TTL 是什么？怎么设置？"></a>RabbitMQ 消息的 TTL 是什么？怎么设置？</h2><p>TTL 是消息的过期时间，超过时间未消费则变为死信。<br>设置方式：</p>
+<ol>
+<li>队列级别：给队列设 TTL，所有消息都有相同过期时间</li>
+<li>消息级别：发消息时指定 TTL，不同消息可设不同时间；<br>注意：消息级别 TTL 优先级高于队列级别。</li>
+</ol>
+<h2 id="消息重复消费怎么解决？"><a href="#消息重复消费怎么解决？" class="headerlink" title="消息重复消费怎么解决？"></a>消息重复消费怎么解决？</h2><p>核心：让消费逻辑幂等（多次执行结果一致）。<br>实现方式：</p>
+<ol>
+<li>给消息加唯一 ID（比如订单号），消费前查 Redis&#x2F;Mongo，已消费则跳过；</li>
+<li>数据库操作加唯一索引，重复插入报错则忽略；</li>
+<li>分布式锁，消费时加锁，避免并发重复消费。</li>
+</ol>
+<h2 id="消息堆积怎么解决？"><a href="#消息堆积怎么解决？" class="headerlink" title="消息堆积怎么解决？"></a>消息堆积怎么解决？</h2><ol>
+<li>临时扩容：增加消费者实例，提高消费速度；</li>
+<li>优化消费逻辑：简化业务、异步处理，提高单消费者处理效率；</li>
+<li>分流：把堆积队列的消息转发到多个队列，多消费者并行消费；</li>
+<li>预防：合理设置队列大小、限流，生产端削峰（比如用限流插件）。</li>
+</ol>
+<h2 id="如何保证-RabbitMQ-消息不丢失？（核心）"><a href="#如何保证-RabbitMQ-消息不丢失？（核心）" class="headerlink" title="如何保证 RabbitMQ 消息不丢失？（核心）"></a>如何保证 RabbitMQ 消息不丢失？（核心）</h2><p>从三个环节保障：</p>
+<ol>
+<li>生产端：开启确认机制（Publisher Confirm），确保消息到交换机；开启返回机制（Publisher Return），确保消息到队列；</li>
+<li>服务端：交换机、队列、消息都开启持久化，防止 MQ 宕机丢失；</li>
+<li>消费端：关闭自动确认，消费成功后手动确认（Basic.Ack），失败则拒绝（Basic.Nack），避免消费一半宕机丢失。</li>
+</ol>
+<h2 id="生产端确认机制（Publisher-Confirm）怎么用？"><a href="#生产端确认机制（Publisher-Confirm）怎么用？" class="headerlink" title="生产端确认机制（Publisher Confirm）怎么用？"></a>生产端确认机制（Publisher Confirm）怎么用？</h2><ol>
+<li>开启确认模式：channel.confirmSelect ()；</li>
+<li>同步确认：等待 MQ 返回确认结果，失败则重试；</li>
+<li>异步确认：注册回调函数，收到确认 &#x2F; 失败通知后处理（推荐，性能高）；<br>核心：确保消息成功到达 MQ 交换机，失败则重试或记录日志。</li>
+</ol>
+<h2 id="消费端手动确认的三种方式？"><a href="#消费端手动确认的三种方式？" class="headerlink" title="消费端手动确认的三种方式？"></a>消费端手动确认的三种方式？</h2><p>Basic.Ack：确认消费成功，MQ 删除消息；<br>Basic.Nack：拒绝消费，可指定是否重新入队（requeue&#x3D;true）；<br>Basic.Reject：拒绝单条消息，功能和 Nack 类似，但只能拒单条；<br>注意：失败重试时要设置重试次数，避免无限循环。</p>
+<h2 id="如何实现消息重试？"><a href="#如何实现消息重试？" class="headerlink" title="如何实现消息重试？"></a>如何实现消息重试？</h2><ol>
+<li>消费失败时，Basic.Nack (requeue&#x3D;true) 重新入队（简单，但可能频繁重试）；</li>
+<li>结合死信队列：重试 N 次后，消息进入死信队列，人工排查；</li>
+<li>用重试框架：比如 Spring Retry，设置重试次数、间隔，失败后走降级逻辑。</li>
+</ol>
+<h2 id="RabbitMQ-如何做限流？"><a href="#RabbitMQ-如何做限流？" class="headerlink" title="RabbitMQ 如何做限流？"></a>RabbitMQ 如何做限流？</h2><ol>
+<li>消费端限流：Basic.Qos (prefetchCount&#x3D;10)，指定消费者最多预取 10 条消息，处理完再取，避免压垮消费者；</li>
+<li>生产端限流：控制发送速率（比如加令牌桶），或用 MQ 的流控机制（避免 MQ 堆积）。</li>
+</ol>
+<h2 id="如何实现消息的顺序消费？"><a href="#如何实现消息的顺序消费？" class="headerlink" title="如何实现消息的顺序消费？"></a>如何实现消息的顺序消费？</h2><ol>
+<li>单队列 + 单消费者：简单但并发低；</li>
+<li>分区队列：按顺序关键字（比如订单 ID 哈希）发送到固定队列，每个队列一个消费者，保证同关键字消息顺序消费；<br>注意：必须保证生产者发送顺序、队列存储顺序、消费者消费顺序一致。</li>
+</ol>
+<h2 id="RabbitMQ-如何实现事务消息？"><a href="#RabbitMQ-如何实现事务消息？" class="headerlink" title="RabbitMQ 如何实现事务消息？"></a>RabbitMQ 如何实现事务消息？</h2><p>RabbitMQ 本身不支持事务消息，用 “本地消息表 + 重试” 实现最终一致性：<br>① 生产端：先写本地消息表（状态待发送），再发 MQ 消息；<br>② 收到 MQ 确认后，更新消息表为已发送；<br>③ 定时扫描本地消息表，重发未确认的消息；<br>④ 消费端：消费成功后，通知生产端更新状态，失败则重试。</p>
+<h2 id="RabbitMQ-监控重点看哪些指标？"><a href="#RabbitMQ-监控重点看哪些指标？" class="headerlink" title="RabbitMQ 监控重点看哪些指标？"></a>RabbitMQ 监控重点看哪些指标？</h2><p>① 队列指标：消息堆积数、入队 &#x2F; 出队速率；<br>② 连接 &#x2F; 信道：活跃连接数、信道数（避免过多）；<br>③ 消费者指标：消费速率、未确认消息数；<br>④ 节点指标：CPU、内存、磁盘使用率（避免磁盘满导致 MQ 不可用）。</p>
+<h2 id="消息发送成功但消费者收不到，怎么排查？"><a href="#消息发送成功但消费者收不到，怎么排查？" class="headerlink" title="消息发送成功但消费者收不到，怎么排查？"></a>消息发送成功但消费者收不到，怎么排查？</h2><p>① 查交换机和队列是否绑定，路由 Key 是否匹配；<br>② 查消息是否过期（TTL），是否变成死信；<br>③ 查消费者是否正常运行，是否开启手动确认但未 Ack；<br>④ 查 MQ 日志，看是否有转发失败、权限不足的报错。</p>
+<h2 id="RabbitMQ-节点宕机怎么处理？"><a href="#RabbitMQ-节点宕机怎么处理？" class="headerlink" title="RabbitMQ 节点宕机怎么处理？"></a>RabbitMQ 节点宕机怎么处理？</h2><p>① 有镜像队列：故障节点的队列自动切换到其他节点，无数据丢失，消费者重新连接即可；<br>② 无镜像队列：重启节点，恢复数据（若开启持久化），或从备份恢复；<br>③ 预防：配置镜像队列、集群，定期备份数据。</p>
+<h2 id="消费端阻塞怎么排查？"><a href="#消费端阻塞怎么排查？" class="headerlink" title="消费端阻塞怎么排查？"></a>消费端阻塞怎么排查？</h2><p>① 查消费者日志，看是否有死循环、慢 SQL、远程调用超时；<br>② 查 MQ 的未确认消息数，若持续增加，说明消费阻塞；<br>③ 重启消费者实例，临时恢复，再优化消费逻辑。</p>
+<h2 id="RabbitMQ-集群原理？为什么需要镜像队列？"><a href="#RabbitMQ-集群原理？为什么需要镜像队列？" class="headerlink" title="RabbitMQ 集群原理？为什么需要镜像队列？"></a>RabbitMQ 集群原理？为什么需要镜像队列？</h2><p>集群原理：节点之间同步元数据（交换机、队列结构），不同节点存储不同队列的数据，实现负载分担；<br>镜像队列：把队列复制到多个节点，解决单节点故障导致队列数据丢失的问题，保证高可用（生产必配）。</p>
 <p>RabbitMQ 常用交换机？项目用了哪种？<br>答：Direct&#x2F;Topic&#x2F;Fanout&#x2F;Headers；航天云膜用 Topic 模式做库存变更通知，通配符匹配不同仓库队列。</p>
 <ul>
 <li>在你们的项目中， Rabbit MQ 的具体配置和优化措施有哪些？比如预取值持久化策略等。<br>在项目中，RabbitMQ 预取值设为 50，避免消费者一次性拉取过多消息导致堆积。持久化策略方面，消息设置 deliveryMode&#x3D;2，队列和交换机也开启持久化，确保服务重启后消息不丢失。还优化了消费者线程池，核心线程数设为 CPU 核心数2，最大线程数4，和 XML 解析线程池保持一致，避免资源竞争。另外，给队列设置了死信交换机，超时未处理的消息自动进入死信队列，防止消息积压。</li>
 </ul>
-<p>MQ 怎么保证消息不丢失？<br>答：生产者开启确认机制，确保消息发送至交换机；交换机、队列、消息均做持久化；消费者开启手动 ACK，消费完成后再确认，失败则消息重新入队。</p>
-<h2 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h2><p>消息队列的话,它主要是一种用于异步通信的中间件，核心就是异步通信和解耦</p>
-<p>​异步通信​（库存更新、课程状态同步）<br>​任务分发与解耦​（工单处理、预约状态更新）<br>​可靠消息重试​（死信队列处理失败任务）<br>​流量削峰​（配合压测验证系统稳定性）</p>
-<h3 id="RabbitMQ-的消息传递流程是怎样的"><a href="#RabbitMQ-的消息传递流程是怎样的" class="headerlink" title="RabbitMQ 的消息传递流程是怎样的"></a>RabbitMQ 的消息传递流程是怎样的</h3><p>​生产者发送消息到交换机，交换机根据路由规则（如路由键匹配）将消息转发到对应的队列，​消费者从队列订阅并获取消息</p>
-<h3 id="在项目中如何使用消息队列的-我这块用RabbitMQ用的比较多"><a href="#在项目中如何使用消息队列的-我这块用RabbitMQ用的比较多" class="headerlink" title="在项目中如何使用消息队列的,我这块用RabbitMQ用的比较多"></a>在项目中如何使用消息队列的,我这块用RabbitMQ用的比较多</h3><p>在最近的项目中没用到,我记得在其它项目中使用过<br>比如在库存管理系统,使用的是Topic模式<br>在application配置文件中配置rabbitmq,然后在项目中创建配置类定义 Exchange 和 Queue;<br>​实现方式：<br>当商品库存发生变更时，通过预定义的 Topic（如 inventory.update）发送消息至前端订阅节点，触发页面实时刷新</p>
+<h3 id="在项目中如何使用消息队列的-我这块用RabbitMQ用的比较多"><a href="#在项目中如何使用消息队列的-我这块用RabbitMQ用的比较多" class="headerlink" title="在项目中如何使用消息队列的,我这块用RabbitMQ用的比较多"></a>在项目中如何使用消息队列的,我这块用RabbitMQ用的比较多</h3><p>在最近的项目中没用到,我记得在其它项目中使用过<br>比如在库存管理系统,使用的是Topic模式<br>在application配置文件中配置rabbitmq,然后在项目中创建配置类定义 Exchange 和 Queue;<br>​实现方式：<br>当商品库存发生变更时，通过预定义的 Topic（如 inventory.update）发送消息至订阅节点，触发实时刷新</p>
 <p>关键点是 rabbitTemplate要设置两个回调<br>确认消息已到达时触发<br>消息无法路由时触发</p>
-<h3 id="前端接收消息，触发页面实时刷新-这块是如何实现的"><a href="#前端接收消息，触发页面实时刷新-这块是如何实现的" class="headerlink" title="前端接收消息，触发页面实时刷新;这块是如何实现的"></a>前端接收消息，触发页面实时刷新;这块是如何实现的</h3><p>这块是​启用 WebSocket 并集成 RabbitMQ<br>将库存变更消息推送到 WebSocket 通道<br>然后向所有订阅 的客户端发送消息</p>
-<h3 id="RocketMQ-的消息传递流程是怎样的"><a href="#RocketMQ-的消息传递流程是怎样的" class="headerlink" title="RocketMQ 的消息传递流程是怎样的?"></a>RocketMQ 的消息传递流程是怎样的?</h3><p>生产者通过 服务器 获取  路由，然后将消息发送到指定 路由 的 队列<br>消费者订阅路由  并拉取消息，从 队列 中读取数据<br>生产者发送消息到 Broker，Broker 将消息持久化并关联到指定 Topic，​消费者通过订阅 Topic 从 Broker 拉取消息。依赖 ​NameServer 管理集群元数据，支持分布式架构和高吞吐，适用于大数据、电商等场景</p>
 <h3 id="RabbitMQ和RocketMQ区别"><a href="#RabbitMQ和RocketMQ区别" class="headerlink" title="RabbitMQ和RocketMQ区别"></a>RabbitMQ和RocketMQ区别</h3><p>RabbitMQ 适合 ​灵活路由、轻量级异步场景​（如微服务解耦）。<br>RocketMQ 适合 ​高并发、海量消息、复杂业务流​（如电商秒杀、日志流处理）。</p>
 
                 
@@ -626,9 +651,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="SpringBoot 基础面试题">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Spring 面试题">
                         
-                        <span class="card-title">SpringBoot 基础面试题</span>
+                        <span class="card-title">Spring 面试题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -656,12 +681,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SpringBoot/">
-                        <span class="chip bg-color">SpringBoot</span>
-                    </a>
-                    
                     <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
                         <span class="chip bg-color">面试题</span>
+                    </a>
+                    
+                    <a href="/tags/Spring/">
+                        <span class="chip bg-color">Spring</span>
                     </a>
                     
                 </div>
@@ -675,13 +700,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2026/03/04/%E9%9D%A2%E8%AF%95%E9%A2%98/%E4%B8%AD%E9%97%B4%E4%BB%B6%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                <a href="/2026/03/03/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/%E7%AE%80%E4%BB%8B/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="中间件面试题">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="软件架构简介">
                         
-                        <span class="card-title">中间件面试题</span>
+                        <span class="card-title">软件架构简介</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -692,14 +717,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-03-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-03-03
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
-                                    面试题
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/" class="post-category">
+                                    软件架构
                                 </a>
                             
                             
@@ -709,12 +734,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
-                        <span class="chip bg-color">面试题</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/">
-                        <span class="chip bg-color">中间件</span>
+                    <a href="/tags/Java%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                        <span class="chip bg-color">Java面试题</span>
                     </a>
                     
                 </div>

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ZRH博客,zrh博客">
+    <meta name="keywords" content="SpringCloud+SpringCloudAliBaBa 面试题, ZRH博客,zrh博客">
     <meta name="description" content="ZRH的个人博客,记录个人笔记">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ZRH博客</title>
+    <title>SpringCloud+SpringCloudAliBaBa 面试题 | ZRH博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -266,12 +266,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">SpringCloud+SpringCloudAliBaBa 面试题</h1>
                 </div>
             </div>
         </div>
@@ -385,12 +385,33 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                                <span class="chip bg-color">面试题</span>
+                            </a>
+                        
+                            <a href="/tags/SpringCloud/">
+                                <span class="chip bg-color">SpringCloud</span>
+                            </a>
+                        
+                            <a href="/tags/SpringCloudAliBaBa/">
+                                <span class="chip bg-color">SpringCloudAliBaBa</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
+                                面试题
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -423,54 +444,46 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="Spring-Cloud"><a href="#Spring-Cloud" class="headerlink" title="Spring Cloud"></a>Spring Cloud</h4><p>一、核心组件类（入门必问）</p>
-<ol>
-<li>SpringCloud 是什么？核心解决什么问题？<br>SpringCloud 是基于 SpringBoot 的微服务全家桶，封装了各种微服务组件。<br>核心解决：服务注册发现、负载均衡、熔断降级、网关路由、配置中心、链路追踪等微服务架构的核心问题。</li>
-<li>常用的 SpringCloud 组件有哪些？各自作用？<br>服务注册发现：Eureka&#x2F;Nacos&#x2F;Consul（管理服务地址，让服务能找到彼此）；<br>负载均衡：Ribbon&#x2F;OpenFeign（客户端负载均衡，分发请求到不同服务实例）；<br>熔断降级：Hystrix&#x2F;Sentinel（服务故障时避免雪崩，返回兜底结果）；<br>网关：Gateway&#x2F;SpringCloud Gateway（统一入口，路由、鉴权、限流）；<br>配置中心：Nacos&#x2F;Config（统一管理配置，不用改代码重启服务）；<br>链路追踪：Sleuth+Zipkin（追踪请求链路，排查微服务调用问题）。</li>
-<li>Eureka 的核心原理？CAP 怎么选？<br>Eureka 是服务注册中心，核心是心跳机制 + 自我保护：<br>服务启动注册到 Eureka，每隔 30s 发心跳，Eureka90s 没收到心跳就剔除服务；<br>自我保护：网络波动时，Eureka 不会剔除大量服务，保证可用性；<br>CAP 选AP（可用性 + 分区容错），牺牲强一致性，适合微服务高可用场景。</li>
-<li>Nacos 和 Eureka 区别？<br>功能：Nacos 不仅能做注册中心，还能做配置中心，Eureka 只有注册发现；<br>CAP：Nacos 支持 AP 和 CP 切换（默认 AP），Eureka 只支持 AP；<br>易用性：Nacos 部署简单，支持动态配置刷新，Eureka 已停更。</li>
-<li>OpenFeign 是什么？和 RestTemplate 区别？<br>OpenFeign 是声明式 HTTP 客户端，基于 Ribbon 实现负载均衡；<br>RestTemplate：需要手动拼 URL、调方法，代码繁琐；<br>OpenFeign：只需要写接口加注解（@FeignClient），像调本地方法一样调远程服务，更简洁。<br>二、核心原理类（进阶考察）</li>
-<li>什么是服务熔断、服务降级？区别是什么？<br>熔断：服务调用方做的，目标服务故障（比如超时、报错），触发熔断，暂时停止调用，避免拖垮自己（像保险丝烧断）；<br>降级：服务提供方 &#x2F; 调用方都能做，系统压力大时，主动关闭非核心功能，返回兜底数据（比如 “服务繁忙，请稍后”）；<br>核心区别：熔断是被动（故障触发），降级是主动（资源不足时触发）。</li>
-<li>Ribbon 负载均衡策略有哪些？默认是什么？<br>常用策略：轮询（默认）、随机、权重、重试、最小并发；<br>默认是轮询，可以自定义策略（比如按权重分配请求）。</li>
-<li>SpringCloud Gateway 核心原理？<br>Gateway 是基于 WebFlux 的网关，核心是路由 + 过滤器链：<br>路由：匹配请求路径，转发到对应服务；<br>过滤器：分全局过滤器（所有请求生效）和局部过滤器（指定路由生效），能做鉴权、限流、日志、修改请求 &#x2F; 响应；<br>异步非阻塞，性能比 Zuul 好。</li>
-<li>什么是服务雪崩？怎么避免？<br>服务雪崩：一个服务故障，导致调用它的所有服务都故障，连锁反应拖垮整个系统；<br>避免手段：<br>① 熔断（Hystrix&#x2F;Sentinel）：故障服务触发熔断，停止调用；<br>② 降级：核心服务优先，非核心服务降级；<br>③ 限流：网关 &#x2F; 服务端限流，控制请求数；<br>④ 超时控制：设置调用超时时间，避免长时间等待。</li>
-<li>Nacos 配置中心实现动态刷新的原理？<br>① 服务启动时从 Nacos 拉取配置，同时和 Nacos 建立长连接；<br>② 配置修改后，Nacos 主动推送配置变更给服务；<br>③ 服务收到通知后，重新加载配置，配合 @RefreshScope 注解，Bean 属性动态更新，不用重启服务。<br>三、实战场景类（场景考察）</li>
-<li>微服务之间如何实现远程调用？<br>常用两种方式：<br>① RestTemplate + Ribbon：RestTemplate 做 HTTP 调用，Ribbon 做负载均衡；<br>② OpenFeign：声明式调用，底层还是 Ribbon，代码更简洁，推荐用这个。</li>
-<li>如何实现微服务接口的统一鉴权？<br>在 Gateway 网关层做统一鉴权：<br>① 前端请求带 token，网关拦截所有请求；<br>② 校验 token 合法性（比如查 Redis、调认证服务）；<br>③ 合法则转发请求，不合法直接返回 401，不用每个服务都写鉴权逻辑。</li>
-<li>微服务如何实现分布式事务？<br>主流方案：<br>① 最终一致性：Seata（AT 模式，无侵入，适合大多数场景）；<br>② 补偿机制：TCC（Try-Confirm-Cancel，手动写补偿逻辑，适合核心业务）；<br>③ 消息队列：本地消息表 + MQ，异步补偿，保证最终一致。</li>
-<li>如何做微服务的限流？<br>① 网关层限流：Gateway 结合 Sentinel&#x2F;Nacos，按 IP &#x2F; 接口限流（比如每秒最多 100 个请求）；<br>② 服务端限流：Sentinel 注解（@SentinelResource），对具体接口限流，触发后返回降级结果。</li>
-<li>微服务项目如何部署？<br>① 单体部署：每个微服务打包成 jar，部署到不同服务器，配合 Nginx 做负载；<br>② 容器化部署：打包成 Docker 镜像，用 K8s&#x2F;Docker Compose 管理，自动扩缩容；<br>③ 注册中心、配置中心等中间件单独部署，保证高可用（比如 Eureka 集群、Nacos 集群）。<br>四、问题排查类（高频加分项）</li>
-<li>微服务调用超时，怎么排查？<br>① 查网络：是否能 ping 通目标服务，端口是否开放；<br>② 查注册中心：目标服务是否注册成功，实例状态是否正常；<br>③ 查日志：看调用方和提供方的日志，是否有报错（比如数据库慢查询、接口抛异常）；<br>④ 查配置：是否设置了合理的超时时间（Feign&#x2F;Hystrix 超时）。</li>
-<li>服务注册到 Nacos&#x2F;Eureka 失败，原因有哪些？<br>① 配置错误：注册中心地址写错、服务名重复、端口冲突；<br>② 网络问题：服务连不上注册中心；<br>③ 依赖缺失：没引入对应的 starter（比如 nacos-discovery）；<br>④ 版本不兼容：SpringBoot 和 SpringCloud 版本不匹配。</li>
-<li>Gateway 路由转发失败，怎么排查？<br>① 查路由配置：路径匹配规则是否正确（比如路径少写 &#x2F;）；<br>② 查服务地址：转发的服务名是否在注册中心存在；<br>③ 查过滤器：是否有过滤器拦截了请求（比如鉴权失败）；<br>④ 查日志：开启 Gateway 日志，看转发的具体地址和错误信息。</li>
-</ol>
-<h4 id="Spring-Cloud-Alibaba"><a href="#Spring-Cloud-Alibaba" class="headerlink" title="Spring Cloud Alibaba"></a>Spring Cloud Alibaba</h4><ol>
-<li>Spring Cloud Alibaba 是什么？核心优势是什么？<br>SC-A 是阿里开源的微服务框架，基于 SpringCloud 标准，整合了阿里自研的中间件。<br>核心优势：① 组件本土化（Nacos&#x2F;Sentinel&#x2F;Seata 都是阿里的，适配国内场景）；② 功能全（注册、配置、熔断、事务一站式解决）；③ 易用性高，文档全，社区活跃。</li>
-<li>Spring Cloud Alibaba 核心组件有哪些？各自作用？<br>Nacos：一站式注册中心 + 配置中心，替代 Eureka+Config；<br>Sentinel：熔断降级 + 限流，替代 Hystrix；<br>Seata：分布式事务解决方案，解决微服务跨库事务问题；<br>RocketMQ：消息队列，做异步通信、削峰填谷；<br>Dubbo：高性能 RPC 框架，替代 OpenFeign（适合高性能服务调用）；<br>Gateway：和 SpringCloud Gateway 一致，做微服务网关。</li>
-<li>Nacos 有哪两种部署模式？区别是什么？<br>单机模式：单节点部署，适合开发测试，不保证高可用；<br>集群模式：多节点部署，配合 MySQL 做数据持久化，生产环境必用，保证高可用；<br>补充：Nacos 还有伪集群模式（单服务器多端口），仅用于测试，不推荐生产。</li>
-<li>Sentinel 核心概念有哪些？<br>资源：被保护的对象（接口、方法）；<br>规则：限流 &#x2F; 熔断 &#x2F; 降级规则（比如 QPS 限流、异常比例熔断）；<br>插槽链（Slot Chain）：Sentinel 的核心执行链路，负责规则校验、统计、限流等；<br>兜底策略：触发规则后返回的结果（默认、自定义、降级调用）。</li>
-<li>Seata 有哪些事务模式？默认是什么？<br>AT 模式（默认）：无侵入，基于本地事务 + 补偿，适合大多数场景；<br>TCC 模式：手动写 Try&#x2F;Confirm&#x2F;Cancel，侵入性强，适合核心高一致性业务；<br>SAGA 模式：长事务解决方案，基于状态机补偿；<br>XA 模式：强一致性，性能差，极少用。<br>二、核心原理类（进阶考察）</li>
-<li>Nacos 服务注册发现的原理？<br>① 服务启动时，通过 Nacos Client 向 Nacos Server 注册（提交服务名、IP、端口）；<br>② Nacos Server 将服务信息存在注册表，同时和客户端建立长连接；<br>③ 服务消费者拉取注册表，本地缓存；<br>④ 服务上下线时，Nacos Server 主动推送变更给消费者，保证数据实时性。</li>
-<li>Sentinel 限流的核心原理？<br>Sentinel 基于令牌桶 &#x2F; 漏桶算法实现限流，核心是插槽链：<br>① 所有请求先经过 NodeSelectorSlot（构建调用节点）；<br>② 再经过 StatisticSlot（统计 QPS、异常数）；<br>③ 最后经过 FlowSlot（校验限流规则），触发规则则拦截请求，执行兜底策略。</li>
-<li>Seata AT 模式的执行流程（简单说）？<br>① 事务发起方开启全局事务，生成 XID（全局事务 ID）；<br>② 调用各微服务，XID 透传，各服务执行本地 SQL，Seata 拦截并记录 undo_log（回滚日志）；<br>③ 所有服务本地事务提交成功，发起方提交全局事务，Seata 删除 undo_log；<br>④ 若有服务失败，发起方回滚全局事务，Seata 根据 undo_log 回滚各服务数据。</li>
-<li>Nacos 配置中心如何保证配置不丢失？<br>① 单机模式：配置存在本地文件；<br>② 集群模式：配置持久化到 MySQL，同时 Nacos 节点间同步配置；<br>③ 客户端本地缓存：服务拉取配置后，本地会缓存一份，即使 Nacos 宕机，服务也能读取本地缓存启动。</li>
-<li>Sentinel 和 Hystrix 的区别？<br>功能：Sentinel 支持限流、熔断、降级、热点规则，Hystrix 主要是熔断降级；<br>实时性：Sentinel 规则可动态配置，实时生效；Hystrix 改规则需重启；<br>易用性：Sentinel 有可视化控制台，配置简单；Hystrix 配置复杂；<br>性能：Sentinel 基于 Netty，异步非阻塞，性能比 Hystrix 好。<br>三、实战场景类（场景考察）</li>
-<li>如何用 Sentinel 实现接口限流？<br>① 引入 sentinel-spring-cloud-starter 依赖；<br>② 启动类加 @EnableDiscoveryClient（注册到 Nacos）；<br>③ 接口上加 @SentinelResource（指定资源名、兜底方法）；<br>④ 登录 Sentinel 控制台，给该资源配置限流规则（比如 QPS&#x3D;10）；<br>⑤ 触发限流时，自动执行兜底方法返回结果。</li>
-<li>微服务如何接入 Nacos 配置中心？<br>① 引入 nacos-config-spring-boot-starter 依赖；<br>② 配置文件写 Nacos 地址、配置 DataID、分组；<br>③ 启动类加 @EnableNacosConfig；<br>④ 需要动态刷新的 Bean 加 @RefreshScope；<br>⑤ Nacos 控制台修改配置，服务自动刷新。</li>
-<li>如何解决 Seata 分布式事务中的 XID 透传问题？<br>XID 是全局事务 ID，必须在微服务调用间透传，否则 Seata 无法识别全局事务：<br>① 用 OpenFeign 调用时，自定义拦截器，把 XID 从 ThreadLocal 取出来，放到请求头；<br>② 服务提供方拦截请求，从请求头取出 XID，设置到 ThreadLocal；<br>③ Dubbo 调用时，通过 Dubbo 的上下文传递 XID，原理和 Feign 一致。</li>
-<li>如何实现微服务的灰度发布（基于 Nacos）？<br>① 给服务实例打版本标签（比如 version&#x3D;v1、v2）；<br>② 配置 Nacos 权重，v1 实例权重 100（全量流量），v2 实例权重 0；<br>③ 逐步提高 v2 权重（比如 20%、50%），观察无问题后全量切到 v2；<br>④ 也可以通过 Nacos 的元数据，配合 Gateway 路由，按用户 &#x2F; IP 路由到不同版本。</li>
-<li>Sentinel 如何做熔断降级？<br>① 配置熔断规则（比如异常比例 &gt; 50%、异常数 &gt; 10，熔断时长 5s）；<br>② 服务调用异常触发规则后，进入熔断状态，期间不调用目标服务；<br>③ 熔断时长结束后，进入半开状态，放少量请求测试，若正常则恢复，否则继续熔断。<br>四、对比选型类（高频加分项）</li>
-<li>Spring Cloud Alibaba 和原生 Spring Cloud 区别？<br>组件：SC-A 用 Nacos&#x2F;Sentinel&#x2F;Seata，原生用 Eureka&#x2F;Hystrix&#x2F;Config；<br>生态：SC-A 组件都是阿里维护，活跃；原生很多组件（Eureka&#x2F;Hystrix）已停更；<br>性能：SC-A 的 Dubbo&#x2F;Sentinel 性能优于原生的 OpenFeign&#x2F;Hystrix；<br>适配性：SC-A 更适配国内中间件（MySQL、RocketMQ），适合国内项目。</li>
-<li>Nacos 作为配置中心，和 Apollo 区别？<br>易用性：Nacos 部署简单，轻量；Apollo 部署复杂（需多个组件）；<br>功能：Apollo 配置粒度更细（支持环境、集群、命名空间），Nacos 更轻量化；<br>生态：Nacos 和 SC-A 深度整合，Apollo 适配所有微服务框架；<br>选择：中小项目用 Nacos，大型项目对配置管理要求高用 Apollo。</li>
-<li>Seata 和 RocketMQ 事务消息怎么选？<br>Seata AT 模式：适合同步调用的分布式事务，实时性高；<br>RocketMQ 事务消息：适合异步场景（比如下单后异步扣库存），最终一致性；<br>核心：同步业务用 Seata，异步业务用 RocketMQ 事务消息。</li>
-</ol>
-<p>用 Nacos 做服务注册发现和配置中心，Sentinel 做流量控制和熔断降级，OpenFeign 做服务间远程调用，Seata 处理分布式事务，这些都用到了</p>
+                <h3 id="SpringCloud-是什么？核心解决什么问题？"><a href="#SpringCloud-是什么？核心解决什么问题？" class="headerlink" title="SpringCloud 是什么？核心解决什么问题？"></a>SpringCloud 是什么？核心解决什么问题？</h3><p>SpringCloud 是基于 SpringBoot 的微服务全家桶，封装了各种微服务组件。<br>核心解决：服务注册发现、负载均衡、熔断降级、网关路由、配置中心、链路追踪等微服务架构的核心问题。</p>
+<h3 id="常用的-SpringCloud-组件有哪些？各自作用？"><a href="#常用的-SpringCloud-组件有哪些？各自作用？" class="headerlink" title="常用的 SpringCloud 组件有哪些？各自作用？"></a>常用的 SpringCloud 组件有哪些？各自作用？</h3><p>Eureka：原生服务注册发现组件，功能单一，已停更，被 Nacos 替代；<br>Spring Cloud Config：原生配置中心，需配合 Bus 实现配置热更新，被 Nacos 替代；<br>Hystrix：原生熔断限流组件，已停更，被 Sentinel 替代；<br>Zuul：原生网关，性能不如 Gateway，被 Gateway 替代；<br>Feign：原生声明式远程调用， OpenFeign 是其增强版，兼容 Spring MVC 注解</p>
+<h3 id="Spring-Cloud-Alibaba-是什么？核心优势是什么？"><a href="#Spring-Cloud-Alibaba-是什么？核心优势是什么？" class="headerlink" title="Spring Cloud Alibaba 是什么？核心优势是什么？"></a>Spring Cloud Alibaba 是什么？核心优势是什么？</h3><p>是阿里开源的微服务框架，基于 SpringCloud 标准，整合了阿里自研的中间件。</p>
+<h3 id="Spring-Cloud-Alibaba-核心组件有哪些？各自作用？"><a href="#Spring-Cloud-Alibaba-核心组件有哪些？各自作用？" class="headerlink" title="Spring Cloud Alibaba 核心组件有哪些？各自作用？"></a>Spring Cloud Alibaba 核心组件有哪些？各自作用？</h3><p>Nacos：一站式注册中心 + 配置中心，替代 Eureka+Config；<br>Sentinel：熔断降级 + 限流，替代 Hystrix；<br>Seata：分布式事务解决方案，解决微服务跨库事务问题；<br>RocketMQ：消息队列，做异步通信、削峰填谷；<br>Dubbo：高性能 RPC 框架，替代 OpenFeign（适合高性能服务调用）；<br>Gateway：和 SpringCloud Gateway 一致，做微服务网关。<br>OpenFeign:负责服务通信</p>
+<h3 id="CAP是什么"><a href="#CAP是什么" class="headerlink" title="CAP是什么?"></a>CAP是什么?</h3><p>CAP 定理指分布式系统中，一致性、可用性、分区容错性三者不可同时满足。<br>分布式系统必须保证 P（分区容错），所以实际只能在 AP 和 CP 之间选择：<br>AP：保证可用性，牺牲强一致性，保证最终一致（比如 Eureka、Nacos 默认）<br>CP：保证强一致性，牺牲部分可用性（比如 Zookeeper、Nacos 切 CP）</p>
+<h3 id="Nacos-和-Eureka-区别？"><a href="#Nacos-和-Eureka-区别？" class="headerlink" title="Nacos 和 Eureka 区别？"></a>Nacos 和 Eureka 区别？</h3><p>功能：Nacos 同时支持注册中心 + 配置中心，Eureka 只有注册发现<br>CAP：Nacos 支持 AP&#x2F;CP 切换，Eureka 只支持 AP<br>维护状态：Eureka 已停更，Nacos 阿里维护，活跃<br>配置刷新：Nacos 自带动态刷新，Eureka 不支持配置中心</p>
+<h3 id="负载均衡机制"><a href="#负载均衡机制" class="headerlink" title="负载均衡机制"></a>负载均衡机制</h3><p>我记得有好多种;常用的有两种<br>一种是轮询机制,就是1,2,3;这样一个一个调用,完了再次循环调用<br>还有就是随机的方式,这种就是随机选个服务调用</p>
+<h3 id="熔断机制"><a href="#熔断机制" class="headerlink" title="熔断机制"></a>熔断机制</h3><p>它是微服务架构中用于防止系统雪崩的机制<br>熔断的工作流程分为三个状态</p>
 <ul>
-<li>Spring Cloud Alibaba 核心组件为例，说下具体配置位置和关键步骤<br>服务注册发现核心在代码配置 + Nacos 控制台<br>在bootstrap.yml文件中配置<br>  server-addr: 192.168.1.100:8848  # Nacos服务器地址<br>  application:name# 微服务名称（库存服务）</li>
+<li><p>闭合状态（Closed）​<br>正常情况，请求正常调用下游服务。<br>若失败次数超过阈值（如连续5次失败），触发熔断，进入打开状态。</p>
+</li>
+<li><p>打开状态（Open）​<br>直接拒绝所有请求，返回错误或降级结果。<br>经过一段时间后（如5秒），进入半开状态。</p>
+</li>
+<li><p>​半开状态（Half-Open）​<br>允许少量请求尝试调用下游服务。<br>若请求成功，则关闭熔断，恢复正常；若失败，则重新打开熔断</p>
+</li>
 </ul>
-<p>OpenFeign 跨服务调用 —— 仅代码配置<br>   用到 @FeignClient注解<br>Spring Cloud Bus热更新<br> yml 里配 RabbitMQ 地址（Bus 依赖 MQ 广播配置）：<br>  rabbitmq:<br>    host: 192.168.1.100<br>    port: 5672<br>    username: guest<br>    password: guest<br> Nacos 配置并发布后，Bus 会通过 MQ 把新配置推给所有服务实例，自动刷新</p>
-<p>微服务调用超时怎么处理？<br>答：给 OpenFeign 设置调用超时时间；通过 Sentinel 配置降级规则，超时返回兜底数据，防止服务雪崩</p>
-<p>Spring Cloud Bus 实现配置热更新的原理？<br>答：Nacos 修改配置后发送消息，Bus 基于 RabbitMQ 将配置推送给所有微服务实例，实例自动刷新配置无需重启，项目中管理员修改权限可实时生效。</p>
+<h3 id="OpenFeign-是什么？和-RestTemplate-区别？"><a href="#OpenFeign-是什么？和-RestTemplate-区别？" class="headerlink" title="OpenFeign 是什么？和 RestTemplate 区别？"></a>OpenFeign 是什么？和 RestTemplate 区别？</h3><p>OpenFeign 底层负载均衡是 Spring Cloud LoadBalancer，默认策略是轮询<br>RestTemplate：需要手动拼 URL、调方法，代码繁琐；<br>OpenFeign：只需要写接口加注解（@FeignClient），像调本地方法一样调远程服务，更简洁。</p>
+<h3 id="Ribbon-负载均衡策略有哪些？默认是什么？"><a href="#Ribbon-负载均衡策略有哪些？默认是什么？" class="headerlink" title="Ribbon 负载均衡策略有哪些？默认是什么？"></a>Ribbon 负载均衡策略有哪些？默认是什么？</h3><p>常用策略：轮询（默认）、随机；<br>默认是轮询，可以自定义策略（比如按权重分配请求）。</p>
+<h3 id="什么是服务雪崩？怎么避免？"><a href="#什么是服务雪崩？怎么避免？" class="headerlink" title="什么是服务雪崩？怎么避免？"></a>什么是服务雪崩？怎么避免？</h3><p>服务雪崩是指某个微服务故障，导致调用方阻塞、线程耗尽，逐级传导拖垮整个微服务体系。<br>解决方案：熔断、降级、限流、超时控制、线程池隔离。</p>
+<h3 id="Nacos-配置中心实现动态刷新的原理？"><a href="#Nacos-配置中心实现动态刷新的原理？" class="headerlink" title="Nacos 配置中心实现动态刷新的原理？"></a>Nacos 配置中心实现动态刷新的原理？</h3><p>① 服务启动时从 Nacos 拉取配置，同时和 Nacos 建立长连接；<br>② 配置修改后，Nacos 主动推送配置变更给服务；<br>③ 服务收到通知后，重新加载配置，配合 @RefreshScope 注解，Bean 属性动态更新，不用重启服务。</p>
+<h3 id="微服务之间如何实现远程调用？"><a href="#微服务之间如何实现远程调用？" class="headerlink" title="微服务之间如何实现远程调用？"></a>微服务之间如何实现远程调用？</h3><p>常用两种方式：<br>① RestTemplate + Ribbon：RestTemplate 做 HTTP 调用，Ribbon 做负载均衡；<br>② OpenFeign：声明式调用，底层还是 Ribbon，代码更简洁，推荐用这个。</p>
+<h3 id="微服务调用超时怎么处理？"><a href="#微服务调用超时怎么处理？" class="headerlink" title="微服务调用超时怎么处理？"></a>微服务调用超时怎么处理？</h3><p>答：给 OpenFeign 设置调用超时时间；通过 Sentinel 配置降级规则，超时返回兜底数据，防止服务雪崩</p>
+<h3 id="OpenFeign-执行流程"><a href="#OpenFeign-执行流程" class="headerlink" title="OpenFeign 执行流程"></a>OpenFeign 执行流程</h3><p>OpenFeign 执行流程（高频）<br>启动类开启 @EnableFeignClients<br>定义接口加 @FeignClient (服务名)<br>调用时，Feign 通过动态代理生成实现类<br>结合 LoadBalancer 做负载均衡，发起 HTTP 请求<br>结果封装返回，像调用本地方法一样</p>
+<h3 id="微服务调用超时，怎么排查？"><a href="#微服务调用超时，怎么排查？" class="headerlink" title="微服务调用超时，怎么排查？"></a>微服务调用超时，怎么排查？</h3><p>① 查网络：是否能 ping 通目标服务，端口是否开放；<br>② 查注册中心：目标服务是否注册成功，实例状态是否正常；<br>③ 查日志：看调用方和提供方的日志，是否有报错（比如数据库慢查询、接口抛异常）；<br>④ 查配置：是否设置了合理的超时时间（Feign&#x2F;Hystrix 超时）。</p>
+<h3 id="如何做微服务的限流？"><a href="#如何做微服务的限流？" class="headerlink" title="如何做微服务的限流？"></a>如何做微服务的限流？</h3><p>① 网关层限流：Gateway 结合 Sentinel&#x2F;Nacos，按 IP &#x2F; 接口限流（比如每秒最多 100 个请求）；<br>② 服务端限流：Sentinel 注解（@SentinelResource），对具体接口限流，触发后返回降级结果。</p>
+<h2 id="Gateway"><a href="#Gateway" class="headerlink" title="Gateway"></a>Gateway</h2><h3 id="Gateway-核心原理？"><a href="#Gateway-核心原理？" class="headerlink" title="Gateway 核心原理？"></a>Gateway 核心原理？</h3><p>Gateway 是基于 WebFlux 的网关，核心是路由 + 过滤器链：<br>路由：匹配请求路径，转发到对应服务；<br>过滤器：分全局过滤器（所有请求生效）和局部过滤器（指定路由生效），能做鉴权、限流、日志、修改请求 &#x2F; 响应；<br>异步非阻塞，性能比 Zuul 好。</p>
+<h3 id="如何实现微服务接口的统一鉴权？"><a href="#如何实现微服务接口的统一鉴权？" class="headerlink" title="如何实现微服务接口的统一鉴权？"></a>如何实现微服务接口的统一鉴权？</h3><p>在 Gateway 网关层做统一鉴权：<br>① 前端请求带 token，网关拦截所有请求；<br>② 校验 token 合法性（比如查 Redis、调认证服务）；<br>③ 合法则转发请求，不合法直接返回 401，不用每个服务都写鉴权逻辑。</p>
+<h3 id="微服务统一鉴权"><a href="#微服务统一鉴权" class="headerlink" title="微服务统一鉴权"></a>微服务统一鉴权</h3><p>放在 Gateway 网关层统一处理：<br>前端请求携带 Token，网关全局过滤器校验 Token 合法性，校验通过转发，不通过直接返回 401，下游服务无需重复鉴权。</p>
+<h3 id="Gateway-路由转发失败，怎么排查？"><a href="#Gateway-路由转发失败，怎么排查？" class="headerlink" title="Gateway 路由转发失败，怎么排查？"></a>Gateway 路由转发失败，怎么排查？</h3><p>① 查路由配置：路径匹配规则是否正确（比如路径少写 &#x2F;）；<br>② 查服务地址：转发的服务名是否在注册中心存在；<br>③ 查过滤器：是否有过滤器拦截了请求（比如鉴权失败）；<br>④ 查日志：开启 Gateway 日志，看转发的具体地址和错误信息。</p>
+<h2 id="Nacos"><a href="#Nacos" class="headerlink" title="Nacos"></a>Nacos</h2><h3 id="Nacos-服务注册发现的原理？"><a href="#Nacos-服务注册发现的原理？" class="headerlink" title="Nacos 服务注册发现的原理？"></a>Nacos 服务注册发现的原理？</h3><p>① 服务启动时，通过 Nacos Client 向 Nacos Server 注册（提交服务名、IP、端口）；<br>② Nacos Server 将服务信息存在注册表，同时和客户端建立长连接；<br>③ 服务消费者拉取注册表，本地缓存；<br>④ 服务上下线时，Nacos Server 主动推送变更给消费者，保证数据实时性。</p>
+<h3 id="Nacos-配置中心如何保证配置不丢失？"><a href="#Nacos-配置中心如何保证配置不丢失？" class="headerlink" title="Nacos 配置中心如何保证配置不丢失？"></a>Nacos 配置中心如何保证配置不丢失？</h3><p>① 单机模式：配置存在本地文件；<br>② 集群模式：配置持久化到 MySQL，同时 Nacos 节点间同步配置；<br>③ 客户端本地缓存：服务拉取配置后，本地会缓存一份，即使 Nacos 宕机，服务也能读取本地缓存启动。</p>
+<h3 id="微服务如何接入-Nacos-配置中心？"><a href="#微服务如何接入-Nacos-配置中心？" class="headerlink" title="微服务如何接入 Nacos 配置中心？"></a>微服务如何接入 Nacos 配置中心？</h3><p>只需要引入 nacos-config 依赖，配合 bootstrap.yml + @RefreshScope 即可。</p>
+<h2 id="Sentinel"><a href="#Sentinel" class="headerlink" title="Sentinel"></a>Sentinel</h2><h3 id="什么是服务熔断、服务降级？区别是什么？"><a href="#什么是服务熔断、服务降级？区别是什么？" class="headerlink" title="什么是服务熔断、服务降级？区别是什么？"></a>什么是服务熔断、服务降级？区别是什么？</h3><p>熔断：调用方的自我保护，下游服务异常时，暂时切断调用，防止雪崩（被动触发）<br>降级：全局策略，高并发下主动放弃非核心接口，返回兜底数据（主动触发）<br>关系：熔断后一定会执行降级逻辑</p>
+<h3 id="Sentinel-核心概念有哪些？"><a href="#Sentinel-核心概念有哪些？" class="headerlink" title="Sentinel 核心概念有哪些？"></a>Sentinel 核心概念有哪些？</h3><p>资源：被保护的对象（接口、方法）；<br>规则：限流 &#x2F; 熔断 &#x2F; 降级规则（比如 QPS 限流、异常比例熔断）；<br>插槽链（Slot Chain）：Sentinel 的核心执行链路，负责规则校验、统计、限流等；<br>兜底策略：触发规则后返回的结果（默认、自定义、降级调用）。<br>基于插槽链设计，请求依次经过：<br>资源定位→统计 QPS &#x2F; 异常→校验限流 &#x2F; 熔断规则→通过则放行，不通过则执行降级兜底。</p>
+<h3 id="Sentinel-如何做熔断降级？"><a href="#Sentinel-如何做熔断降级？" class="headerlink" title="Sentinel 如何做熔断降级？"></a>Sentinel 如何做熔断降级？</h3><p>① 配置熔断规则（比如异常比例 &gt; 50%、异常数 &gt; 10，熔断时长 5s）；<br>② 服务调用异常触发规则后，进入熔断状态，期间不调用目标服务；<br>③ 熔断时长结束后，进入半开状态，放少量请求测试，若正常则恢复，否则继续熔断。</p>
+<h3 id="如何用-Sentinel-实现接口限流？"><a href="#如何用-Sentinel-实现接口限流？" class="headerlink" title="如何用 Sentinel 实现接口限流？"></a>如何用 Sentinel 实现接口限流？</h3><p>① 引入 sentinel-spring-cloud-starter 依赖；<br>② 启动类加 @EnableDiscoveryClient（注册到 Nacos）；<br>③ 接口上加 @SentinelResource（指定资源名、兜底方法）；<br>④ 登录 Sentinel 控制台，给该资源配置限流规则（比如 QPS&#x3D;10）；<br>⑤ 触发限流时，自动执行兜底方法返回结果。</p>
+<h2 id="Seata分布式事务"><a href="#Seata分布式事务" class="headerlink" title="Seata分布式事务"></a>Seata分布式事务</h2><h3 id="微服务如何实现分布式事务？"><a href="#微服务如何实现分布式事务？" class="headerlink" title="微服务如何实现分布式事务？"></a>微服务如何实现分布式事务？</h3><p>主流方案：<br>① 最终一致性：Seata（AT 模式，无侵入，适合大多数场景）；<br>② 补偿机制：TCC（Try-Confirm-Cancel，手动写补偿逻辑，适合核心业务）；<br>③ 消息队列：本地消息表 + MQ，异步补偿，保证最终一致。</p>
+<h3 id="Seata-三种核心模式："><a href="#Seata-三种核心模式：" class="headerlink" title="Seata 三种核心模式："></a>Seata 三种核心模式：</h3><p>AT、TCC、SAGA，最常用的是 AT 模式。<br>AT 模式（自动模式，无侵入）<br>最常用、最简单，不用写业务代码，只加注解就能用。<br>原理就是自动拦截 SQL，帮你记录 undo_log，出问题自动回滚。<br>适合：单库分服务、普通业务场景，比如订单、库存、支付。<br>TCC 模式（手动模式，高性能）<br>一阶段 Try、二阶段 Confirm&#x2F;Cancel，需要自己写三个接口。<br>性能高、控制最细，但开发量大。<br>适合：不支持事务的数据库、Redis、第三方接口。<br>SAGA 模式（长事务模式）<br>适合流程很长、跨多个系统、耗时很久的业务，比如财务结算、跨企业流程。<br>靠补偿机制来回滚，不用锁资源。</p>
+<h3 id="项目里怎么使用"><a href="#项目里怎么使用" class="headerlink" title="项目里怎么使用"></a>项目里怎么使用</h3><p>搭建 Seata Server（TC 事务协调器）<br>单独部署，负责全局事务的提交与回滚，管理所有分支事务。<br>每个微服务引入 Seata 依赖，配置数据源代理<br>Seata 会自动代理数据源，无侵入式接管事务。<br>在发起方方法上加 @GlobalTransactional<br>比如开立医嘱这个接口，作为全局事务入口。<br>执行流程<br>开启全局事务，生成 XID；<br>调用订单、药品、收费服务，自动传递 XID；<br>所有服务执行成功 → 全局提交；<br>任意一个服务失败 &#x2F; 异常 → 全局回滚。</p>
+<h3 id="如何解决-Seata-分布式事务中的-XID-透传问题？"><a href="#如何解决-Seata-分布式事务中的-XID-透传问题？" class="headerlink" title="如何解决 Seata 分布式事务中的 XID 透传问题？"></a>如何解决 Seata 分布式事务中的 XID 透传问题？</h3><p>XID 是全局事务 ID，必须在微服务调用间透传，否则 Seata 无法识别全局事务：<br>① 用 OpenFeign 调用时，自定义拦截器，把 XID 从 ThreadLocal 取出来，放到请求头；<br>② 服务提供方拦截请求，从请求头取出 XID，设置到 ThreadLocal；<br>③ Dubbo 调用时，通过 Dubbo 的上下文传递 XID，原理和 Feign 一致。<br>微服务调用时，XID 会通过 RequestAttributes、RequestHeader 传递，OpenFeign&#x2F;Dubbo 都有自带的拦截器透传，一般不用自己手写。</p>
 
                 
             </div>
@@ -534,7 +547,19 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                                    <span class="chip bg-color">面试题</span>
+                                </a>
+                            
+                                <a href="/tags/SpringCloud/">
+                                    <span class="chip bg-color">SpringCloud</span>
+                                </a>
+                            
+                                <a href="/tags/SpringCloudAliBaBa/">
+                                    <span class="chip bg-color">SpringCloudAliBaBa</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -576,18 +601,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2026/03/10/%E9%9D%A2%E8%AF%95%E9%A2%98/SpringCloud+SpringCloudAliBaBa%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                <a href="/2026/03/10/%E9%9D%A2%E8%AF%95%E9%A2%98/MongoDB%E9%9D%A2%E8%AF%95%E9%A2%98/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="MongoDB面试题">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">MongoDB面试题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -597,18 +621,33 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-03-10
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-03-10
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            zrh
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
+                                    面试题
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                        <span class="chip bg-color">面试题</span>
+                    </a>
+                    
+                    <a href="/tags/MongoDB/">
+                        <span class="chip bg-color">MongoDB</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -623,9 +662,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="个人面试题">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">个人面试题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -640,11 +679,23 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            zrh
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
+                                    面试题
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%B8%AA%E4%BA%BA%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                        <span class="chip bg-color">个人面试题</span>
+                    </a>
+                    
                 </div>
                 
             </div>

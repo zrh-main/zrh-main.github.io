@@ -403,8 +403,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%AE%B9%E5%99%A8/" class="post-category">
-                                容器
+                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
+                                运维
                             </a>
                         
                     </div>
@@ -440,10 +440,137 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Docker 是容器化技术，核心是将应用及依赖打包成镜像，运行镜像生成容器，实现「一次打包，到处运行」，解决 Java 开发中环境不一致、部署繁琐的问题（比如你项目中 Linux 服务器部署时的 JDK、中间件版本兼容问题）。</p>
-<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><p><strong>镜像</strong>（Image）：只读的模板，包含运行应用的所有依赖（JDK、Redis、项目 jar 包等），镜像不能直接运行，是创建容器的基础。<br><strong>容器（Container）</strong>：镜像的运行实例，可启动、停止、删除，每个容器是独立的隔离环境（类似轻量级虚拟机，但比虚拟机更高效，无内核级虚拟化）；比如运行 Java 项目镜像，生成的就是一个独立的项目容器。<br><strong>仓库（Repository）</strong>：存储镜像的地方，分公有仓库和私有仓库;<br>公有：Docker Hub（官方）、阿里云镜像仓库、华为云镜像仓库（国内推荐，速度快）；<br>私有：公司内部搭建的镜像仓库（比如你项目中团队内部的镜像私服），用于存储公司自研项目镜像。<br><strong>Dockerfile</strong>：构建自定义镜像的配置文件，通过编写指令（指定基础镜像、复制文件、执行命令等），让 Docker 自动构建符合需求的镜像（Java 开发最核心的实战技能，重点掌握）</p>
-<h2 id="Docker-与虚拟机的区别"><a href="#Docker-与虚拟机的区别" class="headerlink" title="Docker 与虚拟机的区别"></a>Docker 与虚拟机的区别</h2><p>我们项目中用 Docker 部署微服务和中间件，相比虚拟机，Docker 启动快、资源占用低，能快速搭建 Spring Cloud Alibaba 微服务集群，而且镜像统一管理，解决了开发、测试、生产环境不一致的问题，提升了部署效率。</p>
+                <h2 id="Docker-与虚拟机的区别"><a href="#Docker-与虚拟机的区别" class="headerlink" title="Docker 与虚拟机的区别"></a>Docker 与虚拟机的区别</h2><p>我们项目中用 Docker 部署微服务和中间件，相比虚拟机，Docker 启动快、资源占用低，能快速搭建 Spring Cloud Alibaba 微服务集群，而且镜像统一管理，解决了开发、测试、生产环境不一致的问题，提升了部署效率。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Docker 是容器化技术，核心是将应用及依赖打包成镜像，运行镜像生成容器，实现「一次打包，到处运行」</p>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>解决 Java 开发中环境不一致、部署繁琐的问题</p>
+<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><h3 id="镜像（Image）"><a href="#镜像（Image）" class="headerlink" title="镜像（Image）"></a>镜像（Image）</h3><p>只读的模板，包含运行应用的所有依赖（JDK、Redis、项目 jar 包等），镜像不能直接运行，是创建容器的基础。<br>相当于 “安装包 &#x2F; 系统镜像”，比如 MySQL 镜像、Redis 镜像、你的 Java 项目镜像。</p>
+<h3 id="容器（Container）"><a href="#容器（Container）" class="headerlink" title="容器（Container）"></a>容器（Container）</h3><p>镜像的运行实例，相当于 “正在运行的软件”。可启动、停止、删除，每个容器是独立的隔离环境（类似轻量级虚拟机，但比虚拟机更高效，无内核级虚拟化）；比如运行 Java 项目镜像，生成的就是一个独立的项目容器。</p>
+<h3 id="仓库（Repository）"><a href="#仓库（Repository）" class="headerlink" title="仓库（Repository）"></a>仓库（Repository）</h3><p>存储镜像的地方，分公有仓库和私有仓库;<br>公有：Docker Hub（官方）、阿里云镜像仓库、华为云镜像仓库（国内推荐，速度快）；<br>私有：公司内部搭建的镜像仓库（比如你项目中团队内部的镜像私服），用于存储公司自研项目镜像。</p>
+<h3 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h3><p>用来把你的 SpringBoot 项目打包成镜像的脚本。<br>构建自定义镜像的配置文件，通过编写指令（指定基础镜像、复制文件、执行命令等），让 Docker 自动构建符合需求的镜像</p>
 <h2 id="Docker-操作模块划分"><a href="#Docker-操作模块划分" class="headerlink" title="Docker 操作模块划分"></a>Docker 操作模块划分</h2><p>镜像操作→容器操作→网络操作→数据卷操作</p>
+<h2 id="Java-开发最常用命令"><a href="#Java-开发最常用命令" class="headerlink" title="Java 开发最常用命令"></a>Java 开发最常用命令</h2><h3 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> images<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="查看正在运行的容器"><a href="#查看正在运行的容器" class="headerlink" title="查看正在运行的容器"></a>查看正在运行的容器</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token function">ps</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="查看所有容器（包括停掉的）"><a href="#查看所有容器（包括停掉的）" class="headerlink" title="查看所有容器（包括停掉的）"></a>查看所有容器（包括停掉的）</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token function">ps</span> <span class="token parameter variable">-a</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="拉取镜像（以-MySQL-8-为例）"><a href="#拉取镜像（以-MySQL-8-为例）" class="headerlink" title="拉取镜像（以 MySQL 8 为例）"></a>拉取镜像（以 MySQL 8 为例）</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> pull mysql:8.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="启动一个容器（最常用）"><a href="#启动一个容器（最常用）" class="headerlink" title="启动一个容器（最常用）"></a>启动一个容器（最常用）</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">-p</span> <span class="token number">3306</span>:3306 <span class="token parameter variable">--name</span> mysql <span class="token parameter variable">-e</span> <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span><span class="token number">123456</span> mysql:8.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>解释：<br>-d 后台运行<br>-p 宿主机端口:容器端口<br>–name 容器名字<br>-e 环境变量（密码、配置）</p>
+<h3 id="停止容器"><a href="#停止容器" class="headerlink" title="停止容器"></a>停止容器</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> stop mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="启动已存在的容器"><a href="#启动已存在的容器" class="headerlink" title="启动已存在的容器"></a>启动已存在的容器</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> start mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="删除容器"><a href="#删除容器" class="headerlink" title="删除容器"></a>删除容器</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token function">rm</span> mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> rmi mysql:8.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="进入容器内部（比如进-MySQL-命令行）"><a href="#进入容器内部（比如进-MySQL-命令行）" class="headerlink" title="进入容器内部（比如进 MySQL 命令行）"></a>进入容器内部（比如进 MySQL 命令行）</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> mysql <span class="token function">bash</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="Java开发环境搭建"><a href="#Java开发环境搭建" class="headerlink" title="Java开发环境搭建"></a>Java开发环境搭建</h2><h3 id="MySQL-8-0"><a href="#MySQL-8-0" class="headerlink" title="MySQL 8.0"></a>MySQL 8.0</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">-p</span> <span class="token number">3306</span>:3306 <span class="token punctuation">\</span>
+  <span class="token parameter variable">--name</span> mysql <span class="token punctuation">\</span>
+  <span class="token parameter variable">-e</span> <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span><span class="token number">123456</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token punctuation">\</span>
+  mysql:8.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">-p</span> <span class="token number">6379</span>:6379 <span class="token punctuation">\</span>
+  <span class="token parameter variable">--name</span> redis <span class="token punctuation">\</span>
+  <span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token punctuation">\</span>
+  redis:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Nacos（微服务必用）"><a href="#Nacos（微服务必用）" class="headerlink" title="Nacos（微服务必用）"></a>Nacos（微服务必用）</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">-p</span> <span class="token number">8848</span>:8848 <span class="token punctuation">\</span>
+  <span class="token parameter variable">-p</span> <span class="token number">9848</span>:9848 <span class="token punctuation">\</span>
+  <span class="token parameter variable">--name</span> nacos <span class="token punctuation">\</span>
+  <span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token punctuation">\</span>
+  nacos/nacos-server<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a>RabbitMQ</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">-p</span> <span class="token number">5672</span>:5672 <span class="token punctuation">\</span>
+  <span class="token parameter variable">-p</span> <span class="token number">15672</span>:15672 <span class="token punctuation">\</span>
+  <span class="token parameter variable">--name</span> rabbitmq <span class="token punctuation">\</span>
+  <span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token punctuation">\</span>
+  rabbitmq:3-management<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>启动完直接用本地连接：<br>MySQL：localhost:3306<br>Redis：localhost:6379<br>Nacos：localhost:8848&#x2F;nacos<br>RabbitMQ 控制台：localhost:15672</p>
+<h2 id="项目打包"><a href="#项目打包" class="headerlink" title="项目打包"></a>项目打包</h2><ol>
+<li>项目根目录新建 Dockerfile<br>dockerfile<br>FROM openjdk:17-jdk-slim<br>WORKDIR &#x2F;app<br>COPY target&#x2F;*.jar app.jar<br>EXPOSE 8080<br>ENTRYPOINT [“java”, “-jar”, “app.jar”]</li>
+<li>先打包 jar<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mvn clean package <span class="token parameter variable">-DskipTests</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>构建镜像<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> build <span class="token parameter variable">-t</span> my-java-app:1.0 <span class="token builtin class-name">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>运行<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">-p</span> <span class="token number">8080</span>:8080 <span class="token parameter variable">--name</span> myapp my-java-app:1.0
+<span class="token comment">#访问：http://localhost:8080</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="docker-compose（微服务必学）"><a href="#docker-compose（微服务必学）" class="headerlink" title="docker-compose（微服务必学）"></a>docker-compose（微服务必学）</h2><p>新建 docker-compose.yml</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">'3.8'</span>
+
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">mysql</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> mysql<span class="token punctuation">:</span><span class="token number">8.0</span>
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"3306:3306"</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">MYSQL_ROOT_PASSWORD</span><span class="token punctuation">:</span> <span class="token number">123456</span>
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+
+  <span class="token key atrule">redis</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> redis
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"6379:6379"</span>
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+
+  <span class="token key atrule">myapp</span><span class="token punctuation">:</span>
+    <span class="token key atrule">build</span><span class="token punctuation">:</span> .
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">"8080:8080"</span>
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> mysql
+      <span class="token punctuation">-</span> redis<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>一条命令启动所有：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker-compose</span> up <span class="token parameter variable">-d</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>停掉：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker-compose</span> down<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h2 id="镜像操作命令（核心：拉、查、建、删、推）"><a href="#镜像操作命令（核心：拉、查、建、删、推）" class="headerlink" title="镜像操作命令（核心：拉、查、建、删、推）"></a>镜像操作命令（核心：拉、查、建、删、推）</h2><p>命令	功能说明	实战示例<br>docker pull 镜像名:版本	拉取镜像（版本不写默认 latest 最新版）	docker pull openjdk:8-jdk-alpine（拉 Java8 镜像）、docker pull redis:6.2<br>docker images	查看本地所有镜像（含镜像名、版本、ID、大小）	直接执行，查看已拉取的镜像<br>docker rmi 镜像ID&#x2F;镜像名:版本	删除本地镜像（-f 强制删除，镜像被容器使用时需先删容器）	docker rmi openjdk:8-jdk-alpine、docker rmi -f 镜像ID<br>docker build -t 镜像名:版本 .	基于当前目录的 Dockerfile 构建自定义镜像（-t 指定镜像名和版本，.是 Dockerfile 所在目录）	docker build -t stock-system:1.0 .（构建航天云膜库存系统镜像）<br>docker tag 原镜像名:版本 新镜像名:版本	给镜像打标签（用于推送到仓库）	docker tag stock-system:1.0 registry.xxx.com&#x2F;stock-system:1.0<br>docker push 镜像名:版本	推送镜像到仓库（需先登录仓库）	docker push registry.xxx.com&#x2F;stock-system:1.0<br>docker search 镜像名	搜索仓库中的镜像（仅查信息，不推荐用，直接去 Docker Hub 搜更全）	docker search mysql<br>高频技巧：docker images -q 只显示镜像 ID，配合删除命令批量删镜像：docker rmi -f $(docker images -q)（谨慎使用，删所有本地镜像）</p>
 <h2 id="容器操作命令（核心：创、启、查、停、删、进）"><a href="#容器操作命令（核心：创、启、查、停、删、进）" class="headerlink" title="容器操作命令（核心：创、启、查、停、删、进）"></a>容器操作命令（核心：创、启、查、停、删、进）</h2><p>核心语法：docker run [参数] 镜像名:版本 → 创建并启动容器，参数是重点，熟记常用参数！<br>核心运行参数（Java 项目部署必用，标注含义）<br>参数	含义<br>-d	后台运行容器（守护进程模式，生产环境必用）<br>-p	端口映射：宿主机端口：容器内端口（解决外部访问容器问题，Java 项目必配）<br>-v	数据卷挂载：宿主机目录 &#x2F; 数据卷名：容器内目录（持久化数据，比如 MySQL 数据、项目日志）<br>–name	给容器指定自定义名称（方便管理，避免随机名称）<br>–restart&#x3D;always	容器开机自启（生产环境必配，服务器重启后容器自动启动）<br>-e	设置容器内环境变量（比如 MySQL 的 ROOT 密码、Java 的 JVM 参数）<br>-it	交互式运行容器（进入容器终端，测试用）</p>
 <p>常用容器命令（实战高频）<br>命令	功能说明	实战示例（航天云膜库存系统）<br>docker run -d -p 8080:8080 –name stock-system –restart&#x3D;always stock-system:1.0	创建并后台运行 Java 项目容器，映射 8080 端口，指定名称，开机自启	核心命令，部署 Spring Boot 项目用<br>docker ps	查看运行中的容器（含容器 ID、名称、端口映射、镜像名）	直接执行，查看正在运行的服务<br>docker ps -a	查看所有容器（含运行中、已停止的）	查看容器启动记录，排查启动失败问题<br>docker start&#x2F;stop 容器ID&#x2F;容器名	启动 &#x2F; 停止容器	docker start stock-system、docker stop stock-system<br>docker restart 容器ID&#x2F;容器名	重启容器（项目更新配置、重启服务用）	docker restart stock-system<br>docker rm 容器ID&#x2F;容器名	删除容器（-f 强制删除运行中的容器）	docker rm -f stock-system<br>docker exec -it 容器ID&#x2F;容器名 &#x2F;bin&#x2F;bash	进入容器内部终端（排查容器内问题，比如查看日志、验证文件）	docker exec -it stock-system &#x2F;bin&#x2F;bash<br>docker logs 容器ID&#x2F;容器名	查看容器日志（-f 实时查看日志，Java 项目排错核心命令）	docker logs -f stock-system（实时看项目运行日志）<br>docker inspect 容器ID&#x2F;容器名	查看容器详细信息（比如容器内 IP、挂载目录、环境变量）	排查网络、挂载问题时用</p>
@@ -616,7 +743,7 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2026/03/03/docker/%E7%AE%80%E4%BB%8B/">
+                <a href="/2026/03/03/dubbo/%E7%AE%80%E4%BB%8B/">
                     <div class="card-image">
                         
                         
@@ -650,8 +777,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/docker/">
-                        <span class="chip bg-color">docker</span>
+                    <a href="/tags/dubbo/">
+                        <span class="chip bg-color">dubbo</span>
                     </a>
                     
                 </div>

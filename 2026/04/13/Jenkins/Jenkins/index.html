@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="数据库面试题, ZRH博客,zrh博客">
+    <meta name="keywords" content="Jenkins, ZRH博客,zrh博客">
     <meta name="description" content="ZRH的个人博客,记录个人笔记">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>数据库面试题 | ZRH博客</title>
+    <title>Jenkins | ZRH博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -266,12 +266,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">数据库面试题</h1>
+                    <h1 class="description center-align post-title">Jenkins</h1>
                 </div>
             </div>
         </div>
@@ -387,12 +387,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
-                                <span class="chip bg-color">面试题</span>
+                            <a href="/tags/Jenkins/">
+                                <span class="chip bg-color">Jenkins</span>
                             </a>
                         
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                <span class="chip bg-color">数据库</span>
+                            <a href="/tags/%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E9%83%A8%E7%BD%B2/">
+                                <span class="chip bg-color">自动打包部署</span>
                             </a>
                         
                     </div>
@@ -403,8 +403,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
-                                面试题
+                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
+                                运维
                             </a>
                         
                     </div>
@@ -416,7 +416,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2026-03-03
+                    2026-04-13
                 </div>
                 
 
@@ -440,55 +440,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><p>​什么是 Redis？<br>​定位：开源的内存数据结构存储系统，支持多种数据类型（字符串、哈希、列表、集合、有序集合）。<br>​特点：高性能（单线程模型）、支持持久化、原子操作、丰富的数据结构。<br>​应用场景：缓存、消息队列、实时排行榜、分布式锁、计数器等</p>
-<h3 id="Redis-支持哪些数据类型"><a href="#Redis-支持哪些数据类型" class="headerlink" title="Redis 支持哪些数据类型"></a>Redis 支持哪些数据类型</h3><p>字符串（String）​：最基本类型，最大 512MB。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">SET key value
-GET key<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+                <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Jenkins是基于Java开发的持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。</p>
+<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>拉代码（Git）<br>编译打包（Maven）<br>测试（可选）<br>上传到服务器<br>重启服务<br>发通知</p>
+<p>超简版 Jenkins 教程（后端专用，10 分钟学会）<br>第 1 步：进入项目<br>点你的服务名，例如：xxx-api、xxx-service<br>第 2 步：立即构建<br>点左边 立即构建<br>→ 自动打包部署<br>第 3 步：看结果<br>蓝色：成功<br>红色：失败 → 点构建号 → 控制台输出<br>第 4 步：看配置（学习别人怎么写）<br>点左侧 配置<br>重点看两块：<br>源码管理：Git 地址<br>构建：Maven 命令<br>构建后：上传 jar + 执行脚本</p>
 
-<p>​哈希（Hash）​：键值对的集合，适合存储对象。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">HSET user:1 name <span class="token string">"Alice"</span> age <span class="token number">25</span>
-HGETALL user:1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>​列表（List）​：双端链表，支持 push&#x2F;pop 操作。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">LPUSH list <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span>
-LRANGE list <span class="token number">0</span> <span class="token parameter variable">-1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>​集合（Set）​：无序不重复元素集合，支持交集、并集等操作。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">SADD <span class="token builtin class-name">set</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span>
-SMEMBERS <span class="token builtin class-name">set</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>​有序集合（Sorted Set）​：元素按分数排序，适合排行榜。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ZADD scoreboard <span class="token number">90</span> <span class="token string">"Alice"</span> <span class="token number">85</span> <span class="token string">"Bob"</span>
-ZRANGE scoreboard <span class="token number">0</span> <span class="token parameter variable">-1</span> WITHSCORES<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3 id="如何用-Redis-实现分布式锁"><a href="#如何用-Redis-实现分布式锁" class="headerlink" title="如何用 Redis 实现分布式锁"></a>如何用 Redis 实现分布式锁</h3><p>RedLock 算法：基于多个独立 Redis 实例的分布式锁。<br>​步骤：<br>获取当前时间戳。<br>依次向多个 Redis 实例尝试获取锁（使用 SETNX）。<br>计算获取锁的总耗时，若小于锁的有效时间（如 10 秒），则认为获取成功。<br>释放锁时，需向所有实例发送释放命令。<br>Java + Redisson</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">RLock lock &#x3D; redissonClient.getLock(&quot;myLock&quot;);
-boolean isLocked &#x3D; lock.tryLock(10, TimeUnit.SECONDS);
-if (isLocked) &#123;
-    try &#123;
-        &#x2F;&#x2F; 业务逻辑
-    &#125; finally &#123;
-        lock.unlock();
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="持久化机制"><a href="#持久化机制" class="headerlink" title="持久化机制"></a>持久化机制</h3><p>RDB 和 AOF 的区别？<br> | ​对比维度	|​RDB（Redis Database）​	|​AOF（Append-Only File）​|<br> | ​原理|	定期生成数据快照（fork 子进程写入磁盘）	|记录每个写操作日志（append 模式追加）|<br> | ​文件大小|	较小（仅保存某个时间点的数据）	|较大（所有写操作日志累积）|<br> | ​恢复速度	|快（直接加载快照）|	慢（需重放所有日志）|<br> | ​数据完整性	|可能丢失最后一次快照后的数据	|最多丢失 1 秒内的数据（取决于刷盘策略）|<br> | ​适用场景	|全量备份、灾难恢复	|实时持久化、数据零丢失|<br>配置 AOF 持久化:在配置文件redis.conf中配置</p>
-<h3 id="事务与并发控制"><a href="#事务与并发控制" class="headerlink" title="事务与并发控制"></a>事务与并发控制</h3><h4 id="Redis-事务如何保证原子性？"><a href="#Redis-事务如何保证原子性？" class="headerlink" title="Redis 事务如何保证原子性？"></a>Redis 事务如何保证原子性？</h4><p>​MULTI&#x2F;EXEC：将多个命令打包成一个事务，要么全部执行，要么全部失败。</p>
-<pre class="line-numbers language-Bash" data-language="Bash"><code class="language-Bash">MULTI
-SET key1 value1
-SET key2 value2
-EXEC<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>​WATCH 命令：监控某个键，若在事务执行前被修改，则事务取消。</p>
-<pre class="line-numbers language-Bash" data-language="Bash"><code class="language-Bash">WATCH key
-MULTI
-...  # 若 key 被修改，事务不会执行
-EXEC<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="Redis-是否支持回滚？"><a href="#Redis-是否支持回滚？" class="headerlink" title="Redis 是否支持回滚？"></a>Redis 是否支持回滚？</h4><p>​不支持传统回滚：Redis 事务不提供 ROLLBACK，若某条命令失败，后续命令仍会执行。<br>​替代方案：通过乐观锁（WATCH）或 Lua 脚本实现原子性操作</p>
-<h3 id="常见问题与陷阱"><a href="#常见问题与陷阱" class="headerlink" title="常见问题与陷阱"></a>常见问题与陷阱</h3><p>​为什么 Redis 是单线程的？<br>​原因：避免多线程竞争带来的锁开销，简化内存操作。<br>​性能瓶颈：受限于 CPU 单核性能，可通过集群横向扩展。</p>
-<p>​如何避免缓存穿透？<br>​缓存空值：对不存在的 Key 也缓存空值，设置较短过期时间。<br>使用布隆过滤器（Bloom Filter）拦截非法 Key。<br>​如何解决缓存雪崩？<br>​原因：大量缓存 Key 同时失效，导致数据库压力骤增。<br>​解决方案：<br>设置随机过期时间。<br>使用二级缓存（本地缓存 + Redis）。<br>限流降级（如 Sentinel）。</p>
-<h2 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h2><p>​什么是 MongoDB？<br>​定位：面向文档的 NoSQL 数据库，以 BSON（二进制 JSON）格式存储数据，支持动态模式（Schema-less）。<br>​特点：<br>灵活的数据模型（文档、数组、嵌套结构）。<br>高可扩展性（分片集群支持水平扩展）。<br>支持复杂查询和聚合操作。<br>​应用场景：内容管理系统、实时日志分析、物联网数据存储、用户行为分析等</p>
-<h3 id="​常用查询操作符"><a href="#​常用查询操作符" class="headerlink" title="​常用查询操作符"></a>​常用查询操作符</h3><p>​比较操作符：$eq（等于）、$gt（大于）、$in（在列表中）。<br>​逻辑操作符：$and、$or、$not。<br>​正则表达式：{ name: { $regex: &#x2F;^A&#x2F; } }（匹配以 A 开头的名称）。<br>​范围查询：{ date: { $gte: ISODate(“2023-01-01”) } }</p>
-<h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2>
                 
             </div>
             <hr/>
@@ -514,7 +469,7 @@ EXEC<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://zrh-main.github.io/2026/03/03/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E8%AF%95%E9%A2%98/">https://zrh-main.github.io/2026/03/03/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E8%AF%95%E9%A2%98/</a>
+                    <a href="https://zrh-main.github.io/2026/04/13/Jenkins/Jenkins/">https://zrh-main.github.io/2026/04/13/Jenkins/Jenkins/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -552,12 +507,12 @@ EXEC<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
-                                    <span class="chip bg-color">面试题</span>
+                                <a href="/tags/Jenkins/">
+                                    <span class="chip bg-color">Jenkins</span>
                                 </a>
                             
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                    <span class="chip bg-color">数据库</span>
+                                <a href="/tags/%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E9%83%A8%E7%BD%B2/">
+                                    <span class="chip bg-color">自动打包部署</span>
                                 </a>
                             
                         </div>
@@ -601,17 +556,18 @@ EXEC<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2026/03/03/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                <a href="/2026/04/13/Jenkins/Jenkins/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="前端面试题">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Jenkins">
                         
-                        <span class="card-title">前端面试题</span>
+                        <span class="card-title">Jenkins</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -621,30 +577,31 @@ EXEC<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2026-03-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-04-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
-                                    面试题
+                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
+                                    运维
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
-                        <span class="chip bg-color">面试题</span>
+                    <a href="/tags/Jenkins/">
+                        <span class="chip bg-color">Jenkins</span>
                     </a>
                     
-                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
-                        <span class="chip bg-color">前端</span>
+                    <a href="/tags/%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E9%83%A8%E7%BD%B2/">
+                        <span class="chip bg-color">自动打包部署</span>
                     </a>
                     
                 </div>
@@ -658,13 +615,13 @@ EXEC<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2026/03/03/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                <a href="/2026/03/10/%E9%9D%A2%E8%AF%95%E9%A2%98/MongoDB%E9%9D%A2%E8%AF%95%E9%A2%98/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="数据结构面试题">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="MongoDB面试题">
                         
-                        <span class="card-title">数据结构面试题</span>
+                        <span class="card-title">MongoDB面试题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -675,7 +632,7 @@ EXEC<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-03-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-03-10
                             </span>
                         <span class="publish-author">
                             
@@ -696,8 +653,8 @@ EXEC<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
                         <span class="chip bg-color">面试题</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="chip bg-color">数据结构</span>
+                    <a href="/tags/MongoDB/">
+                        <span class="chip bg-color">MongoDB</span>
                     </a>
                     
                 </div>

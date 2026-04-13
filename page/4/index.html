@@ -368,57 +368,6 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2026/03/03/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B(%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84)/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Redis数据类型">
-                            
-                            <span class="card-title">Redis数据类型</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                redis存储的是：key,value格式的数据，其中key都是字符串，value有5种不同的数据结构
-字符串 string
-SET key value   设置 key 的值
-GET key         获取 key 的值
-DEL k
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-03-03
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Redis/">
-                            <span class="chip bg-color">Redis</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
                     <a href="/2026/03/03/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%20%20%E5%A4%9A%E8%A1%A8/">
                         <div class="card-image">
                             
@@ -571,22 +520,24 @@ CREATE TEMPORARY TABL
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2026/03/03/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%20%E4%BC%98%E5%8C%96%E6%8A%80%E5%B7%A7/">
+                    <a href="/2026/03/03/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%20%E5%85%B6%E5%AE%83/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="MySQL 优化技巧">
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="MySQL 常用语句">
                             
-                            <span class="card-title">MySQL 优化技巧</span>
+                            <span class="card-title">MySQL 常用语句</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                代替in的方式使用IN查询连续的数
-SELECT *FROM tWHERE cid IN(955555, 955556, 955557, 955558, 955559);
-41 rows in set (0.15 sec)使用IN查询不连续
+                                数据库范式NF(规范)概述  满足一些规则来优化数据库的设计和存储，这些规则我们称为范式
+范式说明第一范式:
+
+(列原子性)数据库表的每列都是不可分割的原子数据项，而不能是集合，数组等非原子数据项第二范式:
+(列唯一性)在第一范式的基础上建
                             
                         </div>
                         <div class="publish-info">
@@ -620,24 +571,22 @@ SELECT *FROM tWHERE cid IN(955555, 955556, 955557, 955558, 955559);
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2026/03/03/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%20%E5%85%B6%E5%AE%83/">
+                    <a href="/2026/03/03/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%20%E4%BC%98%E5%8C%96%E6%8A%80%E5%B7%A7/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="MySQL 常用语句">
+                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="MySQL 优化技巧">
                             
-                            <span class="card-title">MySQL 常用语句</span>
+                            <span class="card-title">MySQL 优化技巧</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                数据库范式NF(规范)概述  满足一些规则来优化数据库的设计和存储，这些规则我们称为范式
-范式说明第一范式:
-
-(列原子性)数据库表的每列都是不可分割的原子数据项，而不能是集合，数组等非原子数据项第二范式:
-(列唯一性)在第一范式的基础上建
+                                代替in的方式使用IN查询连续的数
+SELECT *FROM tWHERE cid IN(955555, 955556, 955557, 955558, 955559);
+41 rows in set (0.15 sec)使用IN查询不连续
                             
                         </div>
                         <div class="publish-info">
@@ -931,6 +880,56 @@ manifest 文件是插件的配置文件，只有在该 json 文件中增加了�
                         
                         <a href="/tags/%E7%BD%91%E7%BB%9C/">
                             <span class="chip bg-color">网络</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2026/03/03/%E4%B8%9A%E5%8A%A1/%E7%99%BB%E5%BD%95/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="单点登录">
+                            
+                            <span class="card-title">单点登录</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                登录问题传统登录,保存在session中;解决方案:session共享,问题:用户量大,内存溢出
+单点登录简称sso,sso:在多个应用系统中,用户只需要登录一次就可以访问所有相互信任的应用系统
+技术实现:
+CAS(免费开源) + Spri
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-03-03
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E7%99%BB%E5%BD%95/">
+                            <span class="chip bg-color">登录</span>
                         </a>
                         
                     </div>
