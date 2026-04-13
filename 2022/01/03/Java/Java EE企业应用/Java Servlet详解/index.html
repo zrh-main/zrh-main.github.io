@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -428,6 +428,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -468,7 +471,7 @@
 <li><strong><font color="red" size="4.8">Servlet类型的类都是单例模式,每个类都只能有一个实例,存在线程安全问题</font></strong></li>
 <li><strong><font color="red" size="4.8">避免在Servlet中定义成员变量</font></strong></li>
 </ul>
-<h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><p>Servlet容器(tomcat)将Servlet类载入内存，使用反射生成Servlet实例并调用它具体的方法<br><img src="/.io//tomcat%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6.gif"></p>
+<h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><p>Servlet容器(tomcat)将Servlet类载入内存，使用反射生成Servlet实例并调用它具体的方法<br><img src="/tomcat%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6.gif"></p>
 <h2 id="Servlet-的生命周期"><a href="#Servlet-的生命周期" class="headerlink" title="Servlet 的生命周期"></a>Servlet 的生命周期</h2><ul>
 <li><code>void init()</code>：初始化方法，在第一次访问时执行，只执行1次<ul>
 <li>可以来执行初始化工作。调用这个方法时，Servlet容器会传入一个ServletConfig对象从而对Servlet对象进行初始化</li>
@@ -484,9 +487,22 @@
 </li>
 </ul>
 <h2 id="Servlet-映射"><a href="#Servlet-映射" class="headerlink" title="Servlet 映射"></a>Servlet 映射</h2><ul>
-<li>方式一<br><code>web.xml</code>中配置<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Servlet --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- Servlet服务名 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>/demo1<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- Servlet类的全限定名 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>cn.dy.servlet.ServletDemo1<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Servlet映射 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- Servlet服务名 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>/demo1<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- Servlet服务地址 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/demo222<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li>方式一<br><code>web.xml</code>中配置<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!-- Servlet --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet</span><span class="token punctuation">></span></span>
+  <span class="token comment">&lt;!-- Servlet服务名 --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-name</span><span class="token punctuation">></span></span>/demo1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-name</span><span class="token punctuation">></span></span>
+  <span class="token comment">&lt;!-- Servlet类的全限定名 --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-class</span><span class="token punctuation">></span></span>cn.dy.servlet.ServletDemo1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-class</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!-- Servlet映射 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-mapping</span><span class="token punctuation">></span></span>
+  <span class="token comment">&lt;!-- Servlet服务名 --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-name</span><span class="token punctuation">></span></span>/demo1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-name</span><span class="token punctuation">></span></span>
+  <span class="token comment">&lt;!-- Servlet服务地址 --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url-pattern</span><span class="token punctuation">></span></span>/demo222<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url-pattern</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-mapping</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <strong><font color="red"><code>servlet</code>与<code>servlet-mapping</code>中的<code>servlet-name</code>必须一致</font></strong></li>
-<li>方式二<br>servlet3.0后，支持类注解配置URL映射:<code>@webServlet(&quot;/访问路径&quot;)</code><br><img src="/.io//@WebServlet%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7.png"><br>使用方式:<br>  <code>@webServlet(urlPatterns=&#123;访问路径1,访问路径2&#125;)</code><br>  <code>@webServlet(value=&#123;访问路径1,访问路径2&#125;)</code>value可以简写可以省略</li>
+<li>方式二<br>servlet3.0后，支持类注解配置URL映射:<code>@webServlet(&quot;/访问路径&quot;)</code><br><img src="/@WebServlet%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7.png"><br>使用方式:<br>  <code>@webServlet(urlPatterns=&#123;访问路径1,访问路径2&#125;)</code><br>  <code>@webServlet(value=&#123;访问路径1,访问路径2&#125;)</code>value可以简写可以省略</li>
 </ul>
 <h2 id="Servlet体系结构及使用"><a href="#Servlet体系结构及使用" class="headerlink" title="Servlet体系结构及使用"></a>Servlet体系结构及使用</h2><ul>
 <li><code>Servlet</code>接口<ul>
@@ -588,10 +604,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -626,13 +642,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/01/03/Java/Java%20EE%E4%BC%81%E4%B8%9A%E5%BA%94%E7%94%A8/Java%20Filter%E8%BF%87%E6%BB%A4%E5%99%A8/">
+                <a href="/2022/01/03/Java/Java%20EE%E4%BC%81%E4%B8%9A%E5%BA%94%E7%94%A8/Java%20ServletContext%E8%AF%A6%E8%A7%A3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Java Filter">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="ServletContext详解">
                         
-                        <span class="card-title">Java Filter</span>
+                        <span class="card-title">ServletContext详解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -904,25 +920,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -952,7 +979,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

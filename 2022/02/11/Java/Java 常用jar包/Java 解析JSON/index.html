@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -428,6 +428,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -440,9 +443,37 @@
 <p>jackson-core，核心包，提供基于”流模式”解析的相关 API，它包括 JsonPaser 和 JsonGenerator。 Jackson 内部实现正是通过高性能的流模式 API 的 JsonGenerator 和 JsonParser 来生成和解析 json<br>jackson-annotations，注解包，提供标准注解功能；<br>jackson-databind ，数据绑定包， 提供基于”对象绑定” 解析的相关 API （ ObjectMapper ） 和”树模型” 解析的相关 API （JsonNode）；基于”对象绑定” 解析的 API 和”树模型”解析的 API 依赖基于”流模式”解析的 API</p>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>Jackson 最常用的 API 是基于”对象绑定” 的 ObjectMapper：</p>
 <p>ObjectMapper可以从字符串，流或文件中解析JSON，并创建表示已解析的JSON的Java对象。<code>将JSON解析为Java对象也称为从JSON反序列化Java对象</code><br>ObjectMapper也可以从Java对象创建JSON。<code>从Java对象生成JSON也称为将Java对象序列化为JSON</code><br>Object映射器可以将JSON解析为自定义的类的对象，也可以解析置JSON树模型的对象<br>之所以称为ObjectMapper是因为它将JSON映射到Java对象（反序列化），或者将Java对象映射到JSON（序列化）</p>
-<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Car类：</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Car</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">String</span> <span class="variable">brand</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="variable">doors</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getBrand</span><span class="params">()</span> &#123; <span class="keyword">return</span> <span class="built_in">this</span>.brand; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span>   <span class="title function_">setBrand</span><span class="params">(String brand)</span>&#123; <span class="built_in">this</span>.brand = brand;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>  <span class="title function_">getDoors</span><span class="params">()</span> &#123; <span class="keyword">return</span> <span class="built_in">this</span>.doors; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setDoors</span> <span class="params">(<span class="type">int</span> doors)</span> &#123; <span class="built_in">this</span>.doors = doors; &#125;</span><br><span class="line">&#125;</span><br><span class="line">将Json转换为Car类对象：</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Run</span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String [] args)</span>&#123;</span><br><span class="line">    <span class="type">ObjectMapper</span> <span class="variable">objectMapper</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectMapper</span>();</span><br><span class="line">    <span class="type">String</span> <span class="variable">carJson</span> <span class="operator">=</span><span class="string">&quot;&#123; \&quot;brand\&quot; : \&quot;Mercedes\&quot;, \&quot;doors\&quot; : 5 &#125;&quot;</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">Car</span> <span class="variable">car</span> <span class="operator">=</span> objectMapper.readValue(carJson, Car.class);</span><br><span class="line">        System.out.println(<span class="string">&quot;car brand = &quot;</span> + car.getBrand());</span><br><span class="line">        System.out.println(<span class="string">&quot;car doors = &quot;</span> + car.getDoors());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">JSON字符串--&gt;Java对象</span><br><span class="line">调用ObjectMapper的相关方法进行转换</span><br><span class="line">			<span class="number">1.</span> readValue(json字符串数据,Class)</span><br></pre></td></tr></table></figure>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">Car类：
+public class Car &#123;
+    private String brand &#x3D; null;
+    private int doors &#x3D; 0;
+    public String getBrand() &#123; return this.brand; &#125;
+    public void   setBrand(String brand)&#123; this.brand &#x3D; brand;&#125;
+    public int  getDoors() &#123; return this.doors; &#125;
+    public void setDoors (int doors) &#123; this.doors &#x3D; doors; &#125;
+&#125;
+将Json转换为Car类对象：
+public class Run&#123;
+  public static void main(String [] args)&#123;
+    ObjectMapper objectMapper &#x3D; new ObjectMapper();
+    String carJson &#x3D;&quot;&#123; \&quot;brand\&quot; : \&quot;Mercedes\&quot;, \&quot;doors\&quot; : 5 &#125;&quot;;
+    try &#123;
+        Car car &#x3D; objectMapper.readValue(carJson, Car.class);
+        System.out.println(&quot;car brand &#x3D; &quot; + car.getBrand());
+        System.out.println(&quot;car doors &#x3D; &quot; + car.getDoors());
+    &#125; catch (IOException e) &#123;
+        e.printStackTrace();
+    &#125;
+  &#125;
+&#125;
+JSON字符串--&gt;Java对象
+调用ObjectMapper的相关方法进行转换
+			1. readValue(json字符串数据,Class)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">writeValue(File file,Object obj):Java对象转为json写入文件中</span><br><span class="line">writeValue(Writer writer,Object obj):Java对象转为json,响应字符输出流</span><br><span class="line">writeValue(OutputStream outputStream,Object obj):Java对象转为json,响应字节输出流</span><br><span class="line">String <span class="title function_">writeValueAsString</span><span class="params">(Object obj)</span>:Java对象转为json字符串</span><br></pre></td></tr></table></figure>
+<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">writeValue(File file,Object obj):Java对象转为json写入文件中
+writeValue(Writer writer,Object obj):Java对象转为json,响应字符输出流
+writeValue(OutputStream outputStream,Object obj):Java对象转为json,响应字节输出流
+String writeValueAsString(Object obj):Java对象转为json字符串<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="常用注解"><a href="#常用注解" class="headerlink" title="常用注解"></a>常用注解</h2><ol>
 <li>@JsonIgnore：排除某个属性</li>
@@ -526,10 +557,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -613,13 +644,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/02/11/Java/Java%20%E5%B8%B8%E7%94%A8jar%E5%8C%85/Java%20%E8%BF%9E%E6%8E%A5MySQL/">
+                <a href="/2022/02/11/Java/Java%20%E5%B8%B8%E7%94%A8jar%E5%8C%85/Java%20%E8%A7%A3%E6%9E%90XML/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Jdbc连接MySQL">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Java 解析XML">
                         
-                        <span class="card-title">Jdbc连接MySQL</span>
+                        <span class="card-title">Java 解析XML</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -842,25 +873,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -890,7 +932,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

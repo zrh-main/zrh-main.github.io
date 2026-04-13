@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -428,6 +428,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -483,7 +486,80 @@
 </ul>
 </li>
 </ul>
-<h2 id="常用方法案例"><a href="#常用方法案例" class="headerlink" title="常用方法案例"></a>常用方法案例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  实体类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> String email;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">User</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">User</span><span class="params">(String name, Integer age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Integer <span class="title function_">getAge</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setAge</span><span class="params">(Integer age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getEmail</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> email;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setEmail</span><span class="params">(String email)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.email = email;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;User&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, age=&quot;</span> + age +</span><br><span class="line">                <span class="string">&quot;, email=&#x27;&quot;</span> + email + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//  运行类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Run</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//  对象可能是 null 也可能是非 null时使用 ofNullable()</span></span><br><span class="line">        Optional&lt;User&gt; opt2 = Optional.ofNullable(user);</span><br><span class="line"></span><br><span class="line">        user = <span class="keyword">new</span> <span class="title class_">User</span>(<span class="string">&quot;张三&quot;</span>, <span class="number">18</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//  明确对象不为 null  时使用 of()</span></span><br><span class="line">        Optional&lt;User&gt; opt1 = Optional.of(user);</span><br><span class="line"></span><br><span class="line">        <span class="type">User</span> <span class="variable">user1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>(<span class="string">&quot;张三&quot;</span>, <span class="number">18</span>);</span><br><span class="line">        <span class="comment">//  检查是否有值是 ifPresent() 方法。</span></span><br><span class="line">        <span class="comment">//  该方法除了执行检查，还接受一个Consumer(消费者) 参数，如果对象不是空的，就执行传入的 Lambda 表达式：</span></span><br><span class="line">        opt1.ifPresent( u -&gt;  assertEquals(user1.getEmail(), u.getEmail()) );</span><br><span class="line"></span><br><span class="line">        <span class="comment">//  取回实际值对象使用 get() 方法</span></span><br><span class="line">        System.out.println(opt1.get());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">assertEquals</span><span class="params">(String email1,String email2)</span>&#123;</span><br><span class="line">        System.out.println(email1);</span><br><span class="line">        System.out.println(email2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="常用方法案例"><a href="#常用方法案例" class="headerlink" title="常用方法案例"></a>常用方法案例</h2><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;  实体类
+public class User &#123;
+    private String name;
+    private Integer age;
+    private String email;
+
+    public User() &#123;
+    &#125;
+
+    public User(String name, Integer age) &#123;
+        this.name &#x3D; name;
+        this.age &#x3D; age;
+    &#125;
+
+    public String getName() &#123;
+        return name;
+    &#125;
+
+    public void setName(String name) &#123;
+        this.name &#x3D; name;
+    &#125;
+
+    public Integer getAge() &#123;
+        return age;
+    &#125;
+
+    public void setAge(Integer age) &#123;
+        this.age &#x3D; age;
+    &#125;
+
+    public String getEmail() &#123;
+        return email;
+    &#125;
+
+    public void setEmail(String email) &#123;
+        this.email &#x3D; email;
+    &#125;
+
+    @Override
+    public String toString() &#123;
+        return &quot;User&#123;&quot; +
+                &quot;name&#x3D;&#39;&quot; + name + &#39;\&#39;&#39; +
+                &quot;, age&#x3D;&quot; + age +
+                &quot;, email&#x3D;&#39;&quot; + email + &#39;\&#39;&#39; +
+                &#39;&#125;&#39;;
+    &#125;
+&#125;
+&#x2F;&#x2F;  运行类
+public class Run &#123;
+    public static void main(String[] args) &#123;
+        User user &#x3D; null;
+
+        &#x2F;&#x2F;  对象可能是 null 也可能是非 null时使用 ofNullable()
+        Optional&lt;User&gt; opt2 &#x3D; Optional.ofNullable(user);
+
+        user &#x3D; new User(&quot;张三&quot;, 18);
+
+        &#x2F;&#x2F;  明确对象不为 null  时使用 of()
+        Optional&lt;User&gt; opt1 &#x3D; Optional.of(user);
+
+        User user1 &#x3D; new User(&quot;张三&quot;, 18);
+        &#x2F;&#x2F;  检查是否有值是 ifPresent() 方法。
+        &#x2F;&#x2F;  该方法除了执行检查，还接受一个Consumer(消费者) 参数，如果对象不是空的，就执行传入的 Lambda 表达式：
+        opt1.ifPresent( u -&gt;  assertEquals(user1.getEmail(), u.getEmail()) );
+
+        &#x2F;&#x2F;  取回实际值对象使用 get() 方法
+        System.out.println(opt1.get());
+    &#125;
+
+    public static void assertEquals(String email1,String email2)&#123;
+        System.out.println(email1);
+        System.out.println(email2);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="Optional-使用"><a href="#Optional-使用" class="headerlink" title="Optional  使用"></a>Optional  使用</h2><ul>
 <li>Optional 不是 Serializable。因此，它不应该用作类的字段。</li>
@@ -492,9 +568,19 @@
 <li>Optional 类有一个非常有用的用例，就是将其与流或其它返回 Optional 的方法结合，以构建流畅的API。</li>
 </ul>
 <h2 id="Optional-使用示例"><a href="#Optional-使用示例" class="headerlink" title="Optional  使用示例"></a>Optional  使用示例</h2><p>使用 Stream 返回 Optional 对象的 findFirst() 方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">whenEmptyStream_thenReturnDefaultOptional</span><span class="params">()</span> &#123;</span><br><span class="line">    List&lt;User&gt; users = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> users.stream().findFirst().orElse(<span class="keyword">new</span> <span class="title class_">User</span>(<span class="string">&quot;default&quot;</span>, <span class="string">&quot;1234&quot;</span>));</span><br><span class="line">    assertEquals(user.getEmail(), <span class="string">&quot;default&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">@Test
+public void whenEmptyStream_thenReturnDefaultOptional() &#123;
+    List&lt;User&gt; users &#x3D; new ArrayList&lt;&gt;();
+    User user &#x3D; users.stream().findFirst().orElse(new User(&quot;default&quot;, &quot;1234&quot;));
+    assertEquals(user.getEmail(), &quot;default&quot;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>总的来说，这个简单而强大的类有助于创建简单、可读性更强、比对应程序错误更少的程序</p>
-<h2 id="判空方法封装"><a href="#判空方法封装" class="headerlink" title="判空方法封装"></a>判空方法封装</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">attributeIsNull</span><span class="params">(Element item, String str)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> Optional.ofNullable(item.selectSingleNode(str))</span><br><span class="line">            .map(n -&gt; n.getText())</span><br><span class="line">            .orElse(StringUtils.EMPTY);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="判空方法封装"><a href="#判空方法封装" class="headerlink" title="判空方法封装"></a>判空方法封装</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">attributeIsNull</span><span class="token punctuation">(</span><span class="token class-name">Element</span> item<span class="token punctuation">,</span> <span class="token class-name">String</span> str<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token class-name">Optional</span><span class="token punctuation">.</span><span class="token function">ofNullable</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span><span class="token function">selectSingleNode</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>n <span class="token operator">-></span> n<span class="token punctuation">.</span><span class="token function">getText</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">orElse</span><span class="token punctuation">(</span><span class="token class-name">StringUtils</span><span class="token punctuation">.</span><span class="token constant">EMPTY</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -569,10 +655,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -885,25 +971,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -933,7 +1030,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -424,6 +424,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -431,79 +434,123 @@
             <div id="articleContent">
                 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Markdown 是轻量级标记语言，它允许使用易读易写的纯文本格式编写文档<br>Markdown 可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档<br>Markdown 编写的文档后缀为 .md 或 .markdown<br><a target="_blank" rel="noopener" href="https://markdown.com.cn/">Markdown官网</a></p>
 <h2 id="Markdown-标题"><a href="#Markdown-标题" class="headerlink" title="Markdown 标题"></a>Markdown 标题</h2><p>使用 # 号可表示 1-6 级标题，一级标题对应一个 # 号，二级标题对应两个 # 号，以此类推。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一级标题</span></span><br><span class="line"><span class="comment">## 二级标题</span></span><br><span class="line"><span class="comment">### 三级标题</span></span><br><span class="line"><span class="comment">#### 四级标题</span></span><br><span class="line"><span class="comment">##### 五级标题</span></span><br><span class="line"><span class="comment">###### 六级标题</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 一级标题</span>
+<span class="token comment">## 二级标题</span>
+<span class="token comment">### 三级标题</span>
+<span class="token comment">#### 四级标题</span>
+<span class="token comment">##### 五级标题</span>
+<span class="token comment">###### 六级标题</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="Markdown-段落"><a href="#Markdown-段落" class="headerlink" title="Markdown 段落"></a>Markdown 段落</h2><p>Markdown 段落没有格式，直接编写文字就好<br><strong>段落的换行:</strong><br><strong>使用两个以上空格加上回车 或 在段落之间隔开一个空行</strong></p>
-<h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*斜体文本*  </span><br><span class="line">**粗体文本**  </span><br><span class="line">***粗斜体文本***</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;font color=<span class="string">&#x27;red&#x27;</span>&gt;字体颜色&lt;/font&gt;</span><br><span class="line">&lt;font size=<span class="string">&#x27;2px&#x27;</span>&gt;字体大小&lt;/font&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">*斜体文本*  
+**粗体文本**  
+***粗斜体文本***<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>font <span class="token assign-left variable">color</span><span class="token operator">=</span><span class="token string">'red'</span><span class="token operator">></span>字体颜色<span class="token operator">&lt;</span>/font<span class="token operator">></span>
+<span class="token operator">&lt;</span>font <span class="token assign-left variable">size</span><span class="token operator">=</span><span class="token string">'2px'</span><span class="token operator">></span>字体大小<span class="token operator">&lt;</span>/font<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h3><p>用三个以上的星号、来建立一个分隔线，行内不能有其他东西;可以在星号或是减号中间插入空格。<br>下面每种写法都可以建立分隔线：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">***</span><br><span class="line">* * *</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">***
+* * *<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h3 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h3><p>在文字的两端加上两个波浪线~~</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~~123456~~</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">~~123456~~<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h3><p>下划线通过&lt;u&gt;标签来实现：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;u&gt;带下划线文本&lt;/u&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>u<span class="token operator">></span>带下划线文本<span class="token operator">&lt;</span>/u<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h3><p>脚注是对文本的补充说明。Markdown 脚注的格式如下:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">创建脚注格式类似这样 [^RUNOOB]。</span><br><span class="line">[^RUNOOB]: 菜鸟教程 -- 学的不仅是技术，更是梦想！！！</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">创建脚注格式类似这样 <span class="token punctuation">[</span>^RUNOOB<span class="token punctuation">]</span>。
+<span class="token punctuation">[</span>^RUNOOB<span class="token punctuation">]</span>: 菜鸟教程 -- 学的不仅是技术，更是梦想！！！<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="Markdown-列表"><a href="#Markdown-列表" class="headerlink" title="Markdown 列表"></a>Markdown 列表</h2><p>Markdown 支持有序列表和无序列表。<br>无序列表使用星号*作为列表标记，标记后要添加一个空格，再填写内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 无序列表</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">* 无序列表<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>有序列表使用数字并加上 . 号来表示，如：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 有序列表1</span><br><span class="line">2. 有序列表2</span><br><span class="line">3. 有序列表3</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token number">1</span>. 有序列表1
+<span class="token number">2</span>. 有序列表2
+<span class="token number">3</span>. 有序列表3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="Markdown-列表嵌套"><a href="#Markdown-列表嵌套" class="headerlink" title="Markdown 列表嵌套"></a>Markdown 列表嵌套</h3><p>列表嵌套只需在子列表中的选项前面添加四个空格即可：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. 第一项：</span><br><span class="line">    - 第一项嵌套的第一个元素</span><br><span class="line">    - 第一项嵌套的第二个元素</span><br><span class="line">2. 第二项：</span><br><span class="line">    - 第二项嵌套的第一个元素</span><br><span class="line">    - 第二项嵌套的第二个元素</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token number">1</span>. 第一项：
+    - 第一项嵌套的第一个元素
+    - 第一项嵌套的第二个元素
+<span class="token number">2</span>. 第二项：
+    - 第二项嵌套的第一个元素
+    - 第二项嵌套的第二个元素<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="Markdown-区块"><a href="#Markdown-区块" class="headerlink" title="Markdown 区块"></a>Markdown 区块</h2><p>区块引用在段落开头使用(&gt;)符号，后面紧跟一个空格符号：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; 区块引用</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">></span> 区块引用<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="区块是可以嵌套的"><a href="#区块是可以嵌套的" class="headerlink" title="区块是可以嵌套的"></a>区块是可以嵌套的</h3><p>一个&gt;符号是最外层，两个&gt;符号是第一层嵌套，以此类推：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; 最外层</span><br><span class="line">&gt; &gt; 第一层嵌套</span><br><span class="line">&gt; &gt; &gt; 第二层嵌套</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">></span> 最外层
+<span class="token operator">></span> <span class="token operator">></span> 第一层嵌套
+<span class="token operator">></span> <span class="token operator">></span> <span class="token operator">></span> 第二层嵌套<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>区块中使用列表 实例如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; 区块中使用列表</span><br><span class="line">&gt; 1. 第一项</span><br><span class="line">&gt; 2. 第二项</span><br><span class="line">&gt; + 第一项</span><br><span class="line">&gt; + 第二项</span><br><span class="line">&gt; + 第三项</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">></span> 区块中使用列表
+<span class="token operator">></span> <span class="token number">1</span>. 第一项
+<span class="token operator">></span> <span class="token number">2</span>. 第二项
+<span class="token operator">></span> + 第一项
+<span class="token operator">></span> + 第二项
+<span class="token operator">></span> + 第三项<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <p>列表中使用区块<br><strong>在列表内放进区块,需要在(&gt;)前添加四个空格的缩进</strong>;实例如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* 第一项</span><br><span class="line">    &gt; 第一项第一个</span><br><span class="line">    &gt; 第一项第二个</span><br><span class="line">* 第二项</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">* 第一项
+    <span class="token operator">></span> 第一项第一个
+    <span class="token operator">></span> 第一项第二个
+* 第二项<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="Markdown-代码"><a href="#Markdown-代码" class="headerlink" title="Markdown 代码"></a>Markdown 代码</h2><p><strong>段落上片段的代码用反引号把它包起来 ` &#96;</strong>   例如：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`<span class="built_in">printf</span>()` </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token variable"><span class="token variable">`</span>printf<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token variable">`</span></span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><strong>代码区块</strong> 使用 4 个空格或者一个制表符（Tab 键）。<br>实例如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = b</span><br><span class="line">var b = a</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">var a <span class="token operator">=</span> b
+var b <span class="token operator">=</span> a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="Markdown-链接"><a href="#Markdown-链接" class="headerlink" title="Markdown 链接"></a>Markdown 链接</h2><p>链接使用方法如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[链接名称](链接地址)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>链接名称<span class="token punctuation">]</span><span class="token punctuation">(</span>链接地址<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>或者</p>
 <p>直接使用链接地址：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;https://www.runoob.com&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>https://www.runoob.com<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>高级链接<br><strong>通过变量来设置一个链接，变量赋值在文档末尾进行</strong>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">这个链接用 google 作为网址变量</span><br><span class="line">[Google][google]</span><br><span class="line">这个链接用 runoob 作为网址变量 </span><br><span class="line">[Runoob][runoob]</span><br><span class="line">在文档的结尾为变量赋值:</span><br><span class="line">&lt;!-- 赋值操作 --&gt;</span><br><span class="line">[google]: http://www.google.com/</span><br><span class="line">[runoob]: http://www.runoob.com/</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">这个链接用 google 作为网址变量
+<span class="token punctuation">[</span>Google<span class="token punctuation">]</span><span class="token punctuation">[</span>google<span class="token punctuation">]</span>
+这个链接用 runoob 作为网址变量 
+<span class="token punctuation">[</span>Runoob<span class="token punctuation">]</span><span class="token punctuation">[</span>runoob<span class="token punctuation">]</span>
+在文档的结尾为变量赋值:
+<span class="token operator">&lt;</span><span class="token operator">!</span>-- 赋值操作 --<span class="token operator">></span>
+<span class="token punctuation">[</span>google<span class="token punctuation">]</span>: http://www.google.com/
+<span class="token punctuation">[</span>runoob<span class="token punctuation">]</span>: http://www.runoob.com/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="Markdown-图片"><a href="#Markdown-图片" class="headerlink" title="Markdown 图片"></a>Markdown 图片</h2><p>Markdown 图片语法格式如下：<br>开头一个感叹号 !<br>接着一个方括号，里面放上图片的替代文字<br>接着一个普通括号，里面放上图片的网址，<br>最后还可以用引号包住并加上选择性的 ‘title’ 属性的文字。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![alt 属性文本](图片地址)</span><br><span class="line">![alt 属性文本](图片地址 <span class="string">&quot;可选标题&quot;</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">!</span><span class="token punctuation">[</span>alt 属性文本<span class="token punctuation">]</span><span class="token punctuation">(</span>图片地址<span class="token punctuation">)</span>
+<span class="token operator">!</span><span class="token punctuation">[</span>alt 属性文本<span class="token punctuation">]</span><span class="token punctuation">(</span>图片地址 <span class="token string">"可选标题"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p><strong>图片网址使用变量</strong>:  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这个链接用 demo 作为网址变量 [RUNOOB][demo].</span><br><span class="line">然后在文档的结尾为变量赋值</span><br><span class="line">[demo]: http://static.runoob.com/images/runoob-logo.png</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">这个链接用 demo 作为网址变量 <span class="token punctuation">[</span>RUNOOB<span class="token punctuation">]</span><span class="token punctuation">[</span>demo<span class="token punctuation">]</span>.
+然后在文档的结尾为变量赋值
+<span class="token punctuation">[</span>demo<span class="token punctuation">]</span>: http://static.runoob.com/images/runoob-logo.png<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>Markdown 没有办法指定图片的高度与宽度，如果需要可以使用普通的 &lt;img&gt; 标签。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=<span class="string">&quot;http://static.runoob.com/images/runoob-logo.png&quot;</span> width=<span class="string">&quot;50%&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>img <span class="token assign-left variable">src</span><span class="token operator">=</span><span class="token string">"http://static.runoob.com/images/runoob-logo.png"</span> <span class="token assign-left variable">width</span><span class="token operator">=</span><span class="token string">"50%"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="Markdown-表格"><a href="#Markdown-表格" class="headerlink" title="Markdown 表格"></a>Markdown 表格</h2><p>表格使用 | 来分隔不同的单元格，使用 - 来分隔表头和其他行。语法格式如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">|  表头   | 表头  |</span><br><span class="line">|  ----  | ----  |</span><br><span class="line">| 单元格  | 单元格 |</span><br><span class="line">| 单元格  | 单元格 |</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">|</span>  表头   <span class="token operator">|</span> 表头  <span class="token operator">|</span>
+<span class="token operator">|</span>  ----  <span class="token operator">|</span> ----  <span class="token operator">|</span>
+<span class="token operator">|</span> 单元格  <span class="token operator">|</span> 单元格 <span class="token operator">|</span>
+<span class="token operator">|</span> 单元格  <span class="token operator">|</span> 单元格 <span class="token operator">|</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>对齐方式</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-: 设置内容和标题栏居右对齐。</span><br><span class="line">:- 设置内容和标题栏居左对齐。</span><br><span class="line">:-: 设置内容和标题栏居中对齐。</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-: 设置内容和标题栏居右对齐。
+:- 设置内容和标题栏居左对齐。
+:-: 设置内容和标题栏居中对齐。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="Markdown-高级技巧"><a href="#Markdown-高级技巧" class="headerlink" title="Markdown 高级技巧"></a>Markdown 高级技巧</h2><p>不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。<br>目前支持的 HTML 元素有：&lt;kbd&gt; &lt;b&gt; &lt;i&gt; &lt;em&gt; &lt;sup&gt; &lt;sub&gt; &lt;br&gt;等 ，如：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Del&lt;/kbd&gt; 重启电脑</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>kbd<span class="token operator">></span>Ctrl<span class="token operator">&lt;</span>/kbd<span class="token operator">></span>+<span class="token operator">&lt;</span>kbd<span class="token operator">></span>Alt<span class="token operator">&lt;</span>/kbd<span class="token operator">></span>+<span class="token operator">&lt;</span>kbd<span class="token operator">></span>Del<span class="token operator">&lt;</span>/kbd<span class="token operator">></span> 重启电脑<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="Markdown-转义"><a href="#Markdown-转义" class="headerlink" title="Markdown 转义"></a>Markdown 转义</h2><p>如果需要显示特定的符号则需要使用转义字符，使用反斜杠转义特殊字符 \ ：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">**文本加粗** </span><br><span class="line">\*\* 正常显示星号 \*\*</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">**文本加粗** 
+<span class="token punctuation">\</span>*<span class="token punctuation">\</span>* 正常显示星号 <span class="token punctuation">\</span>*<span class="token punctuation">\</span>*<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -574,10 +621,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -612,13 +659,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/15/%E5%85%B6%E5%AE%83/Kettle/">
+                <a href="/2021/11/15/%E5%89%8D%E7%AB%AF/%E7%A7%BB%E5%8A%A8%E7%AB%AFrem/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Kettle">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="移动端rem">
                         
-                        <span class="card-title">Kettle</span>
+                        <span class="card-title">移动端rem</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -635,13 +682,25 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%85%B6%E5%AE%83/" class="post-category">
-                                    其它
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/vue/">
+                        <span class="chip bg-color">vue</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">
+                        <span class="chip bg-color">移动端</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -653,13 +712,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/09/07/Java/Java%20%E4%B8%9A%E5%8A%A1%E6%8A%80%E5%B7%A7/%E6%9D%83%E9%99%90%E8%AE%BE%E8%AE%A1/">
+                <a href="/2021/11/15/%E5%85%B6%E5%AE%83/Kettle/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="基于SpringSecurity的权限管理">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Kettle">
                         
-                        <span class="card-title">基于SpringSecurity的权限管理</span>
+                        <span class="card-title">Kettle</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -670,12 +729,16 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-09-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-15
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            zrh
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%85%B6%E5%AE%83/" class="post-category">
+                                    其它
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -870,25 +933,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -918,7 +992,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

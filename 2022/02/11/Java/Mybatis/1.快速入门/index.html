@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -428,6 +428,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -483,9 +486,64 @@
 </li>
 </ul>
 <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>在mybatis中持久层操作接口名称和映射文件名称也叫做Mapper<br><strong><code>mybatis的映射文件位置必须和mapper(dao)接口的包位置相同</code></strong><br><strong>maven编译时会将映射文件和编译后的mapper(dao)接口放在同一目录下</strong></p>
-<h2 id="SqlMapConfig-xml核心文件"><a href="#SqlMapConfig-xml核心文件" class="headerlink" title="SqlMapConfig.xml核心文件"></a>SqlMapConfig.xml核心文件</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- mybatis配置的dtd约束 --&gt;</span></span><br><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">configuration</span></span></span><br><span class="line"><span class="meta">        <span class="keyword">PUBLIC</span> <span class="string">&quot;-//mybatis.org//DTD Config 3.0//EN&quot;</span></span></span><br><span class="line"><span class="meta">        <span class="string">&quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--配置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置mybatis环境 这里默认使用MySQL配置--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">environments</span> <span class="attr">default</span>=<span class="string">&quot;mysql&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--配置MySQL环境--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">environment</span> <span class="attr">id</span>=<span class="string">&quot;mysql&quot;</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- MySQL事务 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">transactionManager</span> <span class="attr">type</span>=<span class="string">&quot;JDBC&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">transactionManager</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--数据源(连接池) POOLED为mybatis的数据源--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">&quot;POOLED&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driver&quot;</span> <span class="attr">value</span>=<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;url&quot;</span> <span class="attr">value</span>=<span class="string">&quot;jdbc:mysql:///mybatis&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;root&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;root&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">environment</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">environments</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--配置映射文件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- resource指向mapper的xml映射文件 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">&quot;cn/dy/mapper/UserMapper.xml&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="SqlMapConfig-xml核心文件"><a href="#SqlMapConfig-xml核心文件" class="headerlink" title="SqlMapConfig.xml核心文件"></a>SqlMapConfig.xml核心文件</h2><pre class="line-numbers language-XML" data-language="XML"><code class="language-XML">&lt;!-- mybatis配置的dtd约束 --&gt;
+&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE configuration
+        PUBLIC &quot;-&#x2F;&#x2F;mybatis.org&#x2F;&#x2F;DTD Config 3.0&#x2F;&#x2F;EN&quot;
+        &quot;http:&#x2F;&#x2F;mybatis.org&#x2F;dtd&#x2F;mybatis-3-config.dtd&quot;&gt;
 
-<h2 id="mapper的xml映射文件"><a href="#mapper的xml映射文件" class="headerlink" title="mapper的xml映射文件"></a>mapper的xml映射文件</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- mybatis中mapper的dtd约束 --&gt;</span></span><br><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">mapper</span></span></span><br><span class="line"><span class="meta">        <span class="keyword">PUBLIC</span> <span class="string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span></span></span><br><span class="line"><span class="meta">        <span class="string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- namespace属性必须是接口的全限定接口名 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;cn.dy.mapper.UserMapper&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- id属性值必须和接口中的方法名相同 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- resultType属性值必须是pojo的全限定接口名 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- parameterType属性值必须是方法参数的全限定接口名 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- sql中的参数以 #&#123;pojo中的属性名&#125; 的形式传递--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;findUserById&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;cn.dy.pojo.User&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;java.lang.Integer&quot;</span>&gt;</span></span><br><span class="line">        SELECT username,birthday,sex,address FROM user WHERE id = #&#123;id&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 这里在添加后返回主键id --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- keyColumn为数据库中的列名 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- keyProperty为pojo中的属性名 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- order 取值:AFTER,BEFORE;AFTER:添加后返回,BEFORE:添加前返回(有可能导致id错误) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">&quot;addUser&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;cn.dy.pojo.User&quot;</span>&gt;</span></span><br><span class="line">        INSERT INTO user (username,birthday,sex,address) values (#&#123;username&#125;,#&#123;birthday&#125;,#&#123;sex&#125;,#&#123;address&#125;)</span><br><span class="line">        <span class="tag">&lt;<span class="name">selectKey</span> <span class="attr">resultType</span>=<span class="string">&quot;java.lang.Integer&quot;</span> <span class="attr">keyColumn</span>=<span class="string">&quot;id&quot;</span> <span class="attr">keyProperty</span>=<span class="string">&quot;id&quot;</span> <span class="attr">order</span>=<span class="string">&quot;AFTER&quot;</span>&gt;</span></span><br><span class="line">            select last_insert_id()</span><br><span class="line">        <span class="tag">&lt;/<span class="name">selectKey</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+&lt;!--配置--&gt;
+&lt;configuration&gt;
+    &lt;!--配置mybatis环境 这里默认使用MySQL配置--&gt;
+    &lt;environments default&#x3D;&quot;mysql&quot;&gt;
+        &lt;!--配置MySQL环境--&gt;
+        &lt;environment id&#x3D;&quot;mysql&quot;&gt;
+            &lt;!-- MySQL事务 --&gt;
+            &lt;transactionManager type&#x3D;&quot;JDBC&quot;&gt;&lt;&#x2F;transactionManager&gt;
+            &lt;!--数据源(连接池) POOLED为mybatis的数据源--&gt;
+            &lt;dataSource type&#x3D;&quot;POOLED&quot;&gt;
+                &lt;property name&#x3D;&quot;driver&quot; value&#x3D;&quot;com.mysql.jdbc.Driver&quot;&#x2F;&gt;
+                &lt;property name&#x3D;&quot;url&quot; value&#x3D;&quot;jdbc:mysql:&#x2F;&#x2F;&#x2F;mybatis&quot;&#x2F;&gt;
+                &lt;property name&#x3D;&quot;username&quot; value&#x3D;&quot;root&quot;&#x2F;&gt;
+                &lt;property name&#x3D;&quot;password&quot; value&#x3D;&quot;root&quot;&#x2F;&gt;
+            &lt;&#x2F;dataSource&gt;
+        &lt;&#x2F;environment&gt;
+    &lt;&#x2F;environments&gt;
+
+&lt;!--配置映射文件--&gt;
+    &lt;mappers&gt;
+      &lt;!-- resource指向mapper的xml映射文件 --&gt;
+        &lt;mapper resource&#x3D;&quot;cn&#x2F;dy&#x2F;mapper&#x2F;UserMapper.xml&quot;&gt;&lt;&#x2F;mapper&gt;
+    &lt;&#x2F;mappers&gt;
+&lt;&#x2F;configuration&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="mapper的xml映射文件"><a href="#mapper的xml映射文件" class="headerlink" title="mapper的xml映射文件"></a>mapper的xml映射文件</h2><pre class="line-numbers language-XML" data-language="XML"><code class="language-XML">&lt;!-- mybatis中mapper的dtd约束 --&gt;
+&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE mapper
+        PUBLIC &quot;-&#x2F;&#x2F;mybatis.org&#x2F;&#x2F;DTD Mapper 3.0&#x2F;&#x2F;EN&quot;
+        &quot;http:&#x2F;&#x2F;mybatis.org&#x2F;dtd&#x2F;mybatis-3-mapper.dtd&quot;&gt;
+&lt;!-- namespace属性必须是接口的全限定接口名 --&gt;
+&lt;mapper namespace&#x3D;&quot;cn.dy.mapper.UserMapper&quot;&gt;
+    &lt;!-- id属性值必须和接口中的方法名相同 --&gt;
+    &lt;!-- resultType属性值必须是pojo的全限定接口名 --&gt;
+    &lt;!-- parameterType属性值必须是方法参数的全限定接口名 --&gt;
+    &lt;!-- sql中的参数以 #&#123;pojo中的属性名&#125; 的形式传递--&gt;
+    &lt;select id&#x3D;&quot;findUserById&quot; resultType&#x3D;&quot;cn.dy.pojo.User&quot; parameterType&#x3D;&quot;java.lang.Integer&quot;&gt;
+        SELECT username,birthday,sex,address FROM user WHERE id &#x3D; #&#123;id&#125;
+    &lt;&#x2F;select&gt;
+
+    &lt;!-- 这里在添加后返回主键id --&gt;
+    &lt;!-- keyColumn为数据库中的列名 --&gt;
+    &lt;!-- keyProperty为pojo中的属性名 --&gt;
+    &lt;!-- order 取值:AFTER,BEFORE;AFTER:添加后返回,BEFORE:添加前返回(有可能导致id错误) --&gt;
+    &lt;insert id&#x3D;&quot;addUser&quot; parameterType&#x3D;&quot;cn.dy.pojo.User&quot;&gt;
+        INSERT INTO user (username,birthday,sex,address) values (#&#123;username&#125;,#&#123;birthday&#125;,#&#123;sex&#125;,#&#123;address&#125;)
+        &lt;selectKey resultType&#x3D;&quot;java.lang.Integer&quot; keyColumn&#x3D;&quot;id&quot; keyProperty&#x3D;&quot;id&quot; order&#x3D;&quot;AFTER&quot;&gt;
+            select last_insert_id()
+        &lt;&#x2F;selectKey&gt;
+    &lt;&#x2F;insert&gt;
+
+&lt;&#x2F;mapper&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="mybatis构建流程"><a href="#mybatis构建流程" class="headerlink" title="mybatis构建流程"></a>mybatis构建流程</h2><ol>
 <li><p>使用mybatis提供的Resources工具类读取  核心配置文件(SqlMapConfig.xml)<br><code>InputStream inputStream = Resources.getResourceAsStream(&quot;SqlMapConfig.xml&quot;);</code></p>
@@ -499,10 +557,18 @@
 <li><p>使用SqlSession对象去创建代理对象<br><code>UserMapper userMapper = sqlSession.getMapper(UserMapper.class);</code></p>
 </li>
 <li><p>使用代理对象去调用方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>(<span class="literal">null</span>, <span class="string">&quot;张三&quot;</span>, Date.valueOf(<span class="string">&quot;2012-12-11&quot;</span>), <span class="string">&quot;男&quot;</span>, <span class="string">&quot;南京&quot;</span>);</span><br><span class="line">userMapper.addUser(user);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">User user &#x3D; new User(null, &quot;张三&quot;, Date.valueOf(&quot;2012-12-11&quot;), &quot;男&quot;, &quot;南京&quot;);
+userMapper.addUser(user);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>释放资源</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  这里提交事务</span></span><br><span class="line">sqlSession.commit();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    inputStream.close();</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">sqlSession.close();</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;  这里提交事务
+sqlSession.commit();
+try &#123;
+    inputStream.close();
+&#125; catch (IOException e) &#123;
+    e.printStackTrace();
+&#125;
+sqlSession.close();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h2 id="与-value-的区别"><a href="#与-value-的区别" class="headerlink" title="#{}与${value}的区别"></a>#{}与${value}的区别</h2><p>#{}使用…对象,使用占位符的方式,可以避免sql注入问题<br>${}使用…对象,会引发sql注入问题</p>
 
@@ -580,10 +646,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -618,13 +684,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/02/11/Java/Java%20%E6%B5%8B%E8%AF%95/Java%20junit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+                <a href="/2022/02/11/Java/Mybatis/10.%E7%BC%93%E5%AD%98/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Java junit单元测试">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="缓存">
                         
-                        <span class="card-title">Java junit单元测试</span>
+                        <span class="card-title">缓存</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -641,8 +707,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/categories/mybatis/" class="post-category">
+                                    mybatis
                                 </a>
                             
                             
@@ -652,8 +718,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java-%E6%B5%8B%E8%AF%95/">
-                        <span class="chip bg-color">Java 测试</span>
+                    <a href="/tags/Java-%E6%8C%81%E4%B9%85%E5%B1%82%E6%A1%86%E6%9E%B6/">
+                        <span class="chip bg-color">Java 持久层框架</span>
                     </a>
                     
                 </div>
@@ -896,25 +962,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -944,7 +1021,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -428,6 +428,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -435,13 +438,37 @@
             <div id="articleContent">
                 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>工厂方法即Factory Method，是一种对象创建型模式</p>
 <h2 id="目的-作用"><a href="#目的-作用" class="headerlink" title="目的(作用)"></a>目的(作用)</h2><p>让创建对象和使用对象分离，并且调用方总是引用抽象工厂和抽象产品</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">工厂接口</span><br><span class="line"><span class="comment">//  定义一个用于创建对象的接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">NumberFactory</span> &#123;</span><br><span class="line">    Number <span class="title function_">parse</span><span class="params">(String s)</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">NumberFactory</span> <span class="variable">impl</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">NumberFactoryImpl</span>();</span><br><span class="line">    <span class="comment">//  获取工厂实例:</span></span><br><span class="line">    <span class="comment">//  定义一个静态方法getFactory()来返回真正的子类</span></span><br><span class="line">    <span class="keyword">static</span> NumberFactory <span class="title function_">getFactory</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> impl;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">工厂的实现类</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">NumberFactoryImpl</span> <span class="keyword">implements</span> <span class="title class_">NumberFactory</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> Number <span class="title function_">parse</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">BigDecimal</span>(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">调用方使用</span><br><span class="line"><span class="type">NumberFactory</span> <span class="variable">factory</span> <span class="operator">=</span> NumberFactory.getFactory();</span><br><span class="line"><span class="type">Number</span> <span class="variable">result</span> <span class="operator">=</span> factory.parse(<span class="string">&quot;123.456&quot;</span>);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">工厂接口
+&#x2F;&#x2F;  定义一个用于创建对象的接口
+public interface NumberFactory &#123;
+    Number parse(String s);
+    static NumberFactory impl &#x3D; new NumberFactoryImpl();
+    &#x2F;&#x2F;  获取工厂实例:
+    &#x2F;&#x2F;  定义一个静态方法getFactory()来返回真正的子类
+    static NumberFactory getFactory() &#123;
+        return impl;
+    &#125;
+    
+&#125;
+工厂的实现类
+public class NumberFactoryImpl implements NumberFactory &#123;
+    public Number parse(String s) &#123;
+        return new BigDecimal(s);
+    &#125;
+&#125;
+调用方使用
+NumberFactory factory &#x3D; NumberFactory.getFactory();
+Number result &#x3D; factory.parse(&quot;123.456&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>调用方可以完全忽略真正的工厂NumberFactoryImpl和实际的产品BigDecimal，这样做的好处是允许创建产品的代码独立地变换，而不会影响到调用方</p>
 <h2 id="静态工厂"><a href="#静态工厂" class="headerlink" title="静态工厂"></a>静态工厂</h2><p>通过静态方法直接返回产品</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">NumberFactory</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Number <span class="title function_">parse</span><span class="params">(String s)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">BigDecimal</span>(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class NumberFactory&#123;
+    public static Number parse(String s)&#123;
+        return new BigDecimal(s);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>这种简化的使用静态方法创建产品的方式称为静态工厂方法（Static Factory Method）</code><br>静态工厂方法广泛地应用在Java标准库中</p>
 <h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><p> 工厂方法可以隐藏创建产品的细节，且不一定每次都会真正创建产品，完全可以返回缓存的产品，从而提升速度并减少内存消耗</p>
-<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>** 总是引用接口而非实现类，能允许变换子类而不影响调用方，即尽可能面向抽象编程**</p>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p><strong>总是引用接口而非实现类，能允许变换子类而不影响调用方，即尽可能面向抽象编程</strong></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>工厂方法是指定义工厂接口和产品接口，但如何创建实际工厂和实际产品被推迟到子类实现，从而使调用方只和抽象工厂与抽象产品打交道。</p>
 <p>实际更常用的是更简单的静态工厂方法，它允许工厂内部对创建产品进行优化。</p>
 <p>调用方尽量持有接口或抽象类，避免持有具体类型的子类，以便工厂方法能随时切换不同的子类返回，却不影响调用方代码</p>
@@ -520,10 +547,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -836,25 +863,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -884,7 +922,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

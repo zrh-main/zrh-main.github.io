@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -428,6 +428,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -471,12 +474,31 @@
 <ol start="6">
 <li>处理结果</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  rs为查询的结果集对象</span></span><br><span class="line"><span class="keyword">while</span>(rs.next())&#123;<span class="comment">//next()判断下一个位置有没有结果,有则true,无则false;</span></span><br><span class="line">  <span class="type">int</span> <span class="variable">id</span> <span class="operator">=</span> rs.getInt(<span class="string">&quot;id&quot;</span>);<span class="comment">//从结果集中获取值</span></span><br><span class="line">  <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> rs.getString(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">  <span class="type">double</span> <span class="variable">score</span> <span class="operator">=</span> rs.getDouble(<span class="string">&quot;score&quot;</span>);</span><br><span class="line">  <span class="type">String</span> <span class="variable">sex</span> <span class="operator">=</span> rs.getString(<span class="string">&quot;sex&quot;</span>);</span><br><span class="line">  <span class="type">Student</span> <span class="variable">stu</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(id,name,score,sex);</span><br><span class="line">  list.add(stu);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;  rs为查询的结果集对象
+while(rs.next())&#123;&#x2F;&#x2F;next()判断下一个位置有没有结果,有则true,无则false;
+  int id &#x3D; rs.getInt(&quot;id&quot;);&#x2F;&#x2F;从结果集中获取值
+  String name &#x3D; rs.getString(&quot;name&quot;);
+  double score &#x3D; rs.getDouble(&quot;score&quot;);
+  String sex &#x3D; rs.getString(&quot;sex&quot;);
+  Student stu &#x3D; new Student(id,name,score,sex);
+  list.add(stu);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ol start="7">
-<li>释放资源<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rs.close();</span><br><span class="line">stat.close();</span><br><span class="line">conn.close();</span><br></pre></td></tr></table></figure></li>
+<li>释放资源<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">rs.close();
+stat.close();
+conn.close();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p><code>void setAutoCommit(boolean autoCommit)</code>&#x2F;&#x2F;参数是 true 或 false;如果设置为 false，表示关闭自动提交，相当于开启事务<br><code>void commit()</code>	提交事务<br><code>void rollback()</code>	回滚事务</p>
-<h2 id="使用预编译sql对象-PreparedStatement"><a href="#使用预编译sql对象-PreparedStatement" class="headerlink" title="使用预编译sql对象(PreparedStatement)"></a>使用预编译sql对象(PreparedStatement)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">PreparedStatement</span> <span class="variable">preparedStatement</span> <span class="operator">=</span> connection.prepareStatement(<span class="string">&quot;select id from user where username=? and password=?&quot;</span>);</span><br><span class="line"><span class="comment">//使用PreparedStatement类型的对象需要填充占位符</span></span><br><span class="line"><span class="comment">//占位符的填充位置从1开始,类型为要填充的数据类型</span></span><br><span class="line">preparedStatement.setString(<span class="number">1</span>,username);</span><br><span class="line">preparedStatement.setString(<span class="number">2</span>,password);</span><br><span class="line"> </span><br><span class="line"><span class="type">ResultSet</span> <span class="variable">resultSet</span> <span class="operator">=</span> preparedStatement.executeQuery();</span><br><span class="line"><span class="keyword">if</span>(resultSet.next())&#123;</span><br><span class="line">   <span class="keyword">return</span>  resultSet.getInt(<span class="string">&quot;id&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用预编译sql对象-PreparedStatement"><a href="#使用预编译sql对象-PreparedStatement" class="headerlink" title="使用预编译sql对象(PreparedStatement)"></a>使用预编译sql对象(PreparedStatement)</h2><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">PreparedStatement preparedStatement &#x3D; connection.prepareStatement(&quot;select id from user where username&#x3D;? and password&#x3D;?&quot;);
+&#x2F;&#x2F;使用PreparedStatement类型的对象需要填充占位符
+&#x2F;&#x2F;占位符的填充位置从1开始,类型为要填充的数据类型
+preparedStatement.setString(1,username);
+preparedStatement.setString(2,password);
+ 
+ResultSet resultSet &#x3D; preparedStatement.executeQuery();
+if(resultSet.next())&#123;
+   return  resultSet.getInt(&quot;id&quot;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -552,10 +574,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -590,13 +612,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/02/11/Java/Java%20%E5%B8%B8%E7%94%A8jar%E5%8C%85/Java%20%E8%A7%A3%E6%9E%90JSON/">
+                <a href="/2022/02/11/Java/Java%20%E5%B8%B8%E7%94%A8jar%E5%8C%85/Java%20%E8%BF%9E%E6%8E%A5Redis/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="JSON解析">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Jedis连接Redis">
                         
-                        <span class="card-title">JSON解析</span>
+                        <span class="card-title">Jedis连接Redis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -639,13 +661,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/02/11/Java/Java%20%E5%B8%B8%E7%94%A8jar%E5%8C%85/Java%20%E8%BF%9E%E6%8E%A5Redis/">
+                <a href="/2022/02/11/Java/Mybatis/10.%E7%BC%93%E5%AD%98/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Jedis连接Redis">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="缓存">
                         
-                        <span class="card-title">Jedis连接Redis</span>
+                        <span class="card-title">缓存</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -662,8 +684,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/categories/mybatis/" class="post-category">
+                                    mybatis
                                 </a>
                             
                             
@@ -673,8 +695,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java-jar%E5%8C%85/">
-                        <span class="chip bg-color">Java jar包</span>
+                    <a href="/tags/Java-%E6%8C%81%E4%B9%85%E5%B1%82%E6%A1%86%E6%9E%B6/">
+                        <span class="chip bg-color">Java 持久层框架</span>
                     </a>
                     
                 </div>
@@ -868,25 +890,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -916,7 +949,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

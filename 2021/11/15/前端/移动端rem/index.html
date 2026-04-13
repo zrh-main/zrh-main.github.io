@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -432,6 +432,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -449,9 +452,12 @@
 </ul>
 <h2 id="使用-lib-flexible-动态设置REM基准值（html标签的字体大小）"><a href="#使用-lib-flexible-动态设置REM基准值（html标签的字体大小）" class="headerlink" title="使用 lib-flexible 动态设置REM基准值（html标签的字体大小）"></a>使用 lib-flexible 动态设置REM基准值（html标签的字体大小）</h2><ol>
 <li><p>安装</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn add amfe-flexible</span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line">npm i amfe-flexible</span><br></pre></td></tr></table></figure></li>
+ <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">yarn</span> <span class="token function">add</span> amfe-flexible
+<span class="token comment"># 或</span>
+<span class="token function">npm</span> i amfe-flexible<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><p>在 main.js 中加载执行该模块</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import <span class="string">&#x27;amfe-flexible&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+ <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">import</span> <span class="token string">'amfe-flexible'</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>测试：<br> <strong>在浏览器中切换不同的手机设备尺寸，观察 html 标签 font-size 的变化。</strong></p>
 <ul>
 <li>例如在 iPhone 6&#x2F;7&#x2F;8 设备下，html 标签字体大小为 37.5 px</li>
@@ -463,10 +469,33 @@
 <p>注意<br>    <strong><font color="red">该插件不能转换行内样式中的 px，例如 <code>&lt;div style=&quot;width: 200px;&quot;&gt;&lt;/div&gt;</code></font></strong><br>    <strong><font color="red">postcss-pxtorem扫描的是css文件，要转换的class样式设置在当前vue文件转换是不会生效的</font></strong></p>
 </blockquote>
 <ol>
-<li>安装 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn add -D postcss-pxtorem</span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line">npm install postcss-pxtorem -D</span><br></pre></td></tr></table></figure></li>
+<li>安装 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">yarn</span> <span class="token function">add</span> <span class="token parameter variable">-D</span> postcss-pxtorem
+<span class="token comment"># 或</span>
+<span class="token function">npm</span> <span class="token function">install</span> postcss-pxtorem <span class="token parameter variable">-D</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li>在vue.config.js中配置postcss-pxtorem</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  lintOnSave: true,</span><br><span class="line">  css: &#123;</span><br><span class="line">    loaderOptions: &#123;</span><br><span class="line">      postcss: &#123;</span><br><span class="line">        plugins: [</span><br><span class="line">          //在这里配置postcss-pxtorem</span><br><span class="line">          require(&#x27;postcss-pxtorem&#x27;)(&#123;</span><br><span class="line">            rootValue(&#123; file &#125;) &#123;</span><br><span class="line">              //如果是 Vant 的样式，就把 rootValue 设置为 37.5 来转换</span><br><span class="line">              //如果是我们的样式，就按照 75 的 rootValue 来转换</span><br><span class="line">              return file.indexOf(&#x27;vant&#x27;) !== -1 ? 37.5 : 75</span><br><span class="line">            &#125;,</span><br><span class="line">            // 例如 * 就是所有属性都要转换， width 就是仅转换 width 属性</span><br><span class="line">            propList: [&#x27;*&#x27;]</span><br><span class="line">          &#125;),</span><br><span class="line">        ]</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">module.exports &#x3D; &#123;
+  lintOnSave: true,
+  css: &#123;
+    loaderOptions: &#123;
+      postcss: &#123;
+        plugins: [
+          &#x2F;&#x2F;在这里配置postcss-pxtorem
+          require(&#39;postcss-pxtorem&#39;)(&#123;
+            rootValue(&#123; file &#125;) &#123;
+              &#x2F;&#x2F;如果是 Vant 的样式，就把 rootValue 设置为 37.5 来转换
+              &#x2F;&#x2F;如果是我们的样式，就按照 75 的 rootValue 来转换
+              return file.indexOf(&#39;vant&#39;) !&#x3D;&#x3D; -1 ? 37.5 : 75
+            &#125;,
+            &#x2F;&#x2F; 例如 * 就是所有属性都要转换， width 就是仅转换 width 属性
+            propList: [&#39;*&#39;]
+          &#125;),
+        ]
+
+      &#125;
+    &#125;
+  &#125;,
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ol start="3">
 <li>配置完毕，重新启动服务<br>最后测试：刷新浏览器页面，审查元素的样式查看是否已将 px 转换为 rem 。</li>
 </ol>
@@ -549,10 +578,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -636,13 +665,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/15/%E5%85%B6%E5%AE%83/Kettle/">
+                <a href="/2021/11/15/%E5%85%B6%E5%AE%83/Markdown/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Kettle">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Markdown">
                         
-                        <span class="card-title">Kettle</span>
+                        <span class="card-title">Markdown</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -857,25 +886,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -905,7 +945,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

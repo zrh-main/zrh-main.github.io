@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -432,6 +432,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -445,7 +448,206 @@
 </ul>
 <p><strong>Spring公司为了替换Zuul而开发的网关服务</strong></p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Spring Cloud Gateway，旨在为微服务架构提供一种简单有效的统一的 API 路由管理方式<br>它的目标是替代Netflix Zuul，其不仅提供统一的路由方式，并且基于 Filter 链的方式提供了网关基本的功能，例如：安全，监控和限流。</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h1 id="下方是已弃用的zool网关"><a href="#下方是已弃用的zool网关" class="headerlink" title="下方是已弃用的zool网关"></a>下方是已弃用的zool网关</h1><h2 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h2><p><img src="/1525674644660.png" alt="1525674644660"><br>Spring Cloud Netflix中的Eureka实现了服务注册中心以及服务注册与发现；<br>而服务间通过Ribbon或Feign实现服务的消费以及均衡负载；<br>通过<code>Spring Cloud Config实现了应用多环境的外部化配置以及版本管理??</code>。<br>为了使得服务集群更为健壮，使用Hystrix的融断机制来避免在微服务架构中个别服务出现异常时引起的故障蔓延。</p>
+<p>在该架构中，服务集群包含：内部服务Service A和Service B，他们都会注册与订阅服务至Eureka Server，而Open Service是一个对外的服务，通过均衡负载公开至服务调用方。</p>
+<p><strong>存在问题:</strong></p>
+<ul>
+<li>首先，破坏了服务无状态特点。<ul>
+<li>为了保证对外服务的安全性，我们需要实现对服务访问的权限控制，而开放服务的权限控制机制将会贯穿并污染整个开放服务的业务逻辑，这会带来的最直接问题是，破坏了服务集群中REST API无状态的特点。</li>
+<li>从具体开发和测试的角度来说，在工作中除了要考虑实际的业务逻辑之外，还需要额外考虑对接口访问的控制处理。</li>
+</ul>
+</li>
+<li>其次，无法直接复用既有接口。<ul>
+<li>当我们需要对一个即有的集群内访问接口，实现外部服务访问时，我们不得不通过在原有接口上增加校验逻辑，或增加一个代理调用来实现权限控制，无法直接复用原有的接口</li>
+</ul>
+</li>
+</ul>
+<p><strong>解决方案:</strong><br>zuul网关</p>
+<h2 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h2><p>服务网关是微服务架构中一个不可或缺的部分。<br>通过服务网关统一向外系统提供REST API的过程中，除了具备服务路由、均衡负载功能之外，它还具备了<code>权限控制</code>等功能。<br>Spring Cloud Netflix中的Zuul就担任了这样的一个角色，为微服务架构提供了前门保护的作用，同时将权限控制这些较重的非业务逻辑内容迁移到服务路由层面，使得服务集群主体能够具备更高的可复用性和可测试性。<br>官网：<a target="_blank" rel="noopener" href="https://github.com/Netflix/zuul">https://github.com/Netflix/zuul</a><br><img src="/1525675168152.png" alt="1525675168152"></p>
+<h2 id="Zuul加入后的架构"><a href="#Zuul加入后的架构" class="headerlink" title="Zuul加入后的架构"></a>Zuul加入后的架构</h2><p><img src="/1525675648881.png" alt="1525675648881"><br><strong>描述</strong><br>不管是来自于客户端（PC或移动端）的请求，还是服务内部调用。一切对服务的请求都会经过Zuul这个网关，然后再由网关来实现 鉴权、动态路由等等操作。Zuul就是我们服务的统一入口。</p>
+<h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><p>pom.xml</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>parent</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-parent<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.0.6.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>parent</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">></span></span>test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-netflix-zuul<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!-- SpringCloud的依赖 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencyManagement</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-dependencies<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>Finchley.SR2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>pom<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">></span></span>import<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencyManagement</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="EnableZuulProxy-开启Zuul的功能"><a href="#EnableZuulProxy-开启Zuul的功能" class="headerlink" title="@EnableZuulProxy 开启Zuul的功能"></a>@EnableZuulProxy 开启Zuul的功能</h2><p>在启动类通过<code>@EnableZuulProxy</code>注解开启Zuul的功能：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token annotation punctuation">@EnableZuulProxy</span> <span class="token comment">// 开启Zuul的网关功能</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ZuulApplication</span> <span class="token punctuation">&#123;</span>
+
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">ZuulApplication</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">10010</span> <span class="token comment">#服务端口</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span> 
+  <span class="token key atrule">application</span><span class="token punctuation">:</span>    
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> api<span class="token punctuation">-</span>gateway <span class="token comment">#指定服务名</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="配置路由规则"><a href="#配置路由规则" class="headerlink" title="配置路由规则"></a>配置路由规则</h2><p>方式一:</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">zuul</span><span class="token punctuation">:</span>
+  <span class="token key atrule">routes</span><span class="token punctuation">:</span>
+    <span class="token key atrule">provider</span><span class="token punctuation">:</span>                     <span class="token comment"># 这里是路由id，推荐和服务的名称一致</span>
+      <span class="token key atrule">path</span><span class="token punctuation">:</span> /provider/<span class="token important">**</span>          <span class="token comment"># 这里是映射路径</span>
+      <span class="token key atrule">url</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//127.0.0.1<span class="token punctuation">:</span><span class="token number">8082</span>  <span class="token comment"># 映射路径对应的实际url地址</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>方式二:</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">zuul</span><span class="token punctuation">:</span>
+  <span class="token key atrule">routes</span><span class="token punctuation">:</span>
+    <span class="token key atrule">provider</span><span class="token punctuation">:</span>                 <span class="token comment"># 这里是路由id，推荐和服务的名称一致</span>
+      <span class="token key atrule">path</span><span class="token punctuation">:</span> /provider/<span class="token important">**</span>      <span class="token comment"># 这里是映射路径</span>
+      <span class="token key atrule">serviceId</span><span class="token punctuation">:</span> provider     <span class="token comment"># 指定服务名称  # 映射路径对应的实际url地址</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>方式三:<br><strong><code>推荐使用此方式</code></strong></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">zuul</span><span class="token punctuation">:</span>
+  <span class="token key atrule">routes</span><span class="token punctuation">:</span>
+    <span class="token key atrule">provider</span><span class="token punctuation">:</span> /provider/<span class="token important">**</span> <span class="token comment"># 这里是映射路径</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>项目中使用zuul配置路由规则之后；访问地址为：<code>localhost:10010/provider/</code></p>
+<h3 id="路由前缀"><a href="#路由前缀" class="headerlink" title="路由前缀"></a>路由前缀</h3><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">zuul</span><span class="token punctuation">:</span>
+  <span class="token key atrule">prefix</span><span class="token punctuation">:</span> /api <span class="token comment"># 添加路由前缀</span>
+  <span class="token key atrule">routes</span><span class="token punctuation">:</span>
+    <span class="token key atrule">provider</span><span class="token punctuation">:</span> /provider/<span class="token important">**</span> <span class="token comment"># 这里是映射路径</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="zuul注册在eureka"><a href="#zuul注册在eureka" class="headerlink" title="zuul注册在eureka"></a>zuul注册在eureka</h2><p>在zuul的pom.xml中配置</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!-- Eureka客户端 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-netflix-eureka-client<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>启动类添加<code>@EnableDiscoveryClient</code>  </p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">@SpringBootApplication
+@EnableZuulProxy &#x2F;&#x2F; 启动Zuul组件
+@EnableDiscoveryClient  &#x2F;&#x2F;  开启Eureka客户端功能
+public class ZuulApplication &#123;
+    public static void main(String[] args) &#123;
+        SpringApplication.run(ZuulApplication.class, args);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h2><p>需要继承<code>ZuulFilter</code>抽象类并实现其中的方法</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">package cn.dy.filter;
+
+import com.netflix.zuul.ZuulFilter;
+import com.netflix.zuul.context.RequestContext;
+import com.netflix.zuul.exception.ZuulException;
+import org.apache.http.HttpStatus;
+
+import javax.servlet.http.HttpServletRequest;
+
+&#x2F;**
+ * @author zrh
+ * @date 2022&#x2F;4&#x2F;21
+ * @apiNote
+ *&#x2F;
+public class TestFilter extends ZuulFilter &#123;
+
+    &#x2F;**
+     *过滤器类型&#x3D;&#x3D;&#x3D;过滤时机
+     *  值:
+     *      pre     之前
+     *      route   路由
+     *      post    之后
+     *      error   错误
+     * @return
+     *&#x2F;
+    @Override
+    public String filterType() &#123;
+        return &quot;pre&quot;;
+    &#125;
+
+    &#x2F;**
+     * 执行优先级
+     * 值越小优先级越高
+     * @return
+     *&#x2F;
+    @Override
+    public int filterOrder() &#123;
+        return 5;
+    &#125;
+
+    &#x2F;**
+     * 是否过滤
+     * @return
+     *&#x2F;
+    @Override
+    public boolean shouldFilter() &#123;
+        return true;
+    &#125;
+
+    &#x2F;**
+     * 具体的过滤业务逻辑
+     * @return
+     * @throws ZuulException
+     *&#x2F;
+    @Override
+    public Object run() throws ZuulException &#123;
+        &#x2F;&#x2F;  获取到当前上下文
+        RequestContext currentContext &#x3D; RequestContext.getCurrentContext();
+        &#x2F;&#x2F;  获取到Request
+        HttpServletRequest request &#x3D; currentContext.getRequest();
+        String token &#x3D; request.getParameter(&quot;token&quot;);
+        if(token&#x3D;&#x3D;null)&#123;
+            currentContext.setResponseStatusCode(HttpStatus.SC_FORBIDDEN);
+            currentContext.setResponseBody(&quot;权限不足&quot;);
+        &#125;
+        return null;    &#x2F;&#x2F;  return null 代表不做任何操作
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h2 id="3-10-负载均衡和熔断"><a href="#3-10-负载均衡和熔断" class="headerlink" title="3.10.负载均衡和熔断"></a>3.10.负载均衡和熔断</h2><p>Zuul中默认就已经集成了Ribbon负载均衡和Hystix熔断机制。但是所有的超时策略都是走的默认值，比如熔断超时时间只有1S，很容易就触发了。因此建议我们手动进行配置：   </p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">zuul</span><span class="token punctuation">:</span>
+  <span class="token key atrule">retryable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+<span class="token key atrule">ribbon</span><span class="token punctuation">:</span>
+  <span class="token key atrule">ConnectionTimeOut</span><span class="token punctuation">:</span> <span class="token number">500</span>  <span class="token comment"># 连接超时时间(ms)</span>
+  <span class="token key atrule">ReadTimeout</span><span class="token punctuation">:</span> <span class="token number">2000</span> <span class="token comment"># 通信超时时间(ms)</span>
+<span class="token key atrule">hystrix</span><span class="token punctuation">:</span>
+  <span class="token key atrule">command</span><span class="token punctuation">:</span>
+    <span class="token key atrule">default</span><span class="token punctuation">:</span>
+      <span class="token key atrule">execution</span><span class="token punctuation">:</span>
+         <span class="token key atrule">isolation</span><span class="token punctuation">:</span>
+            <span class="token key atrule">thread</span><span class="token punctuation">:</span>
+               <span class="token key atrule">timeoutInMilliseconds</span><span class="token punctuation">:</span> <span class="token number">6000</span> <span class="token comment"># 熔断超时时长：6000ms</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="3-11-zuul的高可用"><a href="#3-11-zuul的高可用" class="headerlink" title="3.11.zuul的高可用"></a>3.11.zuul的高可用</h2><p>启动多个zuul服务，自动注册Eureka，形成集群如果是服务内部访问，你访问zuul，自动负载均衡，没问题，但是zuul更多的是外部访问，PC端，移动端等，他们无法通过Eureka进行负载均衡，那么该怎么办</p>
+<p>此时我们会使用其他的服务网关，来对zuul进行代理，比如：nginx</p>
+<p>Eureka，Ribbon，Hystrix，Feign，Zuul</p>
+<p>Spring-Cloud config：统一配置中心，自动去Git拉取最新配置，缓存，使用git的Webhook钩子，去通知配置中心，说配置发生了变化，配置中心会通过消息总线去通知所有的微服务，更新配置。</p>
+<p>Spring-Cloud-bus：消息总线</p>
+<p>Spring-Cloud-stream：消息通信</p>
+<p>Spring-Cloud-Hystrix-dashboard：容错统计，形成图形化界面</p>
+<p>Spring-Cloud-sleuth：链路追踪，结合ZipKin</p>
+
                 
             </div>
             <hr/>
@@ -524,10 +726,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -840,25 +1042,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -888,7 +1101,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -436,12 +436,148 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        * &#123;  <span class="attribute">margin</span>: <span class="number">0</span>;  <span class="attribute">padding</span>: <span class="number">0</span>; &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;cancel()&quot;</span>&gt;</span>取消<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;save()&quot;</span>&gt;</span>保存<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 配置内容</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">const</span> config = &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">width</span>: <span class="number">400</span>, <span class="comment">// 宽度</span></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">height</span>: <span class="number">200</span>, <span class="comment">// 高度</span></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">lineWidth</span>: <span class="number">5</span>, <span class="comment">// 线宽</span></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">strokeStyle</span>: <span class="string">&#x27;red&#x27;</span>, <span class="comment">// 线条颜色</span></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">lineCap</span>: <span class="string">&#x27;round&#x27;</span>, <span class="comment">// 设置线条两端圆角</span></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">lineJoin</span>: <span class="string">&#x27;round&#x27;</span>, <span class="comment">// 线条交汇处圆角</span></span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 获取canvas 实例</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">const</span> canvas = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;canvas&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 设置宽高</span></span></span><br><span class="line"><span class="language-javascript">    canvas.<span class="property">width</span> = config.<span class="property">width</span></span></span><br><span class="line"><span class="language-javascript">    canvas.<span class="property">height</span> = config.<span class="property">height</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 设置一个边框</span></span></span><br><span class="line"><span class="language-javascript">    canvas.<span class="property">style</span>.<span class="property">border</span> = <span class="string">&#x27;1px solid #000&#x27;</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 创建上下文</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">const</span> ctx = canvas.<span class="title function_">getContext</span>(<span class="string">&#x27;2d&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 设置填充背景色</span></span></span><br><span class="line"><span class="language-javascript">    ctx.<span class="property">fillStyle</span> = <span class="string">&#x27;transparent&#x27;</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 绘制填充矩形</span></span></span><br><span class="line"><span class="language-javascript">    ctx.<span class="title function_">fillRect</span>(</span></span><br><span class="line"><span class="language-javascript">        <span class="number">0</span>, <span class="comment">// x 轴起始绘制位置</span></span></span><br><span class="line"><span class="language-javascript">        <span class="number">0</span>, <span class="comment">// y 轴起始绘制位置</span></span></span><br><span class="line"><span class="language-javascript">        config.<span class="property">width</span>, <span class="comment">// 宽度</span></span></span><br><span class="line"><span class="language-javascript">        config.<span class="property">height</span> <span class="comment">// 高度</span></span></span><br><span class="line"><span class="language-javascript">    );</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 保存上次绘制的 坐标及偏移量</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">const</span> client = &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">offsetX</span>: <span class="number">0</span>, <span class="comment">// 偏移量</span></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">offsetY</span>: <span class="number">0</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">endX</span>: <span class="number">0</span>, <span class="comment">// 坐标</span></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">endY</span>: <span class="number">0</span></span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 判断是否为移动端</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">const</span> mobileStatus = (<span class="regexp">/Mobile|Android|iPhone/i</span>.<span class="title function_">test</span>(navigator.<span class="property">userAgent</span>))</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 初始化</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">const</span> <span class="title function_">init</span> = event =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 获取偏移量及坐标</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> &#123; offsetX, offsetY, pageX, pageY &#125; = mobileStatus ? event.<span class="property">changedTouches</span>[<span class="number">0</span>] : event </span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 修改上次的偏移量及坐标</span></span></span><br><span class="line"><span class="language-javascript">        client.<span class="property">offsetX</span> = offsetX</span></span><br><span class="line"><span class="language-javascript">        client.<span class="property">offsetY</span> = offsetY</span></span><br><span class="line"><span class="language-javascript">        client.<span class="property">endX</span> = pageX</span></span><br><span class="line"><span class="language-javascript">        client.<span class="property">endY</span> = pageY</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 清除以上一次 beginPath 之后的所有路径，进行绘制</span></span></span><br><span class="line"><span class="language-javascript">        ctx.<span class="title function_">beginPath</span>()</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 根据配置文件设置相应配置</span></span></span><br><span class="line"><span class="language-javascript">        ctx.<span class="property">lineWidth</span> = config.<span class="property">lineWidth</span></span></span><br><span class="line"><span class="language-javascript">        ctx.<span class="property">strokeStyle</span> = config.<span class="property">strokeStyle</span></span></span><br><span class="line"><span class="language-javascript">        ctx.<span class="property">lineCap</span> = config.<span class="property">lineCap</span></span></span><br><span class="line"><span class="language-javascript">        ctx.<span class="property">lineJoin</span> = config.<span class="property">lineJoin</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 设置画线起始点位</span></span></span><br><span class="line"><span class="language-javascript">        ctx.<span class="title function_">moveTo</span>(client.<span class="property">endX</span>, client.<span class="property">endY</span>)</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 监听 鼠标移动或手势移动</span></span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(mobileStatus ? <span class="string">&quot;touchmove&quot;</span> : <span class="string">&quot;mousemove&quot;</span>, draw)</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 绘制</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">const</span> <span class="title function_">draw</span> = event =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 获取当前坐标点位</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> &#123; pageX, pageY &#125; = mobileStatus ? event.<span class="property">changedTouches</span>[<span class="number">0</span>] : event</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 修改最后一次绘制的坐标点</span></span></span><br><span class="line"><span class="language-javascript">        client.<span class="property">endX</span> = pageX</span></span><br><span class="line"><span class="language-javascript">        client.<span class="property">endY</span> = pageY</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 根据坐标点位移动添加线条</span></span></span><br><span class="line"><span class="language-javascript">        ctx.<span class="title function_">lineTo</span>(pageX , pageY )</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 绘制</span></span></span><br><span class="line"><span class="language-javascript">        ctx.<span class="title function_">stroke</span>()</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 结束绘制</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">const</span> <span class="title function_">cloaseDraw</span> = (<span class="params"></span>) =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 结束绘制</span></span></span><br><span class="line"><span class="language-javascript">        ctx.<span class="title function_">closePath</span>()</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 移除鼠标移动或手势移动监听器</span></span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">window</span>.<span class="title function_">removeEventListener</span>(<span class="string">&quot;mousemove&quot;</span>, draw)</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 创建鼠标/手势按下监听器</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(mobileStatus ? <span class="string">&quot;touchstart&quot;</span> : <span class="string">&quot;mousedown&quot;</span>, init)</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 创建鼠标/手势 弹起/离开 监听器</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(mobileStatus ? <span class="string">&quot;touchend&quot;</span> :<span class="string">&quot;mouseup&quot;</span>, cloaseDraw)</span></span><br><span class="line"><span class="language-javascript">    </span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 取消-清空画布</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">const</span> <span class="title function_">cancel</span> = (<span class="params"></span>) =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 清空当前画布上的所有绘制内容</span></span></span><br><span class="line"><span class="language-javascript">        ctx.<span class="title function_">clearRect</span>(<span class="number">0</span>, <span class="number">0</span>, config.<span class="property">width</span>, config.<span class="property">height</span>)</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 保存-将画布内容保存为图片</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">const</span> <span class="title function_">save</span> = (<span class="params"></span>) =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 将canvas上的内容转成blob流</span></span></span><br><span class="line"><span class="language-javascript">        canvas.<span class="title function_">toBlob</span>(<span class="function"><span class="params">blob</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 获取当前时间并转成字符串，用来当做文件名</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> date = <span class="title class_">Date</span>.<span class="title function_">now</span>().<span class="title function_">toString</span>()</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 创建一个 a 标签</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> a = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;a&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 设置 a 标签的下载文件名</span></span></span><br><span class="line"><span class="language-javascript">            a.<span class="property">download</span> = <span class="string">`<span class="subst">$&#123;date&#125;</span>.png`</span></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 设置 a 标签的跳转路径为 文件流地址</span></span></span><br><span class="line"><span class="language-javascript">            a.<span class="property">href</span> = <span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>(blob)</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 手动触发 a 标签的点击事件</span></span></span><br><span class="line"><span class="language-javascript">            a.<span class="title function_">click</span>()</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 移除 a 标签</span></span></span><br><span class="line"><span class="language-javascript">            a.<span class="title function_">remove</span>()</span></span><br><span class="line"><span class="language-javascript">        &#125;)</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+                <h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;
+    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge&quot;&gt;
+    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot;&gt;
+    &lt;title&gt;Document&lt;&#x2F;title&gt;
+    &lt;style&gt;
+        * &#123;  margin: 0;  padding: 0; &#125;
+    &lt;&#x2F;style&gt;
+&lt;&#x2F;head&gt;
+&lt;body&gt;
+    &lt;canvas&gt;&lt;&#x2F;canvas&gt;
+    &lt;div&gt;
+        &lt;button onclick&#x3D;&quot;cancel()&quot;&gt;取消&lt;&#x2F;button&gt;
+        &lt;button onclick&#x3D;&quot;save()&quot;&gt;保存&lt;&#x2F;button&gt;
+    &lt;&#x2F;div&gt;
+&lt;&#x2F;body&gt;
+&lt;script&gt;
+    &#x2F;&#x2F; 配置内容
+    const config &#x3D; &#123;
+        width: 400, &#x2F;&#x2F; 宽度
+        height: 200, &#x2F;&#x2F; 高度
+        lineWidth: 5, &#x2F;&#x2F; 线宽
+        strokeStyle: &#39;red&#39;, &#x2F;&#x2F; 线条颜色
+        lineCap: &#39;round&#39;, &#x2F;&#x2F; 设置线条两端圆角
+        lineJoin: &#39;round&#39;, &#x2F;&#x2F; 线条交汇处圆角
+    &#125;
+
+    &#x2F;&#x2F; 获取canvas 实例
+    const canvas &#x3D; document.querySelector(&#39;canvas&#39;)
+    &#x2F;&#x2F; 设置宽高
+    canvas.width &#x3D; config.width
+    canvas.height &#x3D; config.height
+    &#x2F;&#x2F; 设置一个边框
+    canvas.style.border &#x3D; &#39;1px solid #000&#39;
+    &#x2F;&#x2F; 创建上下文
+    const ctx &#x3D; canvas.getContext(&#39;2d&#39;)
+
+    &#x2F;&#x2F; 设置填充背景色
+    ctx.fillStyle &#x3D; &#39;transparent&#39;
+    &#x2F;&#x2F; 绘制填充矩形
+    ctx.fillRect(
+        0, &#x2F;&#x2F; x 轴起始绘制位置
+        0, &#x2F;&#x2F; y 轴起始绘制位置
+        config.width, &#x2F;&#x2F; 宽度
+        config.height &#x2F;&#x2F; 高度
+    );
+
+    &#x2F;&#x2F; 保存上次绘制的 坐标及偏移量
+    const client &#x3D; &#123;
+        offsetX: 0, &#x2F;&#x2F; 偏移量
+        offsetY: 0,
+        endX: 0, &#x2F;&#x2F; 坐标
+        endY: 0
+    &#125;
+
+    &#x2F;&#x2F; 判断是否为移动端
+    const mobileStatus &#x3D; (&#x2F;Mobile|Android|iPhone&#x2F;i.test(navigator.userAgent))
+
+    &#x2F;&#x2F; 初始化
+    const init &#x3D; event &#x3D;&gt; &#123;
+        &#x2F;&#x2F; 获取偏移量及坐标
+        const &#123; offsetX, offsetY, pageX, pageY &#125; &#x3D; mobileStatus ? event.changedTouches[0] : event 
+
+        &#x2F;&#x2F; 修改上次的偏移量及坐标
+        client.offsetX &#x3D; offsetX
+        client.offsetY &#x3D; offsetY
+        client.endX &#x3D; pageX
+        client.endY &#x3D; pageY
+
+        &#x2F;&#x2F; 清除以上一次 beginPath 之后的所有路径，进行绘制
+        ctx.beginPath()
+        &#x2F;&#x2F; 根据配置文件设置相应配置
+        ctx.lineWidth &#x3D; config.lineWidth
+        ctx.strokeStyle &#x3D; config.strokeStyle
+        ctx.lineCap &#x3D; config.lineCap
+        ctx.lineJoin &#x3D; config.lineJoin
+        &#x2F;&#x2F; 设置画线起始点位
+        ctx.moveTo(client.endX, client.endY)
+        &#x2F;&#x2F; 监听 鼠标移动或手势移动
+        window.addEventListener(mobileStatus ? &quot;touchmove&quot; : &quot;mousemove&quot;, draw)
+    &#125;
+    &#x2F;&#x2F; 绘制
+    const draw &#x3D; event &#x3D;&gt; &#123;
+        &#x2F;&#x2F; 获取当前坐标点位
+        const &#123; pageX, pageY &#125; &#x3D; mobileStatus ? event.changedTouches[0] : event
+        &#x2F;&#x2F; 修改最后一次绘制的坐标点
+        client.endX &#x3D; pageX
+        client.endY &#x3D; pageY
+
+        &#x2F;&#x2F; 根据坐标点位移动添加线条
+        ctx.lineTo(pageX , pageY )
+
+        &#x2F;&#x2F; 绘制
+        ctx.stroke()
+    &#125;
+    &#x2F;&#x2F; 结束绘制
+    const cloaseDraw &#x3D; () &#x3D;&gt; &#123;
+        &#x2F;&#x2F; 结束绘制
+        ctx.closePath()
+        &#x2F;&#x2F; 移除鼠标移动或手势移动监听器
+        window.removeEventListener(&quot;mousemove&quot;, draw)
+    &#125;
+    &#x2F;&#x2F; 创建鼠标&#x2F;手势按下监听器
+    window.addEventListener(mobileStatus ? &quot;touchstart&quot; : &quot;mousedown&quot;, init)
+    &#x2F;&#x2F; 创建鼠标&#x2F;手势 弹起&#x2F;离开 监听器
+    window.addEventListener(mobileStatus ? &quot;touchend&quot; :&quot;mouseup&quot;, cloaseDraw)
+    
+    &#x2F;&#x2F; 取消-清空画布
+    const cancel &#x3D; () &#x3D;&gt; &#123;
+        &#x2F;&#x2F; 清空当前画布上的所有绘制内容
+        ctx.clearRect(0, 0, config.width, config.height)
+    &#125;
+    &#x2F;&#x2F; 保存-将画布内容保存为图片
+    const save &#x3D; () &#x3D;&gt; &#123;
+        &#x2F;&#x2F; 将canvas上的内容转成blob流
+        canvas.toBlob(blob &#x3D;&gt; &#123;
+            &#x2F;&#x2F; 获取当前时间并转成字符串，用来当做文件名
+            const date &#x3D; Date.now().toString()
+            &#x2F;&#x2F; 创建一个 a 标签
+            const a &#x3D; document.createElement(&#39;a&#39;)
+            &#x2F;&#x2F; 设置 a 标签的下载文件名
+            a.download &#x3D; &#96;$&#123;date&#125;.png&#96;
+            &#x2F;&#x2F; 设置 a 标签的跳转路径为 文件流地址
+            a.href &#x3D; URL.createObjectURL(blob)
+            &#x2F;&#x2F; 手动触发 a 标签的点击事件
+            a.click()
+            &#x2F;&#x2F; 移除 a 标签
+            a.remove()
+        &#125;)
+    &#125;
+&lt;&#x2F;script&gt;
+&lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -524,10 +660,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -562,13 +698,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/04/26/Java/Elastic%20Stack/ElasticSearch%20HTTP%E6%93%8D%E4%BD%9C/">
+                <a href="/2026/03/03/Elastic%20Stach/ElasticSearch%20%E5%AE%89%E8%A3%85/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="ElasticSearch HTTP操作">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="ElasticSearch 安装">
                         
-                        <span class="card-title">ElasticSearch HTTP操作</span>
+                        <span class="card-title">ElasticSearch 安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -579,7 +715,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-04-26
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-03-03
                         </span>
                         <span class="publish-author">
                             
@@ -619,13 +755,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/02/11/Java/Java%20junit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+                <a href="/2022/02/11/Java/Java%20%E5%B8%B8%E7%94%A8%E6%A1%86%E6%9E%B6/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Java junit单元测试">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Java 常用框架">
                         
-                        <span class="card-title">Java junit单元测试</span>
+                        <span class="card-title">Java 常用框架</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -653,8 +789,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java-%E6%B5%8B%E8%AF%95/">
-                        <span class="chip bg-color">Java 测试</span>
+                    <a href="/tags/Java-%E5%B8%B8%E7%94%A8%E6%A1%86%E6%9E%B6/">
+                        <span class="chip bg-color">Java 常用框架</span>
                     </a>
                     
                 </div>
@@ -848,25 +984,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -896,7 +1043,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

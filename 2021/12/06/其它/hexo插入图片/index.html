@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -424,19 +424,22 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="HEXO插入图片"><a href="#HEXO插入图片" class="headerlink" title="HEXO插入图片"></a>HEXO插入图片</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+                <h2 id="HEXO插入图片"><a href="#HEXO插入图片" class="headerlink" title="HEXO插入图片"></a>HEXO插入图片</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-asset-image <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="修改-config-yml配置"><a href="#修改-config-yml配置" class="headerlink" title="修改_config.yml配置"></a>修改_config.yml配置</h3><blockquote>
 <p>打开hexo的配置文件_config.yml找到 post_asset_folder，把这个选项从false改成true</p>
 </blockquote>
 <h3 id="替换插件源码"><a href="#替换插件源码" class="headerlink" title="替换插件源码"></a>替换插件源码</h3><blockquote>
 <p>打开&#x2F;node_modules&#x2F;hexo-asset-image&#x2F;index.js替换为如下代码:</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;<span class="keyword">var</span> cheerio=<span class="built_in">require</span>(<span class="string">&#x27;cheerio&#x27;</span>);<span class="keyword">function</span> <span class="title function_">getPosition</span>(<span class="params">str,m,i</span>)&#123;<span class="keyword">return</span> str.<span class="title function_">split</span>(m,i).<span class="title function_">join</span>(m).<span class="property">length</span>&#125;<span class="keyword">var</span> version=<span class="title class_">String</span>(hexo.<span class="property">version</span>).<span class="title function_">split</span>(<span class="string">&#x27;.&#x27;</span>);hexo.<span class="property">extend</span>.<span class="property">filter</span>.<span class="title function_">register</span>(<span class="string">&#x27;after_post_render&#x27;</span>,<span class="keyword">function</span>(<span class="params">data</span>)&#123;<span class="keyword">var</span> config=hexo.<span class="property">config</span>;<span class="keyword">if</span>(config.<span class="property">post_asset_folder</span>)&#123;<span class="keyword">var</span> link=data.<span class="property">permalink</span>;<span class="keyword">if</span>(version.<span class="property">length</span>&gt;<span class="number">0</span>&amp;&amp;<span class="title class_">Number</span>(version[<span class="number">0</span>])==<span class="number">3</span>)<span class="keyword">var</span> beginPos=<span class="title function_">getPosition</span>(link,<span class="string">&#x27;/&#x27;</span>,<span class="number">1</span>)+<span class="number">1</span>;<span class="keyword">else</span> <span class="keyword">var</span> beginPos=<span class="title function_">getPosition</span>(link,<span class="string">&#x27;/&#x27;</span>,<span class="number">3</span>)+<span class="number">1</span>;<span class="keyword">var</span> endPos=link.<span class="title function_">lastIndexOf</span>(<span class="string">&#x27;/&#x27;</span>)+<span class="number">1</span>;link=link.<span class="title function_">substring</span>(beginPos,endPos);<span class="keyword">var</span> toprocess=[<span class="string">&#x27;excerpt&#x27;</span>,<span class="string">&#x27;more&#x27;</span>,<span class="string">&#x27;content&#x27;</span>];<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;toprocess.<span class="property">length</span>;i++)&#123;<span class="keyword">var</span> key=toprocess[i];<span class="keyword">var</span> $=cheerio.<span class="title function_">load</span>(data[key],&#123;<span class="attr">ignoreWhitespace</span>:<span class="literal">false</span>,<span class="attr">xmlMode</span>:<span class="literal">false</span>,<span class="attr">lowerCaseTags</span>:<span class="literal">false</span>,<span class="attr">decodeEntities</span>:<span class="literal">false</span>&#125;);$(<span class="string">&#x27;img&#x27;</span>).<span class="title function_">each</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;<span class="keyword">if</span>($(<span class="variable language_">this</span>).<span class="title function_">attr</span>(<span class="string">&#x27;src&#x27;</span>))&#123;<span class="keyword">var</span> src=$(<span class="variable language_">this</span>).<span class="title function_">attr</span>(<span class="string">&#x27;src&#x27;</span>).<span class="title function_">replace</span>(<span class="string">&#x27;\\&#x27;</span>,<span class="string">&#x27;/&#x27;</span>);<span class="keyword">if</span>(!<span class="regexp">/http[s]*.*|\/\/.*/</span>.<span class="title function_">test</span>(src)&amp;&amp;!<span class="regexp">/^\s*\//</span>.<span class="title function_">test</span>(src))&#123;<span class="keyword">var</span> linkArray=link.<span class="title function_">split</span>(<span class="string">&#x27;/&#x27;</span>).<span class="title function_">filter</span>(<span class="keyword">function</span>(<span class="params">elem</span>)&#123;<span class="keyword">return</span> elem!=<span class="string">&#x27;&#x27;</span>&#125;);<span class="keyword">var</span> srcArray=src.<span class="title function_">split</span>(<span class="string">&#x27;/&#x27;</span>).<span class="title function_">filter</span>(<span class="keyword">function</span>(<span class="params">elem</span>)&#123;<span class="keyword">return</span> elem!=<span class="string">&#x27;&#x27;</span>&amp;&amp;elem!=<span class="string">&#x27;.&#x27;</span>&#125;);<span class="keyword">if</span>(srcArray.<span class="property">length</span>&gt;<span class="number">1</span>)srcArray.<span class="title function_">shift</span>();src=srcArray.<span class="title function_">join</span>(<span class="string">&#x27;/&#x27;</span>);$(<span class="variable language_">this</span>).<span class="title function_">attr</span>(<span class="string">&#x27;src&#x27;</span>,config.<span class="property">root</span>+link+src);<span class="variable language_">console</span>.<span class="property">info</span>&amp;&amp;<span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&quot;update link as:--&gt;&quot;</span>+config.<span class="property">root</span>+link+src)&#125;&#125;<span class="keyword">else</span>&#123;<span class="variable language_">console</span>.<span class="property">info</span>&amp;&amp;<span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&quot;no src attr, skipped...&quot;</span>);<span class="variable language_">console</span>.<span class="property">info</span>&amp;&amp;<span class="variable language_">console</span>.<span class="title function_">info</span>($(<span class="variable language_">this</span>))&#125;&#125;);data[key]=$.<span class="title function_">html</span>()&#125;&#125;&#125;);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">&#39;use strict&#39;;var cheerio&#x3D;require(&#39;cheerio&#39;);function getPosition(str,m,i)&#123;return str.split(m,i).join(m).length&#125;var version&#x3D;String(hexo.version).split(&#39;.&#39;);hexo.extend.filter.register(&#39;after_post_render&#39;,function(data)&#123;var config&#x3D;hexo.config;if(config.post_asset_folder)&#123;var link&#x3D;data.permalink;if(version.length&gt;0&amp;&amp;Number(version[0])&#x3D;&#x3D;3)var beginPos&#x3D;getPosition(link,&#39;&#x2F;&#39;,1)+1;else var beginPos&#x3D;getPosition(link,&#39;&#x2F;&#39;,3)+1;var endPos&#x3D;link.lastIndexOf(&#39;&#x2F;&#39;)+1;link&#x3D;link.substring(beginPos,endPos);var toprocess&#x3D;[&#39;excerpt&#39;,&#39;more&#39;,&#39;content&#39;];for(var i&#x3D;0;i&lt;toprocess.length;i++)&#123;var key&#x3D;toprocess[i];var $&#x3D;cheerio.load(data[key],&#123;ignoreWhitespace:false,xmlMode:false,lowerCaseTags:false,decodeEntities:false&#125;);$(&#39;img&#39;).each(function()&#123;if($(this).attr(&#39;src&#39;))&#123;var src&#x3D;$(this).attr(&#39;src&#39;).replace(&#39;\\&#39;,&#39;&#x2F;&#39;);if(!&#x2F;http[s]*.*|\&#x2F;\&#x2F;.*&#x2F;.test(src)&amp;&amp;!&#x2F;^\s*\&#x2F;&#x2F;.test(src))&#123;var linkArray&#x3D;link.split(&#39;&#x2F;&#39;).filter(function(elem)&#123;return elem!&#x3D;&#39;&#39;&#125;);var srcArray&#x3D;src.split(&#39;&#x2F;&#39;).filter(function(elem)&#123;return elem!&#x3D;&#39;&#39;&amp;&amp;elem!&#x3D;&#39;.&#39;&#125;);if(srcArray.length&gt;1)srcArray.shift();src&#x3D;srcArray.join(&#39;&#x2F;&#39;);$(this).attr(&#39;src&#39;,config.root+link+src);console.info&amp;&amp;console.info(&quot;update link as:--&gt;&quot;+config.root+link+src)&#125;&#125;else&#123;console.info&amp;&amp;console.info(&quot;no src attr, skipped...&quot;);console.info&amp;&amp;console.info($(this))&#125;&#125;);data[key]&#x3D;$.html()&#125;&#125;&#125;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><blockquote>
 <p>现在可以插入图片了，<br>在hexo new post photo之后就在source&#x2F;_posts生成photo.md文件和photo文件夹，把要插入的图片复制到photo文件夹内，在photo.md文件里面按markdown的标准写,（我的文件名是head.jpeg）<br>比如: &nbsp;&nbsp;&nbsp;![代替图片的文字](head.jpeg)</p>
 </blockquote>
@@ -511,10 +514,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -811,25 +814,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -859,7 +873,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

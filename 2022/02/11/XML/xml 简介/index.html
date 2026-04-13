@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -428,6 +428,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -452,7 +455,18 @@
 </ol>
 <h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><p>XML 的优势之一，就是可以在不中断应用程序的情况下进行扩展</p>
 <h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>XML 文档形成了一种树结构，它从”根部”开始，然后扩展到”枝叶”</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- XML 声明。定义XML的版本(1.0)和所使用的编码(UTF-8 : 万国码, 可显示各种语言) --&gt;</span></span><br><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 根元素 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">note</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 子元素 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">to</span>&gt;</span>Tove<span class="tag">&lt;/<span class="name">to</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">from</span>&gt;</span>Jani<span class="tag">&lt;/<span class="name">from</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">heading</span>&gt;</span>Reminder<span class="tag">&lt;/<span class="name">heading</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span>Don&#x27;t forget me this weekend!<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 根元素结尾 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">note</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!-- XML 声明。定义XML的版本(1.0)和所使用的编码(UTF-8 : 万国码, 可显示各种语言) --></span>
+<span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
+
+<span class="token comment">&lt;!-- 根元素 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>note</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!-- 子元素 --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>to</span><span class="token punctuation">></span></span>Tove<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>to</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>from</span><span class="token punctuation">></span></span>Jani<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>from</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>heading</span><span class="token punctuation">></span></span>Reminder<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>heading</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>Don't forget me this weekend!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!-- 根元素结尾 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>note</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>XML将数据组织成为一棵树,DOM 通过解析 XML 文档,为 XML 文档在逻辑上建立一个树模型,树的节点是一个个的对象。这样通过操作这棵树和这些对象就可以完成对 XML 文档的操作,为处理文档的所有方面提供了一个完美的概念性框架</p>
 </blockquote>
@@ -509,7 +523,20 @@
 <li>属性难以阅读和维护。<code>请尽量使用元素来描述数据。而仅仅使用属性来提供与数据无关的信息</code><br>元数据（有关数据的数据）应当存储为属性，而数据本身应当存储为元素</li>
 </ul>
 <h3 id="id属性"><a href="#id属性" class="headerlink" title="id属性"></a>id属性</h3><p>向元素分配 ID 引用。这些 ID 索引可用于标识 XML 元素，它起作用的方式与 HTML 中 id 属性是一样的</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">messages</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">note</span> <span class="attr">id</span>=<span class="string">&quot;501&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">to</span>&gt;</span>Tove<span class="tag">&lt;/<span class="name">to</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">from</span>&gt;</span>Jani<span class="tag">&lt;/<span class="name">from</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heading</span>&gt;</span>Reminder<span class="tag">&lt;/<span class="name">heading</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>Don&#x27;t forget me this weekend!<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">note</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">note</span> <span class="attr">id</span>=<span class="string">&quot;502&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">to</span>&gt;</span>Jani<span class="tag">&lt;/<span class="name">to</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">from</span>&gt;</span>Tove<span class="tag">&lt;/<span class="name">from</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heading</span>&gt;</span>Re: Reminder<span class="tag">&lt;/<span class="name">heading</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>I will not<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">note</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">messages</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>messages</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>note</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>501<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>to</span><span class="token punctuation">></span></span>Tove<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>to</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>from</span><span class="token punctuation">></span></span>Jani<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>from</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>heading</span><span class="token punctuation">></span></span>Reminder<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>heading</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>Don't forget me this weekend!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>note</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>note</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>502<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>to</span><span class="token punctuation">></span></span>Jani<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>to</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>from</span><span class="token punctuation">></span></span>Tove<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>from</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>heading</span><span class="token punctuation">></span></span>Re: Reminder<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>heading</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>I will not<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>note</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>messages</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <h2 id="XML约束"><a href="#XML约束" class="headerlink" title="XML约束"></a>XML约束</h2><p>约束 : 规定xml文档书写规则<br>作为框架的使用者(程序员):</p>
@@ -522,12 +549,79 @@
 <li>DTD 基础约束文件 <ul>
 <li>通过 DTD 验证的XML是”合法”的 XML</li>
 <li>例:   student.data</li>
-<li>引入方式<br>  本地:<!DOCTYPE students SYSTEM "student.dtd"><br>  远程:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!ELEMENT students (student*) &gt;</span><br><span class="line">&lt;!ELEMENT student (name,age,sex)&gt;</span><br><span class="line">&lt;!ELEMENT name (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT age (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT sex (#PCDATA)&gt;</span><br><span class="line">&lt;!ATTLIST student number ID #REQUIRED&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span> ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">students</span> <span class="keyword">SYSTEM</span> <span class="string">&quot;student.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">students</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">student</span> <span class="attr">number</span>=<span class="string">&quot;deyuan_0001&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>tom<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">age</span>&gt;</span>18<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">sex</span>&gt;</span>male<span class="tag">&lt;/<span class="name">sex</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">student</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">students</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>引入方式<br>  本地:<!DOCTYPE students SYSTEM "student.dtd"><br>  远程:<pre class="line-numbers language-dtd" data-language="dtd"><code class="language-dtd">&lt;!ELEMENT students (student*) &gt;
+&lt;!ELEMENT student (name,age,sex)&gt;
+&lt;!ELEMENT name (#PCDATA)&gt;
+&lt;!ELEMENT age (#PCDATA)&gt;
+&lt;!ELEMENT sex (#PCDATA)&gt;
+&lt;!ATTLIST student number ID #REQUIRED&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-XML" data-language="XML"><code class="language-XML">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE students SYSTEM &quot;student.dtd&quot;&gt;
+&lt;students&gt;
+  &lt;student number&#x3D;&quot;deyuan_0001&quot;&gt;
+    &lt;name&gt;tom&lt;&#x2F;name&gt;
+    &lt;age&gt;18&lt;&#x2F;age&gt;
+    &lt;sex&gt;male&lt;&#x2F;sex&gt;
+  &lt;&#x2F;student&gt;
+&lt;&#x2F;students&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 </li>
-<li>Schema 复杂的约束技术<br>例:<figure class="highlight xsd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">xsd:schema</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.deyuan.com/xml&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">xmlns:xsd</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">targetNamespace</span>=<span class="string">&quot;http://www.deyuan.com/xml&quot;</span> <span class="attr">elementFormDefault</span>=<span class="string">&quot;qualified&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">xsd:element</span> <span class="attr">name</span>=<span class="string">&quot;students&quot;</span> <span class="attr">type</span>=<span class="string">&quot;studentsType&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">xsd:complexType</span> <span class="attr">name</span>=<span class="string">&quot;studentsType&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">xsd:sequence</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">xsd:element</span> <span class="attr">name</span>=<span class="string">&quot;student&quot;</span> <span class="attr">type</span>=<span class="string">&quot;studentType&quot;</span> <span class="attr">minOccurs</span>=<span class="string">&quot;0&quot;</span> <span class="attr">maxOccurs</span>=<span class="string">&quot;unbounded&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">xsd:sequence</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">xsd:complexType</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">xsd:complexType</span> <span class="attr">name</span>=<span class="string">&quot;studentType&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">xsd:sequence</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">xsd:element</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span> <span class="attr">type</span>=<span class="string">&quot;xsd:string&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">xsd:element</span> <span class="attr">name</span>=<span class="string">&quot;age&quot;</span> <span class="attr">type</span>=<span class="string">&quot;ageType&quot;</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">xsd:element</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">type</span>=<span class="string">&quot;sexType&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">xsd:sequence</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">xsd:attribute</span> <span class="attr">name</span>=<span class="string">&quot;number&quot;</span> <span class="attr">type</span>=<span class="string">&quot;numberType&quot;</span> <span class="attr">use</span>=<span class="string">&quot;required&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">xsd:complexType</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">xsd:simpleType</span> <span class="attr">name</span>=<span class="string">&quot;sexType&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">xsd:restriction</span> <span class="attr">base</span>=<span class="string">&quot;xsd:string&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">xsd:enumeration</span> <span class="attr">value</span>=<span class="string">&quot;male&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">xsd:enumeration</span> <span class="attr">value</span>=<span class="string">&quot;female&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">xsd:restriction</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">xsd:simpleType</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">xsd:simpleType</span> <span class="attr">name</span>=<span class="string">&quot;ageType&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">xsd:restriction</span> <span class="attr">base</span>=<span class="string">&quot;xsd:integer&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">xsd:minInclusive</span> <span class="attr">value</span>=<span class="string">&quot;0&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">xsd:maxInclusive</span> <span class="attr">value</span>=<span class="string">&quot;256&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">xsd:restriction</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">xsd:simpleType</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">xsd:simpleType</span> <span class="attr">name</span>=<span class="string">&quot;numberType&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">xsd:restriction</span> <span class="attr">base</span>=<span class="string">&quot;xsd:string&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">xsd:pattern</span> <span class="attr">value</span>=<span class="string">&quot;deyuan_\d&#123;4&#125;&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">xsd:restriction</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">xsd:simpleType</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">xsd:schema</span>&gt;</span> </span><br></pre></td></tr></table></figure>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span> ?&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">	1.填写xml文档的根元素</span></span><br><span class="line"><span class="comment">	2.引入xsi前缀.  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span><br><span class="line"><span class="comment">	3.引入xsd文件命名空间.  xsi:schemaLocation=&quot;http://www.deyuan.com/xml  student.xsd&quot;</span></span><br><span class="line"><span class="comment">	4.为每一个xsd约束声明一个前缀,作为标识  xmlns=&quot;http://www.deyuan.com/xml&quot; </span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">students</span>   <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag"> 			 <span class="attr">xmlns</span>=<span class="string">&quot;http://www.deyuan.com/xml&quot;</span> </span></span><br><span class="line"><span class="tag"> 		   <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.deyuan.com/xml  student.xsd&quot;</span></span></span><br><span class="line"><span class="tag"> 		    &gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">student</span> <span class="attr">number</span>=<span class="string">&quot;deyuan_0001&quot;</span>&gt;</span></span><br><span class="line"> 		<span class="tag">&lt;<span class="name">name</span>&gt;</span>tom<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"> 		<span class="tag">&lt;<span class="name">age</span>&gt;</span>18<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line"> 		<span class="tag">&lt;<span class="name">sex</span>&gt;</span>male<span class="tag">&lt;/<span class="name">sex</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;/<span class="name">student</span>&gt;</span></span><br><span class="line">		 </span><br><span class="line"> <span class="tag">&lt;/<span class="name">students</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>Schema 复杂的约束技术<br>例:<pre class="line-numbers language-xsd" data-language="xsd"><code class="language-xsd">&lt;?xml version&#x3D;&quot;1.0&quot;?&gt;
+&lt;xsd:schema xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.deyuan.com&#x2F;xml&quot;
+        xmlns:xsd&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema&quot;
+        targetNamespace&#x3D;&quot;http:&#x2F;&#x2F;www.deyuan.com&#x2F;xml&quot; elementFormDefault&#x3D;&quot;qualified&quot;&gt;
+    &lt;xsd:element name&#x3D;&quot;students&quot; type&#x3D;&quot;studentsType&quot;&#x2F;&gt;
+    &lt;xsd:complexType name&#x3D;&quot;studentsType&quot;&gt;
+        &lt;xsd:sequence&gt;
+            &lt;xsd:element name&#x3D;&quot;student&quot; type&#x3D;&quot;studentType&quot; minOccurs&#x3D;&quot;0&quot; maxOccurs&#x3D;&quot;unbounded&quot;&#x2F;&gt;
+        &lt;&#x2F;xsd:sequence&gt;
+    &lt;&#x2F;xsd:complexType&gt;
+    &lt;xsd:complexType name&#x3D;&quot;studentType&quot;&gt;
+        &lt;xsd:sequence&gt;
+            &lt;xsd:element name&#x3D;&quot;name&quot; type&#x3D;&quot;xsd:string&quot;&#x2F;&gt;
+            &lt;xsd:element name&#x3D;&quot;age&quot; type&#x3D;&quot;ageType&quot; &#x2F;&gt;
+            &lt;xsd:element name&#x3D;&quot;sex&quot; type&#x3D;&quot;sexType&quot; &#x2F;&gt;
+        &lt;&#x2F;xsd:sequence&gt;
+        &lt;xsd:attribute name&#x3D;&quot;number&quot; type&#x3D;&quot;numberType&quot; use&#x3D;&quot;required&quot;&#x2F;&gt;
+    &lt;&#x2F;xsd:complexType&gt;
+    &lt;xsd:simpleType name&#x3D;&quot;sexType&quot;&gt;
+        &lt;xsd:restriction base&#x3D;&quot;xsd:string&quot;&gt;
+            &lt;xsd:enumeration value&#x3D;&quot;male&quot;&#x2F;&gt;
+            &lt;xsd:enumeration value&#x3D;&quot;female&quot;&#x2F;&gt;
+        &lt;&#x2F;xsd:restriction&gt;
+    &lt;&#x2F;xsd:simpleType&gt;
+    &lt;xsd:simpleType name&#x3D;&quot;ageType&quot;&gt;
+        &lt;xsd:restriction base&#x3D;&quot;xsd:integer&quot;&gt;
+            &lt;xsd:minInclusive value&#x3D;&quot;0&quot;&#x2F;&gt;
+            &lt;xsd:maxInclusive value&#x3D;&quot;256&quot;&#x2F;&gt;
+        &lt;&#x2F;xsd:restriction&gt;
+    &lt;&#x2F;xsd:simpleType&gt;
+    &lt;xsd:simpleType name&#x3D;&quot;numberType&quot;&gt;
+        &lt;xsd:restriction base&#x3D;&quot;xsd:string&quot;&gt;
+            &lt;xsd:pattern value&#x3D;&quot;deyuan_\d&#123;4&#125;&quot;&#x2F;&gt;
+        &lt;&#x2F;xsd:restriction&gt;
+    &lt;&#x2F;xsd:simpleType&gt;
+&lt;&#x2F;xsd:schema&gt; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-XML" data-language="XML"><code class="language-XML">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot; ?&gt;
+&lt;!-- 
+	1.填写xml文档的根元素
+	2.引入xsi前缀.  xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;
+	3.引入xsd文件命名空间.  xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;www.deyuan.com&#x2F;xml  student.xsd&quot;
+	4.为每一个xsd约束声明一个前缀,作为标识  xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.deyuan.com&#x2F;xml&quot; 
+	
+	
+ --&gt;
+ &lt;students   xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;
+ 			 xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.deyuan.com&#x2F;xml&quot; 
+ 		   xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;www.deyuan.com&#x2F;xml  student.xsd&quot;
+ 		    &gt;
+ 	&lt;student number&#x3D;&quot;deyuan_0001&quot;&gt;
+ 		&lt;name&gt;tom&lt;&#x2F;name&gt;
+ 		&lt;age&gt;18&lt;&#x2F;age&gt;
+ 		&lt;sex&gt;male&lt;&#x2F;sex&gt;
+ 	&lt;&#x2F;student&gt;
+		 
+ &lt;&#x2F;students&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h2 id="XML-查看"><a href="#XML-查看" class="headerlink" title="XML 查看"></a>XML 查看</h2><p>在主流的浏览器中，均能够查看原始的 XML 文件;XML 文件不会直接显示为 HTML 页面<br>查看无效的(有错的) XML 文件，浏览器会报告错误</p>
 <h2 id="解析XML"><a href="#解析XML" class="headerlink" title="解析XML"></a>解析XML</h2><p>操作xml文件</p>
@@ -610,10 +704,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -648,13 +742,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/02/11/Java/%E7%AE%80%E4%BB%8B/">
+                <a href="/2022/02/11/Java/Java%20%E5%B8%B8%E7%94%A8%E6%A1%86%E6%9E%B6/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="框架简介">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Java 常用框架">
                         
-                        <span class="card-title">框架简介</span>
+                        <span class="card-title">Java 常用框架</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -926,25 +1020,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -974,7 +1079,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

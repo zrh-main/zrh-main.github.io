@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -432,6 +432,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -458,20 +461,99 @@
 </ul>
 <p>创建流对象时，必须传入一个文件路径。类似于FileInputStream</p>
 <ul>
-<li>构造举例，代码如下：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FISRead</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">      	<span class="comment">// 使用文件名称创建流对象</span></span><br><span class="line">       	<span class="type">FileReader</span> <span class="variable">fr</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileReader</span>(<span class="string">&quot;read.txt&quot;</span>);</span><br><span class="line">      	<span class="comment">// 定义变量，保存有效字符个数</span></span><br><span class="line">        <span class="type">int</span> len ；</span><br><span class="line">        <span class="comment">// 定义字符数组，作为装字符数据的容器</span></span><br><span class="line">        <span class="type">char</span>[] cbuf = <span class="keyword">new</span> <span class="title class_">char</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="comment">// 循环读取</span></span><br><span class="line">        <span class="keyword">while</span> ((len = fr.read(cbuf))!=-<span class="number">1</span>) &#123;</span><br><span class="line">            System.out.println(<span class="keyword">new</span> <span class="title class_">String</span>(cbuf,<span class="number">0</span>,len));</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="comment">// 关闭资源</span></span><br><span class="line">        fr.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">输出结果：</span><br><span class="line">德源</span><br><span class="line">程序</span><br><span class="line">员</span><br></pre></td></tr></table></figure></li>
+<li>构造举例，代码如下：<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class FISRead &#123;
+    public static void main(String[] args) throws IOException &#123;
+      	&#x2F;&#x2F; 使用文件名称创建流对象
+       	FileReader fr &#x3D; new FileReader(&quot;read.txt&quot;);
+      	&#x2F;&#x2F; 定义变量，保存有效字符个数
+        int len ；
+        &#x2F;&#x2F; 定义字符数组，作为装字符数据的容器
+        char[] cbuf &#x3D; new char[2];
+        &#x2F;&#x2F; 循环读取
+        while ((len &#x3D; fr.read(cbuf))!&#x3D;-1) &#123;
+            System.out.println(new String(cbuf,0,len));
+        &#125;
+    	&#x2F;&#x2F; 关闭资源
+        fr.close();
+    &#125;
+&#125;
+
+输出结果：
+德源
+程序
+员<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h4 id="读取字符数据"><a href="#读取字符数据" class="headerlink" title="读取字符数据"></a>读取字符数据</h4><ol>
 <li><strong>读取字符</strong>：<code>read</code>方法，每次可以读取一个字符的数据，提升为int类型，读取到文件末尾，返回<code>-1</code>，循环读取，代码使用演示：</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FRRead</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">      	<span class="comment">// 使用文件名称创建流对象</span></span><br><span class="line">       	<span class="type">FileReader</span> <span class="variable">fr</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileReader</span>(<span class="string">&quot;read.txt&quot;</span>);</span><br><span class="line">      	<span class="comment">// 定义变量，保存数据</span></span><br><span class="line">        <span class="type">int</span> b ；</span><br><span class="line">        <span class="comment">// 循环读取</span></span><br><span class="line">        <span class="keyword">while</span> ((b = fr.read())!=-<span class="number">1</span>) &#123;</span><br><span class="line">            System.out.println((<span class="type">char</span>)b);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 关闭资源</span></span><br><span class="line">        fr.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">输出结果：</span><br><span class="line">黑</span><br><span class="line">马</span><br><span class="line">程</span><br><span class="line">序</span><br><span class="line">员</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FRRead</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">&#123;</span>
+      	<span class="token comment">// 使用文件名称创建流对象</span>
+       	<span class="token class-name">FileReader</span> fr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileReader</span><span class="token punctuation">(</span><span class="token string">"read.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      	<span class="token comment">// 定义变量，保存数据</span>
+        <span class="token keyword">int</span> b ；
+        <span class="token comment">// 循环读取</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>b <span class="token operator">=</span> fr<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+
+		<span class="token comment">// 关闭资源</span>
+        fr<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+输出结果：
+黑
+马
+程
+序
+员<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>读取字符数据</p>
 <blockquote>
 <p>小贴士：虽然读取了一个字符，但是会自动提升为int类型。</p>
 </blockquote>
 <p><strong>使用字符数组读取</strong>：<code>read(char[] cbuf)</code>，每次读取b的长度个字符到数组中，返回读取到的有效字符个数，读取到末尾时，返回<code>-1</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FRRead</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">      	<span class="comment">// 使用文件名称创建流对象</span></span><br><span class="line">       	<span class="type">FileReader</span> <span class="variable">fr</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileReader</span>(<span class="string">&quot;read.txt&quot;</span>);</span><br><span class="line">      	<span class="comment">// 定义变量，保存有效字符个数</span></span><br><span class="line">        <span class="type">int</span> len ；</span><br><span class="line">        <span class="comment">// 定义字符数组，作为装字符数据的容器</span></span><br><span class="line">         <span class="type">char</span>[] cbuf = <span class="keyword">new</span> <span class="title class_">char</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="comment">// 循环读取</span></span><br><span class="line">        <span class="keyword">while</span> ((len = fr.read(cbuf))!=-<span class="number">1</span>) &#123;</span><br><span class="line">            System.out.println(<span class="keyword">new</span> <span class="title class_">String</span>(cbuf));</span><br><span class="line">        &#125;</span><br><span class="line">		<span class="comment">// 关闭资源</span></span><br><span class="line">        fr.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">输出结果：</span><br><span class="line">德源</span><br><span class="line">程序</span><br><span class="line">员序</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class FRRead &#123;
+    public static void main(String[] args) throws IOException &#123;
+      	&#x2F;&#x2F; 使用文件名称创建流对象
+       	FileReader fr &#x3D; new FileReader(&quot;read.txt&quot;);
+      	&#x2F;&#x2F; 定义变量，保存有效字符个数
+        int len ；
+        &#x2F;&#x2F; 定义字符数组，作为装字符数据的容器
+         char[] cbuf &#x3D; new char[2];
+        &#x2F;&#x2F; 循环读取
+        while ((len &#x3D; fr.read(cbuf))!&#x3D;-1) &#123;
+            System.out.println(new String(cbuf));
+        &#125;
+		&#x2F;&#x2F; 关闭资源
+        fr.close();
+    &#125;
+&#125;
+输出结果：
+德源
+程序
+员序<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>获取有效的字符改进，代码使用演示</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FISRead</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">      	<span class="comment">// 使用文件名称创建流对象</span></span><br><span class="line">       	<span class="type">FileReader</span> <span class="variable">fr</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileReader</span>(<span class="string">&quot;read.txt&quot;</span>);</span><br><span class="line">      	<span class="comment">// 定义变量，保存有效字符个数</span></span><br><span class="line">        <span class="type">int</span> len ；</span><br><span class="line">        <span class="comment">// 定义字符数组，作为装字符数据的容器</span></span><br><span class="line">        <span class="type">char</span>[] cbuf = <span class="keyword">new</span> <span class="title class_">char</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="comment">// 循环读取</span></span><br><span class="line">        <span class="keyword">while</span> ((len = fr.read(cbuf))!=-<span class="number">1</span>) &#123;</span><br><span class="line">            System.out.println(<span class="keyword">new</span> <span class="title class_">String</span>(cbuf,<span class="number">0</span>,len));</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="comment">// 关闭资源</span></span><br><span class="line">        fr.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">输出结果：</span><br><span class="line">德源</span><br><span class="line">程序</span><br><span class="line">员</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class FISRead &#123;
+    public static void main(String[] args) throws IOException &#123;
+      	&#x2F;&#x2F; 使用文件名称创建流对象
+       	FileReader fr &#x3D; new FileReader(&quot;read.txt&quot;);
+      	&#x2F;&#x2F; 定义变量，保存有效字符个数
+        int len ；
+        &#x2F;&#x2F; 定义字符数组，作为装字符数据的容器
+        char[] cbuf &#x3D; new char[2];
+        &#x2F;&#x2F; 循环读取
+        while ((len &#x3D; fr.read(cbuf))!&#x3D;-1) &#123;
+            System.out.println(new String(cbuf,0,len));
+        &#125;
+    	&#x2F;&#x2F; 关闭资源
+        fr.close();
+    &#125;
+&#125;
+
+输出结果：
+德源
+程序
+员<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="字符输出流【Writer】"><a href="#字符输出流【Writer】" class="headerlink" title="字符输出流【Writer】"></a>字符输出流【Writer】</h4><p><code>java.io.Writer</code>抽象类是表示用于写出字符流的所有类的超类，将指定的字符信息写出到目的地。它定义了字节输出流的基本共性功能方法。</p>
 <ul>
@@ -490,10 +572,37 @@
 </ul>
 <p>当你创建一个流对象时，必须传入一个文件路径，类似于FileOutputStream。</p>
 <ul>
-<li>构造举例，代码如下：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FileWriterConstructor</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">   	 	<span class="comment">// 使用File对象创建流对象</span></span><br><span class="line">        <span class="type">File</span> <span class="variable">file</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;a.txt&quot;</span>);</span><br><span class="line">        <span class="type">FileWriter</span> <span class="variable">fw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileWriter</span>(file);</span><br><span class="line">      </span><br><span class="line">        <span class="comment">// 使用文件名称创建流对象</span></span><br><span class="line">        <span class="type">FileWriter</span> <span class="variable">fw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileWriter</span>(<span class="string">&quot;b.txt&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>构造举例，代码如下：<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class FileWriterConstructor &#123;
+    public static void main(String[] args) throws IOException &#123;
+   	 	&#x2F;&#x2F; 使用File对象创建流对象
+        File file &#x3D; new File(&quot;a.txt&quot;);
+        FileWriter fw &#x3D; new FileWriter(file);
+      
+        &#x2F;&#x2F; 使用文件名称创建流对象
+        FileWriter fw &#x3D; new FileWriter(&quot;b.txt&quot;);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h3 id="基本写出数据"><a href="#基本写出数据" class="headerlink" title="基本写出数据"></a>基本写出数据</h3><p><strong>写出字符</strong>：<code>write(int b)</code> 方法，每次可以写出一个字符数据，代码使用演示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FWWrite</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="comment">// 使用文件名称创建流对象</span></span><br><span class="line">        <span class="type">FileWriter</span> <span class="variable">fw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileWriter</span>(<span class="string">&quot;fw.txt&quot;</span>);     </span><br><span class="line">      	<span class="comment">// 写出数据</span></span><br><span class="line">      	fw.write(<span class="number">97</span>); <span class="comment">// 写出第1个字符</span></span><br><span class="line">      	fw.write(<span class="string">&#x27;b&#x27;</span>); <span class="comment">// 写出第2个字符</span></span><br><span class="line">      	fw.write(<span class="string">&#x27;C&#x27;</span>); <span class="comment">// 写出第3个字符</span></span><br><span class="line">      	fw.write(<span class="number">30000</span>); <span class="comment">// 写出第4个字符，中文编码表中30000对应一个汉字。</span></span><br><span class="line">      </span><br><span class="line">      	<span class="comment">/*</span></span><br><span class="line"><span class="comment">        【注意】关闭资源时,与FileOutputStream不同。</span></span><br><span class="line"><span class="comment">      	 如果不关闭,数据只是保存到缓冲区，并未保存到文件。</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="comment">// fw.close();</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">输出结果：</span><br><span class="line">abC田</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class FWWrite &#123;
+    public static void main(String[] args) throws IOException &#123;
+        &#x2F;&#x2F; 使用文件名称创建流对象
+        FileWriter fw &#x3D; new FileWriter(&quot;fw.txt&quot;);     
+      	&#x2F;&#x2F; 写出数据
+      	fw.write(97); &#x2F;&#x2F; 写出第1个字符
+      	fw.write(&#39;b&#39;); &#x2F;&#x2F; 写出第2个字符
+      	fw.write(&#39;C&#39;); &#x2F;&#x2F; 写出第3个字符
+      	fw.write(30000); &#x2F;&#x2F; 写出第4个字符，中文编码表中30000对应一个汉字。
+      
+      	&#x2F;*
+        【注意】关闭资源时,与FileOutputStream不同。
+      	 如果不关闭,数据只是保存到缓冲区，并未保存到文件。
+        *&#x2F;
+        &#x2F;&#x2F; fw.close();
+    &#125;
+&#125;
+输出结果：
+abC田<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>小贴士：</p>
 <ol>
@@ -506,18 +615,82 @@
 <li><code>close </code>:先刷新缓冲区，然后通知系统释放资源。流对象不可以再被使用了。</li>
 </ul>
 <p>代码使用演示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FWWrite</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="comment">// 使用文件名称创建流对象</span></span><br><span class="line">        <span class="type">FileWriter</span> <span class="variable">fw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileWriter</span>(<span class="string">&quot;fw.txt&quot;</span>);</span><br><span class="line">        <span class="comment">// 写出数据，通过flush</span></span><br><span class="line">        fw.write(<span class="string">&#x27;刷&#x27;</span>); <span class="comment">// 写出第1个字符</span></span><br><span class="line">        fw.flush();</span><br><span class="line">        fw.write(<span class="string">&#x27;新&#x27;</span>); <span class="comment">// 继续写出第2个字符，写出成功</span></span><br><span class="line">        fw.flush();</span><br><span class="line">      </span><br><span class="line">      	<span class="comment">// 写出数据，通过close</span></span><br><span class="line">        fw.write(<span class="string">&#x27;关&#x27;</span>); <span class="comment">// 写出第1个字符</span></span><br><span class="line">        fw.close();</span><br><span class="line">        fw.write(<span class="string">&#x27;闭&#x27;</span>); <span class="comment">// 继续写出第2个字符,【报错】java.io.IOException: Stream closed</span></span><br><span class="line">        fw.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class FWWrite &#123;
+    public static void main(String[] args) throws IOException &#123;
+        &#x2F;&#x2F; 使用文件名称创建流对象
+        FileWriter fw &#x3D; new FileWriter(&quot;fw.txt&quot;);
+        &#x2F;&#x2F; 写出数据，通过flush
+        fw.write(&#39;刷&#39;); &#x2F;&#x2F; 写出第1个字符
+        fw.flush();
+        fw.write(&#39;新&#39;); &#x2F;&#x2F; 继续写出第2个字符，写出成功
+        fw.flush();
+      
+      	&#x2F;&#x2F; 写出数据，通过close
+        fw.write(&#39;关&#39;); &#x2F;&#x2F; 写出第1个字符
+        fw.close();
+        fw.write(&#39;闭&#39;); &#x2F;&#x2F; 继续写出第2个字符,【报错】java.io.IOException: Stream closed
+        fw.close();
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>小贴士：即便是flush方法写出了数据，操作的最后还是要调用close方法，释放系统资源。</p>
 <h3 id="写出其他数据"><a href="#写出其他数据" class="headerlink" title="写出其他数据"></a>写出其他数据</h3><ol>
 <li><p><strong>写出字符数组</strong> ：<code>write(char[] cbuf)</code> 和 <code>write(char[] cbuf, int off, int len)</code> ，每次可以写出字符数组中的数据，用法类似FileOutputStream，代码使用演示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FWWrite</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="comment">// 使用文件名称创建流对象</span></span><br><span class="line">        <span class="type">FileWriter</span> <span class="variable">fw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileWriter</span>(<span class="string">&quot;fw.txt&quot;</span>);     </span><br><span class="line">      	<span class="comment">// 字符串转换为字节数组</span></span><br><span class="line">      	<span class="type">char</span>[] chars = <span class="string">&quot;德源程序员&quot;</span>.toCharArray();</span><br><span class="line">      </span><br><span class="line">      	<span class="comment">// 写出字符数组</span></span><br><span class="line">      	fw.write(chars); <span class="comment">// 德源程序员</span></span><br><span class="line">        </span><br><span class="line">		<span class="comment">// 写出从索引2开始，2个字节。索引2是&#x27;程&#x27;，两个字节，也就是&#x27;程序&#x27;。</span></span><br><span class="line">        fw.write(b,<span class="number">2</span>,<span class="number">2</span>); <span class="comment">// 程序</span></span><br><span class="line">      </span><br><span class="line">      	<span class="comment">// 关闭资源</span></span><br><span class="line">        fos.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class FWWrite &#123;
+    public static void main(String[] args) throws IOException &#123;
+        &#x2F;&#x2F; 使用文件名称创建流对象
+        FileWriter fw &#x3D; new FileWriter(&quot;fw.txt&quot;);     
+      	&#x2F;&#x2F; 字符串转换为字节数组
+      	char[] chars &#x3D; &quot;德源程序员&quot;.toCharArray();
+      
+      	&#x2F;&#x2F; 写出字符数组
+      	fw.write(chars); &#x2F;&#x2F; 德源程序员
+        
+		&#x2F;&#x2F; 写出从索引2开始，2个字节。索引2是&#39;程&#39;，两个字节，也就是&#39;程序&#39;。
+        fw.write(b,2,2); &#x2F;&#x2F; 程序
+      
+      	&#x2F;&#x2F; 关闭资源
+        fos.close();
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>写出字符串</strong>：<code>write(String str)</code> 和 <code>write(String str, int off, int len)</code> ，每次可以写出字符串中的数据，更为方便，代码使用演示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FWWrite</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="comment">// 使用文件名称创建流对象</span></span><br><span class="line">        <span class="type">FileWriter</span> <span class="variable">fw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileWriter</span>(<span class="string">&quot;fw.txt&quot;</span>);     </span><br><span class="line">      	<span class="comment">// 字符串</span></span><br><span class="line">      	<span class="type">String</span> <span class="variable">msg</span> <span class="operator">=</span> <span class="string">&quot;德源程序员&quot;</span>;</span><br><span class="line">      </span><br><span class="line">      	<span class="comment">// 写出字符数组</span></span><br><span class="line">      	fw.write(msg); <span class="comment">//德源程序员</span></span><br><span class="line">      </span><br><span class="line">		<span class="comment">// 写出从索引2开始，2个字节。索引2是&#x27;程&#x27;，两个字节，也就是&#x27;程序&#x27;。</span></span><br><span class="line">        fw.write(msg,<span class="number">2</span>,<span class="number">2</span>);	<span class="comment">// 程序</span></span><br><span class="line">      	</span><br><span class="line">        <span class="comment">// 关闭资源</span></span><br><span class="line">        fos.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class FWWrite &#123;
+    public static void main(String[] args) throws IOException &#123;
+        &#x2F;&#x2F; 使用文件名称创建流对象
+        FileWriter fw &#x3D; new FileWriter(&quot;fw.txt&quot;);     
+      	&#x2F;&#x2F; 字符串
+      	String msg &#x3D; &quot;德源程序员&quot;;
+      
+      	&#x2F;&#x2F; 写出字符数组
+      	fw.write(msg); &#x2F;&#x2F;德源程序员
+      
+		&#x2F;&#x2F; 写出从索引2开始，2个字节。索引2是&#39;程&#39;，两个字节，也就是&#39;程序&#39;。
+        fw.write(msg,2,2);	&#x2F;&#x2F; 程序
+      	
+        &#x2F;&#x2F; 关闭资源
+        fos.close();
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p><strong>续写和换行</strong>：操作类似于FileOutputStream。</p>
 </li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FWWrite</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="comment">// 使用文件名称创建流对象，可以续写数据</span></span><br><span class="line">        <span class="type">FileWriter</span> <span class="variable">fw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileWriter</span>(<span class="string">&quot;fw.txt&quot;</span>，<span class="literal">true</span>);     </span><br><span class="line">      	<span class="comment">// 写出字符串</span></span><br><span class="line">        fw.write(<span class="string">&quot;德源&quot;</span>);</span><br><span class="line">      	<span class="comment">// 写出换行</span></span><br><span class="line">      	fw.write(<span class="string">&quot;\r\n&quot;</span>);</span><br><span class="line">      	<span class="comment">// 写出字符串</span></span><br><span class="line">  		fw.write(<span class="string">&quot;程序员&quot;</span>);</span><br><span class="line">      	<span class="comment">// 关闭资源</span></span><br><span class="line">        fw.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">输出结果:</span><br><span class="line">德源</span><br><span class="line">程序员</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FWWrite</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 使用文件名称创建流对象，可以续写数据</span>
+        <span class="token class-name">FileWriter</span> fw <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileWriter</span><span class="token punctuation">(</span><span class="token string">"fw.txt"</span>，<span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     
+      	<span class="token comment">// 写出字符串</span>
+        fw<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">"德源"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      	<span class="token comment">// 写出换行</span>
+      	fw<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">"\r\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      	<span class="token comment">// 写出字符串</span>
+  		fw<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">"程序员"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      	<span class="token comment">// 关闭资源</span>
+        fw<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+输出结果<span class="token operator">:</span>
+德源
+程序员<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>小贴士：<br>字符流，只能操作文本文件<br>操作图片，视频等非文本文件使用字节流</p>
@@ -601,10 +774,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -639,13 +812,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/02/09/Java/Java%20SE%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/Java%20IO-%E5%AD%97%E8%8A%82%E6%B5%81/">
+                <a href="/2022/02/10/Java/Java%20SE%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/Java%20IO%E6%B5%81/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="IO-字节流">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="IO 流">
                         
-                        <span class="card-title">IO-字节流</span>
+                        <span class="card-title">IO 流</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -656,7 +829,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-09
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-10
                         </span>
                         <span class="publish-author">
                             
@@ -692,13 +865,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/02/09/Java/Java%20SE%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/Java%20IO-%E6%89%93%E5%8D%B0%E6%B5%81/">
+                <a href="/2022/02/09/Java/Java%20SE%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/Java%20IO-%E5%AD%97%E8%8A%82%E6%B5%81/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="IO-打印流">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="IO-字节流">
                         
-                        <span class="card-title">IO-打印流</span>
+                        <span class="card-title">IO-字节流</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -925,25 +1098,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -973,7 +1157,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

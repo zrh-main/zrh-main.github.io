@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -428,6 +428,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -517,7 +520,43 @@
 <li>静态资源<br>前端的固定页面，这里包含HTML、CSS、JS、图片等，不需要查数据库也不需要请求处理，直接就能够显示的页面，如果想修改内容则必须修改页面，但是访问效率相当高</li>
 <li>动态资源<br>需要程序处理或者从数据库中读数据，能够根据不同的条件在页面显示不同的数据，内容更新不需要修改页面但是访问速度不及静态页面<br>servlet jsp asp html(Ajax)</li>
 </ul>
-<h2 id="案例-模拟tomcat服务器–半成品简易版"><a href="#案例-模拟tomcat服务器–半成品简易版" class="headerlink" title="案例(模拟tomcat服务器–半成品简易版)"></a>案例(模拟tomcat服务器–半成品简易版)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Server</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">ServerSocket</span> <span class="variable">serverSocket</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ServerSocket</span>(<span class="number">8850</span>);</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="comment">//  监听客户端连接</span></span><br><span class="line">                <span class="type">Socket</span> <span class="variable">socket</span> <span class="operator">=</span> serverSocket.accept();</span><br><span class="line">                <span class="type">InputStream</span> <span class="variable">socketInputStream</span> <span class="operator">=</span> socket.getInputStream();</span><br><span class="line">                <span class="comment">//  把网络字节输入流转换为字符流</span></span><br><span class="line">                <span class="type">BufferedReader</span> <span class="variable">br</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(socketInputStream));</span><br><span class="line">                <span class="comment">//  读取第一行</span></span><br><span class="line">                <span class="type">String</span> <span class="variable">line</span> <span class="operator">=</span> br.readLine();</span><br><span class="line">                <span class="comment">//  截取出访问的路径</span></span><br><span class="line">                <span class="type">String</span> <span class="variable">path</span> <span class="operator">=</span> line.split(<span class="string">&quot; &quot;</span>)[<span class="number">1</span>].substring(<span class="number">1</span>);      <span class="comment">// day15/reg.html</span></span><br><span class="line">                <span class="comment">//  获取网络字节输出流</span></span><br><span class="line">                <span class="type">OutputStream</span> <span class="variable">socketOutputStream</span> <span class="operator">=</span> socket.getOutputStream();</span><br><span class="line">                <span class="comment">//  先把http的协议头回写给客户端</span></span><br><span class="line">                socketOutputStream.write(<span class="string">&quot;HTTP/1.1 200 OK\r\n&quot;</span>.getBytes());</span><br><span class="line">                socketOutputStream.write(<span class="string">&quot;ConTent-Type:text/html\r\n&quot;</span>.getBytes());</span><br><span class="line">                socketOutputStream.write(<span class="string">&quot;\r\n&quot;</span>.getBytes());</span><br><span class="line">                <span class="comment">//  读取浏览器请求的文件</span></span><br><span class="line">                <span class="type">FileInputStream</span> <span class="variable">fileInputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;day3/web/&quot;</span>+path);</span><br><span class="line">                <span class="type">byte</span>[] bytes = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1024</span>];</span><br><span class="line">                <span class="type">int</span> len;</span><br><span class="line">                <span class="comment">//  将文件写回给浏览器</span></span><br><span class="line">                <span class="keyword">while</span> ((len = fileInputStream.read(bytes)) != -<span class="number">1</span>) &#123;</span><br><span class="line">                    socketOutputStream.write(bytes, <span class="number">0</span>, len);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//  释放资源</span></span><br><span class="line">                fileInputStream.close();</span><br><span class="line">                socket.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="案例-模拟tomcat服务器–半成品简易版"><a href="#案例-模拟tomcat服务器–半成品简易版" class="headerlink" title="案例(模拟tomcat服务器–半成品简易版)"></a>案例(模拟tomcat服务器–半成品简易版)</h2><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class Server &#123;
+    public static void main(String[] args) throws IOException &#123;
+        ServerSocket serverSocket &#x3D; new ServerSocket(8850);
+        while (true) &#123;
+            try &#123;
+                &#x2F;&#x2F;  监听客户端连接
+                Socket socket &#x3D; serverSocket.accept();
+                InputStream socketInputStream &#x3D; socket.getInputStream();
+                &#x2F;&#x2F;  把网络字节输入流转换为字符流
+                BufferedReader br &#x3D; new BufferedReader(new InputStreamReader(socketInputStream));
+                &#x2F;&#x2F;  读取第一行
+                String line &#x3D; br.readLine();
+                &#x2F;&#x2F;  截取出访问的路径
+                String path &#x3D; line.split(&quot; &quot;)[1].substring(1);      &#x2F;&#x2F; day15&#x2F;reg.html
+                &#x2F;&#x2F;  获取网络字节输出流
+                OutputStream socketOutputStream &#x3D; socket.getOutputStream();
+                &#x2F;&#x2F;  先把http的协议头回写给客户端
+                socketOutputStream.write(&quot;HTTP&#x2F;1.1 200 OK\r\n&quot;.getBytes());
+                socketOutputStream.write(&quot;ConTent-Type:text&#x2F;html\r\n&quot;.getBytes());
+                socketOutputStream.write(&quot;\r\n&quot;.getBytes());
+                &#x2F;&#x2F;  读取浏览器请求的文件
+                FileInputStream fileInputStream &#x3D; new FileInputStream(&quot;day3&#x2F;web&#x2F;&quot;+path);
+                byte[] bytes &#x3D; new byte[1024];
+                int len;
+                &#x2F;&#x2F;  将文件写回给浏览器
+                while ((len &#x3D; fileInputStream.read(bytes)) !&#x3D; -1) &#123;
+                    socketOutputStream.write(bytes, 0, len);
+                &#125;
+                &#x2F;&#x2F;  释放资源
+                fileInputStream.close();
+                socket.close();
+            &#125; catch (IOException e) &#123;
+                e.printStackTrace();
+            &#125;
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -592,10 +631,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -908,25 +947,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -956,7 +1006,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

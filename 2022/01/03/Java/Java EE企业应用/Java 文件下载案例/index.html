@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -428,16 +428,101 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>AdaptiveBrowserUtil文件 适配不同浏览器</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.dy.util;</span><br><span class="line"><span class="keyword">import</span> sun.misc.BASE64Encoder;</span><br><span class="line"><span class="keyword">import</span> java.io.UnsupportedEncodingException;</span><br><span class="line"><span class="keyword">import</span> java.net.URLEncoder;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> zrh</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2022/1/6</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@apiNote</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AdaptiveBrowserUtil</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据浏览器不同,配置  下载文件不同的名称 编码格式</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> agent 浏览器信息-&gt;可以在request的header中的user-agent查询</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> filename  文件名称</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>  文件名称</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> UnsupportedEncodingException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">getFileName</span><span class="params">(String agent, String filename)</span> <span class="keyword">throws</span> UnsupportedEncodingException &#123;</span><br><span class="line">        <span class="keyword">if</span> (agent.contains(<span class="string">&quot;MSIE&quot;</span>)) &#123;</span><br><span class="line">            <span class="comment">// IE浏览器</span></span><br><span class="line">          filename = URLEncoder.encode(filename, <span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line">          filename = filename.replace(<span class="string">&quot;+&quot;</span>, <span class="string">&quot; &quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (agent.contains(<span class="string">&quot;Firefox&quot;</span>)) &#123;</span><br><span class="line">            <span class="comment">// 火狐浏览器</span></span><br><span class="line">          <span class="type">BASE64Encoder</span> <span class="variable">base64Encoder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BASE64Encoder</span>();</span><br><span class="line">          filename = <span class="string">&quot;=?utf-8?B?&quot;</span> + base64Encoder.encode(filename.getBytes(<span class="string">&quot;utf-8&quot;</span>)) + <span class="string">&quot;?=&quot;</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 其它浏览器</span></span><br><span class="line">          filename = URLEncoder.encode(filename, <span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> filename;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">package cn.dy.util;
+import sun.misc.BASE64Encoder;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+&#x2F;**
+ * @author zrh
+ * @date 2022&#x2F;1&#x2F;6
+ * @apiNote
+ *&#x2F;
+public class AdaptiveBrowserUtil &#123;
+    &#x2F;**
+     * 根据浏览器不同,配置  下载文件不同的名称 编码格式
+     * @param agent 浏览器信息-&gt;可以在request的header中的user-agent查询
+     * @param filename  文件名称
+     * @return  文件名称
+     * @throws UnsupportedEncodingException
+     *&#x2F;
+    public static String getFileName(String agent, String filename) throws UnsupportedEncodingException &#123;
+        if (agent.contains(&quot;MSIE&quot;)) &#123;
+            &#x2F;&#x2F; IE浏览器
+          filename &#x3D; URLEncoder.encode(filename, &quot;utf-8&quot;);
+          filename &#x3D; filename.replace(&quot;+&quot;, &quot; &quot;);
+        &#125; else if (agent.contains(&quot;Firefox&quot;)) &#123;
+            &#x2F;&#x2F; 火狐浏览器
+          BASE64Encoder base64Encoder &#x3D; new BASE64Encoder();
+          filename &#x3D; &quot;&#x3D;?utf-8?B?&quot; + base64Encoder.encode(filename.getBytes(&quot;utf-8&quot;)) + &quot;?&#x3D;&quot;;
+        &#125; else &#123;
+            &#x2F;&#x2F; 其它浏览器
+          filename &#x3D; URLEncoder.encode(filename, &quot;utf-8&quot;);
+        &#125;
+        return filename;
+    &#125;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>DownloadServlet文件 实现下载Servlet</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cn.dy.util.AdaptiveBrowserUtil;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletContext;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletOutputStream;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="meta">@WebServlet(&quot;/downloadServlet&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DownloadServlet</span> <span class="keyword">extends</span> <span class="title class_">HttpServlet</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> javax.servlet.ServletException, IOException &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//  获取文件名称</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">fileName</span> <span class="operator">=</span> request.getParameter(<span class="string">&quot;fileName&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//  获取项目的上下文</span></span><br><span class="line">        <span class="type">ServletContext</span> <span class="variable">servletContext</span> <span class="operator">=</span> request.getServletContext();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//  找到文件的真实路径</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">realPath</span> <span class="operator">=</span> servletContext.getRealPath(fileName);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//  获取文件的网络通信格式</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">mimeType</span> <span class="operator">=</span> servletContext.getMimeType(fileName);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//  根据不同浏览器适配不同格式文件名称</span></span><br><span class="line">        fileName = AdaptiveBrowserUtil.getFileName(request.getHeader(<span class="string">&quot;user-agent&quot;</span>), fileName);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//  设置  响应的数据格式为附件形式    附件形式==文件下载</span></span><br><span class="line">        response.setHeader(<span class="string">&quot;Content-disposition&quot;</span>,<span class="string">&quot;attachment;filename=&quot;</span>+fileName);</span><br><span class="line">        <span class="comment">//  设置内容类型为XXX文件类型的网络通信格式</span></span><br><span class="line">        response.setHeader(<span class="string">&quot;content-type&quot;</span>,mimeType);</span><br><span class="line">        <span class="comment">//  使用文件输入流读取文件到bytes</span></span><br><span class="line">        <span class="type">FileInputStream</span> <span class="variable">fileInputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(realPath);</span><br><span class="line">        <span class="type">byte</span>[] bytes = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">3072</span>];</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//  网络输出流从bytes写入页面</span></span><br><span class="line">        <span class="type">ServletOutputStream</span> <span class="variable">responseOutputStream</span> <span class="operator">=</span> response.getOutputStream();</span><br><span class="line">        <span class="keyword">while</span> ((len = fileInputStream.read(bytes)) != -<span class="number">1</span>) &#123;</span><br><span class="line">            responseOutputStream.write(bytes);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> javax.servlet.ServletException, IOException &#123;</span><br><span class="line">        <span class="built_in">this</span>.doPost(request, response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">import cn.dy.util.AdaptiveBrowserUtil;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+@WebServlet(&quot;&#x2F;downloadServlet&quot;)
+public class DownloadServlet extends HttpServlet &#123;
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, IOException &#123;
+
+        &#x2F;&#x2F;  获取文件名称
+        String fileName &#x3D; request.getParameter(&quot;fileName&quot;);
+
+        &#x2F;&#x2F;  获取项目的上下文
+        ServletContext servletContext &#x3D; request.getServletContext();
+
+        &#x2F;&#x2F;  找到文件的真实路径
+        String realPath &#x3D; servletContext.getRealPath(fileName);
+
+        &#x2F;&#x2F;  获取文件的网络通信格式
+        String mimeType &#x3D; servletContext.getMimeType(fileName);
+
+        &#x2F;&#x2F;  根据不同浏览器适配不同格式文件名称
+        fileName &#x3D; AdaptiveBrowserUtil.getFileName(request.getHeader(&quot;user-agent&quot;), fileName);
+
+        &#x2F;&#x2F;  设置  响应的数据格式为附件形式    附件形式&#x3D;&#x3D;文件下载
+        response.setHeader(&quot;Content-disposition&quot;,&quot;attachment;filename&#x3D;&quot;+fileName);
+        &#x2F;&#x2F;  设置内容类型为XXX文件类型的网络通信格式
+        response.setHeader(&quot;content-type&quot;,mimeType);
+        &#x2F;&#x2F;  使用文件输入流读取文件到bytes
+        FileInputStream fileInputStream &#x3D; new FileInputStream(realPath);
+        byte[] bytes &#x3D; new byte[3072];
+        int len &#x3D; 0;
+        &#x2F;&#x2F;  网络输出流从bytes写入页面
+        ServletOutputStream responseOutputStream &#x3D; response.getOutputStream();
+        while ((len &#x3D; fileInputStream.read(bytes)) !&#x3D; -1) &#123;
+            responseOutputStream.write(bytes);
+        &#125;
+    &#125;
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, IOException &#123;
+        this.doPost(request, response);
+    &#125;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -514,10 +599,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -601,13 +686,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/01/03/Java/Java%20EE%E4%BC%81%E4%B8%9A%E5%BA%94%E7%94%A8/Tomcat%E8%AF%A6%E8%A7%A3/">
+                <a href="/2022/01/03/Java/Java%20EE%E4%BC%81%E4%B8%9A%E5%BA%94%E7%94%A8/Java%20%E8%B7%AF%E5%BE%84%E9%85%8D%E7%BD%AE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Java Servlet使用">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="路径配置">
                         
-                        <span class="card-title">Java Servlet使用</span>
+                        <span class="card-title">路径配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -830,25 +915,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -878,7 +974,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

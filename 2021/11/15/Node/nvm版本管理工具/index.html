@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -436,6 +436,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -452,20 +455,28 @@
 <li>确认安装</li>
 </ol>
 <h3 id="检测是否安装成功"><a href="#检测是否安装成功" class="headerlink" title="检测是否安装成功"></a>检测是否安装成功</h3><p>cmd执行nvm</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>成功则显示命令信息</p>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="显示可下载的node版本"><a href="#显示可下载的node版本" class="headerlink" title="显示可下载的node版本"></a>显示可下载的node版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm list available</span><br></pre></td></tr></table></figure>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="显示可下载的node版本"><a href="#显示可下载的node版本" class="headerlink" title="显示可下载的node版本"></a>显示可下载的node版本</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm list available<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="安装最新版本"><a href="#安装最新版本" class="headerlink" title="安装最新版本"></a>安装最新版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install latest</span><br></pre></td></tr></table></figure>
+<h3 id="安装最新版本"><a href="#安装最新版本" class="headerlink" title="安装最新版本"></a>安装最新版本</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm <span class="token function">install</span> latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="安装指定的版本"><a href="#安装指定的版本" class="headerlink" title="安装指定的版本"></a>安装指定的版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install 版本号</span><br></pre></td></tr></table></figure>
+<h3 id="安装指定的版本"><a href="#安装指定的版本" class="headerlink" title="安装指定的版本"></a>安装指定的版本</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm <span class="token function">install</span> 版本号<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="查看已安装版本"><a href="#查看已安装版本" class="headerlink" title="查看已安装版本"></a>查看已安装版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm list</span><br></pre></td></tr></table></figure>
+<h3 id="查看已安装版本"><a href="#查看已安装版本" class="headerlink" title="查看已安装版本"></a>查看已安装版本</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="切换node版本"><a href="#切换node版本" class="headerlink" title="切换node版本"></a>切换node版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm use版本号</span><br></pre></td></tr></table></figure>
-<h3 id="将node指定版本设为默认全局版本"><a href="#将node指定版本设为默认全局版本" class="headerlink" title="将node指定版本设为默认全局版本"></a>将node指定版本设为默认全局版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm <span class="built_in">alias</span> default 14.17.0</span><br></pre></td></tr></table></figure>
+<h3 id="删除已安装版本"><a href="#删除已安装版本" class="headerlink" title="删除已安装版本"></a>删除已安装版本</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm uninstall <span class="token number">14.21</span>.0  <span class="token comment"># 删除版本 14.19.1```</span>
+
+<span class="token comment">### 切换node版本</span>
+``` <span class="token function">bash</span>
+nvm use版本号
+<span class="token comment">## nvm use14.21.3</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="将node指定版本设为默认全局版本"><a href="#将node指定版本设为默认全局版本" class="headerlink" title="将node指定版本设为默认全局版本"></a>将node指定版本设为默认全局版本</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm <span class="token builtin class-name">alias</span> default <span class="token number">14.21</span>.3<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="nvm常见问题"><a href="#nvm常见问题" class="headerlink" title="nvm常见问题"></a>nvm常见问题</h2><p>下载node过慢，更换国内镜像源, 在 nvm 的安装路径下，找到 settings.txt，设置node_mirro与npm_mirror为国内镜像地址</p>
-<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root: D:\nvm（此路径代表安装nvm的时候nvm安装的地址）</span><br><span class="line">path: D:\nodejs（此路径代表切换node的地址）</span><br><span class="line">node_mirror: https://npm.taobao.org/mirrors/node/</span><br><span class="line">npm_mirror: https://npm.taobao.org/mirrors/npm/</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">root: D:\nvm（此路径代表安装nvm的时候nvm安装的地址）
+path: D:\nodejs（此路径代表切换node的地址）
+node_mirror: https://npm.taobao.org/mirrors/node/
+npm_mirror: https://npm.taobao.org/mirrors/npm/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -549,10 +560,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -644,13 +655,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/15/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/idea/">
+                <a href="/2021/11/15/Node/yarn/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="idea配置">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="yarn-&gt;包管理工具">
                         
-                        <span class="card-title">idea配置</span>
+                        <span class="card-title">yarn-&gt;包管理工具</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -667,8 +678,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="post-category">
-                                    开发工具
+                            <a href="/categories/node/" class="post-category">
+                                    node
                                 </a>
                             
                             
@@ -678,8 +689,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/idea/">
-                        <span class="chip bg-color">idea</span>
+                    <a href="/tags/node/">
+                        <span class="chip bg-color">node</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/">
+                        <span class="chip bg-color">包管理工具</span>
+                    </a>
+                    
+                    <a href="/tags/yarn/">
+                        <span class="chip bg-color">yarn</span>
                     </a>
                     
                 </div>
@@ -873,25 +892,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -921,7 +951,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

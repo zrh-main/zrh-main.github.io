@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -432,6 +432,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -440,10 +443,128 @@
                 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
 <p>拦截 Ajax 请求,自定义返回数据<br><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/mocker-api">npm地址</a></p>
 </blockquote>
-<h2 id="Vue项目中使用mocker-api进行mock"><a href="#Vue项目中使用mocker-api进行mock" class="headerlink" title="Vue项目中使用mocker-api进行mock"></a>Vue项目中使用mocker-api进行mock</h2><h3 id="安装mocker-api"><a href="#安装mocker-api" class="headerlink" title="安装mocker-api"></a>安装mocker-api</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i mocker-api --save-dev</span><br></pre></td></tr></table></figure>
-<h3 id="根目录编写-mocker-index-js，用于定义mock接口"><a href="#根目录编写-mocker-index-js，用于定义mock接口" class="headerlink" title="根目录编写 &#x2F;mocker&#x2F;index.js，用于定义mock接口"></a>根目录编写 &#x2F;mocker&#x2F;index.js，用于定义mock接口</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用 require 引入json文件，可以直接访问数据</span></span><br><span class="line"><span class="keyword">const</span> appData = <span class="built_in">require</span>(<span class="string">&#x27;../data.json&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> proxy = &#123;</span><br><span class="line">    <span class="string">&#x27;POST /api/userLogin&#x27;</span>:</span><br><span class="line">        <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">            res.<span class="title function_">send</span>(&#123;</span><br><span class="line">                <span class="attr">code</span>: <span class="number">200</span>,</span><br><span class="line">                <span class="attr">data</span>: appData.<span class="property">userLogin</span>,</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;,</span><br><span class="line">    <span class="string">&#x27;GET /api/list&#x27;</span>: [</span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">username</span>: <span class="string">&#x27;kenny&#x27;</span>, <span class="attr">sex</span>: <span class="number">6</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">username</span>: <span class="string">&#x27;kenny&#x27;</span>, <span class="attr">sex</span>: <span class="number">6</span> &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&#x27;POST /api/post&#x27;</span>: <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">        res.<span class="title function_">send</span>(&#123;</span><br><span class="line">            <span class="attr">status</span>: <span class="string">&#x27;error&#x27;</span>,</span><br><span class="line">            <span class="attr">code</span>: <span class="number">403</span></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&#x27;DELETE /api/remove&#x27;</span>: <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">        res.<span class="title function_">send</span>(&#123;</span><br><span class="line">            <span class="attr">status</span>: <span class="string">&#x27;ok&#x27;</span>,</span><br><span class="line">            <span class="attr">message</span>: <span class="string">&#x27;删除成功！&#x27;</span></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&#x27;GET /api/:owner/:repo/raw/:ref/(.*)&#x27;</span>: <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> &#123; owner, repo, ref &#125; = req.<span class="property">params</span>;</span><br><span class="line">        <span class="comment">// http://localhost:8081/api/admin/webpack-mock-api/raw/master/add/ddd.md</span></span><br><span class="line">        <span class="comment">// owner =&gt; admin</span></span><br><span class="line">        <span class="comment">// repo =&gt; webpack-mock-api</span></span><br><span class="line">        <span class="comment">// ref =&gt; master</span></span><br><span class="line">        <span class="comment">// req.params[0] =&gt; add/ddd.md</span></span><br><span class="line">        <span class="keyword">return</span> res.<span class="title function_">json</span>(&#123;</span><br><span class="line">          <span class="attr">id</span>: <span class="number">1</span>,</span><br><span class="line">          owner, repo, ref,</span><br><span class="line">          <span class="attr">path</span>: req.<span class="property">params</span>[<span class="number">0</span>]</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="string">&#x27;POST /api/login/account&#x27;</span>: <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> &#123; password, username &#125; = req.<span class="property">body</span>;</span><br><span class="line">        <span class="keyword">if</span> (password === <span class="string">&#x27;888888&#x27;</span> &amp;&amp; username === <span class="string">&#x27;admin&#x27;</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span> res.<span class="title function_">json</span>(&#123;</span><br><span class="line">            <span class="attr">status</span>: <span class="string">&#x27;ok&#x27;</span>,</span><br><span class="line">            <span class="attr">code</span>: <span class="number">0</span>,</span><br><span class="line">            <span class="attr">token</span>: <span class="string">&quot;sdfsdfsdfdsf&quot;</span>,</span><br><span class="line">            <span class="attr">data</span>: &#123;</span><br><span class="line">              <span class="attr">id</span>: <span class="number">1</span>,</span><br><span class="line">              <span class="attr">username</span>: <span class="string">&#x27;kenny&#x27;</span>,</span><br><span class="line">              <span class="attr">sex</span>: <span class="number">6</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> res.<span class="title function_">status</span>(<span class="number">403</span>).<span class="title function_">json</span>(&#123;</span><br><span class="line">            <span class="attr">status</span>: <span class="string">&#x27;error&#x27;</span>,</span><br><span class="line">            <span class="attr">code</span>: <span class="number">403</span></span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="string">&#x27;DELETE /api/user/:id&#x27;</span>: <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;----&gt;&#x27;</span>, req.<span class="property">body</span>)</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;----&gt;&#x27;</span>, req.<span class="property">params</span>.<span class="property">id</span>)</span><br><span class="line">        res.<span class="title function_">send</span>(&#123; <span class="attr">status</span>: <span class="string">&#x27;ok&#x27;</span>, <span class="attr">message</span>: <span class="string">&#x27;删除成功！&#x27;</span> &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = proxy</span><br></pre></td></tr></table></figure>
-<h3 id="修改-vue-config-js-配置文件（若不存在，在项目下新建即可）"><a href="#修改-vue-config-js-配置文件（若不存在，在项目下新建即可）" class="headerlink" title="修改 vue.config.js 配置文件（若不存在，在项目下新建即可）"></a>修改 vue.config.js 配置文件（若不存在，在项目下新建即可）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> apiMocker = <span class="built_in">require</span>(<span class="string">&#x27;mocker-api&#x27;</span>)</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">devServer</span>: &#123;</span><br><span class="line">    <span class="title function_">before</span>(<span class="params">app</span>) &#123;</span><br><span class="line">      <span class="comment">// 1. 执行apiMocker,加载mock接口配置</span></span><br><span class="line">      <span class="title function_">apiMocker</span>(app, path.<span class="title function_">resolve</span>(<span class="string">&#x27;./mocker/index.js&#x27;</span>), &#123;</span><br><span class="line">        <span class="attr">proxy</span>: &#123;</span><br><span class="line">          <span class="comment">// 将路径字符串转成正则表达式</span></span><br><span class="line">          <span class="string">&#x27;/repos/(.*)&#x27;</span>: <span class="string">&#x27;https://api.github.com/&#x27;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// 重写目标的 url 路径。对象键将用作 RegExp 来匹配路径。</span></span><br><span class="line">        <span class="attr">pathRewrite</span>: &#123;</span><br><span class="line">          <span class="string">&#x27;^/api/repos/&#x27;</span>: <span class="string">&#x27;/repos/&#x27;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">changeHost</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="comment">// 修改http-proxy选项</span></span><br><span class="line">        <span class="attr">httpProxy</span>: &#123;</span><br><span class="line">          <span class="attr">options</span>: &#123;</span><br><span class="line">            <span class="attr">ignorePath</span>: <span class="literal">true</span>,</span><br><span class="line">          &#125;,</span><br><span class="line">          <span class="attr">listeners</span>: &#123;</span><br><span class="line">            <span class="attr">proxyReq</span>: <span class="keyword">function</span> (<span class="params">proxyReq, req, res, options</span>) &#123;</span><br><span class="line">              <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;proxyReq&#x27;</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="定义json-数据（用于测试-根目录新增data-json编写模拟数据"><a href="#定义json-数据（用于测试-根目录新增data-json编写模拟数据" class="headerlink" title="定义json 数据（用于测试)根目录新增data.json编写模拟数据"></a>定义json 数据（用于测试)根目录新增data.json编写模拟数据</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;login&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;success&quot;</span>: <span class="string">&quot;true&quot;</span>,</span><br><span class="line">      <span class="string">&quot;message&quot;</span>: <span class="string">&quot;登陆成功&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;fileList&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;success&quot;</span>:<span class="string">&quot;true&quot;</span>,</span><br><span class="line">      <span class="string">&quot;list&quot;</span>:[</span><br><span class="line">      &#123;<span class="string">&quot;fileId&quot;</span>:<span class="string">&quot;1&quot;</span>,<span class="string">&quot;fileName&quot;</span>:<span class="string">&quot;a1.c&quot;</span>,<span class="string">&quot;content&quot;</span>:<span class="string">&quot;content-test1&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;<span class="string">&quot;fileId&quot;</span>:<span class="string">&quot;2&quot;</span>,<span class="string">&quot;fileName&quot;</span>:<span class="string">&quot;a2.c&quot;</span>,<span class="string">&quot;content&quot;</span>:<span class="string">&quot;content-test2&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;<span class="string">&quot;fileId&quot;</span>:<span class="string">&quot;3&quot;</span>,<span class="string">&quot;fileName&quot;</span>:<span class="string">&quot;a3.c&quot;</span>,<span class="string">&quot;content&quot;</span>:<span class="string">&quot;content-test2&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;<span class="string">&quot;fileId&quot;</span>:<span class="string">&quot;4&quot;</span>,<span class="string">&quot;fileName&quot;</span>:<span class="string">&quot;a4.c&quot;</span>,<span class="string">&quot;content&quot;</span>:<span class="string">&quot;content-test2&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;<span class="string">&quot;fileId&quot;</span>:<span class="string">&quot;5&quot;</span>,<span class="string">&quot;fileName&quot;</span>:<span class="string">&quot;a5.c&quot;</span>,<span class="string">&quot;content&quot;</span>:<span class="string">&quot;content-test2&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;<span class="string">&quot;fileId&quot;</span>:<span class="string">&quot;6&quot;</span>,<span class="string">&quot;fileName&quot;</span>:<span class="string">&quot;a8.c&quot;</span>,<span class="string">&quot;content&quot;</span>:<span class="string">&quot;content-test2&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;<span class="string">&quot;fileId&quot;</span>:<span class="string">&quot;7&quot;</span>,<span class="string">&quot;fileName&quot;</span>:<span class="string">&quot;a9.c&quot;</span>,<span class="string">&quot;content&quot;</span>:<span class="string">&quot;content-test2&quot;</span></span><br><span class="line">      &#125;]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Vue项目中使用mocker-api进行mock"><a href="#Vue项目中使用mocker-api进行mock" class="headerlink" title="Vue项目中使用mocker-api进行mock"></a>Vue项目中使用mocker-api进行mock</h2><h3 id="安装mocker-api"><a href="#安装mocker-api" class="headerlink" title="安装mocker-api"></a>安装mocker-api</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> i mocker-api --save-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="根目录编写-mocker-index-js，用于定义mock接口"><a href="#根目录编写-mocker-index-js，用于定义mock接口" class="headerlink" title="根目录编写 &#x2F;mocker&#x2F;index.js，用于定义mock接口"></a>根目录编写 &#x2F;mocker&#x2F;index.js，用于定义mock接口</h3><pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">&#x2F;&#x2F; 使用 require 引入json文件，可以直接访问数据
+const appData &#x3D; require(&#39;..&#x2F;data.json&#39;)
+const proxy &#x3D; &#123;
+    &#39;POST &#x2F;api&#x2F;userLogin&#39;:
+        (req, res) &#x3D;&gt; &#123;
+            res.send(&#123;
+                code: 200,
+                data: appData.userLogin,
+            &#125;);
+        &#125;,
+    &#39;GET &#x2F;api&#x2F;list&#39;: [
+      &#123; id: 1, username: &#39;kenny&#39;, sex: 6 &#125;,
+      &#123; id: 2, username: &#39;kenny&#39;, sex: 6 &#125;
+    ],
+    &#39;POST &#x2F;api&#x2F;post&#39;: (req, res) &#x3D;&gt; &#123;
+        res.send(&#123;
+            status: &#39;error&#39;,
+            code: 403
+        &#125;);
+    &#125;,
+    &#39;DELETE &#x2F;api&#x2F;remove&#39;: (req, res) &#x3D;&gt; &#123;
+        res.send(&#123;
+            status: &#39;ok&#39;,
+            message: &#39;删除成功！&#39;
+        &#125;);
+    &#125;,
+    &#39;GET &#x2F;api&#x2F;:owner&#x2F;:repo&#x2F;raw&#x2F;:ref&#x2F;(.*)&#39;: (req, res) &#x3D;&gt; &#123;
+        const &#123; owner, repo, ref &#125; &#x3D; req.params;
+        &#x2F;&#x2F; http:&#x2F;&#x2F;localhost:8081&#x2F;api&#x2F;admin&#x2F;webpack-mock-api&#x2F;raw&#x2F;master&#x2F;add&#x2F;ddd.md
+        &#x2F;&#x2F; owner &#x3D;&gt; admin
+        &#x2F;&#x2F; repo &#x3D;&gt; webpack-mock-api
+        &#x2F;&#x2F; ref &#x3D;&gt; master
+        &#x2F;&#x2F; req.params[0] &#x3D;&gt; add&#x2F;ddd.md
+        return res.json(&#123;
+          id: 1,
+          owner, repo, ref,
+          path: req.params[0]
+        &#125;);
+      &#125;,
+      &#39;POST &#x2F;api&#x2F;login&#x2F;account&#39;: (req, res) &#x3D;&gt; &#123;
+        const &#123; password, username &#125; &#x3D; req.body;
+        if (password &#x3D;&#x3D;&#x3D; &#39;888888&#39; &amp;&amp; username &#x3D;&#x3D;&#x3D; &#39;admin&#39;) &#123;
+          return res.json(&#123;
+            status: &#39;ok&#39;,
+            code: 0,
+            token: &quot;sdfsdfsdfdsf&quot;,
+            data: &#123;
+              id: 1,
+              username: &#39;kenny&#39;,
+              sex: 6
+            &#125;
+          &#125;);
+        &#125; else &#123;
+          return res.status(403).json(&#123;
+            status: &#39;error&#39;,
+            code: 403
+          &#125;);
+        &#125;
+      &#125;,
+      &#39;DELETE &#x2F;api&#x2F;user&#x2F;:id&#39;: (req, res) &#x3D;&gt; &#123;
+        console.log(&#39;----&gt;&#39;, req.body)
+        console.log(&#39;----&gt;&#39;, req.params.id)
+        res.send(&#123; status: &#39;ok&#39;, message: &#39;删除成功！&#39; &#125;);
+      &#125;
+&#125;
+module.exports &#x3D; proxy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="修改-vue-config-js-配置文件（若不存在，在项目下新建即可）"><a href="#修改-vue-config-js-配置文件（若不存在，在项目下新建即可）" class="headerlink" title="修改 vue.config.js 配置文件（若不存在，在项目下新建即可）"></a>修改 vue.config.js 配置文件（若不存在，在项目下新建即可）</h3><pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">const path &#x3D; require(&#39;path&#39;)
+const apiMocker &#x3D; require(&#39;mocker-api&#39;)
+module.exports &#x3D; &#123;
+  devServer: &#123;
+    before(app) &#123;
+      &#x2F;&#x2F; 1. 执行apiMocker,加载mock接口配置
+      apiMocker(app, path.resolve(&#39;.&#x2F;mocker&#x2F;index.js&#39;), &#123;
+        proxy: &#123;
+          &#x2F;&#x2F; 将路径字符串转成正则表达式
+          &#39;&#x2F;repos&#x2F;(.*)&#39;: &#39;https:&#x2F;&#x2F;api.github.com&#x2F;&#39;,
+        &#125;,
+        &#x2F;&#x2F; 重写目标的 url 路径。对象键将用作 RegExp 来匹配路径。
+        pathRewrite: &#123;
+          &#39;^&#x2F;api&#x2F;repos&#x2F;&#39;: &#39;&#x2F;repos&#x2F;&#39;,
+        &#125;,
+        changeHost: true,
+        &#x2F;&#x2F; 修改http-proxy选项
+        httpProxy: &#123;
+          options: &#123;
+            ignorePath: true,
+          &#125;,
+          listeners: &#123;
+            proxyReq: function (proxyReq, req, res, options) &#123;
+              console.log(&#39;proxyReq&#39;);
+            &#125;,
+          &#125;,
+        &#125;,
+      &#125;)
+    &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="定义json-数据（用于测试-根目录新增data-json编写模拟数据"><a href="#定义json-数据（用于测试-根目录新增data-json编写模拟数据" class="headerlink" title="定义json 数据（用于测试)根目录新增data.json编写模拟数据"></a>定义json 数据（用于测试)根目录新增data.json编写模拟数据</h3><pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">&#123;
+    &quot;login&quot;: &#123;
+      &quot;success&quot;: &quot;true&quot;,
+      &quot;message&quot;: &quot;登陆成功&quot;
+    &#125;,
+    &quot;fileList&quot;: &#123;
+      &quot;success&quot;:&quot;true&quot;,
+      &quot;list&quot;:[
+      &#123;&quot;fileId&quot;:&quot;1&quot;,&quot;fileName&quot;:&quot;a1.c&quot;,&quot;content&quot;:&quot;content-test1&quot;
+      &#125;,
+      &#123;&quot;fileId&quot;:&quot;2&quot;,&quot;fileName&quot;:&quot;a2.c&quot;,&quot;content&quot;:&quot;content-test2&quot;
+      &#125;,
+      &#123;&quot;fileId&quot;:&quot;3&quot;,&quot;fileName&quot;:&quot;a3.c&quot;,&quot;content&quot;:&quot;content-test2&quot;
+      &#125;,
+      &#123;&quot;fileId&quot;:&quot;4&quot;,&quot;fileName&quot;:&quot;a4.c&quot;,&quot;content&quot;:&quot;content-test2&quot;
+      &#125;,
+      &#123;&quot;fileId&quot;:&quot;5&quot;,&quot;fileName&quot;:&quot;a5.c&quot;,&quot;content&quot;:&quot;content-test2&quot;
+      &#125;,
+      &#123;&quot;fileId&quot;:&quot;6&quot;,&quot;fileName&quot;:&quot;a8.c&quot;,&quot;content&quot;:&quot;content-test2&quot;
+      &#125;,
+      &#123;&quot;fileId&quot;:&quot;7&quot;,&quot;fileName&quot;:&quot;a9.c&quot;,&quot;content&quot;:&quot;content-test2&quot;
+      &#125;]
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -522,10 +643,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -560,13 +681,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/27/%E5%89%8D%E7%AB%AF/yarn/">
+                <a href="/2021/12/01/%E7%AE%97%E6%B3%95/%E9%80%92%E5%BD%92/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="yarn">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="递归">
                         
-                        <span class="card-title">yarn</span>
+                        <span class="card-title">递归</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -577,14 +698,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-27
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-01
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -594,12 +715,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/vue/">
-                        <span class="chip bg-color">vue</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/">
-                        <span class="chip bg-color">依赖管理</span>
+                    <a href="/tags/%E6%8E%92%E5%BA%8F/">
+                        <span class="chip bg-color">排序</span>
                     </a>
                     
                 </div>
@@ -846,25 +963,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -894,7 +1022,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

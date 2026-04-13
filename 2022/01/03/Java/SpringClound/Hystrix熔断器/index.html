@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -428,12 +428,15 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Hystrix熔断器<br><code>consumer（消费者）使用</code><br>主页：<a target="_blank" rel="noopener" href="https://github.com/Netflix/Hystrix/">https://github.com/Netflix/Hystrix/</a></p>
+                <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Hystrix熔断器  已替换为<strong>Resilience4j</strong><br><code>consumer（消费者）使用</code><br>主页：<a target="_blank" rel="noopener" href="https://github.com/Netflix/Hystrix/">https://github.com/Netflix/Hystrix/</a></p>
 <h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>Hystrix是Netflix开源的一个延迟和容错库<br>用于隔离访问远程服务、第三方库，防止出现级联失败</p>
 <h2 id="雪崩问题"><a href="#雪崩问题" class="headerlink" title="雪崩问题"></a>雪崩问题</h2><p>微服务中，服务间调用关系错综复杂，一个请求有可能调用多个微服务接口才可以实现，会形成非常复杂的调用链路<br>一次业务请求，需要调用A、P、H、I四个服务，这四个服务又可能调用其他服务，如果此时某个服务出现异常<br>例如微服务I发生异常，请求阻塞，用户不会得到响应，则tomcat这个线程不会释放，于是越来越多的用户请求到来，越来越多的线程会阻塞；服务器支持的线程和并发数有限，请求一直阻塞，会导致服务器资源耗尽，从而导致所有其他服务都不可用，形成<code>雪崩效应</code>。</p>
 <p>Hystrix解决雪崩问题的手段有两个：</p>
@@ -444,10 +447,23 @@
 </li>
 </ul>
 <h2 id="开启熔断"><a href="#开启熔断" class="headerlink" title="开启熔断"></a>开启熔断</h2><p>在启动类上添加@EnableCircuitBreaker注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@EnableCircuitBreaker</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConsumerApplication</span> &#123;</span><br><span class="line">.......</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">@EnableCircuitBreaker
+@SpringBootApplication
+@EnableDiscoveryClient
+public class ConsumerApplication &#123;
+.......<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="SpringCloudApplication"><a href="#SpringCloudApplication" class="headerlink" title="@SpringCloudApplication"></a>@SpringCloudApplication</h2><p>SpringCloud提供了一个组合注解@SpringCloudApplication用来替换上方三个注解</p>
 <h2 id="降级逻辑"><a href="#降级逻辑" class="headerlink" title="降级逻辑"></a>降级逻辑</h2><h3 id="HystrixCommand"><a href="#HystrixCommand" class="headerlink" title="@HystrixCommand"></a>@HystrixCommand</h3><p>目标服务的调用出现故障，希望快速失败，给用户一个友好提示，因此需要提前编写好失败降级的处理逻辑，要使用@HystrixCommand来完成</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;&#123;id&#125;&quot;)</span></span><br><span class="line"><span class="meta">@HystrixCommand(fallbackMethod = &quot;queryByIdFallback&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">queryById</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span>Long id)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="string">&quot;http://user-service/user/&quot;</span>+id;</span><br><span class="line">    <span class="type">String</span> <span class="variable">user</span> <span class="operator">=</span> restTemplate.getForObject(url, String.class);</span><br><span class="line">    <span class="keyword">return</span> user;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">queryByIdFallback</span><span class="params">(Long id)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;网络开小差了，请稍后再试&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"&#123;id&#125;"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@HystrixCommand</span><span class="token punctuation">(</span>fallbackMethod <span class="token operator">=</span> <span class="token string">"queryByIdFallback"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">queryById</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token class-name">Long</span> id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">String</span> url <span class="token operator">=</span> <span class="token string">"http://user-service/user/"</span><span class="token operator">+</span>id<span class="token punctuation">;</span>
+    <span class="token class-name">String</span> user <span class="token operator">=</span> restTemplate<span class="token punctuation">.</span><span class="token function">getForObject</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> user<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">queryByIdFallback</span><span class="token punctuation">(</span><span class="token class-name">Long</span> id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token string">"网络开小差了，请稍后再试"</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>注意:<code>因为熔断降级逻辑方法必须跟正常逻辑方法保证：相同的参数列表和返回值声明，失败逻辑中返回User对象没有太大意义，一般返回友好提示，所以吧queryById方法改为返回String，反正也是JSON数据，这样失败逻辑中返回一个错误说明会比较方便。</code></p>
 <p>说明：</p>
@@ -458,7 +474,7 @@
 <h2 id="默认的的Fallback"><a href="#默认的的Fallback" class="headerlink" title="默认的的Fallback"></a>默认的的Fallback</h2><p>Fallback配置加到类上，实现默认的fallback<br>使用注解<code>@DefaultProperties(defaultFallback = &quot;queryByIdFallback&quot;)</code>;注意,默认执行的方法里不能有参数</p>
 <h2 id="超时设置"><a href="#超时设置" class="headerlink" title="超时设置"></a>超时设置</h2><h3 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h3><p>@HystrixCommand(commandProperties &#x3D; {<br>            @HystrixProperty(name &#x3D; “execution.isolation.thread.timeoutInMilliseconds”,value &#x3D; “2000”)<br>    })<br><code>这个配置会作用于全局所有方法</code></p>
 <h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><p>通过配置文件的方式来实现超时<br><code>hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds</code>来设置Hystrix超时时间<br><strong>推荐</strong></p>
-<h2 id="熔断原理"><a href="#熔断原理" class="headerlink" title="熔断原理"></a>熔断原理</h2><p>熔断器也叫断路器，其应为单词为：Circuit Breaker<br><img src="/.io//1525658640314-1565099920556.png" alt="1525658640314"></p>
+<h2 id="熔断原理"><a href="#熔断原理" class="headerlink" title="熔断原理"></a>熔断原理</h2><p>熔断器也叫断路器，其应为单词为：Circuit Breaker<br><img src="/1525658640314-1565099920556.png" alt="1525658640314"></p>
 <h2 id="Hystrix熔断状态"><a href="#Hystrix熔断状态" class="headerlink" title="Hystrix熔断状态"></a>Hystrix熔断状态</h2><ul>
 <li>Closed：关闭状态（断路器关闭），所有请求都正常访问</li>
 <li>Open：打开状态（断路器打开），所有请求都会被降级，Hystrix会对请求情况计数，当一定时间内失败请求百分比达到阈值，则触发熔断器，断路器会完全关闭，默认失败比例的阈值是50%，请求次数最少不低于20次</li>
@@ -541,10 +557,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -861,25 +877,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -909,7 +936,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

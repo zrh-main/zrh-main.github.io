@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -428,12 +428,15 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>类负责创建自己的对象，同时确保只有单个对象被创建;<br>提供访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象</p>
+                <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>单例模式确保一个类只有一个实例，并提供全局访问点<br>提供访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象</p>
 <h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><ol>
 <li>单例类只能有一个实例(构造方法私有化)</li>
 <li>单例类必须自己创建自己的唯一实例(创建自己的对象)</li>
@@ -443,16 +446,17 @@
 <h2 id="应用实例"><a href="#应用实例" class="headerlink" title="应用实例"></a>应用实例</h2><p>1、一个班级只有一个班主任。<br>2、Windows 是多进程多线程的，在操作一个文件的时候，就不可避免地出现多个进程或线程同时操作一个文件的现象，所以所有文件的处理必须通过唯一的实例来进行。<br>3、一些设备管理器常常设计为单例模式，比如一个电脑有两台打印机，在输出的时候就要处理不能两台打印机打印同一个文件</p>
 <h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><p>1、在内存里只有一个实例，减少了内存的开销，尤其是频繁的创建和销毁实例（比如管理学院首页页面缓存）<br>2、避免对资源的多重占用（比如写文件操作）<br>缺点：没有接口，不能继承，与单一职责原则冲突，一个类应该只关心内部逻辑，而不关心外面怎么样来实例化</p>
 <h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>1、要求生产唯一序列号。<br>2、WEB 中的计数器，不用每次刷新都在数据库里加一次，用单例先缓存起来。<br>3、创建的一个对象需要消耗的资源过多，比如 I&#x2F;O 与数据库的连接等。<br>注意事项：getInstance() 方法中需要使用同步锁 synchronized (Singleton.class) 防止多线程同时进入造成 instance 被多次实例化。</p>
-<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>  懒汉式:类调用时创建唯一实例对象<br>  饿汉式:类加载时创建唯一实例对象</p>
-<h2 id="饿汉式与懒汉式的区别"><a href="#饿汉式与懒汉式的区别" class="headerlink" title="饿汉式与懒汉式的区别"></a>饿汉式与懒汉式的区别</h2><p>饿汉式<br>    &#x2F;**<br>     *是否 Lazy 初始化：否<br>     *是否多线程安全：是<br>     *实现难度：易<br>     *描述：这种方式比较常用，但容易产生垃圾对象。<br>     *优点：没有加锁，执行效率会提高。<br>     *缺点：类加载时就初始化，浪费内存。<br>     <em>它基于 classloder 机制避免了多线程的同步问题，<br>     * 不过，instance 在类装载时就实例化，虽然导致类装载的原因有很多种，<br>    * 在单例模式中大多数都是调用 getInstance 方法，<br>     * 但是也不能确定有其他的方式（或者其他的静态方法）导致类装载，<br>     * 这时候初始化 instance 显然没有达到 lazy loading 的效果。<br>     <em>&#x2F;<br>     懒汉式<br>&#x2F;</em></em><br>     *是否 Lazy 初始化：是<br>     *是否多线程安全：否<br>     *实现难度：易<br>     *描述：这种方式是最基本的实现方式，这种实现最大的问题就是不支持多线程。因为没有加锁 synchronized，所以严格意义上它并不算单例模式。<br>     *这种方式 lazy loading 很明显，不要求线程安全，在多线程不能正常工作。<br>     *&#x2F;</p>
-<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p>饿汉式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span>&#123;</span><br><span class="line">  <span class="comment">//  创建自己的对象</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Student</span> <span class="variable">stu</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">  <span class="comment">//  构造方法私有化</span></span><br><span class="line">  <span class="keyword">private</span> <span class="title function_">Student</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">  <span class="comment">//  提供外部访问的唯一方式并返回唯一的实例对象</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> Student <span class="title function_">getStudent</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> stu;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>懒汉式<br><strong>会引发线程安全问题!!!</strong></p>
-<ol>
-<li>同步方法<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">    <span class="comment">//  volatile  禁止jvm指令重排</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> Student stu;</span><br><span class="line">    <span class="comment">//  构造方法私有</span></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Student</span><span class="params">()</span>&#123; &#125;</span><br><span class="line">    <span class="comment">//  提供外部访问的唯一方式</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Student <span class="title function_">getStudent</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">//  没有stu对象时进入</span></span><br><span class="line">        <span class="keyword">if</span>(stu==<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="comment">//  为了保证线程安全,这里使用同步代码块</span></span><br><span class="line">            <span class="keyword">synchronized</span>(Student.class)&#123;</span><br><span class="line">                <span class="comment">//  同步代码块内部需要再次判断</span></span><br><span class="line">                <span class="keyword">if</span>(stu==<span class="literal">null</span>)&#123;</span><br><span class="line">                    stu = <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stu;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>内部类<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">    <span class="comment">//  构造方法私有化</span></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Student</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="comment">//  静态内部类</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">StudentFactory</span>&#123;</span><br><span class="line">        <span class="comment">//  唯一实例为需要的单例对象</span></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Student</span> <span class="variable">student</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//  提供外部访问的方式,返回内部类的唯一实例</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Student <span class="title function_">getStudent</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> StudentFactory.student;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class Student &#123;
+    private Student() &#123;&#125;
+    
+    private static class Holder &#123;
+        static final Student INSTANCE &#x3D; new Student();
+    &#125;
+    
+    public static Student getStudent() &#123;
+        return Holder.INSTANCE;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -528,10 +532,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -844,25 +848,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -892,7 +907,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

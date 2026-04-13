@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -428,12 +428,15 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>代理模式（Proxy）是通过代理对象访问目标对象<br><img src="/.io//%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F.webp"><br><img src="/.io//%E4%BB%A3%E7%90%86%E7%BB%93%E6%9E%84.webp"></p>
+                <h1 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>代理模式（Proxy）是通过代理对象访问目标对象<br><img src="/2021/12/22/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/Java%20%E4%BB%A3%E7%90%86/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F.webp"><br><img src="/2021/12/22/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/Java%20%E4%BB%A3%E7%90%86/%E4%BB%A3%E7%90%86%E7%BB%93%E6%9E%84.webp"></p>
 <h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>在目标对象基础上增强额外的功能</p>
 <h2 id="关键"><a href="#关键" class="headerlink" title="关键"></a>关键</h2><p>代理对象是对目标对象的扩展,并会调用目标对象</p>
 <h2 id="代理分类"><a href="#代理分类" class="headerlink" title="代理分类"></a>代理分类</h2><h3 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h3><ul>
@@ -441,13 +444,52 @@
 <li>缺点: 接口或父类增加方法,目标对象与代理对象都要维护,增加维护成本</li>
 </ul>
 <h4 id="静态代理案例"><a href="#静态代理案例" class="headerlink" title="静态代理案例"></a>静态代理案例</h4><p>AdminService.java接口</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AdminService</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">update</span><span class="params">()</span>;</span><br><span class="line">    Object <span class="title function_">find</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public interface AdminService &#123;
+    void update();
+    Object find();
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>AdminServiceImpl.java实现类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AdminServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">AdminService</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">update</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;修改管理系统数据&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">find</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;查看管理系统数据&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class AdminServiceImpl implements AdminService&#123;
+    public void update() &#123;
+        System.out.println(&quot;修改管理系统数据&quot;);
+    &#125;
+
+    public Object find() &#123;
+        System.out.println(&quot;查看管理系统数据&quot;);
+        return new Object();
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>AdminServiceProxy.java代理类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AdminServiceProxy</span> <span class="keyword">implements</span> <span class="title class_">AdminService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> AdminService adminService;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">AdminServiceProxy</span><span class="params">(AdminService adminService)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.adminService = adminService;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">update</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;判断用户是否有权限进行update操作&quot;</span>);</span><br><span class="line">        adminService.update();</span><br><span class="line">        System.out.println(<span class="string">&quot;记录用户执行update操作的用户信息、更改内容和时间等&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">find</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;判断用户是否有权限进行find操作&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;记录用户执行find操作的用户信息、查看内容和时间等&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> adminService.find();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class AdminServiceProxy implements AdminService &#123;
+
+    private AdminService adminService;
+
+    public AdminServiceProxy(AdminService adminService) &#123;
+        this.adminService &#x3D; adminService;
+    &#125;
+
+    public void update() &#123;
+        System.out.println(&quot;判断用户是否有权限进行update操作&quot;);
+        adminService.update();
+        System.out.println(&quot;记录用户执行update操作的用户信息、更改内容和时间等&quot;);
+    &#125;
+
+    public Object find() &#123;
+        System.out.println(&quot;判断用户是否有权限进行find操作&quot;);
+        System.out.println(&quot;记录用户执行find操作的用户信息、查看内容和时间等&quot;);
+        return adminService.find();
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>测试类StaticProxyTest.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StaticProxyTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">AdminService</span> <span class="variable">adminService</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AdminServiceImpl</span>();</span><br><span class="line">        <span class="type">AdminServiceProxy</span> <span class="variable">proxy</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AdminServiceProxy</span>(adminService);</span><br><span class="line">        proxy.update();</span><br><span class="line">        System.out.println(<span class="string">&quot;=============================&quot;</span>);</span><br><span class="line">        proxy.find();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class StaticProxyTest &#123;
+    public static void main(String[] args) &#123;
+        AdminService adminService &#x3D; new AdminServiceImpl();
+        AdminServiceProxy proxy &#x3D; new AdminServiceProxy(adminService);
+        proxy.update();
+        System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
+        proxy.find();
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="动态代理-jdk代理-接口代理"><a href="#动态代理-jdk代理-接口代理" class="headerlink" title="动态代理(jdk代理,接口代理)"></a>动态代理(jdk代理,接口代理)</h3><ul>
 <li>特点: <ol>
@@ -467,11 +509,100 @@
 </ul>
 <h4 id="动态代理案例"><a href="#动态代理案例" class="headerlink" title="动态代理案例"></a>动态代理案例</h4><p>AdminServiceImpl.java和AdminService.java和原来一样</p>
 <p>AdminServiceInvocation.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationHandler;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AdminServiceInvocation</span>  <span class="keyword">implements</span> <span class="title class_">InvocationHandler</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Object target;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">AdminServiceInvocation</span><span class="params">(Object target)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.target = target;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;判断用户是否有权限进行操作&quot;</span>);</span><br><span class="line">       <span class="type">Object</span> <span class="variable">obj</span> <span class="operator">=</span> method.invoke(target);</span><br><span class="line">        System.out.println(<span class="string">&quot;记录用户执行操作的用户信息、更改内容和时间等&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> obj;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+
+public class AdminServiceInvocation  implements InvocationHandler &#123;
+
+    private Object target;
+
+    public AdminServiceInvocation(Object target) &#123;
+        this.target &#x3D; target;
+    &#125;
+
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;
+        System.out.println(&quot;判断用户是否有权限进行操作&quot;);
+       Object obj &#x3D; method.invoke(target);
+        System.out.println(&quot;记录用户执行操作的用户信息、更改内容和时间等&quot;);
+        return obj;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>AdminServiceDynamicProxy.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationHandler;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Proxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AdminServiceDynamicProxy</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Object target;</span><br><span class="line">    <span class="keyword">private</span> InvocationHandler invocationHandler;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">AdminServiceDynamicProxy</span><span class="params">(Object target,InvocationHandler invocationHandler)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.target = target;</span><br><span class="line">        <span class="built_in">this</span>.invocationHandler = invocationHandler;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">getPersonProxy</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">Object</span> <span class="variable">obj</span> <span class="operator">=</span> Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), invocationHandler);</span><br><span class="line">        <span class="keyword">return</span> obj;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Proxy;
+
+public class AdminServiceDynamicProxy &#123;
+    private Object target;
+    private InvocationHandler invocationHandler;
+    public AdminServiceDynamicProxy(Object target,InvocationHandler invocationHandler)&#123;
+        this.target &#x3D; target;
+        this.invocationHandler &#x3D; invocationHandler;
+    &#125;
+
+    public Object getPersonProxy() &#123;
+        Object obj &#x3D; Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), invocationHandler);
+        return obj;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>DynamicProxyTest.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.lance.proxy.demo.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationHandler;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Proxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DynamicProxyTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 方法一</span></span><br><span class="line">        System.out.println(<span class="string">&quot;============ 方法一 ==============&quot;</span>);</span><br><span class="line">        <span class="type">AdminService</span> <span class="variable">adminService</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AdminServiceImpl</span>();</span><br><span class="line">        System.out.println(<span class="string">&quot;代理的目标对象：&quot;</span> + adminService.getClass());</span><br><span class="line"></span><br><span class="line">        <span class="type">AdminServiceInvocation</span> <span class="variable">adminServiceInvocation</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AdminServiceInvocation</span>(adminService);</span><br><span class="line"></span><br><span class="line">        <span class="type">AdminService</span> <span class="variable">proxy</span> <span class="operator">=</span> (AdminService) <span class="keyword">new</span> <span class="title class_">AdminServiceDynamicProxy</span>(adminService, adminServiceInvocation).getPersonProxy();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;代理对象：&quot;</span> + proxy.getClass());</span><br><span class="line"></span><br><span class="line">        <span class="type">Object</span> <span class="variable">obj</span> <span class="operator">=</span> proxy.find();</span><br><span class="line">        System.out.println(<span class="string">&quot;find 返回对象：&quot;</span> + obj.getClass());</span><br><span class="line">        System.out.println(<span class="string">&quot;----------------------------------&quot;</span>);</span><br><span class="line">        proxy.update();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//方法二</span></span><br><span class="line">        System.out.println(<span class="string">&quot;============ 方法二 ==============&quot;</span>);</span><br><span class="line">        <span class="type">AdminService</span> <span class="variable">target</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AdminServiceImpl</span>();</span><br><span class="line">        <span class="type">AdminServiceInvocation</span> <span class="variable">invocation</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AdminServiceInvocation</span>(adminService);</span><br><span class="line">        <span class="type">AdminService</span> <span class="variable">proxy2</span> <span class="operator">=</span> (AdminService) Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), invocation);</span><br><span class="line"></span><br><span class="line">        <span class="type">Object</span> <span class="variable">obj2</span> <span class="operator">=</span> proxy2.find();</span><br><span class="line">        System.out.println(<span class="string">&quot;find 返回对象：&quot;</span> + obj2.getClass());</span><br><span class="line">        System.out.println(<span class="string">&quot;----------------------------------&quot;</span>);</span><br><span class="line">        proxy2.update();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//方法三</span></span><br><span class="line">        System.out.println(<span class="string">&quot;============ 方法三 ==============&quot;</span>);</span><br><span class="line">        <span class="keyword">final</span> <span class="type">AdminService</span> <span class="variable">target3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AdminServiceImpl</span>();</span><br><span class="line">        <span class="type">AdminService</span> <span class="variable">proxy3</span> <span class="operator">=</span> (AdminService) Proxy.newProxyInstance(target3.getClass().getClassLoader(), target3.getClass().getInterfaces(), <span class="keyword">new</span> <span class="title class_">InvocationHandler</span>() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">public</span> Object <span class="title function_">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;判断用户是否有权限进行操作&quot;</span>);</span><br><span class="line">                <span class="type">Object</span> <span class="variable">obj</span> <span class="operator">=</span> method.invoke(target3, args);</span><br><span class="line">                System.out.println(<span class="string">&quot;记录用户执行操作的用户信息、更改内容和时间等&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> obj;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="type">Object</span> <span class="variable">obj3</span> <span class="operator">=</span> proxy3.find();</span><br><span class="line">        System.out.println(<span class="string">&quot;find 返回对象：&quot;</span> + obj3.getClass());</span><br><span class="line">        System.out.println(<span class="string">&quot;----------------------------------&quot;</span>);</span><br><span class="line">        proxy3.update();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">package com.lance.proxy.demo.service;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+
+public class DynamicProxyTest &#123;
+    public static void main(String[] args) &#123;
+
+        &#x2F;&#x2F; 方法一
+        System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 方法一 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
+        AdminService adminService &#x3D; new AdminServiceImpl();
+        System.out.println(&quot;代理的目标对象：&quot; + adminService.getClass());
+
+        AdminServiceInvocation adminServiceInvocation &#x3D; new AdminServiceInvocation(adminService);
+
+        AdminService proxy &#x3D; (AdminService) new AdminServiceDynamicProxy(adminService, adminServiceInvocation).getPersonProxy();
+
+        System.out.println(&quot;代理对象：&quot; + proxy.getClass());
+
+        Object obj &#x3D; proxy.find();
+        System.out.println(&quot;find 返回对象：&quot; + obj.getClass());
+        System.out.println(&quot;----------------------------------&quot;);
+        proxy.update();
+
+        &#x2F;&#x2F;方法二
+        System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 方法二 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
+        AdminService target &#x3D; new AdminServiceImpl();
+        AdminServiceInvocation invocation &#x3D; new AdminServiceInvocation(adminService);
+        AdminService proxy2 &#x3D; (AdminService) Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), invocation);
+
+        Object obj2 &#x3D; proxy2.find();
+        System.out.println(&quot;find 返回对象：&quot; + obj2.getClass());
+        System.out.println(&quot;----------------------------------&quot;);
+        proxy2.update();
+
+        &#x2F;&#x2F;方法三
+        System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 方法三 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
+        final AdminService target3 &#x3D; new AdminServiceImpl();
+        AdminService proxy3 &#x3D; (AdminService) Proxy.newProxyInstance(target3.getClass().getClassLoader(), target3.getClass().getInterfaces(), new InvocationHandler() &#123;
+
+            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;
+                System.out.println(&quot;判断用户是否有权限进行操作&quot;);
+                Object obj &#x3D; method.invoke(target3, args);
+                System.out.println(&quot;记录用户执行操作的用户信息、更改内容和时间等&quot;);
+                return obj;
+            &#125;
+        &#125;);
+
+        Object obj3 &#x3D; proxy3.find();
+        System.out.println(&quot;find 返回对象：&quot; + obj3.getClass());
+        System.out.println(&quot;----------------------------------&quot;);
+        proxy3.update();
+
+
+    &#125;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -546,10 +677,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -584,13 +715,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/12/22/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%AE%80%E4%BB%8B/">
+                <a href="/2021/12/28/Java/Java%20SE%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/Java%20jdbc%E8%BF%9E%E6%8E%A5%E6%B1%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="设计模式简介">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="JDBC连接池">
                         
-                        <span class="card-title">设计模式简介</span>
+                        <span class="card-title">JDBC连接池</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -601,19 +732,27 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-22
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-28
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
-                                    设计模式
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java-SE%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">
+                        <span class="chip bg-color">Java SE基础语法</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -625,13 +764,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/12/22/Java/Java%20EE%E4%BC%81%E4%B8%9A%E5%BA%94%E7%94%A8/Java%20Servlet%E5%B0%81%E8%A3%85/">
+                <a href="/2021/12/22/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/ab%E5%B7%A5%E5%85%B7/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Java Servlet封装">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="ab工具">
                         
-                        <span class="card-title">Java Servlet封装</span>
+                        <span class="card-title">ab工具</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -648,21 +787,13 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/categories/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    测试工具
                                 </a>
                             
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Java-EE%E4%BC%81%E4%B8%9A%E5%BA%94%E7%94%A8/">
-                        <span class="chip bg-color">Java EE企业应用</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -854,25 +985,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -902,7 +1044,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -428,6 +428,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -435,28 +438,87 @@
             <div id="articleContent">
                 <h2 id="动态SQL概述"><a href="#动态SQL概述" class="headerlink" title="动态SQL概述"></a>动态SQL概述</h2><p>根据实体类的不同取值，使用不同的 SQL 语句来进行查询;在多条件组合查询中经常使用</p>
 <h2 id="动态-SQL-标签"><a href="#动态-SQL-标签" class="headerlink" title="动态 SQL 标签"></a>动态 SQL <if>标签</if></h2><p>根据实体类的不同取值，使用不同的 SQL 语句来进行查询<br>某个属性符合某个条件时,再进行该属性的条件查询</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;findQuery&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;User&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;User&quot;</span>&gt;</span></span><br><span class="line">  SELECT id, username, birthday, sex, address FROM user</span><br><span class="line">  <span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot; sex!=null and sex != &#x27;&#x27;  &quot;</span>&gt;</span></span><br><span class="line">        AND sex = #&#123;sex&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;username!=null and username != &#x27;&#x27;&quot;</span>&gt;</span></span><br><span class="line">        AND username like #&#123;username&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;address!=null and address != &#x27;&#x27;&quot;</span>&gt;</span></span><br><span class="line">        AND address like #&#123;address&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;birthday!=null and birthday != &#x27;&#x27;&quot;</span>&gt;</span></span><br><span class="line">        AND birthday = #&#123;birthday&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-XML" data-language="XML"><code class="language-XML">&lt;select id&#x3D;&quot;findQuery&quot; parameterType&#x3D;&quot;User&quot; resultType&#x3D;&quot;User&quot;&gt;
+  SELECT id, username, birthday, sex, address FROM user
+  &lt;where&gt;
+    &lt;if test&#x3D;&quot; sex!&#x3D;null and sex !&#x3D; &#39;&#39;  &quot;&gt;
+        AND sex &#x3D; #&#123;sex&#125;
+    &lt;&#x2F;if&gt;
+    &lt;if test&#x3D;&quot;username!&#x3D;null and username !&#x3D; &#39;&#39;&quot;&gt;
+        AND username like #&#123;username&#125;
+    &lt;&#x2F;if&gt;
+    &lt;if test&#x3D;&quot;address!&#x3D;null and address !&#x3D; &#39;&#39;&quot;&gt;
+        AND address like #&#123;address&#125;
+    &lt;&#x2F;if&gt;
+    &lt;if test&#x3D;&quot;birthday!&#x3D;null and birthday !&#x3D; &#39;&#39;&quot;&gt;
+        AND birthday &#x3D; #&#123;birthday&#125;
+    &lt;&#x2F;if&gt;
+  &lt;&#x2F;where&gt;
+&lt;&#x2F;select&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="choose、when、otherwise"><a href="#choose、when、otherwise" class="headerlink" title="choose、when、otherwise"></a>choose、when、otherwise</h2><p>从多个条件中选择一个使用。MyBatis 提供了 choose 元素，类似于 Java 中的 switch 语句<br>其中一个<code>when</code>符合条件则使用该when内的sql查询,都不符合则使用<code>otherwise</code>内的sql查询</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;findActiveBlogLike&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;Blog&quot;</span>&gt;</span></span><br><span class="line">  SELECT * FROM BLOG WHERE state = ‘ACTIVE’</span><br><span class="line">  <span class="tag">&lt;<span class="name">choose</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">&quot;title != null&quot;</span>&gt;</span></span><br><span class="line">      AND title like #&#123;title&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">when</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">&quot;author != null and author.name != null&quot;</span>&gt;</span></span><br><span class="line">      AND author_name like #&#123;author.name&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">when</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">otherwise</span>&gt;</span></span><br><span class="line">      AND featured = 1</span><br><span class="line">    <span class="tag">&lt;/<span class="name">otherwise</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">choose</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-XML" data-language="XML"><code class="language-XML">&lt;select id&#x3D;&quot;findActiveBlogLike&quot; resultType&#x3D;&quot;Blog&quot;&gt;
+  SELECT * FROM BLOG WHERE state &#x3D; ‘ACTIVE’
+  &lt;choose&gt;
+    &lt;when test&#x3D;&quot;title !&#x3D; null&quot;&gt;
+      AND title like #&#123;title&#125;
+    &lt;&#x2F;when&gt;
+    &lt;when test&#x3D;&quot;author !&#x3D; null and author.name !&#x3D; null&quot;&gt;
+      AND author_name like #&#123;author.name&#125;
+    &lt;&#x2F;when&gt;
+    &lt;otherwise&gt;
+      AND featured &#x3D; 1
+    &lt;&#x2F;otherwise&gt;
+  &lt;&#x2F;choose&gt;
+&lt;&#x2F;select&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="where"><a href="#where" class="headerlink" title="where"></a>where</h2><p>where 元素只会在子元素返回任何内容的情况下才插入 “WHERE” 子句。<br>而且，若子句的开头为 “AND” 或 “OR”，where 元素会将它们去除</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;findUserById&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;cn.dy.pojo.User&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;java.lang.Integer&quot;</span>&gt;</span></span><br><span class="line">  SELECT username,birthday,sex,address FROM user</span><br><span class="line">  <span class="tag">&lt;<span class="name">where</span>&gt;</span>id = #&#123;id&#125;<span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-XML" data-language="XML"><code class="language-XML">&lt;select id&#x3D;&quot;findUserById&quot; resultType&#x3D;&quot;cn.dy.pojo.User&quot; parameterType&#x3D;&quot;java.lang.Integer&quot;&gt;
+  SELECT username,birthday,sex,address FROM user
+  &lt;where&gt;id &#x3D; #&#123;id&#125;&lt;&#x2F;where&gt;
+&lt;&#x2F;select&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><p>动态更新语句的类似解决方案叫做 set<br>set 元素可以用于动态包含需要更新的列，忽略其它不更新的列</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">&quot;updateAuthorIfNecessary&quot;</span>&gt;</span></span><br><span class="line">  update Author</span><br><span class="line">    <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;username != null&quot;</span>&gt;</span>username=#&#123;username&#125;,<span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;password != null&quot;</span>&gt;</span>password=#&#123;password&#125;,<span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;email != null&quot;</span>&gt;</span>email=#&#123;email&#125;,<span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;bio != null&quot;</span>&gt;</span>bio=#&#123;bio&#125;<span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">  where id=#&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-XML" data-language="XML"><code class="language-XML">&lt;update id&#x3D;&quot;updateAuthorIfNecessary&quot;&gt;
+  update Author
+    &lt;set&gt;
+      &lt;if test&#x3D;&quot;username !&#x3D; null&quot;&gt;username&#x3D;#&#123;username&#125;,&lt;&#x2F;if&gt;
+      &lt;if test&#x3D;&quot;password !&#x3D; null&quot;&gt;password&#x3D;#&#123;password&#125;,&lt;&#x2F;if&gt;
+      &lt;if test&#x3D;&quot;email !&#x3D; null&quot;&gt;email&#x3D;#&#123;email&#125;,&lt;&#x2F;if&gt;
+      &lt;if test&#x3D;&quot;bio !&#x3D; null&quot;&gt;bio&#x3D;#&#123;bio&#125;&lt;&#x2F;if&gt;
+    &lt;&#x2F;set&gt;
+  where id&#x3D;#&#123;id&#125;
+&lt;&#x2F;update&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这个例子中，set 元素会动态地在行首插入 SET 关键字，并会删掉额外的逗号（这些逗号是在使用条件语句给列赋值时引入的）</p>
 <h2 id="trim"><a href="#trim" class="headerlink" title="trim"></a>trim</h2><p>自定义 trim 元素来定制 where 元素的功能。<br><strong>where 元素等价的自定义 trim 元素</strong></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">trim</span> <span class="attr">prefix</span>=<span class="string">&quot;WHERE&quot;</span> <span class="attr">prefixOverrides</span>=<span class="string">&quot;AND |OR &quot;</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">trim</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-XML" data-language="XML"><code class="language-XML">&lt;trim prefix&#x3D;&quot;WHERE&quot; prefixOverrides&#x3D;&quot;AND |OR &quot;&gt;
+  ...
+&lt;&#x2F;trim&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>prefixOverrides 属性会忽略通过管道符分隔的文本序列（注意此例中的空格是必要的）<br>上述例子会移除所有 prefixOverrides 属性中指定的内容，并且插入 prefix 属性中指定的内容</p>
 <p><strong>set 元素等价的自定义 trim 元素</strong></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">trim</span> <span class="attr">prefix</span>=<span class="string">&quot;SET&quot;</span> <span class="attr">suffixOverrides</span>=<span class="string">&quot;,&quot;</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">trim</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-XML" data-language="XML"><code class="language-XML">&lt;trim prefix&#x3D;&quot;SET&quot; suffixOverrides&#x3D;&quot;,&quot;&gt;
+  ...
+&lt;&#x2F;trim&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="foreach"><a href="#foreach" class="headerlink" title="foreach"></a>foreach</h2><p>用于遍历集合(List,Map,Set)等<br>允许指定开头与结尾的字符串以及集合项迭代之间的分隔符<br>属性<br><code>collection</code>:代表要遍历的集合元素类型<br><code>open</code>:forEach遍历之前添加的内容<br><code>close</code>:forEach遍历之后添加的内容<br><code>index</code>:List时代表索引,Map时,代表键<br><code>item</code>:List时代表遍历集合的每个元素，Map时,代表值<br><code>sperator</code>:迭代项之间的分隔符<br>例:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;findByIds&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;User&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;java.lang.Integer&quot;</span>&gt;</span></span><br><span class="line">  SELECT id, username, birthday, sex, address FROM user</span><br><span class="line">  <span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">    id IN</span><br><span class="line">    <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">&quot;list&quot;</span> <span class="attr">open</span>=<span class="string">&quot;(&quot;</span> <span class="attr">close</span>=<span class="string">&quot;)&quot;</span> <span class="attr">item</span>=<span class="string">&quot;id&quot;</span> <span class="attr">separator</span>=<span class="string">&quot;,&quot;</span>&gt;</span></span><br><span class="line">      #&#123;id&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-XML" data-language="XML"><code class="language-XML">&lt;select id&#x3D;&quot;findByIds&quot; resultType&#x3D;&quot;User&quot; parameterType&#x3D;&quot;java.lang.Integer&quot;&gt;
+  SELECT id, username, birthday, sex, address FROM user
+  &lt;where&gt;
+    id IN
+    &lt;foreach collection&#x3D;&quot;list&quot; open&#x3D;&quot;(&quot; close&#x3D;&quot;)&quot; item&#x3D;&quot;id&quot; separator&#x3D;&quot;,&quot;&gt;
+      #&#123;id&#125;
+    &lt;&#x2F;foreach&gt;
+  &lt;&#x2F;where&gt;
+&lt;&#x2F;select&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="sql"><a href="#sql" class="headerlink" title="sql"></a>sql</h2><p>定义公用代码片段<br>例:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 定义代码片段 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sql</span> <span class="attr">id</span>=<span class="string">&quot;userAll&quot;</span>&gt;</span>SELECT id, username, birthday, sex, address FROM user<span class="tag">&lt;/<span class="name">sql</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 使用代码片段 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;findAll&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;cn.dy.pojo.User&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">include</span> <span class="attr">refid</span>=<span class="string">&quot;userAll&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-XML" data-language="XML"><code class="language-XML">&lt;!-- 定义代码片段 --&gt;
+&lt;sql id&#x3D;&quot;userAll&quot;&gt;SELECT id, username, birthday, sex, address FROM user&lt;&#x2F;sql&gt;
+
+&lt;!-- 使用代码片段 --&gt;
+&lt;select id&#x3D;&quot;findAll&quot; resultType&#x3D;&quot;cn.dy.pojo.User&quot;&gt;
+  &lt;include refid&#x3D;&quot;userAll&quot;&gt;&lt;&#x2F;include&gt;
+&lt;&#x2F;select&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -533,10 +595,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -849,25 +911,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -897,7 +970,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

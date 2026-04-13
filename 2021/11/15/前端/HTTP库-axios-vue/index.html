@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -432,6 +432,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -439,16 +442,113 @@
             <div id="articleContent">
                 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>使用 npm:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install axios</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> axios<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>使用 cdn:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/axios/dist/axios.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://unpkg.com/axios/dist/axios.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="vue中使用axios"><a href="#vue中使用axios" class="headerlink" title="vue中使用axios"></a>vue中使用axios</h2><ol>
-<li>安装  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install axios</span><br></pre></td></tr></table></figure>
-  安装qs库,修改post请求的编码数据  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install qs</span><br></pre></td></tr></table></figure></li>
-<li>创建src&#x2F;plugins&#x2F;axios.js配置文件;内容如下:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&quot;axios&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> qs <span class="keyword">from</span> <span class="string">&#x27;qs&#x27;</span><span class="comment">//转换数据类型;post请求需要转换字符串类型</span></span><br><span class="line"><span class="comment">// cors跨域 如果浏览器开启cookie,则使用withCredentials启用跨域验证</span></span><br><span class="line"><span class="keyword">if</span> (navigator.<span class="property">cookieEnabled</span>) axios.<span class="property">defaults</span>.<span class="property">withCredentials</span> = <span class="literal">true</span></span><br><span class="line">axios.<span class="property">defaults</span>.<span class="property">headers</span>.<span class="property">post</span>[<span class="string">&#x27;Content-Type&#x27;</span>] = <span class="string">&#x27;application/x-www-form-urlencoded&#x27;</span>;</span><br><span class="line"><span class="comment">//全局配置</span></span><br><span class="line"><span class="keyword">let</span> config = &#123;</span><br><span class="line">  <span class="attr">baseURL</span>: process.<span class="property">env</span>.<span class="property">VUE_APP_BASE_URL</span>,</span><br><span class="line">  <span class="attr">timeout</span>: <span class="number">3000</span>, <span class="comment">// Timeout</span></span><br><span class="line">  <span class="comment">// withCredentials: true, // Check cross-site Access-Control</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//创建axios实例</span></span><br><span class="line"><span class="keyword">const</span> _axios = axios.<span class="title function_">create</span>(config);</span><br><span class="line"><span class="comment">//请求拦截</span></span><br><span class="line">_axios.<span class="property">interceptors</span>.<span class="property">request</span>.<span class="title function_">use</span>(</span><br><span class="line">  <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//post请求需要转换字符串类型,在请求拦截中封装</span></span><br><span class="line">    <span class="keyword">if</span> (config.<span class="property">method</span> === <span class="string">&quot;post&quot;</span>) &#123;</span><br><span class="line">      config.<span class="property">data</span> = qs.<span class="title function_">stringify</span>(config.<span class="property">data</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">sessionStorage</span>.<span class="title function_">getItem</span>(<span class="string">&quot;manageToken&quot;</span>)) &#123;</span><br><span class="line">      config.<span class="property">headers</span>.<span class="property">Authorization</span> = <span class="variable language_">sessionStorage</span>.<span class="title function_">getItem</span>(<span class="string">&quot;manageToken&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> config;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="params">error</span> =&gt;</span> <span class="title class_">Promise</span>.<span class="title function_">reject</span>(error)</span><br><span class="line">);</span><br><span class="line"><span class="comment">// 响应拦截</span></span><br><span class="line"><span class="comment">// Add a response interceptor</span></span><br><span class="line">_axios.<span class="property">interceptors</span>.<span class="property">response</span>.<span class="title function_">use</span>(</span><br><span class="line">  <span class="function"><span class="params">response</span> =&gt;</span> response.<span class="property">status</span> === <span class="number">200</span> || response.<span class="property">status</span> === <span class="number">304</span> ? <span class="title class_">Promise</span>.<span class="title function_">resolve</span>(response.<span class="property">data</span>) : <span class="title class_">Promise</span>.<span class="title function_">reject</span>(response),</span><br><span class="line">  <span class="function"><span class="params">error</span> =&gt;</span> &#123;<span class="comment">// Do something with response error</span></span><br><span class="line">    <span class="keyword">const</span> &#123; response &#125; = error;</span><br><span class="line">    <span class="keyword">if</span> (response) &#123;</span><br><span class="line">      <span class="title function_">errorHandle</span>(response.<span class="property">status</span>, response.<span class="property">data</span>);</span><br><span class="line">      <span class="keyword">return</span> <span class="title class_">Promise</span>.<span class="title function_">reject</span>(error);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;连接失败,请检查网络!!!&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br><span class="line"><span class="comment">// 响应状态码的错误处理</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">errorHandle</span> = (<span class="params">status, info</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">switch</span> (status) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">400</span>:</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;语法错误&quot;</span>)</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">401</span>:</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;请进行身份认证&quot;</span>)</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">403</span>:</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;服务器理解请求客户端的请求，但是拒绝执行此请求            &quot;</span>)</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">404</span>:</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;服务器无法根据客户端的请求找到资源（网页）。&quot;</span>)</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="attr">default</span>:</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(info)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Plugin.install = function (Vue) &#123;</span></span><br><span class="line"><span class="comment">//   Vue.axios = _axios;</span></span><br><span class="line"><span class="comment">//   window.axios = _axios;</span></span><br><span class="line"><span class="comment">//   Object.defineProperties(Vue.prototype, &#123;</span></span><br><span class="line"><span class="comment">//     axios: &#123; get() &#123; return _axios &#125; &#125;,</span></span><br><span class="line"><span class="comment">//     $axios: &#123; get() &#123; return _axios &#125; &#125;,</span></span><br><span class="line"><span class="comment">//   &#125;);</span></span><br><span class="line"><span class="comment">// &#125;;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> _axios;</span><br></pre></td></tr></table></figure></li>
-<li>创建src&#x2F;api&#x2F;api.js接口文件,引入配置的axios并创建请求函数;内容如下:  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&quot;@/plugins/axios&quot;</span></span><br><span class="line"><span class="comment">// post</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">apiPost</span> = data =&gt; <span class="title function_">axios</span>(&#123; <span class="attr">url</span>: <span class="string">&#x27;users&#x27;</span>, <span class="attr">method</span>: <span class="string">&#x27;post&#x27;</span>, data &#125;)</span><br><span class="line"><span class="comment">// delete</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">apiDelete</span> = data =&gt; <span class="title function_">axios</span>(&#123; <span class="attr">url</span>: <span class="string">`users/<span class="subst">$&#123;data&#125;</span>`</span>, <span class="attr">method</span>: <span class="string">&#x27;delete&#x27;</span> &#125;)</span><br><span class="line"><span class="comment">// put</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">apiPut</span> = data =&gt; <span class="title function_">axios</span>(&#123; <span class="attr">url</span>: <span class="string">`users/<span class="subst">$&#123;data.id&#125;</span>/state/<span class="subst">$&#123;data.status&#125;</span>`</span>, <span class="attr">method</span>: <span class="string">&#x27;put&#x27;</span>&#125;)</span><br><span class="line"><span class="comment">// get</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">apiGet</span> = (<span class="params"></span>) =&gt; <span class="title function_">axios</span>(&#123; <span class="attr">url</span>: <span class="string">&#x27;rights/list&#x27;</span> &#125;)</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">apiGet2</span> = data =&gt; <span class="title function_">axios</span>(&#123; <span class="attr">url</span>: <span class="string">`rights/list?<span class="subst">$&#123;data&#125;</span>`</span>&#125;)</span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">  apiPost,</span><br><span class="line">  apiDelete,</span><br><span class="line">  apiPut,</span><br><span class="line">  apiGet,</span><br><span class="line">  apiGet2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>引入api.js接口文件,在vue页面中使用请求函数<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; apiPost, apiDelete, apiPut,apiGet &#125; <span class="keyword">from</span> <span class="string">&#x27;@/api/api&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="title function_">data</span>(<span class="params"></span>) &#123;<span class="keyword">return</span> &#123; &#125; &#125;,</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="attr">post</span>: <span class="keyword">async</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">let</span> res = <span class="keyword">await</span> <span class="title function_">apiPost</span>()</span><br><span class="line">      <span class="keyword">if</span> (res.<span class="property">code</span> !== <span class="number">200</span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(res.<span class="property">msg</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(res.<span class="property">data</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>安装  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> axios<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+  安装qs库,修改post请求的编码数据  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> qs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>创建src&#x2F;plugins&#x2F;axios.js配置文件;内容如下:<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">&quot;use strict&quot;;
+import axios from &quot;axios&quot;;
+import qs from &#39;qs&#39;&#x2F;&#x2F;转换数据类型;post请求需要转换字符串类型
+&#x2F;&#x2F; cors跨域 如果浏览器开启cookie,则使用withCredentials启用跨域验证
+if (navigator.cookieEnabled) axios.defaults.withCredentials &#x3D; true
+axios.defaults.headers.post[&#39;Content-Type&#39;] &#x3D; &#39;application&#x2F;x-www-form-urlencoded&#39;;
+&#x2F;&#x2F;全局配置
+let config &#x3D; &#123;
+  baseURL: process.env.VUE_APP_BASE_URL,
+  timeout: 3000, &#x2F;&#x2F; Timeout
+  &#x2F;&#x2F; withCredentials: true, &#x2F;&#x2F; Check cross-site Access-Control
+&#125;;
+&#x2F;&#x2F;创建axios实例
+const _axios &#x3D; axios.create(config);
+&#x2F;&#x2F;请求拦截
+_axios.interceptors.request.use(
+  config &#x3D;&gt; &#123;
+    &#x2F;&#x2F;post请求需要转换字符串类型,在请求拦截中封装
+    if (config.method &#x3D;&#x3D;&#x3D; &quot;post&quot;) &#123;
+      config.data &#x3D; qs.stringify(config.data)
+    &#125;
+    if (sessionStorage.getItem(&quot;manageToken&quot;)) &#123;
+      config.headers.Authorization &#x3D; sessionStorage.getItem(&quot;manageToken&quot;)
+    &#125;
+    return config;
+  &#125;,
+  error &#x3D;&gt; Promise.reject(error)
+);
+&#x2F;&#x2F; 响应拦截
+&#x2F;&#x2F; Add a response interceptor
+_axios.interceptors.response.use(
+  response &#x3D;&gt; response.status &#x3D;&#x3D;&#x3D; 200 || response.status &#x3D;&#x3D;&#x3D; 304 ? Promise.resolve(response.data) : Promise.reject(response),
+  error &#x3D;&gt; &#123;&#x2F;&#x2F; Do something with response error
+    const &#123; response &#125; &#x3D; error;
+    if (response) &#123;
+      errorHandle(response.status, response.data);
+      return Promise.reject(error);
+    &#125;
+    console.log(&quot;连接失败,请检查网络!!!&quot;)
+  &#125;
+);
+&#x2F;&#x2F; 响应状态码的错误处理
+const errorHandle &#x3D; (status, info) &#x3D;&gt; &#123;
+  switch (status) &#123;
+    case 400:
+      console.log(&quot;语法错误&quot;)
+      break;
+    case 401:
+      console.log(&quot;请进行身份认证&quot;)
+      break
+    case 403:
+      console.log(&quot;服务器理解请求客户端的请求，但是拒绝执行此请求            &quot;)
+      break
+    case 404:
+      console.log(&quot;服务器无法根据客户端的请求找到资源（网页）。&quot;)
+      break
+    default:
+      console.log(info)
+  &#125;
+&#125;
+&#x2F;&#x2F; Plugin.install &#x3D; function (Vue) &#123;
+&#x2F;&#x2F;   Vue.axios &#x3D; _axios;
+&#x2F;&#x2F;   window.axios &#x3D; _axios;
+&#x2F;&#x2F;   Object.defineProperties(Vue.prototype, &#123;
+&#x2F;&#x2F;     axios: &#123; get() &#123; return _axios &#125; &#125;,
+&#x2F;&#x2F;     $axios: &#123; get() &#123; return _axios &#125; &#125;,
+&#x2F;&#x2F;   &#125;);
+&#x2F;&#x2F; &#125;;
+export default _axios;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>创建src&#x2F;api&#x2F;api.js接口文件,引入配置的axios并创建请求函数;内容如下:  <pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">import axios from &quot;@&#x2F;plugins&#x2F;axios&quot;
+&#x2F;&#x2F; post
+const apiPost &#x3D; data &#x3D;&gt; axios(&#123; url: &#39;users&#39;, method: &#39;post&#39;, data &#125;)
+&#x2F;&#x2F; delete
+const apiDelete &#x3D; data &#x3D;&gt; axios(&#123; url: &#96;users&#x2F;$&#123;data&#125;&#96;, method: &#39;delete&#39; &#125;)
+&#x2F;&#x2F; put
+const apiPut &#x3D; data &#x3D;&gt; axios(&#123; url: &#96;users&#x2F;$&#123;data.id&#125;&#x2F;state&#x2F;$&#123;data.status&#125;&#96;, method: &#39;put&#39;&#125;)
+&#x2F;&#x2F; get
+const apiGet &#x3D; () &#x3D;&gt; axios(&#123; url: &#39;rights&#x2F;list&#39; &#125;)
+const apiGet2 &#x3D; data &#x3D;&gt; axios(&#123; url: &#96;rights&#x2F;list?$&#123;data&#125;&#96;&#125;)
+export &#123;
+  apiPost,
+  apiDelete,
+  apiPut,
+  apiGet,
+  apiGet2
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>引入api.js接口文件,在vue页面中使用请求函数<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">import &#123; apiPost, apiDelete, apiPut,apiGet &#125; from &#39;@&#x2F;api&#x2F;api&#39;
+export default &#123;
+  data() &#123;return &#123; &#125; &#125;,
+  methods: &#123;
+    post: async function () &#123;
+      let res &#x3D; await apiPost()
+      if (res.code !&#x3D;&#x3D; 200) &#123;
+        console.log(res.msg)
+        return
+      &#125;
+      console.log(res.data)
+    &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 
                 
@@ -529,10 +629,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -857,25 +957,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -905,7 +1016,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

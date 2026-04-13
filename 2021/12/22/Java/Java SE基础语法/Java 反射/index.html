@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -428,6 +428,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -456,9 +459,102 @@
 <li>Array类：提供了动态创建数组，以及访问数组的元素的静态方法。</li>
 </ul>
 <h2 id="反射案例"><a href="#反射案例" class="headerlink" title="反射案例"></a>反射案例</h2><p>创建pojo类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> String grade;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(String name, Integer age, String grade)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">        <span class="built_in">this</span>.grade = grade;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Integer <span class="title function_">getAge</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setAge</span><span class="params">(Integer age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getGrade</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> grade;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setGrade</span><span class="params">(String grade)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.grade = grade;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Student&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, age=&quot;</span> + age +</span><br><span class="line">                <span class="string">&quot;, grade=&#x27;&quot;</span> + grade + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class Student &#123;
+    private String name;
+    private Integer age;
+    private String grade;
+
+    public Student() &#123;
+    &#125;
+
+    public Student(String name, Integer age, String grade) &#123;
+        this.name &#x3D; name;
+        this.age &#x3D; age;
+        this.grade &#x3D; grade;
+    &#125;
+
+    public String getName() &#123;
+        return name;
+    &#125;
+
+    public void setName(String name) &#123;
+        this.name &#x3D; name;
+    &#125;
+
+    public Integer getAge() &#123;
+        return age;
+    &#125;
+
+    public void setAge(Integer age) &#123;
+        this.age &#x3D; age;
+    &#125;
+
+    public String getGrade() &#123;
+        return grade;
+    &#125;
+
+    public void setGrade(String grade) &#123;
+        this.grade &#x3D; grade;
+    &#125;
+
+    @Override
+    public String toString() &#123;
+        return &quot;Student&#123;&quot; +
+                &quot;name&#x3D;&#39;&quot; + name + &#39;\&#39;&#39; +
+                &quot;, age&#x3D;&quot; + age +
+                &quot;, grade&#x3D;&#39;&quot; + grade + &#39;\&#39;&#39; +
+                &#39;&#125;&#39;;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>执行类,注意: <code>setAccessible(true)</code>:暴力反射</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.reflect.Field;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Run</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">Student</span> <span class="variable">student</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;张三&quot;</span>, <span class="number">18</span>, <span class="string">&quot;p2&quot;</span>);</span><br><span class="line">        <span class="type">Object</span> <span class="variable">copy</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Run</span>().copy(student);</span><br><span class="line">        System.out.println(copy);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//    自定义的copy方法用来创建一个和参数objcet同样类型的对象，然后把object对象中的所有属性拷贝到新建的对象中，并将其返回</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">copy</span><span class="params">(Object object)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//  1. 获取object的类型</span></span><br><span class="line">        <span class="type">Class</span> <span class="variable">classType</span> <span class="operator">=</span> object.getClass();</span><br><span class="line">        System.out.println(<span class="string">&quot;Class:&quot;</span> + classType.getName());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//  2. 通过默认构造方法创建一个新的对象</span></span><br><span class="line">        <span class="type">Object</span> <span class="variable">objectCopy</span> <span class="operator">=</span> classType.getConstructor(<span class="keyword">new</span> <span class="title class_">Class</span>[]&#123;&#125;).newInstance(<span class="keyword">new</span> <span class="title class_">Object</span>[]&#123;&#125;);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//  忽略访问权限修饰符的安全检查</span></span><br><span class="line">        fieldName.setAccessible(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//  3. 获得对象的所有属性</span></span><br><span class="line">        Field fields[] = classType.getDeclaredFields();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; fields.length; i++) &#123;</span><br><span class="line">            <span class="type">Field</span> <span class="variable">field</span> <span class="operator">=</span> fields[i];</span><br><span class="line">            <span class="type">String</span> <span class="variable">fieldName</span> <span class="operator">=</span> field.getName();</span><br><span class="line">            <span class="type">String</span> <span class="variable">firstLetter</span> <span class="operator">=</span> fieldName.substring(<span class="number">0</span>, <span class="number">1</span>).toUpperCase();</span><br><span class="line">            <span class="comment">//获得和属性对应的getXXX()方法的名字</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">getMethodName</span> <span class="operator">=</span> <span class="string">&quot;get&quot;</span> + firstLetter + fieldName.substring(<span class="number">1</span>);</span><br><span class="line">            <span class="comment">//获得和属性对应的setXXX()方法的名字</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">setMethodName</span> <span class="operator">=</span> <span class="string">&quot;set&quot;</span> + firstLetter + fieldName.substring(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获得和属性对应的getXXX()方法</span></span><br><span class="line">            <span class="type">Method</span> <span class="variable">getMethod</span> <span class="operator">=</span> classType.getMethod(getMethodName, <span class="keyword">new</span> <span class="title class_">Class</span>[]&#123;&#125;);</span><br><span class="line">            <span class="comment">//获得和属性对应的setXXX()方法</span></span><br><span class="line">            <span class="type">Method</span> <span class="variable">setMethod</span> <span class="operator">=</span> classType.getMethod(setMethodName, <span class="keyword">new</span> <span class="title class_">Class</span>[]&#123;field.getType()&#125;);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//调用原对象的getXXX()方法</span></span><br><span class="line">            <span class="type">Object</span> <span class="variable">value</span> <span class="operator">=</span> getMethod.invoke(object, <span class="keyword">new</span> <span class="title class_">Object</span>[]&#123;&#125;);</span><br><span class="line">            System.out.println(fieldName + <span class="string">&quot;:&quot;</span> + value);</span><br><span class="line">            <span class="comment">//调用拷贝对象的setXXX()方法</span></span><br><span class="line">            setMethod.invoke(objectCopy, <span class="keyword">new</span> <span class="title class_">Object</span>[]&#123;value&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> objectCopy;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+public class Run &#123;
+    public static void main(String[] args) throws Exception &#123;
+        Student student &#x3D; new Student(&quot;张三&quot;, 18, &quot;p2&quot;);
+        Object copy &#x3D; new Run().copy(student);
+        System.out.println(copy);
+    &#125;
+
+    &#x2F;&#x2F;    自定义的copy方法用来创建一个和参数objcet同样类型的对象，然后把object对象中的所有属性拷贝到新建的对象中，并将其返回
+    public Object copy(Object object) throws Exception &#123;
+        &#x2F;&#x2F;  1. 获取object的类型
+        Class classType &#x3D; object.getClass();
+        System.out.println(&quot;Class:&quot; + classType.getName());
+
+        &#x2F;&#x2F;  2. 通过默认构造方法创建一个新的对象
+        Object objectCopy &#x3D; classType.getConstructor(new Class[]&#123;&#125;).newInstance(new Object[]&#123;&#125;);
+        
+        &#x2F;&#x2F;  忽略访问权限修饰符的安全检查
+        fieldName.setAccessible(true);
+
+        &#x2F;&#x2F;  3. 获得对象的所有属性
+        Field fields[] &#x3D; classType.getDeclaredFields();
+
+        for (int i &#x3D; 0; i &lt; fields.length; i++) &#123;
+            Field field &#x3D; fields[i];
+            String fieldName &#x3D; field.getName();
+            String firstLetter &#x3D; fieldName.substring(0, 1).toUpperCase();
+            &#x2F;&#x2F;获得和属性对应的getXXX()方法的名字
+            String getMethodName &#x3D; &quot;get&quot; + firstLetter + fieldName.substring(1);
+            &#x2F;&#x2F;获得和属性对应的setXXX()方法的名字
+            String setMethodName &#x3D; &quot;set&quot; + firstLetter + fieldName.substring(1);
+
+            &#x2F;&#x2F;获得和属性对应的getXXX()方法
+            Method getMethod &#x3D; classType.getMethod(getMethodName, new Class[]&#123;&#125;);
+            &#x2F;&#x2F;获得和属性对应的setXXX()方法
+            Method setMethod &#x3D; classType.getMethod(setMethodName, new Class[]&#123;field.getType()&#125;);
+
+            &#x2F;&#x2F;调用原对象的getXXX()方法
+            Object value &#x3D; getMethod.invoke(object, new Object[]&#123;&#125;);
+            System.out.println(fieldName + &quot;:&quot; + value);
+            &#x2F;&#x2F;调用拷贝对象的setXXX()方法
+            setMethod.invoke(objectCopy, new Object[]&#123;value&#125;);
+        &#125;
+        return objectCopy;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -533,10 +629,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -849,25 +945,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -897,7 +1004,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

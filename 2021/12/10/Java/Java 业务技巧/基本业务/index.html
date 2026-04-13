@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -428,27 +428,183 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="JAVA中List集合按照对象的某些字段去重实现"><a href="#JAVA中List集合按照对象的某些字段去重实现" class="headerlink" title="JAVA中List集合按照对象的某些字段去重实现"></a>JAVA中List集合按照对象的某些字段去重实现</h2><h4 id="方式一使用双重循环实现"><a href="#方式一使用双重循环实现" class="headerlink" title="方式一使用双重循环实现"></a>方式一使用双重循环实现</h4><p>案例:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.commons.lang3.StringUtils;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Auther</span>: </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2019/1/11 09:11</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 根据list中对象指定的n个字段去重测试</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestMyUser</span> &#123;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@org</span>.junit.Test</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span>&#123;</span><br><span class="line">        List&lt;MyUser&gt; list1 = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        List&lt;MyUser&gt; list2 = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="type">MyUser</span> <span class="variable">user1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyUser</span>();</span><br><span class="line">        user1.setUserName(<span class="string">&quot;zhangsan&quot;</span>);</span><br><span class="line">        user1.setPassWord(<span class="string">&quot;123456&quot;</span>);</span><br><span class="line">        list1.add(user1);</span><br><span class="line"> </span><br><span class="line">        <span class="type">MyUser</span> <span class="variable">user2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyUser</span>();</span><br><span class="line">        user2.setUserName(<span class="string">&quot;zhangsan&quot;</span>);</span><br><span class="line">        user2.setPassWord(<span class="string">&quot;123456&quot;</span>);</span><br><span class="line">        list1.add(user2);</span><br><span class="line"> </span><br><span class="line">        <span class="type">MyUser</span> <span class="variable">user3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyUser</span>();</span><br><span class="line">        user3.setUserName(<span class="string">&quot;lisi&quot;</span>);</span><br><span class="line">        user3.setPassWord(<span class="string">&quot;123456&quot;</span>);</span><br><span class="line">        list1.add(user3);</span><br><span class="line"> </span><br><span class="line">        <span class="type">MyUser</span> <span class="variable">user4</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyUser</span>();</span><br><span class="line">        user4.setUserName(<span class="string">&quot;lisi&quot;</span>);</span><br><span class="line">        user4.setPassWord(<span class="string">&quot;123456&quot;</span>);</span><br><span class="line">        list1.add(user4);</span><br><span class="line">        </span><br><span class="line">        list1.stream().forEach(item-&gt;&#123;</span><br><span class="line">            list1.strean().forEach(item2-&gt;&#123;</span><br><span class="line">                <span class="keyword">if</span>(item1.equals(item2))&#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(Integer.valueof(item1.getPassWord)&gt;Integer.valueof(item2.getPassWord))&#123;</span><br><span class="line">                    list2.add(item2);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">        list1.removeAll(list2);</span><br><span class="line">        list1.strean().forEach(System.out::plintln)</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">import org.apache.commons.lang3.StringUtils;
+import java.util.*;
+&#x2F;**
+ * @Auther: 
+ * @Date: 2019&#x2F;1&#x2F;11 09:11
+ * @Description: 根据list中对象指定的n个字段去重测试
+ *&#x2F;
+public class TestMyUser &#123;
+ 
+    @org.junit.Test
+    public void test()&#123;
+        List&lt;MyUser&gt; list1 &#x3D; new ArrayList&lt;&gt;();
+        List&lt;MyUser&gt; list2 &#x3D; new ArrayList&lt;&gt;();
+        MyUser user1 &#x3D; new MyUser();
+        user1.setUserName(&quot;zhangsan&quot;);
+        user1.setPassWord(&quot;123456&quot;);
+        list1.add(user1);
+ 
+        MyUser user2 &#x3D; new MyUser();
+        user2.setUserName(&quot;zhangsan&quot;);
+        user2.setPassWord(&quot;123456&quot;);
+        list1.add(user2);
+ 
+        MyUser user3 &#x3D; new MyUser();
+        user3.setUserName(&quot;lisi&quot;);
+        user3.setPassWord(&quot;123456&quot;);
+        list1.add(user3);
+ 
+        MyUser user4 &#x3D; new MyUser();
+        user4.setUserName(&quot;lisi&quot;);
+        user4.setPassWord(&quot;123456&quot;);
+        list1.add(user4);
+        
+        list1.stream().forEach(item-&gt;&#123;
+            list1.strean().forEach(item2-&gt;&#123;
+                if(item1.equals(item2))&#123;
+                    continue;
+                &#125;
+                if(Integer.valueof(item1.getPassWord)&gt;Integer.valueof(item2.getPassWord))&#123;
+                    list2.add(item2);
+                &#125;
+            &#125;)
+        &#125;)
+        list1.removeAll(list2);
+        list1.strean().forEach(System.out::plintln)
+    &#125;
+ 
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <h4 id="方式二使用比较器实现"><a href="#方式二使用比较器实现" class="headerlink" title="方式二使用比较器实现"></a>方式二使用比较器实现</h4><p>案例:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.commons.lang3.StringUtils;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Auther</span>: </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2019/1/11 09:11</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 根据list中对象指定的n个字段去重测试</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestMyUser</span> &#123;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@org</span>.junit.Test</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span>&#123;</span><br><span class="line">        List&lt;MyUser&gt; list1 = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="type">MyUser</span> <span class="variable">user1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyUser</span>();</span><br><span class="line">        user1.setUserName(<span class="string">&quot;zhangsan&quot;</span>);</span><br><span class="line">        user1.setPassWord(<span class="string">&quot;123456&quot;</span>);</span><br><span class="line">        list1.add(user1);</span><br><span class="line"> </span><br><span class="line">        <span class="type">MyUser</span> <span class="variable">user2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyUser</span>();</span><br><span class="line">        user2.setUserName(<span class="string">&quot;zhangsan&quot;</span>);</span><br><span class="line">        user2.setPassWord(<span class="string">&quot;123456&quot;</span>);</span><br><span class="line">        list1.add(user2);</span><br><span class="line"> </span><br><span class="line">        <span class="type">MyUser</span> <span class="variable">user3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyUser</span>();</span><br><span class="line">        user3.setUserName(<span class="string">&quot;lisi&quot;</span>);</span><br><span class="line">        user3.setPassWord(<span class="string">&quot;123456&quot;</span>);</span><br><span class="line">        list1.add(user3);</span><br><span class="line"> </span><br><span class="line">        <span class="type">MyUser</span> <span class="variable">user4</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyUser</span>();</span><br><span class="line">        user4.setUserName(<span class="string">&quot;lisi&quot;</span>);</span><br><span class="line">        user4.setPassWord(<span class="string">&quot;123456&quot;</span>);</span><br><span class="line">        list1.add(user4);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (MyUser b: list1) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;去重前：&quot;</span>+b.toString());</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        <span class="comment">//去重</span></span><br><span class="line">        list1 = removeDuplicateOutputField(list1);</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">for</span> (MyUser b: list1) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;去重后：&quot;</span>+b.toString());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据list中对象某些字段去重</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> list 需要去重的list</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 返回去重后的list</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> List&lt;MyUser&gt; <span class="title function_">removeDuplicates</span><span class="params">(List&lt;MyUser&gt; entityList)</span> &#123;</span><br><span class="line">        Set&lt;String&gt; uniqueKeys = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line">        List&lt;MyUser&gt; uniqueEntities = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (MyUser entity : entityList) &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">key</span> <span class="operator">=</span> entity.getFecthType() + <span class="string">&quot;_&quot;</span> +</span><br><span class="line">                         entity.getConfNum() + <span class="string">&quot;_&quot;</span> +</span><br><span class="line">                         entity.getConfNameParent() + <span class="string">&quot;_&quot;</span> +</span><br><span class="line">                         entity.getConfDateStartYear();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (!uniqueKeys.contains(key)) &#123;</span><br><span class="line">                uniqueKeys.add(key);</span><br><span class="line">                uniqueEntities.add(entity);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> uniqueEntities;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">import org.apache.commons.lang3.StringUtils;
+import java.util.*;
+&#x2F;**
+ * @Auther: 
+ * @Date: 2019&#x2F;1&#x2F;11 09:11
+ * @Description: 根据list中对象指定的n个字段去重测试
+ *&#x2F;
+public class TestMyUser &#123;
+ 
+    @org.junit.Test
+    public void test()&#123;
+        List&lt;MyUser&gt; list1 &#x3D; new ArrayList&lt;&gt;();
+        MyUser user1 &#x3D; new MyUser();
+        user1.setUserName(&quot;zhangsan&quot;);
+        user1.setPassWord(&quot;123456&quot;);
+        list1.add(user1);
+ 
+        MyUser user2 &#x3D; new MyUser();
+        user2.setUserName(&quot;zhangsan&quot;);
+        user2.setPassWord(&quot;123456&quot;);
+        list1.add(user2);
+ 
+        MyUser user3 &#x3D; new MyUser();
+        user3.setUserName(&quot;lisi&quot;);
+        user3.setPassWord(&quot;123456&quot;);
+        list1.add(user3);
+ 
+        MyUser user4 &#x3D; new MyUser();
+        user4.setUserName(&quot;lisi&quot;);
+        user4.setPassWord(&quot;123456&quot;);
+        list1.add(user4);
+        
+        for (MyUser b: list1) &#123;
+            System.out.println(&quot;去重前：&quot;+b.toString());
+        &#125;
+ 
+        &#x2F;&#x2F;去重
+        list1 &#x3D; removeDuplicateOutputField(list1);
+ 
+        for (MyUser b: list1) &#123;
+            System.out.println(&quot;去重后：&quot;+b.toString());
+        &#125;
+    &#125;
+    &#x2F;**
+     * 根据list中对象某些字段去重
+     * @param list 需要去重的list
+     * @return 返回去重后的list
+     *&#x2F;
+  public static List&lt;MyUser&gt; removeDuplicates(List&lt;MyUser&gt; entityList) &#123;
+        Set&lt;String&gt; uniqueKeys &#x3D; new HashSet&lt;&gt;();
+        List&lt;MyUser&gt; uniqueEntities &#x3D; new ArrayList&lt;&gt;();
+
+        for (MyUser entity : entityList) &#123;
+            String key &#x3D; entity.getFecthType() + &quot;_&quot; +
+                         entity.getConfNum() + &quot;_&quot; +
+                         entity.getConfNameParent() + &quot;_&quot; +
+                         entity.getConfDateStartYear();
+
+            if (!uniqueKeys.contains(key)) &#123;
+                uniqueKeys.add(key);
+                uniqueEntities.add(entity);
+            &#125;
+        &#125;
+
+        return uniqueEntities;
+    &#125;
+    
+    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>提示:<strong>多个列表的不同属性实现去重时,可以定义个ertity实体,整合在一个列表后再去重</strong></p>
 <h2 id="方式三"><a href="#方式三" class="headerlink" title="方式三"></a>方式三</h2><p>生成唯一key的方式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;EmConfUnionInfoEntity&gt; <span class="title function_">removeDuplicates</span><span class="params">(List&lt;EmConfUnionInfoEntity&gt; entityList)</span> &#123;</span><br><span class="line">       Set&lt;String&gt; uniqueKeys = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line">       List&lt;EmConfUnionInfoEntity&gt; uniqueEntities = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">       <span class="keyword">for</span> (EmConfUnionInfoEntity entity : entityList) &#123;</span><br><span class="line">           <span class="type">String</span> <span class="variable">key</span> <span class="operator">=</span> entity.getFecthType() + <span class="string">&quot;_&quot;</span> +</span><br><span class="line">                   entity.getConfNum() + <span class="string">&quot;_&quot;</span> +</span><br><span class="line">                   entity.getConfNameParent() + <span class="string">&quot;_&quot;</span> +</span><br><span class="line">                   entity.getConfDateStartYear();</span><br><span class="line"></span><br><span class="line">           <span class="keyword">if</span> (!uniqueKeys.contains(key)) &#123;</span><br><span class="line">               uniqueKeys.add(key);</span><br><span class="line">               uniqueEntities.add(entity);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">return</span> uniqueEntities;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public static List&lt;EmConfUnionInfoEntity&gt; removeDuplicates(List&lt;EmConfUnionInfoEntity&gt; entityList) &#123;
+       Set&lt;String&gt; uniqueKeys &#x3D; new HashSet&lt;&gt;();
+       List&lt;EmConfUnionInfoEntity&gt; uniqueEntities &#x3D; new ArrayList&lt;&gt;();
+
+       for (EmConfUnionInfoEntity entity : entityList) &#123;
+           String key &#x3D; entity.getFecthType() + &quot;_&quot; +
+                   entity.getConfNum() + &quot;_&quot; +
+                   entity.getConfNameParent() + &quot;_&quot; +
+                   entity.getConfDateStartYear();
+
+           if (!uniqueKeys.contains(key)) &#123;
+               uniqueKeys.add(key);
+               uniqueEntities.add(entity);
+           &#125;
+       &#125;
+
+       return uniqueEntities;
+   &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="方式四"><a href="#方式四" class="headerlink" title="方式四"></a>方式四</h2><p>新增类,类只有需要去重的属性,重写该类的hashCode()或equals()来实现去重<br>为了实现按照fecthType、confNum、confNameParent和confDateStartYear属性值进行去重，您可以按照以下步骤进行操作：</p>
 <p>创建一个自定义的类，用于存储上述属性值。<br>java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ConferenceInfo</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String fecthType;</span><br><span class="line">    <span class="keyword">private</span> String confNum;</span><br><span class="line">    <span class="keyword">private</span> String confNameParent;</span><br><span class="line">    <span class="keyword">private</span> String confDateStartYear;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 添加构造函数、getter和setter方法</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 重写equals()和hashCode()方法（用于去重）</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">
+class ConferenceInfo &#123;
+    private String fecthType;
+    private String confNum;
+    private String confNameParent;
+    private String confDateStartYear;
+
+    &#x2F;&#x2F; 添加构造函数、getter和setter方法
+
+    &#x2F;&#x2F; 重写equals()和hashCode()方法（用于去重）
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>将给定的内容转换为EmConfUnionInfoEntity对象列表，并提取所需属性值创建ConferenceInfo对象。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">List&lt;EmConfUnionInfoEntity&gt; entityList = ... <span class="comment">// 将内容转换为EmConfUnionInfoEntity对象列表</span></span><br><span class="line">List&lt;ConferenceInfo&gt; conferenceInfoList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (EmConfUnionInfoEntity entity : entityList) &#123;</span><br><span class="line">    <span class="type">ConferenceInfo</span> <span class="variable">conferenceInfo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ConferenceInfo</span>();</span><br><span class="line">    conferenceInfo.setFecthType(entity.getFecthType());</span><br><span class="line">    conferenceInfo.setConfNum(entity.getConfNum());</span><br><span class="line">    conferenceInfo.setConfNameParent(entity.getConfNameParent());</span><br><span class="line">    conferenceInfo.setConfDateStartYear(entity.getConfDateStartYear());</span><br><span class="line"></span><br><span class="line">    conferenceInfoList.add(conferenceInfo);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">EmConfUnionInfoEntity</span><span class="token punctuation">></span></span> entityList <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token comment">// 将内容转换为EmConfUnionInfoEntity对象列表</span>
+<span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ConferenceInfo</span><span class="token punctuation">></span></span> conferenceInfoList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">EmConfUnionInfoEntity</span> entity <span class="token operator">:</span> entityList<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">ConferenceInfo</span> conferenceInfo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConferenceInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    conferenceInfo<span class="token punctuation">.</span><span class="token function">setFecthType</span><span class="token punctuation">(</span>entity<span class="token punctuation">.</span><span class="token function">getFecthType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    conferenceInfo<span class="token punctuation">.</span><span class="token function">setConfNum</span><span class="token punctuation">(</span>entity<span class="token punctuation">.</span><span class="token function">getConfNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    conferenceInfo<span class="token punctuation">.</span><span class="token function">setConfNameParent</span><span class="token punctuation">(</span>entity<span class="token punctuation">.</span><span class="token function">getConfNameParent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    conferenceInfo<span class="token punctuation">.</span><span class="token function">setConfDateStartYear</span><span class="token punctuation">(</span>entity<span class="token punctuation">.</span><span class="token function">getConfDateStartYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    conferenceInfoList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>conferenceInfo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>使用HashSet进行去重操作，HashSet会自动根据重写的equals()和hashCode()方法进行去重。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;ConferenceInfo&gt; uniqueConferenceInfoSet = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;(conferenceInfoList);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Set</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ConferenceInfo</span><span class="token punctuation">></span></span> uniqueConferenceInfoSet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>conferenceInfoList<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>现在，uniqueConferenceInfoSet中将只包含按照fecthType、confNum、confNameParent和confDateStartYear属性值进行去重后的对象。您可以将其转换回列表或进行其他操作，根据您的需求进行处理。</p>
 
                 
@@ -525,10 +681,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -841,25 +997,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -889,7 +1056,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -428,25 +428,264 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="给所有项目配置-maven-环境"><a href="#给所有项目配置-maven-环境" class="headerlink" title="给所有项目配置 maven 环境"></a>给所有项目配置 maven 环境</h2><p>修改 IDEA 配置的默认的 maven 环境；<br>File - - - 》 Other Settings - - - 》Settings for New Projects - - - 》Build, Execution, Deployment - - - 》Build Tools - - - 》Maven<br><img src="/.io//idea_1.png"><br><img src="/.io//idea_2.png"></p>
+                <h2 id="给所有项目配置-maven-环境"><a href="#给所有项目配置-maven-环境" class="headerlink" title="给所有项目配置 maven 环境"></a>给所有项目配置 maven 环境</h2><p>修改 IDEA 配置的默认的 maven 环境；<br>File - - - 》 Other Settings - - - 》Settings for New Projects - - - 》Build, Execution, Deployment - - - 》Build Tools - - - 》Maven<br><img src="/2021/11/15/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/idea/idea_1.png"><br><img src="/2021/11/15/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/idea/idea_2.png"></p>
+<h2 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h2><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Alt + Enter</td>
+<td>快速修复</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + L</td>
+<td>格式化代码</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + F10</td>
+<td>运行</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + F9</td>
+<td>调试</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + F11</td>
+<td>切换断点</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + F8</td>
+<td>跳过断点</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + O</td>
+<td>优化导入</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + I</td>
+<td>自动缩进</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + T</td>
+<td>重构-提炼方法</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + V</td>
+<td>重构-提炼变量</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + F</td>
+<td>重构-重命名</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + M</td>
+<td>重构-方法参数</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + R</td>
+<td>重构-引入参数</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + J</td>
+<td>重构-内联</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + N</td>
+<td>重构-生成方法</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + S</td>
+<td>重构-生成get&#x2F;set方法</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + C</td>
+<td>重构-提取常量</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + P</td>
+<td>重构-提取属性</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + F7</td>
+<td>高亮显示所有引用</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + N</td>
+<td>快速导航</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + F7</td>
+<td>显示方法层次结构</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + F8</td>
+<td>显示调用层次结构</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + F9</td>
+<td>显示类型层次结构</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + Home</td>
+<td>显示导航栏</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + Left&#x2F;Right</td>
+<td>后退&#x2F;前进</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + Up&#x2F;Down</td>
+<td>跳转到上&#x2F;下一个方法</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + Enter</td>
+<td>显示快速文档</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + Q</td>
+<td>显示上下文信息</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + Space</td>
+<td>代码完成</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + &#x2F;</td>
+<td>块注释</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + [</td>
+<td>多行注释</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + Enter</td>
+<td>自动结束标签</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + J</td>
+<td>自动添加方法体</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + I</td>
+<td>自动生成get&#x2F;set方法</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + T</td>
+<td>自动提取参数</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + V</td>
+<td>自动提取变量</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + C</td>
+<td>自动提取常量</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + P</td>
+<td>自动提取属性</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + M</td>
+<td>自动提取方法</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + F</td>
+<td>自动提取字段</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + R</td>
+<td>自动引入依赖</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + X</td>
+<td>快速切换当前文件和最近打开的文件</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + Y</td>
+<td>快速切换当前文件和最近编辑的文件</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + W</td>
+<td>显示最近编辑的文件列表</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + H</td>
+<td>显示方法层次结构</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + B</td>
+<td>显示调用层次结构</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + U</td>
+<td>显示类型层次结构</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + F1</td>
+<td>显示错误描述和快速Fixes</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + F2</td>
+<td>显示错误快速定位</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + F3</td>
+<td>显示错误信息</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + F4</td>
+<td>显示运行日志</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + F5</td>
+<td>显示运行配置</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + F6</td>
+<td>显示最近运行的项目</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + F12</td>
+<td>显示运行终端</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + S</td>
+<td>显示最近打开的项目</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + E</td>
+<td>显示最近编辑的文件列表</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Alt + F11</td>
+<td>显示当前文件结构</td>
+</tr>
+</tbody></table>
 <h2 id="启动配置的命令行太长"><a href="#启动配置的命令行太长" class="headerlink" title="启动配置的命令行太长"></a>启动配置的命令行太长</h2><p>Error running ‘ApiGatewayZuulApplication’: Command line is too long. Shorten command line for ApiGatewayZuulApplication or also for Spring Boot default configuration</p>
 <h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>修改项目下 .idea\workspace.xml，找到标签 <component name="PropertiesComponent"> ， 在标签里加一行  <property name="dynamic.classpath" value="true"></property></component></p>
 <h2 id="常用插件"><a href="#常用插件" class="headerlink" title="常用插件"></a>常用插件</h2><p>Codota 代码智能提示插件<br>Key Promoter X 快捷键提示插件<br>CodeGlance 显示代码缩略图插件<br>Lombok 简化臃肿代码插件<br>Alibaba Java Coding Guidelines 阿里巴巴代码规范检查插件<br>MybatisX 高效操作Mybatis插件<br>SonarLint 代码质量检查插件<br>Save Actions 格式化代码插件<br>CheckStyle 代码风格检查插件功能跟Alibaba Java Coding Guidelines类似<br>Grep Console 自定义控制台输出格式插件<br>MetricsReloaded 代码复杂度检查插件<br>Statistic 代码统计插件<br>Translation 翻译插件<br>Rainbow Brackets 彩虹括号插件<br>自定义创建live template，快速写代码</p>
-<h2 id="常用配置"><a href="#常用配置" class="headerlink" title="常用配置"></a>常用配置</h2><h3 id="优化导包配置"><a href="#优化导包配置" class="headerlink" title="优化导包配置"></a>优化导包配置</h3><p><img src="/.io//%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220922111516.png"></p>
-<h3 id="取消tab页单行显示"><a href="#取消tab页单行显示" class="headerlink" title="取消tab页单行显示"></a>取消tab页单行显示</h3><p><img src="/.io//%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220922111449.png"></p>
-<h3 id="双斜杠注释改成紧跟代码头"><a href="#双斜杠注释改成紧跟代码头" class="headerlink" title="双斜杠注释改成紧跟代码头"></a>双斜杠注释改成紧跟代码头</h3><p><img src="/.io//%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220922111605.png"></p>
-<h3 id="创建文件时，自动生成作者和时间信息"><a href="#创建文件时，自动生成作者和时间信息" class="headerlink" title="创建文件时，自动生成作者和时间信息"></a>创建文件时，自动生成作者和时间信息</h3><p><img src="/.io//%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220922111644.png"></p>
+<h2 id="常用配置"><a href="#常用配置" class="headerlink" title="常用配置"></a>常用配置</h2><h3 id="优化导包配置"><a href="#优化导包配置" class="headerlink" title="优化导包配置"></a>优化导包配置</h3><p><img src="/2021/11/15/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/idea/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220922111516.png"></p>
+<h3 id="取消tab页单行显示"><a href="#取消tab页单行显示" class="headerlink" title="取消tab页单行显示"></a>取消tab页单行显示</h3><p><img src="/2021/11/15/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/idea/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220922111449.png"></p>
+<h3 id="双斜杠注释改成紧跟代码头"><a href="#双斜杠注释改成紧跟代码头" class="headerlink" title="双斜杠注释改成紧跟代码头"></a>双斜杠注释改成紧跟代码头</h3><p><img src="/2021/11/15/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/idea/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220922111605.png"></p>
+<h3 id="创建文件时，自动生成作者和时间信息"><a href="#创建文件时，自动生成作者和时间信息" class="headerlink" title="创建文件时，自动生成作者和时间信息"></a>创建文件时，自动生成作者和时间信息</h3><p><img src="/2021/11/15/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/idea/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220922111644.png"></p>
 <h3 id="清空控制台快捷键配置"><a href="#清空控制台快捷键配置" class="headerlink" title="清空控制台快捷键配置"></a>清空控制台快捷键配置</h3><p>在idea中默认并没有清屏控制台信息的快捷键;但可以自行设置清除控制台信息的快捷键</p>
 <ol>
 <li>先打开 “文件（File）——设置(setting)”；</li>
 <li>找到Keymap(快捷键)；</li>
-<li>搜索 clear all （如果idea已经汉化，搜索“全部清除”）；<br><img src="/.io//20210509211924897.png"></li>
-<li>为了方便与eclipse的快捷键相似，所以这里设置快捷键为R，与eclipse不同的是：少了鼠标右键<br><img src="/.io//20210509212234506.png"></li>
+<li>搜索 clear all （如果idea已经汉化，搜索“全部清除”）；<br><img src="/2021/11/15/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/idea/20210509211924897.png"></li>
+<li>为了方便与eclipse的快捷键相似，所以这里设置快捷键为R，与eclipse不同的是：少了鼠标右键<br><img src="/2021/11/15/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/idea/20210509212234506.png"></li>
 </ol>
 <h3 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h3><p><code> code insight features are not availale</code><br>idea代码洞察功能不可用<br>在idea中.java文件不显示.java后缀并且文件图标为C,洞察功能不可用可能导致该功能出错,显示为J图标并显示.java后缀,影响代码导包功能</p>
 <p>解决方式:</p>
@@ -455,8 +694,8 @@
 <li>新增配置</li>
 </ol>
 <ul>
-<li><pre class=" language-properties"><code class="language-properties"><span class="token attr-name">idea.max.intellisense.filesize</span><span class="token punctuation">=</span><span class="token attr-value">50000</span>
-<span class="token attr-name">idea.max.content.load.filesize</span><span class="token punctuation">=</span><span class="token attr-value">400000</span>
+<li><pre><code class="properties">idea.max.intellisense.filesize=50000
+idea.max.content.load.filesize=400000
 </code></pre>
 </li>
 </ul>
@@ -535,10 +774,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -573,19 +812,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/15/Node/nvm%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/">
+                <a href="/2021/11/15/Node/yarn/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="nvm-&gt;版本管理工具">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="yarn-&gt;包管理工具">
                         
-                        <span class="card-title">nvm-&gt;版本管理工具</span>
+                        <span class="card-title">yarn-&gt;包管理工具</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            nvm是nodejs的版本管理工具
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -611,12 +850,12 @@
                         <span class="chip bg-color">node</span>
                     </a>
                     
-                    <a href="/tags/nvm/">
-                        <span class="chip bg-color">nvm</span>
+                    <a href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/">
+                        <span class="chip bg-color">包管理工具</span>
                     </a>
                     
-                    <a href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/">
-                        <span class="chip bg-color">版本管理工具</span>
+                    <a href="/tags/yarn/">
+                        <span class="chip bg-color">yarn</span>
                     </a>
                     
                 </div>
@@ -859,25 +1098,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -907,7 +1157,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -428,6 +428,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -437,18 +440,48 @@
 <h2 id="内置注解"><a href="#内置注解" class="headerlink" title="内置注解"></a>内置注解</h2><h3 id="作用在代码的注解"><a href="#作用在代码的注解" class="headerlink" title="作用在代码的注解"></a>作用在代码的注解</h3><p>@Override - 检查该方法是否是重写方法。如果发现其父类，或者是引用的接口中并没有该方法时，会报编译错误。<br>@Deprecated - 标记过时方法。如果使用该方法，会报编译警告。<br>@SuppressWarnings - 指示编译器去忽略注解中声明的警告。</p>
 <h3 id="元注解-作用在其他注解的注解-是"><a href="#元注解-作用在其他注解的注解-是" class="headerlink" title="元注解(作用在其他注解的注解)是:"></a>元注解(作用在其他注解的注解)是:</h3><p>元注解：描述注解的注解<br>@Retention - 标识这个注解怎么保存，是只在代码中，还是编入class文件中，或者是在运行时可以通过反射访问。<br>@Documented - 标记这些注解是否包含在用户文档中。<br>@Target - 标记这个注解应该是哪种 Java 成员。<br>@Inherited - 标记这个注解是继承于哪个注解类(默认 注解并没有继承于任何子类)</p>
 <h3 id="新增注解"><a href="#新增注解" class="headerlink" title="新增注解"></a>新增注解</h3><p>@SafeVarargs - Java 7 开始支持，忽略任何使用参数为泛型变量的方法或构造函数调用产生的警告。<br>@FunctionalInterface - Java 8 开始支持，标识一个匿名函数或函数式接口。<br>@Repeatable - Java 8 开始支持，标识某注解可以在同一个声明上使用多次。</p>
-<h2 id="Annotation-架构"><a href="#Annotation-架构" class="headerlink" title="Annotation 架构"></a>Annotation 架构</h2><p><img src="/.io//Annotation%E6%9E%B6%E6%9E%84.jpg"></p>
+<h2 id="Annotation-架构"><a href="#Annotation-架构" class="headerlink" title="Annotation 架构"></a>Annotation 架构</h2><p><img src="/2021/12/09/Java/Java%20SE%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/Java%20%E6%B3%A8%E8%A7%A3(Annotation)/Annotation%E6%9E%B6%E6%9E%84.jpg"></p>
 <h2 id="Annotation-组成部分"><a href="#Annotation-组成部分" class="headerlink" title="Annotation 组成部分"></a>Annotation 组成部分</h2><p>java Annotation 的组成中，有 3 个非常重要的主干类。它们分别是：</p>
 <p><strong>Annotation.java</strong><br>Annotation 是个接口</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Annotation</span> &#123;</span><br><span class="line">    <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object obj)</span>;</span><br><span class="line">    <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span>;</span><br><span class="line">    String <span class="title function_">toString</span><span class="params">()</span>;</span><br><span class="line">    Class&lt;? <span class="keyword">extends</span> <span class="title class_">Annotation</span>&gt; annotationType();</span><br><span class="line">&#125;</span><br><span class="line">每个 Annotation 对象，都会有唯一的 RetentionPolicy 属性和 <span class="number">1</span>~n 个ElementType 属性</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public interface Annotation &#123;
+    boolean equals(Object obj);
+    int hashCode();
+    String toString();
+    Class&lt;? extends Annotation&gt; annotationType();
+&#125;
+每个 Annotation 对象，都会有唯一的 RetentionPolicy 属性和 1~n 个ElementType 属性<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>ElementType.java</strong><br>ElementType 是 Enum 枚举类型，它用来指定 Annotation 的类型</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> java.lang.annotation;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">ElementType</span> &#123;</span><br><span class="line">  TYPE,               <span class="comment">/* 类、接口（包括注释类型）或枚举声明  */</span></span><br><span class="line">  FIELD,              <span class="comment">/* 字段声明（包括枚举常量）  */</span></span><br><span class="line">  METHOD,             <span class="comment">/* 方法声明  */</span></span><br><span class="line">  PARAMETER,          <span class="comment">/* 参数声明  */</span></span><br><span class="line">  CONSTRUCTOR,        <span class="comment">/* 构造方法声明  */</span></span><br><span class="line">  LOCAL_VARIABLE,     <span class="comment">/* 局部变量声明  */</span></span><br><span class="line">  ANNOTATION_TYPE,    <span class="comment">/* 注释类型声明  */</span></span><br><span class="line">  PACKAGE             <span class="comment">/* 包声明  */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">package java.lang.annotation;
+public enum ElementType &#123;
+  TYPE,               &#x2F;* 类、接口（包括注释类型）或枚举声明  *&#x2F;
+  FIELD,              &#x2F;* 字段声明（包括枚举常量）  *&#x2F;
+  METHOD,             &#x2F;* 方法声明  *&#x2F;
+  PARAMETER,          &#x2F;* 参数声明  *&#x2F;
+  CONSTRUCTOR,        &#x2F;* 构造方法声明  *&#x2F;
+  LOCAL_VARIABLE,     &#x2F;* 局部变量声明  *&#x2F;
+  ANNOTATION_TYPE,    &#x2F;* 注释类型声明  *&#x2F;
+  PACKAGE             &#x2F;* 包声明  *&#x2F;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>RetentionPolicy.java</strong><br>RetentionPolicy 是 Enum 枚举类型，它用来指定 Annotation 的策略;<br>就是不同 RetentionPolicy 类型的 Annotation 的作用域不同</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> java.lang.annotation;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">RetentionPolicy</span> &#123;</span><br><span class="line">    SOURCE,            <span class="comment">/* Annotation信息仅存在于编译器处理期间，编译器处理完之后就没有该Annotation信息了  */</span></span><br><span class="line">    CLASS,             <span class="comment">/* 编译器将Annotation存储于类对应的.class文件中。默认行为  */</span></span><br><span class="line">    RU</span><br><span class="line">    NTIME            <span class="comment">/* 编译器将Annotation存储于class文件中，并且可由JVM读入 */</span></span><br><span class="line">&#125;</span><br><span class="line">SOURCE ：Annotation 仅存在于编译器处理期间，编译器处理完之后，该 Annotation 就没用了</span><br><span class="line">CLASS ：编译器将 Annotation 存储于类对应的 .class 文件中，它是 Annotation 的默认行为</span><br><span class="line">RUNTIME ：编译器将 Annotation 存储于 class 文件中，并且可由JVM读入</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">package java.lang.annotation;
+public enum RetentionPolicy &#123;
+    SOURCE,            &#x2F;* Annotation信息仅存在于编译器处理期间，编译器处理完之后就没有该Annotation信息了  *&#x2F;
+    CLASS,             &#x2F;* 编译器将Annotation存储于类对应的.class文件中。默认行为  *&#x2F;
+    RU
+    NTIME            &#x2F;* 编译器将Annotation存储于class文件中，并且可由JVM读入 *&#x2F;
+&#125;
+SOURCE ：Annotation 仅存在于编译器处理期间，编译器处理完之后，该 Annotation 就没用了
+CLASS ：编译器将 Annotation 存储于类对应的 .class 文件中，它是 Annotation 的默认行为
+RUNTIME ：编译器将 Annotation 存储于 class 文件中，并且可由JVM读入<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h2><p>Annotation 通用定义</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Target(ElementType.TYPE)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation1 &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">@Documented
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface MyAnnotation1 &#123;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>说明：<br>定义一个 Annotation,名字是 MyAnnotation1,在代码中通过 “@MyAnnotation1” 来使用它<br>其余注解用来修饰MyAnnotation1</p>
 <ol>
 <li>@interface<br> 意味着MyAnnotation1实现了 java.lang.annotation.Annotation 接口，即表示这是一个Annotation<code>(这是一个注解)</code><br><code>定义 Annotation 时，@interface 是必须的</code><br>注意：<code>它和我们通常的 implemented 实现接口的方法不同。Annotation 接口的实现细节都由编译器完成。通过 @interface 定义注解后，该注解不能继承其他的注解或接口</code></li>
@@ -484,9 +517,24 @@
 <li>数组赋值时，值使用{}包裹。如果数组中只有一个值，则{}可以省		略</li>
 </ol>
 <h3 id="属性案例"><a href="#属性案例" class="headerlink" title="属性案例"></a>属性案例</h3><p>定义注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.annotation.ElementType;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.Target;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.METHOD,ElementType.TYPE,ElementType.FIELD&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> AA&#123;</span><br><span class="line">    String[] name() <span class="keyword">default</span> <span class="string">&quot;张三&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">import java.lang.annotation.ElementType;
+import java.lang.annotation.Target;
+
+@Target(&#123;ElementType.METHOD,ElementType.TYPE,ElementType.FIELD&#125;)
+public @interface AA&#123;
+    String[] name() default &quot;张三&quot;;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>使用注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@AA(name= &quot;呵呵&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">    <span class="meta">@AA(name= &quot;呵呵&quot;)</span></span><br><span class="line">    String name;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AA(name= &quot;呵呵&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;aa&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">@AA(name&#x3D; &quot;呵呵&quot;)
+public class Test1 &#123;
+    @AA(name&#x3D; &quot;呵呵&quot;)
+    String name;
+
+    @AA(name&#x3D; &quot;呵呵&quot;)
+    public static void main(String[] args) &#123;
+        System.out.println(&quot;aa&quot;);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -562,10 +610,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -878,25 +926,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -926,7 +985,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

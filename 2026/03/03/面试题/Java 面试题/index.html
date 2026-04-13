@@ -1,0 +1,1399 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Java 基础面试题, ZRH博客,zrh博客">
+    <meta name="description" content="ZRH的个人博客,记录个人笔记">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Java 基础面试题 | ZRH博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">ZRH博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">ZRH博客</div>
+        <div class="logo-desc">
+            
+            ZRH的个人博客,记录个人笔记
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Java 基础面试题</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                                <span class="chip bg-color">面试题</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
+                                面试题
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-03-03
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><ol>
+<li><p>throw和throws的区别<br>  throw用来抛出自定义异常,throws是在方法上抛出异常</p>
+</li>
+<li><p>ArrayIndexOutOfBoundsException(数组下标越界异常)<br>  ArrayIndexOutOfBoundsException出现的原因:使用不存在的索引访问数组时,会报数组下标越界异常</p>
+</li>
+<li><p>NullPointerException(空指针异常)<br>  NullPointerException 出现的原因:是一个运行时异常，调用对象上的方法但在运行的时候这个对象引用为 Null 时会引发该异常 </p>
+</li>
+<li><p>ClassCastException(类型转换异常)<br>  ClassCastException 出现的原因:是类型不匹配，常见于强制转换、集合操作、泛型和反射等场景</p>
+</li>
+<li><p>try,catch,finally执行结构</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">try &#123;
+    System.out.println(&quot;try&quot;);
+   &#x2F;&#x2F; throw new RunTimeException(&quot;抛出异常&quot;);   若存在这段代码则进入catch代码块
+&#125; catch (Exception e) &#123;  &#x2F;&#x2F; 假设捕获 Exception
+    System.out.println(&quot;catch1&quot;);
+    return 1;
+    System.out.println(&quot;catch2&quot;);  &#x2F;&#x2F; 这行不会执行，因为前面有 return
+&#125; finally &#123;
+    System.out.println(&quot;finally&quot;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>try先执行，打印 “try”。</p>
+</li>
+</ol>
+<p>如果 try 块没有抛出异常：<br>跳过 catch 块，直接进入 finally 块。<br>finally 块执行，打印 “finally”。<br>方法正常结束（如果没有 return 的话）。</p>
+<p>如果 try 块抛出异常：<br>进入 catch 块，打印 “catch1”。<br>遇到 return 1，​但 finally 仍然会执行。<br>finally 块执行，打印 “finally”。<br>然后方法返回 1（catch2 不会执行，因为 return 已经终止了当前方法）。</p>
+<hr>
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><h3 id="Java-三大特性是什么？各自作用？"><a href="#Java-三大特性是什么？各自作用？" class="headerlink" title="Java 三大特性是什么？各自作用？"></a>Java 三大特性是什么？各自作用？</h3><p>封装：把属性和方法封装在类里，隐藏内部实现，对外提供get和set；<br>继承：子类继承父类的属性和方法，减少代码冗余（单继承，可实现多个接口）；<br>多态：同一行为的不同表现形式（编译时多态：方法重载；运行时多态：方法重写 + 父类引用指向子类对象）。</p>
+<h3 id="重载（Overload）和重写（Override）的区别？"><a href="#重载（Overload）和重写（Override）的区别？" class="headerlink" title="重载（Overload）和重写（Override）的区别？"></a>重载（Overload）和重写（Override）的区别？</h3><p>重写是父类与子类之间的多态;<br>重载是在一个类中多态的体现;<br>重载：同一类中，方法名相同、参数列表（个数 &#x2F; 类型 &#x2F; 顺序）不同，和返回值无关（编译时多态）；<br>重写：子类重写父类的方法，方法名、参数、返回值都相同，访问权限不能更严格、异常不能扩大（运行时多态）。</p>
+<h3 id="值传递和址传递的区别"><a href="#值传递和址传递的区别" class="headerlink" title="值传递和址传递的区别?"></a>值传递和址传递的区别?</h3><ul>
+<li>值传递:传递的是真实的数据</li>
+<li>址传递:传递的是对象的引用</li>
+</ul>
+<h3 id="Java中创建对象的方式有几种-何时使用哪种方式"><a href="#Java中创建对象的方式有几种-何时使用哪种方式" class="headerlink" title="Java中创建对象的方式有几种?何时使用哪种方式?"></a>Java中创建对象的方式有几种?何时使用哪种方式?</h3><ul>
+<li>使用<ol>
+<li>使用new关键字</li>
+<li>使用clone方法</li>
+<li>反射机制</li>
+<li>反序列化</li>
+</ol>
+</li>
+<li>区别<br>1,3都会明确的显式的调用构造函数<br>2是在内存上对已有对象的拷贝 所以不会调用构造函数<br>4是从文件中还原类的对象 也不会调用构造函数</li>
+</ul>
+<h3 id="Java里可不可以有多继承？"><a href="#Java里可不可以有多继承？" class="headerlink" title="Java里可不可以有多继承？"></a>Java里可不可以有多继承？</h3><ul>
+<li>不可以，Java中不存在多继承,只存在多实现;多实现必须使用接口</li>
+</ul>
+<h3 id="抽象类与接口的区别-包括使用-什么情况使用抽象类-什么情况使用接口"><a href="#抽象类与接口的区别-包括使用-什么情况使用抽象类-什么情况使用接口" class="headerlink" title="抽象类与接口的区别,包括使用(什么情况使用抽象类,什么情况使用接口)"></a>抽象类与接口的区别,包括使用(什么情况使用抽象类,什么情况使用接口)</h3><p>抽象类：可包含抽象方法和普通方法，有构造方法，单继承；<br>接口：JDK8 后可含默认方法 &#x2F;static 方法，无构造方法，多实现；</p>
+<h3 id="包装类的来历"><a href="#包装类的来历" class="headerlink" title="包装类的来历?"></a>包装类的来历?</h3><ul>
+<li>Java是面向对象的编程语言，所以包装类型为了解决基本数据类型无法面向对象编程所提供的</li>
+</ul>
+<h3 id="类的初始化过程"><a href="#类的初始化过程" class="headerlink" title="类的初始化过程"></a>类的初始化过程</h3><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">Student s &#x3D; new Student();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>上方代码在内存中做了什么</p>
+<p>​类加载：Student 类被加载到方法区。<br>​栈内存：声明引用变量 s（栈中存储对象的地址）。<br>​堆内存：创建 Student 对象实例，分配内存并初始化。<br>​引用指向：变量 s 存储对象在堆内存中的地址。</p>
+<hr>
+<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><h3 id="Java中的泛型是什么"><a href="#Java中的泛型是什么" class="headerlink" title="Java中的泛型是什么"></a>Java中的泛型是什么</h3><p>泛型（Generics）​ 是 Java 语言的一项核心特性，允许开发者通过类型参数编写通用代码，适配多种数据类型，同时确保类型安全。<br>简单来说，<strong>泛型就是让代码在编译时就知道要操作的具体数据类型，而不是在运行时才确定</strong>。</p>
+<h3 id="泛型的核心机制"><a href="#泛型的核心机制" class="headerlink" title="泛型的核心机制"></a>泛型的核心机制</h3><ul>
+<li>​类型参数（Type Parameters）​<br>在类、接口或方法的声明中使用占位符（如 <T>），表示该类型可以适配任意数据类型。<br>示例：class MyClass<T> { … }、interface MyInterface<T> { … }、public <T> void myMethod(T param) { … }</T></T></T></T></li>
+<li>​类型推断（Type Inference）​<br>Java 8+ 支持自动推断泛型类型，无需显式声明。<br>示例：List<String> list &#x3D; new ArrayList&lt;&gt;();（编译器自动推断为 ArrayList<String>）</String></String></li>
+<li>​通配符（Wildcard）​<br>使用 ? 表示未知类型，支持更灵活的泛型操作。<br>示例：void process(List&lt;?&gt; list) { … }</li>
+<li>​边界（Bounds）​<br>通过 extends 或 super 限制泛型类型的范围</li>
+</ul>
+<h3 id="泛型的优势"><a href="#泛型的优势" class="headerlink" title="泛型的优势"></a>泛型的优势</h3><p>类型安全	List<String> 自动拒绝<br>​代码复用	一个 Box<T> 类适配所有类型	<br>​可读性高	processData<T>(T data) 明确处理类型	<br>​性能优化	编译时检查类型，减少运行时开销</T></T></String></p>
+<h3 id="使用推荐"><a href="#使用推荐" class="headerlink" title="使用推荐"></a>使用推荐</h3><p>​优先使用泛型集合​（如 List<T> 而不是 List<Object>）。<br>​利用类型推断简化代码（如 new ArrayList&lt;&gt;()）。<br>​合理使用通配符，避免过度复杂化类型边界。</Object></T></p>
+<ol start="5">
+<li>Java的泛型的类型擦除 ?<br>​原理：泛型类型在运行时会被擦除为 Object，但编译器通过桥方法（Bridge Methods）保留类型信息</li>
+</ol>
+<hr>
+<h2 id="String相关"><a href="#String相关" class="headerlink" title="String相关"></a>String相关</h2><h3 id="String类中常用的方法"><a href="#String类中常用的方法" class="headerlink" title="String类中常用的方法"></a>String类中常用的方法</h3><ul>
+<li>split         将字符串拆分成字符串数组</li>
+<li>indexOf       获取指定字符或字符串在当前字符串中首次出现的位置,没找到返回-1</li>
+<li>substring     截取字符串,并返回新的字符串</li>
+<li>replace()：   替换字符串内匹配的子字符串</li>
+<li>equals()：    比较字符串的内容是否相同</li>
+<li>concat()：    将指定字符串连接到此字符串的结尾</li>
+</ul>
+<h3 id="String中的-和equals的区别"><a href="#String中的-和equals的区别" class="headerlink" title="String中的&#x3D;&#x3D;和equals的区别"></a>String中的&#x3D;&#x3D;和equals的区别</h3><ul>
+<li>&#x3D;&#x3D; 比较的是地址值是否相同</li>
+<li>equals比较的也是地址值是否相同,它的内部就是使用了&#x3D;&#x3D;,但String中的equals进行了重写,比较的是内容是否相同</li>
+</ul>
+<h3 id="Java中的String，StringBuilder，StringBuffer三者的区别"><a href="#Java中的String，StringBuilder，StringBuffer三者的区别" class="headerlink" title="Java中的String，StringBuilder，StringBuffer三者的区别"></a>Java中的String，StringBuilder，StringBuffer三者的区别</h3><ul>
+<li>String是不可变字符串;一旦创建，不能改变;每次修改都会创建新对象</li>
+<li>StringBuilder类是可变字符;线程不安全，效率最高</li>
+<li>StringBuffer类是可变字符;线程安全，效率中等</li>
+</ul>
+<h3 id="String-s-“hello”-和-String-s-new-String-“hello”-的区别"><a href="#String-s-“hello”-和-String-s-new-String-“hello”-的区别" class="headerlink" title="String s &#x3D; “hello” 和 String s &#x3D; new String(“hello”)的区别?"></a>String s &#x3D; “hello” 和 String s &#x3D; new String(“hello”)的区别?</h3><p>String s &#x3D; “hello”;	​</p>
+<ul>
+<li>是一个字符串字面量（”hello”）直接存储在方法区的字符串池中，​复用已有的对象。</li>
+<li><ul>
+<li>​高效：直接复用对象，减少内存分配和垃圾回收压力,​省内存：字符串池存储唯一实例<br>String s &#x3D; new String(“hello”);</li>
+</ul>
+<p>	</p>
+</li>
+<li>通过 new 动态创建一个新的 String 对象，存储在堆内存中，​无论字符串池是否存在相同内容都会新建对象</li>
+<li><ul>
+<li>​灵活：明确创建新对象，<strong>适用于需要独立修改的场景</strong>。</li>
+</ul>
+</li>
+<li><ul>
+<li>​可控：可调用 intern() 方法强制复用字符串池对象。	1. ​低效：重复创建相同内容的对象会占用更多内存</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="Collecation集合相关"><a href="#Collecation集合相关" class="headerlink" title="Collecation集合相关"></a>Collecation集合相关</h2><h3 id="List、Set、Map-的区别？"><a href="#List、Set、Map-的区别？" class="headerlink" title="List、Set、Map 的区别？"></a>List、Set、Map 的区别？</h3><p>List：有序、可重复，按索引访问（ArrayList、LinkedList）；<br>Set：无序、不可重复（HashSet、TreeSet）；<br>Map：键值对，键唯一、值可重复（HashMap、TreeMap、ConcurrentHashMap）。</p>
+<h3 id="java-arrayList的存储结构-初始化的时候创建多大的数组"><a href="#java-arrayList的存储结构-初始化的时候创建多大的数组" class="headerlink" title="java arrayList的存储结构,初始化的时候创建多大的数组?"></a>java arrayList的存储结构,初始化的时候创建多大的数组?</h3><ul>
+<li>ArrayList是基于数组实现的，是一个动态数组,容量能自动增长，初始化长度是0,在第一次调用 add 方法添加元素时，容量才会初始化 ​10​ ;扩容规则:  扩容后的大小是原始大小的1.5倍</li>
+<li>ArrayList是线程不安全的，只能用在单线程环境下，多线程环境下可以考虑用<code>Collections.synchronizedList(List l)</code>函数返回一个线程安全的ArrayList类，也可以使用concurrent并发包下的<code>CopyOnWriteArrayList</code>类</li>
+</ul>
+<h3 id="ArrayList与LinkedList区别及使用"><a href="#ArrayList与LinkedList区别及使用" class="headerlink" title="ArrayList与LinkedList区别及使用"></a>ArrayList与LinkedList区别及使用</h3><ul>
+<li>数据结构不同;ArrayList是Array(动态数组)的数据结构，LinkedList是Link(链表)的数据结构</li>
+<li>效率不同<ul>
+<li>查询时<br>  LinkedList是线性的数据存储方式，需要移动指针从前往后依次查找<br>  ArrayList使用数组方式存储数据，根据索引查询数据速度比较快</li>
+<li>新增或删除时<br>  LinkedList使用链表结构存储数据，每个元素都记录前后元素的指针，所以插入、删除数据时只是更改前后元素的指针指向即可,操作比较快<br>  ArrayList使用数组存储数据，在其中进行增删操作时，新增或删除后会对所有数据的下标索引造成影响;这里还涉及到扩容与缩容的规则:若新增数据时,原数组的大小可以容下新的数据则大小不变;<strong>若容不下的话会创建一个更大的数组(原始数组的1.5倍)</strong>,然后将原数组中的元素复制到新数组中;<br>  删除元素时,​直接在原数组上操作，ArrayList 会将待删除位置之后的元素向前移动一位​（覆盖待删除元素），最后将数组末尾的元素置为 null（帮助GC回收）;但是数组的容量不变</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="HashMap-哈希相关"><a href="#HashMap-哈希相关" class="headerlink" title="HashMap(哈希相关)"></a>HashMap(哈希相关)</h2><p>HashMap是Java中基于哈希表 <strong>(数组+链表&#x2F;红黑树)</strong> 实现的键值对存储结构</p>
+<h3 id="什么是哈希冲突-哈希碰撞"><a href="#什么是哈希冲突-哈希碰撞" class="headerlink" title="什么是哈希冲突(哈希碰撞)"></a>什么是哈希冲突(哈希碰撞)</h3><p>当多个不同的键（Key）通过哈希函数计算出相同的哈希值时，称为哈希冲突。此时，这些键会被映射到哈希表的同一个“桶”（Bucket）中，导致数据存储和检索效率下降。<br>例如:<strong>Java 中的 “FB” 和 “Ea”</strong></p>
+<h3 id="哈希冲突-哈希碰撞-的解决方案"><a href="#哈希冲突-哈希碰撞-的解决方案" class="headerlink" title="哈希冲突(哈希碰撞)的解决方案"></a>哈希冲突(哈希碰撞)的解决方案</h3><p>Java的哈希表（如 HashMap）通过数组+链表(或红黑树)来实现的<br>​数组：存储桶（Bucket），每个桶对应一个链表或红黑树。<br>​哈希函数：将键（Key）转换为数组索引（index &#x3D; hash(key) % capacity）。<br>​冲突解决</p>
+<ul>
+<li>链地址法​（默认）：同一索引的键存入链表。</li>
+<li>​红黑树法​（Java 8+）：当链表长度超过阈值（默认8）时，链表转为红黑树，提升查询效率。</li>
+</ul>
+<h3 id="HashMap底层实现原理"><a href="#HashMap底层实现原理" class="headerlink" title="HashMap底层实现原理"></a>HashMap底层实现原理</h3><ul>
+<li>HashMap底层是一个Node[]数组，每个元素存储一个链表或红黑树（Java 8+）</li>
+<li>初始容量：默认<strong>16</strong>，扩容时,扩容后大小是上次大小的2倍</li>
+<li>​负载因子：默认<strong>0.75</strong>，当<strong>元素数量超过容量×负载因子时触发扩容</strong><br>​哈希函数hash()的作用<br>将键（Key）的hashCode()值映射到数组索引<br>目的：均匀分布数据，减少哈希冲突<br>链表&#x2F;红黑树</li>
+<li>​链表：解决哈希冲突（同一索引的键值对存入链表）。</li>
+<li>​红黑树​（Java 8+）：当<strong>链表长度≥8</strong>时，自动转为红黑树，提升查询效率（O(log n) → O(1)平均）。</li>
+</ul>
+<h4 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h4><p>​O(1)平均时间复杂度：哈希计算快速，链表&#x2F;红黑树优化冲突。<br>​灵活：支持任意对象作为键（需正确实现hashCode()和equals()）。</p>
+<h4 id="​劣势"><a href="#​劣势" class="headerlink" title="​劣势"></a>​劣势</h4><p>​非线程安全：需手动同步或用ConcurrentHashMap。<br>​不保证有序：遍历顺序与插入顺序无关。<br>​适用：高频键值存取（如缓存、配置存储）。<br>​不适用：需要有序遍历或范围查询（改用TreeMap）。</p>
+<h4 id="put与get实现"><a href="#put与get实现" class="headerlink" title="put与get实现"></a>put与get实现</h4><ul>
+<li>put(k,v)实现原理<br>（1）首先将k,v封装到Node对象当中（节点）。<br>（2）底层会调用K的hashCode()方法得出hash值。<br>（3）通过哈希表函数&#x2F;哈希算法，将hash值转换成数组的下标，下标位置上如果没有链表，就新增个链表把Node添加到这个链表中。如果说下标对应的位置上有链表。此时，就会拿着k和链表上每个节点的k进行equals比较。如果所有的equals方法返回都是false，那么这个新的节点将被添加到链表的末尾。如其中有一个equals返回了true，那么这个节点的value将会被覆盖。</li>
+<li>get(k)实现原理<br>(1)先调用k的hashCode()方法得出哈希值，并通过哈希算法转换成数组的下标<br>(2)通过数组下标定位到某个位置上。如果这个位置上什么都没有，则返回null。如果这个位置上有单向链表，那么它就会拿着K和单向链表上的每一个节点的K进行equals，如果所有equals方法都返回false，则get方法返回null。如果其中一个节点的K和参数K进行equals返回true，那么此时该节点的value就是我们要找的value了，get方法最终返回这个要找的value。</li>
+</ul>
+<h3 id="HashSet集合与Map的关系"><a href="#HashSet集合与Map的关系" class="headerlink" title="HashSet集合与Map的关系"></a>HashSet集合与Map的关系</h3><ul>
+<li>HashSet类中有一个全局变量HashMap map,然后在HashSet的构造函数中有一句话map&#x3D;new HashMap(),说明在创建HashSet类对象的时候底层创建了一个HashMap对象</li>
+</ul>
+<h3 id="hashCode的本质"><a href="#hashCode的本质" class="headerlink" title="hashCode的本质"></a>hashCode的本质</h3><ul>
+<li>帮助HashMap和HashSet集合加快插入的效率，当插入一个数据时，通过hashCode能够快速地计算插入位置，就不需要从头到尾地使用equlas方法进行比较</li>
+</ul>
+<h3 id="哈希结构的集合中添加元素"><a href="#哈希结构的集合中添加元素" class="headerlink" title="哈希结构的集合中添加元素"></a>哈希结构的集合中添加元素</h3><ul>
+<li>先调用hashCode，唯一则存储，不唯一则再调用equals，结果相同则不再存储，结果不同则散列到其他位置。因为hashCode效率更高（仅为一个int值），比较起来更快</li>
+</ul>
+<h3 id="HashMap-和-Hashtable-的区别？"><a href="#HashMap-和-Hashtable-的区别？" class="headerlink" title="HashMap 和 Hashtable 的区别？"></a>HashMap 和 Hashtable 的区别？</h3><p>线程安全：Hashtable 线程安全（方法加 synchronized），HashMap 不安全；<br>空值：HashMap 允许键 &#x2F; 值为空，Hashtable 不允许；<br>效率：HashMap 效率高，Hashtable 效率低（锁整张表）；<br>容量：HashMap 初始容量 16，扩容 2 倍；Hashtable 初始 11，扩容 2n+1。</p>
+<h3 id="ConcurrentHashMap-如何保证线程安全？JDK7-和-JDK8-区别？"><a href="#ConcurrentHashMap-如何保证线程安全？JDK7-和-JDK8-区别？" class="headerlink" title="ConcurrentHashMap 如何保证线程安全？JDK7 和 JDK8 区别？"></a>ConcurrentHashMap 如何保证线程安全？JDK7 和 JDK8 区别？</h3><p>JDK7：分段锁（Segment），每个 Segment 是一个 HashMap，锁粒度小，并发高；<br>JDK8：取消 Segment，用 CAS+synchronized 锁链表 &#x2F; 红黑树头节点，锁粒度更细，效率更高；<br>核心：比 Hashtable 并发高，比 HashMap 安全。</p>
+<hr>
+<h2 id="进程-线程-多线程"><a href="#进程-线程-多线程" class="headerlink" title="进程,线程,多线程"></a>进程,线程,多线程</h2><h3 id="进程-vs-线程"><a href="#进程-vs-线程" class="headerlink" title="进程 vs 线程"></a>进程 vs 线程</h3><p>进程:独立运行的程序实例<br>线程:进程内的执行单元，多个线程共享进程的资源(内存)</p>
+<h3 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h3><h4 id="线程状态（Java线程生命周期）"><a href="#线程状态（Java线程生命周期）" class="headerlink" title="线程状态（Java线程生命周期）"></a>线程状态（Java线程生命周期）</h4><p>新建状态                  线程对象已创建，未调用start()<br>正在运行状态或等待CPU      JVM分配CPU时间片，线程正在运行或等待CPU<br>阻塞状态                  等待进入或重新进入同步代码块<br>无限等待                  无限期等待（如调用Object.wait()或Thread.join()）<br>限时等待                  限时等待（如Thread.sleep(long ms)）<br>结束状态                  线程执行完毕，run()方法退出</p>
+<h3 id="多线程实现方式"><a href="#多线程实现方式" class="headerlink" title="多线程实现方式"></a>多线程实现方式</h3><ol>
+<li>继承Thread类<br><code>class MyThread extends Thread</code>	简单，但无法继承其他类（Java单继承限制）</li>
+<li>实现Runnable接口<br><code>class MyTask implements Runnable</code>	更灵活，支持多继承（推荐）</li>
+<li>实现Callable接口<br><code>class MyJob implements Callable&lt;V&gt;</code>	支持返回值和异常处理，需配合Future使用</li>
+<li>线程池<br>ThreadPoolExecutor	管理线程生命周期，减少资源消耗（如Executors.newFixedThreadPool()）<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">ThreadPoolExecutor(
+    corePoolSize,       &#x2F;&#x2F; 核心线程数（空闲时保留）
+    maximumPoolSize,    &#x2F;&#x2F; 最大线程数
+    keepAliveTime,      &#x2F;&#x2F; 空闲线程存活时间
+    TimeUnit unit,      &#x2F;&#x2F; 时间单位
+    BlockingQueue&lt;Runnable&gt; workQueue, &#x2F;&#x2F; 任务队列
+    ThreadFactory threadFactory, &#x2F;&#x2F; 线程工厂
+    RejectedExecutionHandler handler &#x2F;&#x2F; 拒绝策略
+)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="ThreadPoolExecutor线程池的核心参数"><a href="#ThreadPoolExecutor线程池的核心参数" class="headerlink" title="ThreadPoolExecutor线程池的核心参数"></a>ThreadPoolExecutor线程池的核心参数</h3><p>核心线程数:线程池长期维持的最小线程数（即使空闲也不会销毁）。<br>​最大线程数:线程池允许的最大线程数<br>​线程空闲存活时间:非核心线程在空闲时的存活时间。<br>​时间单位:keepAliveTime 的时间单位（如 TimeUnit.SECONDS）。<br>​任务队列:用于存放待执行任务的阻塞队列<br>​线程工厂:用于创建新线程的工厂（可自定义线程名称、优先级等）。<br>​拒绝策略:当任务无法执行时的处理策略（如抛异常、丢弃任务等）<br>​常用线程池：<br>newFixedThreadPool()：固定线程数，无限队列。<br>newCachedThreadPool()：动态调整线程数，适用于短任务</p>
+<h2 id="锁机制"><a href="#锁机制" class="headerlink" title="锁机制"></a>锁机制</h2><ol>
+<li>synchronized关键字<br>​特点：<br>内置锁，自动释放（进入同步块后自动加锁，退出或抛异常时解锁）。<br>可修饰方法或代码块。<br>​示例：<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">synchronized</span> <span class="token keyword">void</span> <span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 方法级锁</span>
+    count<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">incrementBlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">synchronized</span> <span class="token punctuation">(</span>lockObject<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 代码块级锁</span>
+        count<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>ReentrantLock<br>​特点：<br>显式锁，需手动加锁&#x2F;解锁（lock()和unlock()）。<br>支持公平锁、可中断锁、条件变量。<br>​示例：<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Lock</span> lock <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ReentrantLock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+lock<span class="token punctuation">.</span><span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+    count<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">finally</span> <span class="token punctuation">&#123;</span>
+    lock<span class="token punctuation">.</span><span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 必须手动释放</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>CAS（Compare-And-Swap）​<br>​原理：原子操作，通过比较并交换内存值实现无锁编程。<br>​适用场景：计数器、状态标志等简单原子操作。<br>​示例（AtomicInteger）​：<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">AtomicInteger</span> atomicCount <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AtomicInteger</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+atomicCount<span class="token punctuation">.</span><span class="token function">incrementAndGet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 原子自增</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>volatile关键字<br>​特点：<br>保证变量可见性（修改后立即刷新到主存，其他线程可见）。<br>​不保证原子性​（复合操作仍需锁）。<br>​示例：<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">volatile</span> <span class="token keyword">boolean</span> flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment">// 线程A修改flag，线程B能立即看到</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h3 id="synchronized-和-Lock-的区别？"><a href="#synchronized-和-Lock-的区别？" class="headerlink" title="synchronized 和 Lock 的区别？"></a>synchronized 和 Lock 的区别？</h3><p>synchronized：关键字，自动释放锁，非公平锁，不可中断；<br>Lock：接口（ReentrantLock），手动释放锁（必须 finally），可公平 &#x2F; 非公平，可中断、可尝试获取锁；<br>场景：简单同步用 synchronized，复杂场景（超时、中断）用 Lock。</p>
+<h3 id="什么是死锁？如何避免？"><a href="#什么是死锁？如何避免？" class="headerlink" title="什么是死锁？如何避免？"></a>什么是死锁？如何避免？</h3><p>死锁：多个线程互相持有对方需要的锁，互相等待。<br>避免：① 按固定顺序加锁；② 加锁时设置超时时间；③ 用 Lock 的 tryLock () 尝试获取锁；④ 减少锁的持有时间。</p>
+<h3 id="悲观锁和乐观锁"><a href="#悲观锁和乐观锁" class="headerlink" title="悲观锁和乐观锁"></a>悲观锁和乐观锁</h3><ul>
+<li>Java 锁<br>本地锁：synchronized（简单）、ReentrantLock（灵活，支持超时 &#x2F; 公平锁）、读写锁（读多写少）、CAS（乐观锁，计数器用）；<br>分布式锁：Redisson（项目用），跨 JVM 保原子性，自动续期避锁过期；<br>核心：悲观锁（先锁后执行）、乐观锁（先执行再校验）。</li>
+</ul>
+<p>悲观锁<br>假设数据会被修改，直接加锁<br>实现方式:<strong>synchronized</strong>,<strong>ReentrantLock</strong><br>适合写操作频繁、数据竞争激烈的场景;比如:银行转账、库存扣减</p>
+<p>乐观锁<br>假设数据不会被修改，提交时校验<br>实现方式:<strong>版本号</strong>、<strong>StampedLock</strong><br>适合读多写少、冲突概率低的场景;比如:如计数器、版本控制</p>
+<h3 id="死锁与避免"><a href="#死锁与避免" class="headerlink" title="死锁与避免"></a>死锁与避免</h3><p>​死锁条件：<br>​互斥：资源至少被一个线程持有。<br>​请求与保持：线程A持有资源1，请求资源2，线程B持有资源2，请求资源1。<br>​不剥夺：资源不能被强制回收。<br>​循环等待：线程形成环形等待链。<br>​避免方法：<br>避免嵌套锁。<br>使用超时机制（如tryLock(timeout)）。<br>统一锁顺序</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>​选型建议：<br>​简单同步 → synchronized。<br>​复杂锁需求 → ReentrantLock（如公平锁、可中断锁）。<br>​无锁编程 → Atomic类（CAS操作）。<br>​线程管理 → ExecutorService线程池。<br>​核心原则：<br>​减少锁粒度：尽量缩小同步范围。<br>​避免阻塞操作：使用非阻塞IO（如NIO）。<br>​善用并发工具：如CountDownLatch、CyclicBarrier、Semaphore。</p>
+<hr>
+<h2 id="JVM内存相关"><a href="#JVM内存相关" class="headerlink" title="JVM内存相关"></a>JVM内存相关</h2><h3 id="JVM-内存区域划分"><a href="#JVM-内存区域划分" class="headerlink" title="JVM 内存区域划分"></a>JVM 内存区域划分</h3><p>JVM 运行时内存区域核心分为线程私有区,线程共享区，还有直接内存这三块</p>
+<p>直接内存:<br>不属于 JVM 规范的内存区域:开发中 Redis、NIO 会用到直接内存，读写效率更高<br>线程私有：</p>
+<ol>
+<li>程序计数器（记录指令地址）；</li>
+<li>虚拟机栈（存局部变量、方法入参、方法返回地址，易 OOM&#x2F;StackOverflow）；</li>
+<li>本地方法栈（Native 方法（比如 Java 调用 C&#x2F;C++ 代码）用的，底层核心库、中间件（Redis&#x2F;RabbitMQ 客户端）会用到，开发中基本不用手动操作）；<br>线程共享：</li>
+<li>堆:JVM 中最大的内存区域，唯一的对象实例存储区（所有 new 出来的对象都在这），也是 GC 垃圾回收的主要战场(易 OOM)</li>
+<li>方法区（类的结构、字段、方法信息、常量、静态变量，元空间，元空间直接使用本地内存）。<br>常量池是方法区的一部分，存字符串常量、字面量等，JDK7 后常量池被移到 Java 堆中</li>
+</ol>
+<h3 id="JDK8-元空间（Metaspace）替代永久代，解决了什么问题？"><a href="#JDK8-元空间（Metaspace）替代永久代，解决了什么问题？" class="headerlink" title="JDK8 元空间（Metaspace）替代永久代，解决了什么问题？"></a>JDK8 元空间（Metaspace）替代永久代，解决了什么问题？</h3><p>永久代用 JVM 堆内存，容易 OOM；<br>元空间用本地内存（OS 内存），大小受物理内存限制，不易 OOM；<br>优化：元空间自动扩容，减少手动配置 PermSize 的麻烦。</p>
+<h3 id="什么是类加载机制？核心步骤？"><a href="#什么是类加载机制？核心步骤？" class="headerlink" title="什么是类加载机制？核心步骤？"></a>什么是类加载机制？核心步骤？</h3><p>类加载是把 class 文件加载到 JVM 并生成 Class 对象，核心三步：<br>① 加载：读取 class 文件到内存；<br>② 链接：验证（校验文件合法）→准备（分配静态变量内存）→解析（符号引用转直接引用）；<br>③ 初始化：执行静态代码块、赋值静态变量（触发时机：new 对象、调静态方法 &#x2F; 变量、反射）。</p>
+<h3 id="强引用、软引用、弱引用、虚引用的区别？"><a href="#强引用、软引用、弱引用、虚引用的区别？" class="headerlink" title="强引用、软引用、弱引用、虚引用的区别？"></a>强引用、软引用、弱引用、虚引用的区别？</h3><p>强引用：new 出来的对象（Object o&#x3D;new Object ()），GC 不会回收，OOM 才会回收；<br>软引用：内存不足时 GC 回收（适合缓存）；<br>弱引用：GC 时立即回收（比如 ThreadLocal）；<br>虚引用：不能获取对象，唯一作用是跟踪 GC（配合引用队列）。</p>
+<h3 id="内存泄漏与内存溢出-OOM"><a href="#内存泄漏与内存溢出-OOM" class="headerlink" title="内存泄漏与内存溢出(OOM)"></a>内存泄漏与内存溢出(OOM)</h3><p>内存泄漏：程序中已不再使用的对象由于某些原因未被垃圾回收器（GC）回收，导致内存占用持续增加；<br>内存溢出（OOM）：内存不够用（比如堆满、栈太深），JVM 无法为新对象分配内存空间；<br>关系：内存泄漏是导致 内存溢出 的常见原因（比如静态集合存大量对象、未关闭连接）。<br>​内存溢出是急性病，需通过代码优化和资源控制预防。<br>​内存泄漏是慢性病，需通过工具分析和编码规范根治。<br>​核心原则：<br>​谁分配，谁释放​（如try-finally、Closeable接口）。<br>​避免全局静态集合存储对象。<br>​善用监控工具​（如JConsole、VisualVM）及时发现问题</p>
+<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><p>​作用：存放所有对象实例，是垃圾回收（GC）的主要区域。<br>​特点：<br>​线程共享：所有线程通过 new 创建的对象均分配在此。<br>​核心问题：频繁触发 GC 或内存泄漏可能导致 OOM。<br>​细分区域​（根据垃圾回收器不同划分方式不同）：<br>新生代（Young Generation）：Eden 区 + 两个 Survivor 区（S0&#x2F;S1）。<br>老年代（Old Generation）：长期存活的对象最终晋升至此。<br>永久代（PermGen，JDK 8 之前）→ ​元空间（Metaspace，JDK 8+）​。</p>
+<h3 id="GC-垃圾回收算法有哪些？"><a href="#GC-垃圾回收算法有哪些？" class="headerlink" title="GC 垃圾回收算法有哪些？"></a>GC 垃圾回收算法有哪些？</h3><p>常见的有:标记-清除,标记-复制,标记-整理,分代收集四种算法</p>
+<ol>
+<li>标记-清除<br>​标记：从 GC Roots 开始遍历所有可用对象并标记。<br>​清除：遍历整个堆，回收未被标记的对象。<br>​缺点：效率较低（需两次遍历）。产生内存碎片，可能导致后续大对象分配失败。<br>​适用场景：常用于老年代回收。</li>
+<li>标记-复制<br>将内存分为两块（From 和 To），每次只使用一块。当进行 GC 时，将存活对象复制到另一块，然后清空原块。<br>​缺点：内存利用率低（仅一半内存可用）。<br>​适用场景：新生代。</li>
+<li>标记-整理<br>​标记：标记所有存活对象。<br>​整理：将存活对象向一端移动，清除剩余的内存。<br>​缺点：需移动对象，效率较低。<br>​适用场景：老年代。</li>
+<li>分代收集​<br>​原理：基于对象的生命周期将内存划分为新生代（Young Generation）和老年代（Old Generation），采用不同算法：<br>​新生代：对象存活时间短，使用 ​标记-​复制算法。<br>​老年代：对象存活时间长，使用 ​标记-清除 或 ​标记-整理。<br>​优点：结合多种算法优势，提升整体效率。<br>​适用场景：主流 JVM 实现（如 HotSpot）。</li>
+</ol>
+<h3 id="垃圾回收器"><a href="#垃圾回收器" class="headerlink" title="垃圾回收器"></a>垃圾回收器</h3><p>Java 中的 ​垃圾回收器与 ​垃圾回收算法是紧密相关的,回收器是算法的具体实现<br>不同回收器会根据设计目标选择一种或组合多种或分阶段使用多种算法;以优化性能（如吞吐量、延迟）或适应特定场景（如大内存、低延迟）</p>
+<h3 id="如何选择垃圾回收器"><a href="#如何选择垃圾回收器" class="headerlink" title="如何选择垃圾回收器"></a>如何选择垃圾回收器</h3><p>​客户端应用：优先选择 Serial 或 Parallel Scavenge。<br>​服务端应用：<br>追求吞吐量：Parallel Scavenge + Parallel Old。<br>追求低延迟：G1、ZGC 或 Shenandoah。<br>​超大堆（TB 级）​：选择 ZGC 或 Shenandoah。</p>
+<h3 id="常用-JVM-参数"><a href="#常用-JVM-参数" class="headerlink" title="常用 JVM 参数"></a>常用 JVM 参数</h3><p>查看 GC 日志：-Xloggc:<file> -XX:+PrintGCDetails -XX:+PrintGCDateStamps<br>调整新生代与老年代比例：-XX:NewRatio&#x3D;2（新生代:老年代 &#x3D; 1:2）<br>设置 G1 区域大小：-XX:G1HeapRegionSize&#x3D;<size><br>通过理解不同 GC 算法和回收器的特性，可以针对应用场景优化内存管理，平衡吞吐量与延迟，提升系统性能</size></file></p>
+<h3 id="基础堆配置（示例）"><a href="#基础堆配置（示例）" class="headerlink" title="基础堆配置（示例）"></a>基础堆配置（示例）</h3><p>-Xms512m   # 初始堆大小（建议设为物理内存的1&#x2F;4~1&#x2F;2）<br>-Xmx1024m  # 最大堆大小（避免动态扩容带来的性能抖动）<br>-XX:NewRatio&#x3D;2 # 新生代与老年代比例（默认2:1，即新生代占1&#x2F;3堆）<br>-XX:SurvivorRatio&#x3D;8 # Eden:Survivor比例（默认8:1:1）</p>
+<h3 id="关键问题与调优"><a href="#关键问题与调优" class="headerlink" title="关键问题与调优"></a>关键问题与调优</h3><ul>
+<li>本地方法栈溢出<br>​原因：JNI调用耗尽本地栈空间（如sun.misc.Signal.handle(int sig)）。<br>​解决：减少本地方法调用或增大栈大小（-Xss2m）。</li>
+</ul>
+<ol>
+<li>​堆内存溢出​（java.lang.OutOfMemoryError: Java heap space）：<br>原因：对象过多或内存泄漏。<br>解决：调整 -Xmx（最大堆大小）和 -Xms（初始堆大小）。</li>
+<li>​方法区溢出​（java.lang.OutOfMemoryError: PermGen space 或 Metaspace）：<br>原因：动态生成过多类（如反射、动态代理）。<br>解决：调整 -XX:MaxPermSize（JDK 8 之前）或 -XX:MaxMetaspaceSize。</li>
+<li>​栈溢出​（StackOverflowError）：<br>原因：递归调用过深或无限循环。<br>解决：调整 -Xss（单个线程栈大小）</li>
+</ol>
+<h3 id="垃圾回收（GC）优化"><a href="#垃圾回收（GC）优化" class="headerlink" title="垃圾回收（GC）优化"></a>垃圾回收（GC）优化</h3><ol>
+<li><p>减少GC停顿<br>​调整堆大小：避免堆过大或过小，使用-Xmx&#x2F;-Xms固定堆。<br>​选择低延迟GC：如G1或ZGC（需JDK 11+）。<br>​缩短GC周期：降低-XX:MaxGCPauseMillis（如设为200ms）。</p>
+</li>
+<li><p>减少内存碎片<br>​启用压缩整理​（如Parallel Old使用-XX:+UseCompactOops）。<br>​选择CMS或G1：减少内存碎片产生。</p>
+</li>
+<li><p>GC日志分析（示例）<br>-XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:gc.log<br>分析工具：</p>
+</li>
+<li><p>性能监控与调优工具<br>​工具	​用途	​示例命令<br>​jvisualvm	实时监控CPU、内存、线程、类加载。	查看堆内存使用趋势，分析GC停顿。<br>​jstack	导出线程堆栈信息，定位死锁或阻塞线程。	jstack -l <pid> &gt; threaddump.txt<br>​jmap	导出堆转储，分析内存泄漏。	jmap -dump:live,format&#x3D;b,file&#x3D;heap.hprof <pid><br>​Arthas	运行时诊断，监控方法调用、内存分配。	monitor命令跟踪对象创建和GC情况。<br>​GCViewer：生成GC日志图表，识别高频GC区域。</pid></pid></p>
+</li>
+<li><p>总结<br>​优化原则：<br>​权衡取舍：高吞吐量 vs 低延迟，内存占用 vs 性能。<br>​监控驱动：通过工具定位瓶颈，而非盲目调整参数。<br>​适配场景：根据应用类型（Web&#x2F;桌面&#x2F;大数据）选择合适的GC器和配置。</p>
+</li>
+</ol>
+<hr>
+<h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><p>反射是Java的动态特性，允许程序在运行时获取类的元数据（如字段、方法、构造函数），并操作对象的行为，而无需编译时知道具体类名。<br>应用场景：框架开发（如Spring、Hibernate）、动态代理、注解处理、测试工具等</p>
+<hr>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><h3 id="为什么放在hashMap集合key部分的元素需要重写equals方法？"><a href="#为什么放在hashMap集合key部分的元素需要重写equals方法？" class="headerlink" title="为什么放在hashMap集合key部分的元素需要重写equals方法？"></a>为什么放在hashMap集合key部分的元素需要重写equals方法？</h3><p>因为equals方法默认比较的是两个对象的内存地址</p>
+<h3 id="为什么重写equals"><a href="#为什么重写equals" class="headerlink" title="为什么重写equals"></a>为什么重写equals</h3><ul>
+<li>Object类的equals，比较的是对象的地址值</li>
+<li>如果希望比较对象的内容是否相同，必须重写equals方法</li>
+</ul>
+<h3 id="为什么重写equals就必须重写hashCode"><a href="#为什么重写equals就必须重写hashCode" class="headerlink" title="为什么重写equals就必须重写hashCode?"></a>为什么重写equals就必须重写hashCode?</h3><ol>
+<li>equals()和hashCode()的作用</li>
+</ol>
+<ul>
+<li>equals()  用来比较两个对象是否相等;没有重写比较两个对象的地址值(地址值不会相同),若是想让两个内容相同的对象在equals后得到true，则需重写equals方法</li>
+<li>hashCode()  用来返回对象的hash码值,通常情况下，我们都不会使用到这个方法;本质是为了帮助HashMap和HashSet集合加快插入的效率</li>
+</ul>
+<ol start="2">
+<li>为什么只要重写了equals方法，就必须重写hashCode</li>
+</ol>
+<ul>
+<li>主要是针对一些使用到了hashCode方法的集合，比如HashMap、HashSet等</li>
+<li>当equals方法被重写时，两个对象的内容相同即代表相同;但是如果没有重写hashCode方法,向hash结构的集合中添加这两个对象时,两个都会添加成功,因为没有重写hascode，生成的是两个hash值，在hash集合看来就是两个对象;说明这里必须重写hashCode(),两个内容相同的对象hash值相同,hash结构才会认为是一个对象;</li>
+</ul>
+<h3 id="自定义类型的实例对象使用set存储或作为Map的键需要做什么"><a href="#自定义类型的实例对象使用set存储或作为Map的键需要做什么" class="headerlink" title="自定义类型的实例对象使用set存储或作为Map的键需要做什么?"></a>自定义类型的实例对象使用set存储或作为Map的键需要做什么?</h3><p>必须要重写hashcode和equals方法<br>原因:<br>不重写hashcode和equals方法的实例对象:每个对象的hash值都不相同;这时候所有的实例对象都会存入set<br>重写hashcode和equals方法的实例对象:比较对象某些内容是否相同,若这些内容相同即为同一实例对象,即不需要存入set</p>
+<ul>
+<li>因为 Set 存储的是不重复的对象，依据 hashCode 和 equals 进行判断，所以 Set 存储的对象必须重写这两个方法</li>
+<li>如果自定义对象作为 Map 的键，那么必须重写 hashCode 和 equals</li>
+</ul>
+<h3 id="jdk，jre，jvm的含义以及三者之间的关系"><a href="#jdk，jre，jvm的含义以及三者之间的关系" class="headerlink" title="jdk，jre，jvm的含义以及三者之间的关系?"></a>jdk，jre，jvm的含义以及三者之间的关系?</h3><ul>
+<li>JVM: Java虚拟机，是Java程序的运行环境,</li>
+<li>JRE: Java程序的运行时环境,包含JVM和运行时需要的核心类库</li>
+<li>JDK: Java程序的开发工具包,包含JRE和开发使用的工具<br><font color="red"><strong>运行Java程序,只需安装JRE!!!</strong></font><br><font color="red"><strong>开发Java程序,必须安装JDK!!!</strong></font></li>
+</ul>
+<h3 id="i-和-i的区别"><a href="#i-和-i的区别" class="headerlink" title="i++和++i的区别?"></a>i++和++i的区别?</h3><ul>
+<li>i++ 先执行,后自增</li>
+<li>++i 先自增,后执行</li>
+</ul>
+<h3 id="super与this代表的含义"><a href="#super与this代表的含义" class="headerlink" title="super与this代表的含义"></a>super与this代表的含义</h3><ul>
+<li>super：代表父类的存储空间标识(通过这个标识可以访问父类的成员和构造，但是其实是不同于父类的引用的)</li>
+<li>this：代表当前对象的引用(谁调用就代表谁)</li>
+</ul>
+<h3 id="final和finally的区别"><a href="#final和finally的区别" class="headerlink" title="final和finally的区别"></a>final和finally的区别</h3><ul>
+<li>final是一个安全修饰符,用final修饰的类不能被继承,用final声明的方法不能被重写,使用final声明的变量是常量,不能被修改</li>
+<li>finally是在异常里经常用到的, 是try和cach里的代码执行完以后,必须要执行的代码块,主要执行一些释放资源的操作,比如说关闭数据库连接,或者关闭IO流</li>
+</ul>
+<h3 id="Object常用方法"><a href="#Object常用方法" class="headerlink" title="Object常用方法"></a>Object常用方法</h3><p>equals判断两个对象是否相等<br>hashcode返回对象的哈希码<br>toString返回对象的字符串表示<br>wait控制线程等待<br>notitfy控制线程唤醒</p>
+<h3 id="BIO、NIO、AIO-的区别？"><a href="#BIO、NIO、AIO-的区别？" class="headerlink" title="BIO、NIO、AIO 的区别？"></a>BIO、NIO、AIO 的区别？</h3><p>BIO：同步阻塞，一个连接一个线程，简单但并发低（比如 Socket）；<br>NIO：同步非阻塞，基于通道 &#x2F; 缓冲区，多路复用（Selector），一个线程处理多个连接（Netty 基于 NIO）；<br>AIO：异步非阻塞，完成后回调通知，适合高并发、耗时操作（比如文件读写）。</p>
+<h3 id="NIO-的核心组件？"><a href="#NIO-的核心组件？" class="headerlink" title="NIO 的核心组件？"></a>NIO 的核心组件？</h3><p>Channel（通道）：双向读写（BIO 流是单向），比如 FileChannel、SocketChannel；<br>Buffer（缓冲区）：存储数据，读写都通过 Buffer；<br>Selector（选择器）：监听多个 Channel 的事件，单线程处理多连接（NIO 核心）。</p>
+<h3 id="字节流和字符流的区别？"><a href="#字节流和字符流的区别？" class="headerlink" title="字节流和字符流的区别？"></a>字节流和字符流的区别？</h3><p>字节流：以字节为单位（InputStream&#x2F;OutputStream），处理所有文件（图片、视频、文本）；<br>字符流：以字符为单位（Reader&#x2F;Writer），仅处理文本文件，底层是字节流 + 编码；<br>核心：处理文本用字符流（避免乱码），其他用字节流。</p>
+<h3 id="int和Integer的区别？"><a href="#int和Integer的区别？" class="headerlink" title="int和Integer的区别？"></a>int和Integer的区别？</h3><ul>
+<li>int是基本数据类型;Integer是java为int提供的包装类，是引用数据类型；</li>
+<li>int的默认值为0，而integer的默认值为null</li>
+</ul>
+<hr>
+<h2 id="Java-jdk1-7和1-8的区别"><a href="#Java-jdk1-7和1-8的区别" class="headerlink" title="Java jdk1.7和1.8的区别"></a>Java jdk1.7和1.8的区别</h2><h4 id="1-8特性新增"><a href="#1-8特性新增" class="headerlink" title="1.8特性新增"></a>1.8特性新增</h4><ul>
+<li>​Lambda表达式	支持函数式编程，简化回调逻辑</li>
+<li>​Stream API	声明式集合操作，处理集合的流式操作，支持过滤、映射、聚合，简化集合遍历</li>
+<li>​Optional类	解决空值问题，减少NullPointerException</li>
+<li>​默认接口方法	允许接口定义默认实现，兼容旧版本代码</li>
+<li>​类型注解（Type Annotations）​	支持在类型声明上添加注解（如@NonNull），增强编译时检查。</li>
+</ul>
+<h3 id="Stream-API-的常用操作？"><a href="#Stream-API-的常用操作？" class="headerlink" title="Stream API 的常用操作？"></a>Stream API 的常用操作？</h3><p>中间操作：filter（过滤）、map（映射）、sorted（排序）、distinct（去重）；<br>终止操作：forEach（遍历）、collect（收集）、count（计数）、reduce（聚合）、findFirst（找第一个）；<br>核心：中间操作懒执行，只有调用终止操作才会执行。</p>
+<h3 id="Optional-怎么用？核心作用？"><a href="#Optional-怎么用？核心作用？" class="headerlink" title="Optional 怎么用？核心作用？"></a>Optional 怎么用？核心作用？</h3><p>核心：避免 NullPointerException，不用写 if (obj !&#x3D; null)；<br>常用方法：① Optional.ofNullable (obj)（允许空）；② orElse (默认值)；③ ifPresent (消费函数)；④ map (映射)；<br>示例：Optional.ofNullable(user).map(User::getName).orElse(“默认名”)</p>
+<h3 id="API改进"><a href="#API改进" class="headerlink" title="API改进"></a>API改进</h3><ol>
+<li>新时间API（java.time，JSR 310）​<br>​改进点：替换Date&#x2F;Calendar，线程安全且更易用。<br>​示例：<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// JDK 1.8+</span>
+<span class="token class-name">LocalDate</span> now <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">LocalDateTime</span> ldt <span class="token operator">=</span> <span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">2023</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>Nashorn JavaScript引擎</li>
+</ol>
+<p>​新增功能：在JVM内直接执行JavaScript代码。<br>​示例：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ScriptEngineManager</span> manager <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ScriptEngineManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">ScriptEngine</span> engine <span class="token operator">=</span> manager<span class="token punctuation">.</span><span class="token function">getEngineByName</span><span class="token punctuation">(</span><span class="token string">"JavaScript"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+engine<span class="token punctuation">.</span><span class="token function">eval</span><span class="token punctuation">(</span><span class="token string">"print('Hello World!');"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>​3. HTTP&#x2F;2 Client<br>​新增类：HttpClient支持HTTP&#x2F;2协议，提升性能。<br>​示例：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">HttpClient</span> client <span class="token operator">=</span> <span class="token class-name">HttpClient</span><span class="token punctuation">.</span><span class="token function">newHttpClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">HttpRequest</span> request <span class="token operator">=</span> <span class="token class-name">HttpRequest</span><span class="token punctuation">.</span><span class="token function">newBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">uri</span><span class="token punctuation">(</span><span class="token constant">URI</span><span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token string">"https://example.com"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+client<span class="token punctuation">.</span><span class="token function">sendAsync</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> <span class="token class-name">HttpResponse<span class="token punctuation">.</span>BodyHandlers</span><span class="token punctuation">.</span><span class="token function">ofString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">thenApply</span><span class="token punctuation">(</span><span class="token class-name">HttpResponse</span><span class="token operator">::</span><span class="token function">body</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="Java-EE面试题"><a href="#Java-EE面试题" class="headerlink" title="Java EE面试题"></a>Java EE面试题</h2><h3 id="DataSource-和DriverManager的区别"><a href="#DataSource-和DriverManager的区别" class="headerlink" title="DataSource 和DriverManager的区别"></a>DataSource 和DriverManager的区别</h3><ol>
+<li>获取的对象不同。DataSource主要是获取数据库连接池，而DriverManager主要是获取数据库连接，通过管理JDBC驱动程序来建立连接。</li>
+<li>DataSource中封装了DriverManager的使用</li>
+<li>DataSource创建的connection可以被复用，而DriverManager的则不行</li>
+</ol>
+<h3 id="servlet的生命周期？"><a href="#servlet的生命周期？" class="headerlink" title="servlet的生命周期？"></a>servlet的生命周期？</h3><ul>
+<li>init：初始化方法，默认在第一次访问时被执行，只执行1次</li>
+<li>service：提供服务的方法，在每次访问时都会执行，执行多次</li>
+<li>destory：销毁的方法。会在服务器正常关闭的之后执行1次</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">zrh</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://zrh-main.github.io/2026/03/03/%E9%9D%A2%E8%AF%95%E9%A2%98/Java%20%E9%9D%A2%E8%AF%95%E9%A2%98/">https://zrh-main.github.io/2026/03/03/%E9%9D%A2%E8%AF%95%E9%A2%98/Java%20%E9%9D%A2%E8%AF%95%E9%A2%98/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">zrh</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                                    <span class="chip bg-color">面试题</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2026/03/03/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/%E7%AE%80%E4%BB%8B/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="软件架构简介">
+                        
+                        <span class="card-title">软件架构简介</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-03-03
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84/" class="post-category">
+                                    软件架构
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                        <span class="chip bg-color">Java面试题</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2026/03/03/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%85%B6%E5%AE%83%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="其它面试题">
+                        
+                        <span class="card-title">其它面试题</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-03-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
+                                    面试题
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%85%B6%E5%AE%83%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                        <span class="chip bg-color">其它面试题</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2026</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">zrh</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

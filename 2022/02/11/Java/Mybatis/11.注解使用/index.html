@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -428,31 +428,150 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h2 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h2><ol>
-<li>配置SqlMapConfig.xml<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span> <span class="attr">resource</span>=<span class="string">&quot;jdbcConfig.properties&quot;</span>/&gt;</span></span><br><span class="line">   </span><br><span class="line">    <span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">&quot;cn.dy.mapper&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>配置SqlMapConfig.xml<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span> <span class="token attr-name">resource</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>jdbcConfig.properties<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+   
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mappers</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>package</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>cn.dy.mapper<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mappers</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>在XxxMapper接口上添加正确的注解</li>
 </ol>
 <h2 id="增"><a href="#增" class="headerlink" title="增"></a>增</h2><p>注解:<code>@Insert</code><br>使用方式:方法上<br><strong>添加数据</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AccountMapper</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 添加账户</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> account</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Insert(&quot;insert into account (UID,money) values (#&#123;uId&#125;,#&#123;money&#125;)&quot;)</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">save</span><span class="params">(Account account)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public interface AccountMapper &#123;
+    &#x2F;**
+     * 添加账户
+     * @param account
+     * @return
+     *&#x2F;
+    @Insert(&quot;insert into account (UID,money) values (#&#123;uId&#125;,#&#123;money&#125;)&quot;)
+    void save(Account account);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>添加数据,并将自增的主键使用反射设置到当前对象中</strong><br>方式一</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// mapper接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AccountMapper</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 添加账户</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> account</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Insert(&quot;insert into account (UID,money) values (#&#123;uId&#125;,#&#123;money&#125;)&quot;)</span></span><br><span class="line">    <span class="meta">@Options(useGeneratedKeys=true,keyColumn = &quot;id&quot;,keyProperty = &quot;id&quot;)</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">save</span><span class="params">(Account account)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F; mapper接口
+public interface AccountMapper &#123;
+    &#x2F;**
+     * 添加账户
+     * @param account
+     * @return
+     *&#x2F;
+    @Insert(&quot;insert into account (UID,money) values (#&#123;uId&#125;,#&#123;money&#125;)&quot;)
+    @Options(useGeneratedKeys&#x3D;true,keyColumn &#x3D; &quot;id&quot;,keyProperty &#x3D; &quot;id&quot;)
+    void save(Account account);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>方式二</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// mapper接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AccountMapper</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 添加账户</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> account</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Insert(&quot;insert into account (UID,money) values (#&#123;uId&#125;,#&#123;money&#125;)&quot;)</span></span><br><span class="line">    <span class="meta">@SelectKey(before = false,keyColumn = &quot;id&quot;,keyProperty = &quot;id&quot;,</span></span><br><span class="line"><span class="meta">            statement = &quot;select last_insert_id()&quot;,resultType = Integer.class)</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">save</span><span class="params">(Account account)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">测试类</span><br><span class="line">``` Java</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestAccount</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> InputStream inputStream;</span><br><span class="line">    <span class="keyword">private</span> SqlSession sqlSession;</span><br><span class="line">    <span class="keyword">private</span> AccountMapper accountMapper;</span><br><span class="line">    <span class="keyword">private</span> SqlSessionFactory sqlSessionFactory;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Before</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">init</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            inputStream = Resources.getResourceAsStream(<span class="string">&quot;SqlMapConfig.xml&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">SqlSessionFactoryBuilder</span> <span class="variable">sqlSessionFactoryBuilder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SqlSessionFactoryBuilder</span>();</span><br><span class="line">        sqlSessionFactory = sqlSessionFactoryBuilder.build(inputStream);</span><br><span class="line">        <span class="comment">//  这里的事务默认不开启</span></span><br><span class="line">        sqlSession = sqlSessionFactory.openSession();</span><br><span class="line">        accountMapper = sqlSession.getMapper(AccountMapper.class);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@After</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">destory</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">//  这里提交事务</span></span><br><span class="line">        sqlSession.commit();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            inputStream.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        sqlSession.close();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testSave</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">Account</span> <span class="variable">account</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Account</span>(<span class="literal">null</span>,<span class="number">45</span>,<span class="number">9999.0</span>);</span><br><span class="line">        <span class="comment">//  自增后的主键会设置到当前对象中</span></span><br><span class="line">        accountMapper.save(account);</span><br><span class="line">        System.out.println(account);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F; mapper接口
+public interface AccountMapper &#123;
+    &#x2F;**
+     * 添加账户
+     * @param account
+     * @return
+     *&#x2F;
+    @Insert(&quot;insert into account (UID,money) values (#&#123;uId&#125;,#&#123;money&#125;)&quot;)
+    @SelectKey(before &#x3D; false,keyColumn &#x3D; &quot;id&quot;,keyProperty &#x3D; &quot;id&quot;,
+            statement &#x3D; &quot;select last_insert_id()&quot;,resultType &#x3D; Integer.class)
+    void save(Account account);
+&#125;
+
+测试类
+&#96;&#96;&#96; Java
+public class TestAccount &#123;
+
+    private InputStream inputStream;
+    private SqlSession sqlSession;
+    private AccountMapper accountMapper;
+    private SqlSessionFactory sqlSessionFactory;
+
+    @Before
+    public void init() &#123;
+        try &#123;
+            inputStream &#x3D; Resources.getResourceAsStream(&quot;SqlMapConfig.xml&quot;);
+        &#125; catch (IOException e) &#123;
+            e.printStackTrace();
+        &#125;
+        SqlSessionFactoryBuilder sqlSessionFactoryBuilder &#x3D; new SqlSessionFactoryBuilder();
+        sqlSessionFactory &#x3D; sqlSessionFactoryBuilder.build(inputStream);
+        &#x2F;&#x2F;  这里的事务默认不开启
+        sqlSession &#x3D; sqlSessionFactory.openSession();
+        accountMapper &#x3D; sqlSession.getMapper(AccountMapper.class);
+    &#125;
+
+    @After
+    public void destory() &#123;
+        &#x2F;&#x2F;  这里提交事务
+        sqlSession.commit();
+        try &#123;
+            inputStream.close();
+        &#125; catch (IOException e) &#123;
+            e.printStackTrace();
+        &#125;
+        sqlSession.close();
+    &#125;
+
+    @Test
+    public void testSave()&#123;
+        Account account &#x3D; new Account(null,45,9999.0);
+        &#x2F;&#x2F;  自增后的主键会设置到当前对象中
+        accountMapper.save(account);
+        System.out.println(account);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="删"><a href="#删" class="headerlink" title="删"></a>删</h2><p>注解:<code>@Delete</code><br>使用方式:方法上</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AccountMapper</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 删除账户</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Delete(&quot;DELETE from account WHERE id = #&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="comment">//  返回值为执行结果:影响的行数</span></span><br><span class="line">    <span class="type">int</span> <span class="title function_">removeById</span><span class="params">(<span class="type">int</span> id)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public interface AccountMapper &#123;
+    &#x2F;**
+     * 删除账户
+     * @param id
+     * @return
+     *&#x2F;
+    @Delete(&quot;DELETE from account WHERE id &#x3D; #&#123;id&#125;&quot;)
+    &#x2F;&#x2F;  返回值为执行结果:影响的行数
+    int removeById(int id);
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="改"><a href="#改" class="headerlink" title="改"></a>改</h2><p>注解:<code>@Update</code><br>使用方式:方法上</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AccountMapper</span> &#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 根据id修改用户信息</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> account</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">  <span class="meta">@Update(&quot;UPDATE  account SET  UID=#&#123;uId&#125;,money=#&#123;money&#125; WHERE id = #&#123;id&#125;&quot;)</span></span><br><span class="line">  <span class="type">int</span> <span class="title function_">editorById</span><span class="params">(Account account)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public interface AccountMapper &#123;
+  &#x2F;**
+    * 根据id修改用户信息
+    * @param account
+    * @return
+    *&#x2F;
+  @Update(&quot;UPDATE  account SET  UID&#x3D;#&#123;uId&#125;,money&#x3D;#&#123;money&#125; WHERE id &#x3D; #&#123;id&#125;&quot;)
+  int editorById(Account account);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="查"><a href="#查" class="headerlink" title="查"></a>查</h2><p>注解:<code>@Select</code><br>使用方式:方法上<br><strong>普通查询+起别名</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AccountMapper</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据id查询账户信息</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Select(&#123;&quot;SELECT id,UID uId,money FROM account&quot;&#125;)</span></span><br><span class="line">    Account <span class="title function_">findById</span><span class="params">(<span class="type">int</span> id)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public interface AccountMapper &#123;
+    &#x2F;**
+     * 根据id查询账户信息
+     *
+     * @param id
+     * @return
+     *&#x2F;
+
+    @Select(&#123;&quot;SELECT id,UID uId,money FROM account&quot;&#125;)
+    Account findById(int id);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>查询个数</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AccountMapper</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询个数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Select(&quot;select count(1) from user&quot;)</span></span><br><span class="line">     Integer <span class="title function_">findCount</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public interface AccountMapper &#123;
+    &#x2F;**
+     * 查询个数
+     * @return
+     *&#x2F;
+    @Select(&quot;select count(1) from user&quot;)
+     Integer findCount();
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="结果集-需与Select一起使用"><a href="#结果集-需与Select一起使用" class="headerlink" title="结果集(需与Select一起使用)"></a>结果集(需与Select一起使用)</h2><p>注解:<code>@Results</code><br>使用方式:<strong>方法上</strong><br><strong>结果集映射查询</strong><br>属性:</p>
 <ul>
@@ -461,48 +580,302 @@
 <li>结果集字段映射使用<code>@Result</code>注解<ul>
 <li>column的值为数据库列名</li>
 <li>property的值为实体类中的属性名</li>
-<li><code>id=true</code>表示该字段为主键,不写默认的值为false<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AccountMapper</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据id查询账户信息</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Select(&#123;&quot;SELECT id,UID,money FROM account&quot;&#125;)</span></span><br><span class="line">    <span class="meta">@Results(id = &quot;accountMap&quot;, value = &#123;</span></span><br><span class="line"><span class="meta">            @Result(column = &quot;id&quot;, property = &quot;id&quot;, id = true),</span></span><br><span class="line"><span class="meta">            @Result(column = &quot;UID&quot;, property = &quot;uId&quot;),</span></span><br><span class="line"><span class="meta">            @Result(column = &quot;money&quot;, property = &quot;money&quot;)</span></span><br><span class="line"><span class="meta">    &#125;)</span></span><br><span class="line">    Account <span class="title function_">findById</span><span class="params">(<span class="type">int</span> id)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><code>id=true</code>表示该字段为主键,不写默认的值为false<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public interface AccountMapper &#123;
+    &#x2F;**
+     * 根据id查询账户信息
+     *
+     * @param id
+     * @return
+     *&#x2F;
+
+    @Select(&#123;&quot;SELECT id,UID,money FROM account&quot;&#125;)
+    @Results(id &#x3D; &quot;accountMap&quot;, value &#x3D; &#123;
+            @Result(column &#x3D; &quot;id&quot;, property &#x3D; &quot;id&quot;, id &#x3D; true),
+            @Result(column &#x3D; &quot;UID&quot;, property &#x3D; &quot;uId&quot;),
+            @Result(column &#x3D; &quot;money&quot;, property &#x3D; &quot;money&quot;)
+    &#125;)
+    Account findById(int id);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 <h2 id="使用结果集"><a href="#使用结果集" class="headerlink" title="使用结果集"></a>使用结果集</h2><p>注解:<code>@ResultMap</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AccountMapper</span> &#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 查询所有账户信息</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">  <span class="meta">@Select(&quot;select id,UID uId,money from account&quot;)</span></span><br><span class="line">  <span class="comment">//  注意:使用ResultMap时,名为accountMap的结果集必须存在</span></span><br><span class="line">  <span class="meta">@ResultMap(&quot;accountMap&quot;)</span></span><br><span class="line">  List&lt;Account&gt; <span class="title function_">findAll</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public interface AccountMapper &#123;
+  &#x2F;**
+    * 查询所有账户信息
+    *
+    * @return
+    *&#x2F;
+  @Select(&quot;select id,UID uId,money from account&quot;)
+  &#x2F;&#x2F;  注意:使用ResultMap时,名为accountMap的结果集必须存在
+  @ResultMap(&quot;accountMap&quot;)
+  List&lt;Account&gt; findAll();
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <h2 id="传参-暂未使用"><a href="#传参-暂未使用" class="headerlink" title="传参(暂未使用)"></a>传参(暂未使用)</h2><p>注解:<code>@Param</code><br>使用方式:<strong>在方法参数前使用</strong><br>例:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AccountMapper</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据id查询账户信息</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Select(&#123;&quot;SELECT id,UID,money FROM account WHERE id = #&#123;id&#125;&quot;&#125;)</span></span><br><span class="line">    <span class="comment">// 在方法参数前使用</span></span><br><span class="line">    Account <span class="title function_">findById</span><span class="params">(<span class="meta">@Param(&quot;id&quot;)</span> <span class="type">int</span> id)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public interface AccountMapper &#123;
+    &#x2F;**
+     * 根据id查询账户信息
+     *
+     * @param id
+     * @return
+     *&#x2F;
+
+    @Select(&#123;&quot;SELECT id,UID,money FROM account WHERE id &#x3D; #&#123;id&#125;&quot;&#125;)
+    &#x2F;&#x2F; 在方法参数前使用
+    Account findById(@Param(&quot;id&quot;) int id);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <h2 id="延迟加载-懒加载-按需加载"><a href="#延迟加载-懒加载-按需加载" class="headerlink" title="延迟加载(懒加载,按需加载)"></a>延迟加载(懒加载,按需加载)</h2><p>需在SqlMapConfig中开启配置</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span> <span class="attr">resource</span>=<span class="string">&quot;jdbcConfig.properties&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--    配置项--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">settings</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--开启懒加载(延迟加载)--&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 将延迟加载 lazyLoadingEnable 的开关设置成 teue--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">&quot;lazyLoadingEnabled&quot;</span> <span class="attr">value</span>=<span class="string">&quot;true&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 将积极加载修改为消极加载，将 aggressiveLazyLoading 改为 false--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">&quot;aggressiveLazyLoading&quot;</span> <span class="attr">value</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 指定对象的哪些方法触发一次延迟加载;默认值:equals,clone,hashCode,toString--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">&quot;lazyLoadTriggerMethods&quot;</span> <span class="attr">value</span>=<span class="string">&quot;equals,clone,hashCode&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">settings</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span> <span class="token attr-name">resource</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>jdbcConfig.properties<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+    <span class="token comment">&lt;!--    配置项--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>settings</span><span class="token punctuation">></span></span>
+        <span class="token comment">&lt;!--开启懒加载(延迟加载)--></span>
+
+        <span class="token comment">&lt;!-- 将延迟加载 lazyLoadingEnable 的开关设置成 teue--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>setting</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>lazyLoadingEnabled<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+
+        <span class="token comment">&lt;!-- 将积极加载修改为消极加载，将 aggressiveLazyLoading 改为 false--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>setting</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>aggressiveLazyLoading<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+
+        <span class="token comment">&lt;!-- 指定对象的哪些方法触发一次延迟加载;默认值:equals,clone,hashCode,toString--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>setting</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>lazyLoadTriggerMethods<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>equals,clone,hashCode<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>settings</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>pojo类</strong><br>Account.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Account</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> Integer uId;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">double</span> money;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span>  User user;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class Account implements Serializable &#123;
+    private Integer id;
+    private Integer uId;
+    private double money;
+
+    private  User user;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>User.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> Date birthday;</span><br><span class="line">    <span class="keyword">private</span> String sex;</span><br><span class="line">    <span class="keyword">private</span> String address;</span><br><span class="line"></span><br><span class="line">    List&lt;Account&gt; accounts;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class User implements Serializable &#123;
+    private Integer id;
+    private String username;
+    private Date birthday;
+    private String sex;
+    private String address;
+
+    List&lt;Account&gt; accounts;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>一对多或多对多</strong><br>UserMapper.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">UserMapper</span> &#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 查询所有用户信息</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">  <span class="meta">@Select(&quot;select * from user&quot;)</span></span><br><span class="line">  <span class="meta">@Results(id = &quot;userAccount&quot;,value = &#123;</span></span><br><span class="line"><span class="meta">          @Result(id = true,property = &quot;id&quot;,column = &quot;id&quot;),</span></span><br><span class="line"><span class="meta">          @Result(property = &quot;username&quot;,column = &quot;username&quot;),</span></span><br><span class="line"><span class="meta">          @Result(property = &quot;sex&quot;,column = &quot;sex&quot;),</span></span><br><span class="line"><span class="meta">          @Result(property = &quot;address&quot;,column = &quot;address&quot;),</span></span><br><span class="line"><span class="meta">          //  配置延迟加载项:</span></span><br><span class="line"><span class="meta">            //  property延迟加载的对象属性名</span></span><br><span class="line"><span class="meta">            //  column传递给延迟加载对象的参数</span></span><br><span class="line"><span class="meta">            //  many延迟加载的类型为集合时使用</span></span><br><span class="line"><span class="meta">              //  select延迟加载对象的坐标:包名.类名.方法名</span></span><br><span class="line"><span class="meta">              //  fetchType延迟加载的时机:LAZY懒加载</span></span><br><span class="line"><span class="meta">          @Result(property = &quot;accounts&quot;,column = &quot;id&quot;,many = @Many(</span></span><br><span class="line"><span class="meta">                  select = &quot;cn.dy.mapper.AccountMapper.findById&quot;,fetchType = FetchType.LAZY</span></span><br><span class="line"><span class="meta">          ))</span></span><br><span class="line"><span class="meta">  &#125;)</span></span><br><span class="line">  List&lt;User&gt; <span class="title function_">findAll</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public interface UserMapper &#123;
+  &#x2F;**
+    * 查询所有用户信息
+    * @return
+    *&#x2F;
+  @Select(&quot;select * from user&quot;)
+  @Results(id &#x3D; &quot;userAccount&quot;,value &#x3D; &#123;
+          @Result(id &#x3D; true,property &#x3D; &quot;id&quot;,column &#x3D; &quot;id&quot;),
+          @Result(property &#x3D; &quot;username&quot;,column &#x3D; &quot;username&quot;),
+          @Result(property &#x3D; &quot;sex&quot;,column &#x3D; &quot;sex&quot;),
+          @Result(property &#x3D; &quot;address&quot;,column &#x3D; &quot;address&quot;),
+          &#x2F;&#x2F;  配置延迟加载项:
+            &#x2F;&#x2F;  property延迟加载的对象属性名
+            &#x2F;&#x2F;  column传递给延迟加载对象的参数
+            &#x2F;&#x2F;  many延迟加载的类型为集合时使用
+              &#x2F;&#x2F;  select延迟加载对象的坐标:包名.类名.方法名
+              &#x2F;&#x2F;  fetchType延迟加载的时机:LAZY懒加载
+          @Result(property &#x3D; &quot;accounts&quot;,column &#x3D; &quot;id&quot;,many &#x3D; @Many(
+                  select &#x3D; &quot;cn.dy.mapper.AccountMapper.findById&quot;,fetchType &#x3D; FetchType.LAZY
+          ))
+  &#125;)
+  List&lt;User&gt; findAll();
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>AccountMapper.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AccountMapper</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据id查询账户信息</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Select(&quot;SELECT * FROM account&quot;)</span></span><br><span class="line">    Account <span class="title function_">findById</span><span class="params">(<span class="type">int</span> id)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public interface AccountMapper &#123;
+    &#x2F;**
+     * 根据id查询账户信息
+     * @param id
+     * @return
+     *&#x2F;
+    @Select(&quot;SELECT * FROM account&quot;)
+    Account findById(int id);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>测试类TestUser.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestUser</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> InputStream inputStream;</span><br><span class="line">    <span class="keyword">private</span> SqlSession sqlSession;</span><br><span class="line">    <span class="keyword">private</span> UserMapper userMapper;</span><br><span class="line">    <span class="keyword">private</span> SqlSessionFactory sqlSessionFactory;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Before</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">init</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            inputStream = Resources.getResourceAsStream(<span class="string">&quot;SqlMapConfig.xml&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">SqlSessionFactoryBuilder</span> <span class="variable">sqlSessionFactoryBuilder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SqlSessionFactoryBuilder</span>();</span><br><span class="line">        sqlSessionFactory = sqlSessionFactoryBuilder.build(inputStream);</span><br><span class="line">        <span class="comment">//  这里的事务默认不开启</span></span><br><span class="line">        sqlSession = sqlSessionFactory.openSession();</span><br><span class="line">        userMapper = sqlSession.getMapper(UserMapper.class);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@After</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">destory</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">//  这里提交事务</span></span><br><span class="line">        sqlSession.commit();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            inputStream.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        sqlSession.close();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testFindAll</span><span class="params">()</span>&#123;</span><br><span class="line">        List&lt;User&gt; users = userMapper.findAll();</span><br><span class="line">        <span class="keyword">for</span> (User user : users) &#123;</span><br><span class="line">            System.out.println(user);</span><br><span class="line">            System.out.println(user.getAccounts());<span class="comment">//  调用此方法时启用延迟加载</span></span><br><span class="line">            System.out.println(<span class="string">&quot;-------------------------------------------------&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class TestUser &#123;
+    private InputStream inputStream;
+    private SqlSession sqlSession;
+    private UserMapper userMapper;
+    private SqlSessionFactory sqlSessionFactory;
+
+    @Before
+    public void init() &#123;
+        try &#123;
+            inputStream &#x3D; Resources.getResourceAsStream(&quot;SqlMapConfig.xml&quot;);
+        &#125; catch (IOException e) &#123;
+            e.printStackTrace();
+        &#125;
+        SqlSessionFactoryBuilder sqlSessionFactoryBuilder &#x3D; new SqlSessionFactoryBuilder();
+        sqlSessionFactory &#x3D; sqlSessionFactoryBuilder.build(inputStream);
+        &#x2F;&#x2F;  这里的事务默认不开启
+        sqlSession &#x3D; sqlSessionFactory.openSession();
+        userMapper &#x3D; sqlSession.getMapper(UserMapper.class);
+    &#125;
+
+    @After
+    public void destory() &#123;
+        &#x2F;&#x2F;  这里提交事务
+        sqlSession.commit();
+        try &#123;
+            inputStream.close();
+        &#125; catch (IOException e) &#123;
+            e.printStackTrace();
+        &#125;
+        sqlSession.close();
+    &#125;
+
+    @Test
+    public void testFindAll()&#123;
+        List&lt;User&gt; users &#x3D; userMapper.findAll();
+        for (User user : users) &#123;
+            System.out.println(user);
+            System.out.println(user.getAccounts());&#x2F;&#x2F;  调用此方法时启用延迟加载
+            System.out.println(&quot;-------------------------------------------------&quot;);
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>多对一或一对一</strong><br>AccountMapper.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AccountMapper</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 查询所有账户信息</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">  <span class="meta">@Select(&quot;select * from account&quot;)</span></span><br><span class="line">  <span class="meta">@Results(id = &quot;accountUser&quot;,value = &#123;</span></span><br><span class="line"><span class="meta">          @Result(id = true,property = &quot;id&quot;,column = &quot;id&quot;),</span></span><br><span class="line"><span class="meta">          @Result(property = &quot;uId&quot;,column = &quot;UID&quot;),</span></span><br><span class="line"><span class="meta">          @Result(property = &quot;money&quot;,column = &quot;money&quot;),</span></span><br><span class="line"><span class="meta">          //  配置延迟加载项:</span></span><br><span class="line"><span class="meta">            //  property延迟加载的对象属性名</span></span><br><span class="line"><span class="meta">            //  column传递给延迟加载对象的参数</span></span><br><span class="line"><span class="meta">            //  one延迟加载的类型为对象时使用</span></span><br><span class="line"><span class="meta">              //  select延迟加载对象的坐标:包名.类名.方法名</span></span><br><span class="line"><span class="meta">              //  fetchType延迟加载的时机:LAZY懒加载</span></span><br><span class="line"><span class="meta">          @Result(property = &quot;user&quot;,column = &quot;id&quot;,one = @One(</span></span><br><span class="line"><span class="meta">                  select = &quot;cn.dy.mapper.UserMapper.findById&quot;,fetchType = FetchType.LAZY</span></span><br><span class="line"><span class="meta">          ))</span></span><br><span class="line"><span class="meta">  &#125;)</span></span><br><span class="line">  List&lt;Account&gt; <span class="title function_">findAll</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public interface AccountMapper &#123;
+
+  &#x2F;**
+    * 查询所有账户信息
+    * @return
+    *&#x2F;
+  @Select(&quot;select * from account&quot;)
+  @Results(id &#x3D; &quot;accountUser&quot;,value &#x3D; &#123;
+          @Result(id &#x3D; true,property &#x3D; &quot;id&quot;,column &#x3D; &quot;id&quot;),
+          @Result(property &#x3D; &quot;uId&quot;,column &#x3D; &quot;UID&quot;),
+          @Result(property &#x3D; &quot;money&quot;,column &#x3D; &quot;money&quot;),
+          &#x2F;&#x2F;  配置延迟加载项:
+            &#x2F;&#x2F;  property延迟加载的对象属性名
+            &#x2F;&#x2F;  column传递给延迟加载对象的参数
+            &#x2F;&#x2F;  one延迟加载的类型为对象时使用
+              &#x2F;&#x2F;  select延迟加载对象的坐标:包名.类名.方法名
+              &#x2F;&#x2F;  fetchType延迟加载的时机:LAZY懒加载
+          @Result(property &#x3D; &quot;user&quot;,column &#x3D; &quot;id&quot;,one &#x3D; @One(
+                  select &#x3D; &quot;cn.dy.mapper.UserMapper.findById&quot;,fetchType &#x3D; FetchType.LAZY
+          ))
+  &#125;)
+  List&lt;Account&gt; findAll();
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>UserMapper.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">UserMapper</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据id查询用户信息</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Select(&quot;SELECT * FROM user WHERE id=#&#123;id&#125;&quot;)</span></span><br><span class="line">    User <span class="title function_">findById</span><span class="params">(<span class="type">int</span> id)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public interface UserMapper &#123;
+    &#x2F;**
+     * 根据id查询用户信息
+     * @param id
+     * @return
+     *&#x2F;
+    @Select(&quot;SELECT * FROM user WHERE id&#x3D;#&#123;id&#125;&quot;)
+    User findById(int id);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>测试类TestAccount.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestAccount</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> InputStream inputStream;</span><br><span class="line">    <span class="keyword">private</span> SqlSession sqlSession;</span><br><span class="line">    <span class="keyword">private</span> AccountMapper accountMapper;</span><br><span class="line">    <span class="keyword">private</span> SqlSessionFactory sqlSessionFactory;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Before</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">init</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            inputStream = Resources.getResourceAsStream(<span class="string">&quot;SqlMapConfig.xml&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">SqlSessionFactoryBuilder</span> <span class="variable">sqlSessionFactoryBuilder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SqlSessionFactoryBuilder</span>();</span><br><span class="line">        sqlSessionFactory = sqlSessionFactoryBuilder.build(inputStream);</span><br><span class="line">        <span class="comment">//  这里的事务默认不开启</span></span><br><span class="line">        sqlSession = sqlSessionFactory.openSession();</span><br><span class="line">        accountMapper = sqlSession.getMapper(AccountMapper.class);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@After</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">destory</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">//  这里提交事务</span></span><br><span class="line">        sqlSession.commit();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            inputStream.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        sqlSession.close();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//  查询所有账户信息</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span>  <span class="keyword">void</span> <span class="title function_">testFindAll</span><span class="params">()</span>&#123;</span><br><span class="line">        List&lt;Account&gt; accounts = accountMapper.findAll();</span><br><span class="line">        <span class="keyword">for</span> (Account account : accounts) &#123;</span><br><span class="line">            System.out.println(account);</span><br><span class="line">            System.out.println(account.getUser());<span class="comment">//  调用此方法时启用延迟加载</span></span><br><span class="line">            System.out.println(<span class="string">&quot;--------------------------------------------&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class TestAccount &#123;
+
+    private InputStream inputStream;
+    private SqlSession sqlSession;
+    private AccountMapper accountMapper;
+    private SqlSessionFactory sqlSessionFactory;
+
+    @Before
+    public void init() &#123;
+        try &#123;
+            inputStream &#x3D; Resources.getResourceAsStream(&quot;SqlMapConfig.xml&quot;);
+        &#125; catch (IOException e) &#123;
+            e.printStackTrace();
+        &#125;
+        SqlSessionFactoryBuilder sqlSessionFactoryBuilder &#x3D; new SqlSessionFactoryBuilder();
+        sqlSessionFactory &#x3D; sqlSessionFactoryBuilder.build(inputStream);
+        &#x2F;&#x2F;  这里的事务默认不开启
+        sqlSession &#x3D; sqlSessionFactory.openSession();
+        accountMapper &#x3D; sqlSession.getMapper(AccountMapper.class);
+    &#125;
+
+    @After
+    public void destory() &#123;
+        &#x2F;&#x2F;  这里提交事务
+        sqlSession.commit();
+        try &#123;
+            inputStream.close();
+        &#125; catch (IOException e) &#123;
+            e.printStackTrace();
+        &#125;
+        sqlSession.close();
+    &#125;
+
+    &#x2F;&#x2F;  查询所有账户信息
+    @Test
+    public  void testFindAll()&#123;
+        List&lt;Account&gt; accounts &#x3D; accountMapper.findAll();
+        for (Account account : accounts) &#123;
+            System.out.println(account);
+            System.out.println(account.getUser());&#x2F;&#x2F;  调用此方法时启用延迟加载
+            System.out.println(&quot;--------------------------------------------&quot;);
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <h2 id="二级缓存"><a href="#二级缓存" class="headerlink" title="二级缓存"></a>二级缓存</h2><p>需要先在SqlMapConfig.xml中配置</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span> <span class="attr">resource</span>=<span class="string">&quot;jdbcConfig.properties&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--    配置项--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">settings</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--开启全局二级缓存--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">&quot;cacheEnabled&quot;</span> <span class="attr">value</span>=<span class="string">&quot;true&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span> <span class="token attr-name">resource</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>jdbcConfig.properties<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+    <span class="token comment">&lt;!--    配置项--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>settings</span><span class="token punctuation">></span></span>
+        <span class="token comment">&lt;!--开启全局二级缓存--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>setting</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>cacheEnabled<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>注解:<code>@CacheNamespace(blocking = true)</code><br>使用:在mapper接口类上添加注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  开启注解支持二级缓存</span></span><br><span class="line"><span class="meta">@CacheNamespace(blocking = true)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">UserMapper</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询全部</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Select(&quot;select * from user&quot;)</span></span><br><span class="line">    <span class="meta">@Results(id = &quot;userMapper&quot;,value = &#123;</span></span><br><span class="line"><span class="meta">            @Result(id = true,property = &quot;userId&quot;,column = &quot;id&quot;),</span></span><br><span class="line"><span class="meta">            @Result(property = &quot;userName&quot;,column = &quot;username&quot;),</span></span><br><span class="line"><span class="meta">            @Result(property = &quot;userSex&quot;,column = &quot;sex&quot;),</span></span><br><span class="line"><span class="meta">            @Result(property = &quot;userAddress&quot;,column = &quot;address&quot;)</span></span><br><span class="line"><span class="meta">    &#125;)</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;User&gt; <span class="title function_">findAll</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询个数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Select(&quot;select count(1) from user&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Integer <span class="title function_">findCount</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通过名字模糊查询</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> name</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Select(&quot;select * from user where username like #&#123;userName&#125;&quot;)</span></span><br><span class="line">    <span class="meta">@ResultMap(&quot;userMapper&quot;)</span></span><br><span class="line"><span class="comment">//    @Select(&quot;select * from user where username like &#x27;%$&#123;value&#125;%&#x27;&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;User&gt; <span class="title function_">findByName</span><span class="params">(String name)</span>;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;  开启注解支持二级缓存
+@CacheNamespace(blocking &#x3D; true)
+public interface UserMapper &#123;
+    &#x2F;**
+     * 查询全部
+     * @return
+     *&#x2F;
+    @Select(&quot;select * from user&quot;)
+    @Results(id &#x3D; &quot;userMapper&quot;,value &#x3D; &#123;
+            @Result(id &#x3D; true,property &#x3D; &quot;userId&quot;,column &#x3D; &quot;id&quot;),
+            @Result(property &#x3D; &quot;userName&quot;,column &#x3D; &quot;username&quot;),
+            @Result(property &#x3D; &quot;userSex&quot;,column &#x3D; &quot;sex&quot;),
+            @Result(property &#x3D; &quot;userAddress&quot;,column &#x3D; &quot;address&quot;)
+    &#125;)
+    public List&lt;User&gt; findAll();
+
+    &#x2F;**
+     * 查询个数
+     * @return
+     *&#x2F;
+    @Select(&quot;select count(1) from user&quot;)
+    public Integer findCount();
+
+    &#x2F;**
+     * 通过名字模糊查询
+     * @param name
+     * @return
+     *&#x2F;
+    @Select(&quot;select * from user where username like #&#123;userName&#125;&quot;)
+    @ResultMap(&quot;userMapper&quot;)
+&#x2F;&#x2F;    @Select(&quot;select * from user where username like &#39;%$&#123;value&#125;%&#39;&quot;)
+    public List&lt;User&gt; findByName(String name);
+
+    
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -577,10 +950,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -664,13 +1037,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/02/11/Java/Mybatis/10.%E7%BC%93%E5%AD%98/">
+                <a href="/2022/02/11/Java/Mybatis/12.%E5%A4%9A%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="缓存">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="多参数传递">
                         
-                        <span class="card-title">缓存</span>
+                        <span class="card-title">多参数传递</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -893,25 +1266,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -941,7 +1325,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -428,6 +428,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -441,7 +444,23 @@
 <li>数据批量上传</li>
 </ol>
 <h2 id="POI的环境搭建"><a href="#POI的环境搭建" class="headerlink" title="POI的环境搭建"></a>POI的环境搭建</h2><p>maven的pom.xml</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.poi<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>poi<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.poi<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>poi-ooxml<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.poi<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>poi-ooxml-schemas<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.poi<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>poi<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>4.0.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.poi<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>poi-ooxml<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>4.0.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.poi<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>poi-ooxml-schemas<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>4.0.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="POI结构说明"><a href="#POI结构说明" class="headerlink" title="POI结构说明"></a>POI结构说明</h2><p><strong>HSSF<strong><strong>提供读写</strong></strong>Microsoft Excel XLS****格式档案的功能。</strong></p>
 <p><strong>XSSF<strong><strong>提供读写</strong></strong>Microsoft Excel OOXML XLSX****格式档案的功能。</strong></p>
@@ -450,37 +469,297 @@
 <p>HDGF提供读Microsoft Visio格式档案的功能。</p>
 <p>HPBF提供读Microsoft Publisher格式档案的功能。</p>
 <p>HSMF提供读Microsoft Outlook格式档案的功能</p>
-<h2 id="API介绍"><a href="#API介绍" class="headerlink" title="API介绍"></a>API介绍</h2><p><img src="/.io//image-20201104223900255.png" alt="image-20201104223900255"></p>
+<h2 id="API介绍"><a href="#API介绍" class="headerlink" title="API介绍"></a>API介绍</h2><p><img src="/image-20201104223900255.png" alt="image-20201104223900255"></p>
 <h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><p>创建excel</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PoiTest01</span> &#123;</span><br><span class="line">    <span class="comment">//测试创建excel文件</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//1.创建workbook工作簿</span></span><br><span class="line">        <span class="type">Workbook</span> <span class="variable">wb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">XSSFWorkbook</span>();</span><br><span class="line">        <span class="comment">//2.创建表单Sheet</span></span><br><span class="line">        <span class="type">Sheet</span> <span class="variable">sheet</span> <span class="operator">=</span> wb.createSheet(<span class="string">&quot;test&quot;</span>);</span><br><span class="line">        <span class="comment">//3.文件流</span></span><br><span class="line">        <span class="type">FileOutputStream</span> <span class="variable">fos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;E:\\test.xlsx&quot;</span>);</span><br><span class="line">        <span class="comment">//4.写入文件</span></span><br><span class="line">        wb.write(fos);</span><br><span class="line">        fos.close();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class PoiTest01 &#123;
+    &#x2F;&#x2F;测试创建excel文件
+    public static void main(String[] args) throws Exception &#123;
+        &#x2F;&#x2F;1.创建workbook工作簿
+        Workbook wb &#x3D; new XSSFWorkbook();
+        &#x2F;&#x2F;2.创建表单Sheet
+        Sheet sheet &#x3D; wb.createSheet(&quot;test&quot;);
+        &#x2F;&#x2F;3.文件流
+        FileOutputStream fos &#x3D; new FileOutputStream(&quot;E:\\test.xlsx&quot;);
+        &#x2F;&#x2F;4.写入文件
+        wb.write(fos);
+        fos.close();
+   &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>创建单元格</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试创建单元格</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//1.创建workbook工作簿</span></span><br><span class="line">        <span class="type">Workbook</span> <span class="variable">wb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">XSSFWorkbook</span>();</span><br><span class="line">        <span class="comment">//2.创建表单Sheet</span></span><br><span class="line">        <span class="type">Sheet</span> <span class="variable">sheet</span> <span class="operator">=</span> wb.createSheet(<span class="string">&quot;test&quot;</span>);</span><br><span class="line">        <span class="comment">//3.创建行对象，从0开始</span></span><br><span class="line">        <span class="type">Row</span> <span class="variable">row</span> <span class="operator">=</span> sheet.createRow(<span class="number">3</span>);</span><br><span class="line">        <span class="comment">//4.创建单元格，从0开始</span></span><br><span class="line">        <span class="type">Cell</span> <span class="variable">cell</span> <span class="operator">=</span> row.createCell(<span class="number">0</span>);</span><br><span class="line">        <span class="comment">//5.单元格写入数据</span></span><br><span class="line">        cell.setCellValue(<span class="string">&quot;德源教育&quot;</span>);</span><br><span class="line">        <span class="comment">//6.文件流</span></span><br><span class="line">        <span class="type">FileOutputStream</span> <span class="variable">fos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;E:\\test.xlsx&quot;</span>);</span><br><span class="line">        <span class="comment">//7.写入文件</span></span><br><span class="line">         wb.write(fos);</span><br><span class="line">        fos.close();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;测试创建单元格
+    public static void main(String[] args) throws Exception &#123;
+        &#x2F;&#x2F;1.创建workbook工作簿
+        Workbook wb &#x3D; new XSSFWorkbook();
+        &#x2F;&#x2F;2.创建表单Sheet
+        Sheet sheet &#x3D; wb.createSheet(&quot;test&quot;);
+        &#x2F;&#x2F;3.创建行对象，从0开始
+        Row row &#x3D; sheet.createRow(3);
+        &#x2F;&#x2F;4.创建单元格，从0开始
+        Cell cell &#x3D; row.createCell(0);
+        &#x2F;&#x2F;5.单元格写入数据
+        cell.setCellValue(&quot;德源教育&quot;);
+        &#x2F;&#x2F;6.文件流
+        FileOutputStream fos &#x3D; new FileOutputStream(&quot;E:\\test.xlsx&quot;);
+        &#x2F;&#x2F;7.写入文件
+         wb.write(fos);
+        fos.close();
+   &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="设置格式"><a href="#设置格式" class="headerlink" title="设置格式"></a>设置格式</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建单元格样式对象</span></span><br><span class="line">        <span class="type">CellStyle</span> <span class="variable">cellStyle</span> <span class="operator">=</span> wb.createCellStyle();</span><br><span class="line">        <span class="comment">//设置边框</span></span><br><span class="line">        cellStyle.setBorderBottom(BorderStyle.DASH_DOT);<span class="comment">//下边框</span></span><br><span class="line">        cellStyle.setBorderTop(BorderStyle.HAIR);<span class="comment">//上边框</span></span><br><span class="line">        <span class="comment">//设置字体</span></span><br><span class="line">        <span class="type">Font</span> <span class="variable">font</span> <span class="operator">=</span> wb.createFont();<span class="comment">//创建字体对象</span></span><br><span class="line">        font.setFontName(<span class="string">&quot;华文行楷&quot;</span>);<span class="comment">//设置字体</span></span><br><span class="line">        font.setFontHeightInPoints((<span class="type">short</span>)<span class="number">28</span>);<span class="comment">//设置字号</span></span><br><span class="line">        cellStyle.setFont(font);</span><br><span class="line">        <span class="comment">//设置宽高</span></span><br><span class="line">        sheet.setColumnWidth(<span class="number">0</span>, <span class="number">31</span> * <span class="number">256</span>);<span class="comment">//设置第一列的宽度是31个字符宽度</span></span><br><span class="line">        row.setHeightInPoints(<span class="number">50</span>);<span class="comment">//设置行的高度是50个点</span></span><br><span class="line">        <span class="comment">//设置居中显示</span></span><br><span class="line">        cellStyle.setAlignment(HorizontalAlignment.CENTER);<span class="comment">//水平居中</span></span><br><span class="line">        cellStyle.setVerticalAlignment(VerticalAlignment.CENTER);<span class="comment">//垂直居中</span></span><br><span class="line">        <span class="comment">//设置单元格样式</span></span><br><span class="line">        cell.setCellStyle(cellStyle);</span><br><span class="line">        <span class="comment">//合并单元格</span></span><br><span class="line">        <span class="type">CellRangeAddress</span>  <span class="variable">region</span> <span class="operator">=</span><span class="keyword">new</span> <span class="title class_">CellRangeAddress</span>(<span class="number">0</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">2</span>);</span><br><span class="line">        sheet.addMergedRegion(region);</span><br></pre></td></tr></table></figure>
+<h2 id="设置格式"><a href="#设置格式" class="headerlink" title="设置格式"></a>设置格式</h2><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;创建单元格样式对象
+        CellStyle cellStyle &#x3D; wb.createCellStyle();
+        &#x2F;&#x2F;设置边框
+        cellStyle.setBorderBottom(BorderStyle.DASH_DOT);&#x2F;&#x2F;下边框
+        cellStyle.setBorderTop(BorderStyle.HAIR);&#x2F;&#x2F;上边框
+        &#x2F;&#x2F;设置字体
+        Font font &#x3D; wb.createFont();&#x2F;&#x2F;创建字体对象
+        font.setFontName(&quot;华文行楷&quot;);&#x2F;&#x2F;设置字体
+        font.setFontHeightInPoints((short)28);&#x2F;&#x2F;设置字号
+        cellStyle.setFont(font);
+        &#x2F;&#x2F;设置宽高
+        sheet.setColumnWidth(0, 31 * 256);&#x2F;&#x2F;设置第一列的宽度是31个字符宽度
+        row.setHeightInPoints(50);&#x2F;&#x2F;设置行的高度是50个点
+        &#x2F;&#x2F;设置居中显示
+        cellStyle.setAlignment(HorizontalAlignment.CENTER);&#x2F;&#x2F;水平居中
+        cellStyle.setVerticalAlignment(VerticalAlignment.CENTER);&#x2F;&#x2F;垂直居中
+        &#x2F;&#x2F;设置单元格样式
+        cell.setCellStyle(cellStyle);
+        &#x2F;&#x2F;合并单元格
+        CellRangeAddress  region &#x3D;new CellRangeAddress(0, 3, 0, 2);
+        sheet.addMergedRegion(region);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>绘制图形</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//绘制图形</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//1.创建workbook工作簿</span></span><br><span class="line">        <span class="type">Workbook</span> <span class="variable">wb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">XSSFWorkbook</span>();</span><br><span class="line">        <span class="comment">//2.创建表单Sheet</span></span><br><span class="line">        <span class="type">Sheet</span> <span class="variable">sheet</span> <span class="operator">=</span> wb.createSheet(<span class="string">&quot;test&quot;</span>);</span><br><span class="line">        <span class="comment">//读取图片流</span></span><br><span class="line">        FileInputStream stream=<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;e:\\logo.jpg&quot;</span>);</span><br><span class="line">        <span class="type">byte</span>[] bytes= IOUtils.toByteArray(stream);</span><br><span class="line">        <span class="comment">//读取图片到二进制数组</span></span><br><span class="line">        stream.read(bytes);</span><br><span class="line">        <span class="comment">//向Excel添加一张图片,并返回该图片在Excel中的图片集合中的下标</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">pictureIdx</span> <span class="operator">=</span> wb.addPicture(bytes,Workbook.PICTURE_TYPE_JPEG);</span><br><span class="line">        <span class="comment">//绘图工具类</span></span><br><span class="line">        <span class="type">CreationHelper</span> <span class="variable">helper</span> <span class="operator">=</span> wb.getCreationHelper();</span><br><span class="line">         <span class="comment">//创建一个绘图对象</span></span><br><span class="line">        Drawing&lt;?&gt; patriarch = sheet.createDrawingPatriarch();</span><br><span class="line">        <span class="comment">//创建锚点,设置图片坐标</span></span><br><span class="line">        <span class="type">ClientAnchor</span> <span class="variable">anchor</span> <span class="operator">=</span> helper.createClientAnchor();</span><br><span class="line">        anchor.setCol1(<span class="number">0</span>);<span class="comment">//从0开始</span></span><br><span class="line">        anchor.setRow1(<span class="number">0</span>);<span class="comment">//从0开始</span></span><br><span class="line">        <span class="comment">//创建图片</span></span><br><span class="line">        <span class="type">Picture</span> <span class="variable">picture</span> <span class="operator">=</span> patriarch.createPicture(anchor, pictureIdx);</span><br><span class="line">        picture.resize();</span><br><span class="line">        <span class="comment">//6.文件流</span></span><br><span class="line">        <span class="type">FileOutputStream</span> <span class="variable">fos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;E:\\test.xlsx&quot;</span>);</span><br><span class="line">        <span class="comment">//7.写入文件</span></span><br><span class="line">        wb.write(fos);</span><br><span class="line">        fos.close();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;绘制图形
+    public static void main(String[] args) throws Exception &#123;
+        &#x2F;&#x2F;1.创建workbook工作簿
+        Workbook wb &#x3D; new XSSFWorkbook();
+        &#x2F;&#x2F;2.创建表单Sheet
+        Sheet sheet &#x3D; wb.createSheet(&quot;test&quot;);
+        &#x2F;&#x2F;读取图片流
+        FileInputStream stream&#x3D;new FileInputStream(&quot;e:\\logo.jpg&quot;);
+        byte[] bytes&#x3D; IOUtils.toByteArray(stream);
+        &#x2F;&#x2F;读取图片到二进制数组
+        stream.read(bytes);
+        &#x2F;&#x2F;向Excel添加一张图片,并返回该图片在Excel中的图片集合中的下标
+        int pictureIdx &#x3D; wb.addPicture(bytes,Workbook.PICTURE_TYPE_JPEG);
+        &#x2F;&#x2F;绘图工具类
+        CreationHelper helper &#x3D; wb.getCreationHelper();
+         &#x2F;&#x2F;创建一个绘图对象
+        Drawing&lt;?&gt; patriarch &#x3D; sheet.createDrawingPatriarch();
+        &#x2F;&#x2F;创建锚点,设置图片坐标
+        ClientAnchor anchor &#x3D; helper.createClientAnchor();
+        anchor.setCol1(0);&#x2F;&#x2F;从0开始
+        anchor.setRow1(0);&#x2F;&#x2F;从0开始
+        &#x2F;&#x2F;创建图片
+        Picture picture &#x3D; patriarch.createPicture(anchor, pictureIdx);
+        picture.resize();
+        &#x2F;&#x2F;6.文件流
+        FileOutputStream fos &#x3D; new FileOutputStream(&quot;E:\\test.xlsx&quot;);
+        &#x2F;&#x2F;7.写入文件
+        wb.write(fos);
+        fos.close();
+   &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>加载Excel</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PoiTest06</span> &#123;</span><br><span class="line">    <span class="comment">//单元格样式</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//1.创建workbook工作簿</span></span><br><span class="line">        <span class="type">Workbook</span> <span class="variable">wb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">XSSFWorkbook</span>(<span class="string">&quot;E:\\demo.xlsx&quot;</span>);</span><br><span class="line">        <span class="comment">//2.获取sheet 从0开始</span></span><br><span class="line">        <span class="type">Sheet</span> <span class="variable">sheet</span> <span class="operator">=</span> wb.getSheetAt(<span class="number">0</span>);</span><br><span class="line">        <span class="type">int</span> <span class="variable">totalRowNum</span> <span class="operator">=</span> sheet.getLastRowNum();</span><br><span class="line">        <span class="type">Row</span> <span class="variable">row</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">Cell</span> <span class="variable">cell</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="comment">//循环所有行</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">rowNum</span> <span class="operator">=</span> <span class="number">3</span>; rowNum &lt;sheet.getLastRowNum(); rowNum++) &#123;</span><br><span class="line">            row = sheet.getRow(rowNum);</span><br><span class="line">            <span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">            <span class="comment">//循环每行中的所有单元格</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">cellNum</span> <span class="operator">=</span> <span class="number">2</span>; cellNum &lt; row.getLastCellNum();cellNum++) &#123;</span><br><span class="line">                cell = row.getCell(cellNum);</span><br><span class="line">                sb.append(getValue(cell)).append(<span class="string">&quot;-&quot;</span>);</span><br><span class="line">           &#125;</span><br><span class="line">            System.out.println(sb.toString());</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">    <span class="comment">//获取数据</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Object <span class="title function_">getValue</span><span class="params">(Cell cell)</span> &#123;</span><br><span class="line">        <span class="type">Object</span> <span class="variable">value</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">switch</span> (cell.getCellType()) &#123;</span><br><span class="line">            <span class="keyword">case</span> STRING: <span class="comment">//字符串类型</span></span><br><span class="line">                value = cell.getStringCellValue();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> BOOLEAN: <span class="comment">//boolean类型</span></span><br><span class="line">                value = cell.getBooleanCellValue();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> NUMERIC: <span class="comment">//数字类型（包含日期和普通数字）</span></span><br><span class="line">                <span class="keyword">if</span>(DateUtil.isCellDateFormatted(cell)) &#123;</span><br><span class="line">                    value = cell.getDateCellValue();</span><br><span class="line">               &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    value = cell.getNumericCellValue();</span><br><span class="line">               &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> FORMULA: <span class="comment">//公式类型</span></span><br><span class="line">                value = cell.getCellFormula();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">       &#125;</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class PoiTest06 &#123;
+    &#x2F;&#x2F;单元格样式
+    public static void main(String[] args) throws Exception &#123;
+        &#x2F;&#x2F;1.创建workbook工作簿
+        Workbook wb &#x3D; new XSSFWorkbook(&quot;E:\\demo.xlsx&quot;);
+        &#x2F;&#x2F;2.获取sheet 从0开始
+        Sheet sheet &#x3D; wb.getSheetAt(0);
+        int totalRowNum &#x3D; sheet.getLastRowNum();
+        Row row &#x3D; null;
+        Cell cell &#x3D; null;
+        &#x2F;&#x2F;循环所有行
+        for (int rowNum &#x3D; 3; rowNum &lt;sheet.getLastRowNum(); rowNum++) &#123;
+            row &#x3D; sheet.getRow(rowNum);
+            StringBuilder sb &#x3D; new StringBuilder();
+            &#x2F;&#x2F;循环每行中的所有单元格
+            for(int cellNum &#x3D; 2; cellNum &lt; row.getLastCellNum();cellNum++) &#123;
+                cell &#x3D; row.getCell(cellNum);
+                sb.append(getValue(cell)).append(&quot;-&quot;);
+           &#125;
+            System.out.println(sb.toString());
+       &#125;
+   &#125;
+    &#x2F;&#x2F;获取数据
+    private static Object getValue(Cell cell) &#123;
+        Object value &#x3D; null;
+        switch (cell.getCellType()) &#123;
+            case STRING: &#x2F;&#x2F;字符串类型
+                value &#x3D; cell.getStringCellValue();
+                break;
+                case BOOLEAN: &#x2F;&#x2F;boolean类型
+                value &#x3D; cell.getBooleanCellValue();
+                break;
+            case NUMERIC: &#x2F;&#x2F;数字类型（包含日期和普通数字）
+                if(DateUtil.isCellDateFormatted(cell)) &#123;
+                    value &#x3D; cell.getDateCellValue();
+               &#125;else&#123;
+                    value &#x3D; cell.getNumericCellValue();
+               &#125;
+                break;
+            case FORMULA: &#x2F;&#x2F;公式类型
+                value &#x3D; cell.getCellFormula();
+                break;
+            default:
+                break;
+       &#125;
+        return value;
+   &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="POI报表导入"><a href="#POI报表导入" class="headerlink" title="POI报表导入"></a>POI报表导入</h2><p>maven的pom.xml</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-fileupload<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-fileupload<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-io<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-io<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.poi<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>poi<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.poi<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>poi-ooxml<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.poi<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>poi-ooxml-schemas<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>commons-fileupload<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>commons-fileupload<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.3.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>commons-io<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>commons-io<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.4<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.poi<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>poi<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>4.0.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.poi<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>poi-ooxml<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>4.0.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.poi<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>poi-ooxml-schemas<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>4.0.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>html</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;user/fileupload&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span>&gt;</span></span><br><span class="line">      选择要上传的文件<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;upload&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;上传&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>user/fileupload<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span> <span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>multipart/form-data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      选择要上传的文件<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>upload<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>上传<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>spring的applicationContext.xml</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">&lt;!--文件上传解析器--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;multipartResolver&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxUploadSize&quot;</span> <span class="attr">value</span>=<span class="string">&quot;10485760&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">  <span class="token comment">&lt;!--文件上传解析器--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>multipartResolver<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>org.springframework.web.multipart.commons.CommonsMultipartResolver<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>maxUploadSize<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>10485760<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="实现Excel上传"><a href="#实现Excel上传" class="headerlink" title="实现Excel上传"></a>实现Excel上传</h2><ol>
-<li>pojo<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//objs数据位置和excel上传位置一致。</span><br><span class="line"> public User(Object []objs,String companyId,String companyName) &#123;</span><br><span class="line">        //默认手机号excel读取为字符串会存在科学记数法问题，转化处理</span><br><span class="line">        this.mobile = new DecimalFormat(&quot;#&quot;).format(objs[2]);</span><br><span class="line">        this.username = objs[1].toString();</span><br><span class="line">        this.createTime = new Date();</span><br><span class="line">        this.timeOfEntry = (Date) objs[5];</span><br><span class="line">        this.formOfEmployment = ((Double) objs[4]).intValue() ;</span><br><span class="line">        this.workNumber = new DecimalFormat(&quot;#&quot;).format(objs[3]).toString();</span><br><span class="line">        this.companyId = companyId;</span><br><span class="line">        this.companyName = companyName;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
-<li>Controller 添加上传方法<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//批量导入数据</span></span><br><span class="line">    <span class="meta">@RequestMapping(value=&quot;/user/import&quot;, method = RequestMethod.POST)</span></span><br><span class="line">    <span class="keyword">public</span> Result <span class="title function_">importExcel</span><span class="params">(<span class="meta">@RequestParam(name = &quot;upload&quot;)</span> MultipartFile attachment)</span> </span><br><span class="line"><span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//根据上传流信息创建工作簿</span></span><br><span class="line">        <span class="type">Workbook</span> <span class="variable">workbook</span> <span class="operator">=</span> WorkbookFactory.create(attachment.getInputStream());</span><br><span class="line">        <span class="comment">//获取第一个sheet</span></span><br><span class="line">        <span class="type">Sheet</span> <span class="variable">sheet</span> <span class="operator">=</span> workbook.getSheetAt(<span class="number">0</span>);</span><br><span class="line">        List&lt;User&gt; users = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="comment">//从第二行开始获取数据</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">rowNum</span> <span class="operator">=</span> <span class="number">1</span>; rowNum &lt;sheet.getLastRowNum(); rowNum++) &#123;</span><br><span class="line">            <span class="type">Row</span> <span class="variable">row</span> <span class="operator">=</span> sheet.getRow(rowNum);</span><br><span class="line">            Object objs[] = <span class="keyword">new</span> <span class="title class_">Object</span>[row.getLastCellNum()];</span><br><span class="line">            <span class="comment">//从第二列获取数据</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">cellNum</span> <span class="operator">=</span> <span class="number">1</span>; cellNum &lt; row.getLastCellNum();cellNum++) &#123;</span><br><span class="line">                <span class="type">Cell</span> <span class="variable">cell</span> <span class="operator">=</span> row.getCell(cellNum);</span><br><span class="line">                objs[cellNum] = getValue(cell);</span><br><span class="line">           &#125;</span><br><span class="line">            <span class="comment">//根据每一列构造用户对象</span></span><br><span class="line">             <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>(objs,companyId,companyName);</span><br><span class="line">            user.setDepartmentId(objs[objs.length-<span class="number">1</span>].toString());</span><br><span class="line">            users.add(user);</span><br><span class="line">       &#125;</span><br><span class="line">        <span class="comment">//第一个参数：用户列表，第二个参数：部门编码</span></span><br><span class="line">        userService.save(users,objs[objs.length-<span class="number">1</span>].toString());</span><br><span class="line">        <span class="keyword">return</span> Result.SUCCESS();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
-<li>Service 保存信息<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@Transactional</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">save</span><span class="params">(List&lt;User&gt; users)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="keyword">for</span> (User user : users) &#123;</span><br><span class="line">            <span class="comment">//配置密码</span></span><br><span class="line">            user.setPassword(<span class="keyword">new</span> <span class="title class_">Md5Hash</span>(<span class="string">&quot;123456&quot;</span>,user.getMobile(),<span class="number">3</span>).toString());</span><br><span class="line">            <span class="comment">//配置id</span></span><br><span class="line">            user.setId(idWorker.nextId()+<span class="string">&quot;&quot;</span>);</span><br><span class="line">            <span class="comment">//其他基本属性</span></span><br><span class="line">            user.setInServiceStatus(<span class="number">1</span>);</span><br><span class="line">            user.setEnableState(<span class="number">1</span>);</span><br><span class="line">            user.setLevel(<span class="string">&quot;user&quot;</span>);</span><br><span class="line">            <span class="comment">//获取部门信息</span></span><br><span class="line">            <span class="type">Department</span> <span class="variable">dept</span> <span class="operator">=</span></span><br><span class="line">departmentFeignClient.findById(user.getDepartmentId(),user.getCompanyId());</span><br><span class="line">            <span class="keyword">if</span>(dept != <span class="literal">null</span>) &#123;</span><br><span class="line">                user.setDepartmentId(dept.getId());</span><br><span class="line">                user.setDepartmentName(dept.getName());</span><br><span class="line">           &#125;</span><br><span class="line">            userDao.save(user);</span><br><span class="line">            &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
+<li>pojo<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;objs数据位置和excel上传位置一致。
+ public User(Object []objs,String companyId,String companyName) &#123;
+        &#x2F;&#x2F;默认手机号excel读取为字符串会存在科学记数法问题，转化处理
+        this.mobile &#x3D; new DecimalFormat(&quot;#&quot;).format(objs[2]);
+        this.username &#x3D; objs[1].toString();
+        this.createTime &#x3D; new Date();
+        this.timeOfEntry &#x3D; (Date) objs[5];
+        this.formOfEmployment &#x3D; ((Double) objs[4]).intValue() ;
+        this.workNumber &#x3D; new DecimalFormat(&quot;#&quot;).format(objs[3]).toString();
+        this.companyId &#x3D; companyId;
+        this.companyName &#x3D; companyName;
+   &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>Controller 添加上传方法<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;批量导入数据
+    @RequestMapping(value&#x3D;&quot;&#x2F;user&#x2F;import&quot;, method &#x3D; RequestMethod.POST)
+    public Result importExcel(@RequestParam(name &#x3D; &quot;upload&quot;) MultipartFile attachment) 
+throws Exception &#123;
+        &#x2F;&#x2F;根据上传流信息创建工作簿
+        Workbook workbook &#x3D; WorkbookFactory.create(attachment.getInputStream());
+        &#x2F;&#x2F;获取第一个sheet
+        Sheet sheet &#x3D; workbook.getSheetAt(0);
+        List&lt;User&gt; users &#x3D; new ArrayList&lt;&gt;();
+        &#x2F;&#x2F;从第二行开始获取数据
+        for (int rowNum &#x3D; 1; rowNum &lt;sheet.getLastRowNum(); rowNum++) &#123;
+            Row row &#x3D; sheet.getRow(rowNum);
+            Object objs[] &#x3D; new Object[row.getLastCellNum()];
+            &#x2F;&#x2F;从第二列获取数据
+            for(int cellNum &#x3D; 1; cellNum &lt; row.getLastCellNum();cellNum++) &#123;
+                Cell cell &#x3D; row.getCell(cellNum);
+                objs[cellNum] &#x3D; getValue(cell);
+           &#125;
+            &#x2F;&#x2F;根据每一列构造用户对象
+             User user &#x3D; new User(objs,companyId,companyName);
+            user.setDepartmentId(objs[objs.length-1].toString());
+            users.add(user);
+       &#125;
+        &#x2F;&#x2F;第一个参数：用户列表，第二个参数：部门编码
+        userService.save(users,objs[objs.length-1].toString());
+        return Result.SUCCESS();
+   &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>Service 保存信息<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java"> @Transactional
+    public void save(List&lt;User&gt; users) throws Exception &#123;
+        for (User user : users) &#123;
+            &#x2F;&#x2F;配置密码
+            user.setPassword(new Md5Hash(&quot;123456&quot;,user.getMobile(),3).toString());
+            &#x2F;&#x2F;配置id
+            user.setId(idWorker.nextId()+&quot;&quot;);
+            &#x2F;&#x2F;其他基本属性
+            user.setInServiceStatus(1);
+            user.setEnableState(1);
+            user.setLevel(&quot;user&quot;);
+            &#x2F;&#x2F;获取部门信息
+            Department dept &#x3D;
+departmentFeignClient.findById(user.getDepartmentId(),user.getCompanyId());
+            if(dept !&#x3D; null) &#123;
+                user.setDepartmentId(dept.getId());
+                user.setDepartmentName(dept.getName());
+           &#125;
+            userDao.save(user);
+            &#125;
+   &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h2 id="POI报表导出"><a href="#POI报表导出" class="headerlink" title="POI报表导出"></a>POI报表导出</h2><ol>
-<li>Controller 添加导出方法<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value = &quot;/export/&#123;month&#125;&quot;, method = RequestMethod.GET)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">export</span><span class="params">(<span class="meta">@PathVariable(name = &quot;month&quot;)</span> String month)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//1.构造数据</span></span><br><span class="line">        List&lt;EmployeeReportResult&gt; list =</span><br><span class="line">userCompanyPersonalService.findByReport(companyId,month+<span class="string">&quot;%&quot;</span>);</span><br><span class="line">        <span class="comment">//2.创建工作簿</span></span><br><span class="line">        <span class="type">XSSFWorkbook</span> <span class="variable">workbook</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">XSSFWorkbook</span>();</span><br><span class="line">        <span class="comment">//3.构造sheet</span></span><br><span class="line">        String[] titles = &#123;<span class="string">&quot;编号&quot;</span>, <span class="string">&quot;姓名&quot;</span>, <span class="string">&quot;手机&quot;</span>,<span class="string">&quot;最高学历&quot;</span>, <span class="string">&quot;国家地区&quot;</span>, <span class="string">&quot;护照号&quot;</span>, <span class="string">&quot;籍贯&quot;</span>, </span><br><span class="line"><span class="string">&quot;生日&quot;</span>, <span class="string">&quot;属相&quot;</span>,<span class="string">&quot;入职时间&quot;</span>,<span class="string">&quot;离职类型&quot;</span>,<span class="string">&quot;离职原因&quot;</span>,<span class="string">&quot;离职时间&quot;</span>&#125;;</span><br><span class="line">        <span class="type">Sheet</span> <span class="variable">sheet</span> <span class="operator">=</span> workbook.createSheet();</span><br><span class="line">         <span class="type">Row</span> <span class="variable">row</span> <span class="operator">=</span> sheet.createRow(<span class="number">0</span>);</span><br><span class="line">        <span class="type">AtomicInteger</span> <span class="variable">headersAi</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AtomicInteger</span>();</span><br><span class="line">        <span class="keyword">for</span> (String title : titles) &#123;</span><br><span class="line">            <span class="type">Cell</span> <span class="variable">cell</span> <span class="operator">=</span> row.createCell(headersAi.getAndIncrement());</span><br><span class="line">            cell.setCellValue(title);</span><br><span class="line">       &#125;</span><br><span class="line">        <span class="type">AtomicInteger</span> <span class="variable">datasAi</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AtomicInteger</span>(<span class="number">1</span>);</span><br><span class="line">        <span class="type">Cell</span> <span class="variable">cell</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">for</span> (EmployeeReportResult report : list) &#123;</span><br><span class="line">            <span class="type">Row</span> <span class="variable">dataRow</span> <span class="operator">=</span> sheet.createRow(datasAi.getAndIncrement());</span><br><span class="line">            <span class="comment">//编号</span></span><br><span class="line">            cell = dataRow.createCell(<span class="number">0</span>);</span><br><span class="line">            cell.setCellValue(report.getUserId());</span><br><span class="line">            <span class="comment">//姓名</span></span><br><span class="line">            cell = dataRow.createCell(<span class="number">1</span>);</span><br><span class="line">            cell.setCellValue(report.getUsername());</span><br><span class="line">            <span class="comment">//手机</span></span><br><span class="line">            cell = dataRow.createCell(<span class="number">2</span>);</span><br><span class="line">            cell.setCellValue(report.getMobile());</span><br><span class="line">            <span class="comment">//最高学历</span></span><br><span class="line">            cell = dataRow.createCell(<span class="number">3</span>);</span><br><span class="line">            cell.setCellValue(report.getTheHighestDegreeOfEducation());</span><br><span class="line">            <span class="comment">//国家地区</span></span><br><span class="line">            cell = dataRow.createCell(<span class="number">4</span>);</span><br><span class="line">            cell.setCellValue(report.getNationalArea());</span><br><span class="line">       &#125;</span><br><span class="line">        <span class="type">String</span> <span class="variable">fileName</span> <span class="operator">=</span> URLEncoder.encode(month+<span class="string">&quot;人员信息.xlsx&quot;</span>, <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">        response.setContentType(<span class="string">&quot;application/octet-stream&quot;</span>);</span><br><span class="line">        response.setHeader(<span class="string">&quot;content-disposition&quot;</span>, <span class="string">&quot;attachment;filename=&quot;</span> + <span class="keyword">new</span></span><br><span class="line"><span class="title class_">String</span>(fileName.getBytes(<span class="string">&quot;ISO8859-1&quot;</span>)));</span><br><span class="line">        response.setHeader(<span class="string">&quot;filename&quot;</span>, fileName);</span><br><span class="line">        workbook.write(response.getOutputStream());</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
+<li>Controller 添加导出方法<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">@RequestMapping(value &#x3D; &quot;&#x2F;export&#x2F;&#123;month&#125;&quot;, method &#x3D; RequestMethod.GET)
+    public void export(@PathVariable(name &#x3D; &quot;month&quot;) String month) throws Exception &#123;
+        &#x2F;&#x2F;1.构造数据
+        List&lt;EmployeeReportResult&gt; list &#x3D;
+userCompanyPersonalService.findByReport(companyId,month+&quot;%&quot;);
+        &#x2F;&#x2F;2.创建工作簿
+        XSSFWorkbook workbook &#x3D; new XSSFWorkbook();
+        &#x2F;&#x2F;3.构造sheet
+        String[] titles &#x3D; &#123;&quot;编号&quot;, &quot;姓名&quot;, &quot;手机&quot;,&quot;最高学历&quot;, &quot;国家地区&quot;, &quot;护照号&quot;, &quot;籍贯&quot;, 
+&quot;生日&quot;, &quot;属相&quot;,&quot;入职时间&quot;,&quot;离职类型&quot;,&quot;离职原因&quot;,&quot;离职时间&quot;&#125;;
+        Sheet sheet &#x3D; workbook.createSheet();
+         Row row &#x3D; sheet.createRow(0);
+        AtomicInteger headersAi &#x3D; new AtomicInteger();
+        for (String title : titles) &#123;
+            Cell cell &#x3D; row.createCell(headersAi.getAndIncrement());
+            cell.setCellValue(title);
+       &#125;
+        AtomicInteger datasAi &#x3D; new AtomicInteger(1);
+        Cell cell &#x3D; null;
+        for (EmployeeReportResult report : list) &#123;
+            Row dataRow &#x3D; sheet.createRow(datasAi.getAndIncrement());
+            &#x2F;&#x2F;编号
+            cell &#x3D; dataRow.createCell(0);
+            cell.setCellValue(report.getUserId());
+            &#x2F;&#x2F;姓名
+            cell &#x3D; dataRow.createCell(1);
+            cell.setCellValue(report.getUsername());
+            &#x2F;&#x2F;手机
+            cell &#x3D; dataRow.createCell(2);
+            cell.setCellValue(report.getMobile());
+            &#x2F;&#x2F;最高学历
+            cell &#x3D; dataRow.createCell(3);
+            cell.setCellValue(report.getTheHighestDegreeOfEducation());
+            &#x2F;&#x2F;国家地区
+            cell &#x3D; dataRow.createCell(4);
+            cell.setCellValue(report.getNationalArea());
+       &#125;
+        String fileName &#x3D; URLEncoder.encode(month+&quot;人员信息.xlsx&quot;, &quot;UTF-8&quot;);
+        response.setContentType(&quot;application&#x2F;octet-stream&quot;);
+        response.setHeader(&quot;content-disposition&quot;, &quot;attachment;filename&#x3D;&quot; + new
+String(fileName.getBytes(&quot;ISO8859-1&quot;)));
+        response.setHeader(&quot;filename&quot;, fileName);
+        workbook.write(response.getOutputStream());
+   &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <p>dao层实现</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@Select(value = &quot;select new </span></span><br><span class="line"><span class="meta">com.ihrm.domain.employee.response.EmployeeReportResult(a,b) &quot; +</span></span><br><span class="line"><span class="meta">            &quot;FROM UserCompanyPersonal a LEFT JOIN EmployeeResignation b ON </span></span><br><span class="line"><span class="meta">a.userId=b.userId )</span><span class="string">&quot;)</span></span><br><span class="line"><span class="string">    List&lt;EmployeeReportResult&gt; findByReport(String companyId, String month);</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java"> @Select(value &#x3D; &quot;select new 
+com.ihrm.domain.employee.response.EmployeeReportResult(a,b) &quot; +
+            &quot;FROM UserCompanyPersonal a LEFT JOIN EmployeeResignation b ON 
+a.userId&#x3D;b.userId )&quot;)
+    List&lt;EmployeeReportResult&gt; findByReport(String companyId, String month);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -555,10 +834,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -871,25 +1150,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -919,7 +1209,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -428,16 +428,101 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="解析xml方式"><a href="#解析xml方式" class="headerlink" title="解析xml方式"></a>解析xml方式</h3><p>  Java解析xml常用方式DOM4j</p>
-<h4 id="DOM4j解析"><a href="#DOM4j解析" class="headerlink" title="DOM4j解析"></a>DOM4j解析</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.cxx.xml;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.Attribute;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.Document;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.DocumentException;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.Element;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.io.SAXReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: cxx</span></span><br><span class="line"><span class="comment"> * Dom4j解析xml</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2018/5/30 12:21</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Dom4JDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//1.创建Reader对象</span></span><br><span class="line">        <span class="type">SAXReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SAXReader</span>();</span><br><span class="line">        <span class="comment">//2.加载xml</span></span><br><span class="line">        <span class="type">Document</span> <span class="variable">document</span> <span class="operator">=</span> reader.read(<span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;src/main/resources/demo.xml&quot;</span>));</span><br><span class="line">        <span class="comment">//3.获取根节点</span></span><br><span class="line">        <span class="type">Element</span> <span class="variable">rootElement</span> <span class="operator">=</span> document.getRootElement();</span><br><span class="line">        <span class="type">Iterator</span> <span class="variable">iterator</span> <span class="operator">=</span> rootElement.elementIterator();</span><br><span class="line">        <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">            <span class="type">Element</span> <span class="variable">stu</span> <span class="operator">=</span> (Element) iterator.next();</span><br><span class="line">            List&lt;Attribute&gt; attributes = stu.attributes();</span><br><span class="line">            System.out.println(<span class="string">&quot;======获取属性值======&quot;</span>);</span><br><span class="line">            <span class="keyword">for</span> (Attribute attribute : attributes) &#123;</span><br><span class="line">                System.out.println(attribute.getValue());</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">&quot;======遍历子节点======&quot;</span>);</span><br><span class="line">            <span class="type">Iterator</span> <span class="variable">iterator1</span> <span class="operator">=</span> stu.elementIterator();</span><br><span class="line">            <span class="keyword">while</span> (iterator1.hasNext())&#123;</span><br><span class="line">                <span class="type">Element</span> <span class="variable">stuChild</span> <span class="operator">=</span> (Element) iterator1.next();</span><br><span class="line">                System.out.println(<span class="string">&quot;节点名：&quot;</span>+stuChild.getName()+<span class="string">&quot;---节点值：&quot;</span>+stuChild.getStringValue());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="DOM4j解析"><a href="#DOM4j解析" class="headerlink" title="DOM4j解析"></a>DOM4j解析</h4><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">package com.cxx.xml;
+import org.dom4j.Attribute;
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
+
+import java.io.File;
+import java.util.Iterator;
+import java.util.List;
+
+&#x2F;**
+ * @Author: cxx
+ * Dom4j解析xml
+ * @Date: 2018&#x2F;5&#x2F;30 12:21
+ *&#x2F;
+public class Dom4JDemo &#123;
+    public static void main(String[] args) throws Exception &#123;
+        &#x2F;&#x2F;1.创建Reader对象
+        SAXReader reader &#x3D; new SAXReader();
+        &#x2F;&#x2F;2.加载xml
+        Document document &#x3D; reader.read(new File(&quot;src&#x2F;main&#x2F;resources&#x2F;demo.xml&quot;));
+        &#x2F;&#x2F;3.获取根节点
+        Element rootElement &#x3D; document.getRootElement();
+        Iterator iterator &#x3D; rootElement.elementIterator();
+        while (iterator.hasNext())&#123;
+            Element stu &#x3D; (Element) iterator.next();
+            List&lt;Attribute&gt; attributes &#x3D; stu.attributes();
+            System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;获取属性值&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
+            for (Attribute attribute : attributes) &#123;
+                System.out.println(attribute.getValue());
+            &#125;
+            System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;遍历子节点&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);
+            Iterator iterator1 &#x3D; stu.elementIterator();
+            while (iterator1.hasNext())&#123;
+                Element stuChild &#x3D; (Element) iterator1.next();
+                System.out.println(&quot;节点名：&quot;+stuChild.getName()+&quot;---节点值：&quot;+stuChild.getStringValue());
+            &#125;
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="XPath"><a href="#XPath" class="headerlink" title="XPath"></a>XPath</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>  XPath 是一门在 XML 文档中查找信息的语言， 可用来在 XML 文档中对元素和属性进行遍历。XPath 是 W3C XSLT 标准的主要元素，并且 XQuery 和 XPointer 同时被构建于 XPath 表达之上。因此，对 XPath 的理解是很多高级 XML 应用的基础<br>  XPath非常类似对数据库操作的SQL语言，或者说JQuery，它可以方便开发者抓起文档中需要的东西<code>(dom4j也支持xpath)</code></p>
-<h3 id="案例"><a href="#案例" class="headerlink" title="案例:"></a>案例:</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> javax.xml.parsers.DocumentBuilder;</span><br><span class="line"><span class="keyword">import</span> javax.xml.parsers.DocumentBuilderFactory;</span><br><span class="line"><span class="keyword">import</span> javax.xml.parsers.ParserConfigurationException;</span><br><span class="line"><span class="keyword">import</span> javax.xml.xpath.XPath;</span><br><span class="line"><span class="keyword">import</span> javax.xml.xpath.XPathConstants;</span><br><span class="line"><span class="keyword">import</span> javax.xml.xpath.XPathExpression;</span><br><span class="line"><span class="keyword">import</span> javax.xml.xpath.XPathExpressionException;</span><br><span class="line"><span class="keyword">import</span> javax.xml.xpath.XPathFactory;</span><br><span class="line"><span class="keyword">import</span> org.w3c.dom.Document;</span><br><span class="line"><span class="keyword">import</span> org.w3c.dom.NodeList;</span><br><span class="line"><span class="keyword">import</span> org.xml.sax.SAXException;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestXPath</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    read();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">read</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="type">DocumentBuilderFactory</span> <span class="variable">dbf</span> <span class="operator">=</span> DocumentBuilderFactory.newInstance();</span><br><span class="line">      <span class="type">DocumentBuilder</span> <span class="variable">builder</span> <span class="operator">=</span> dbf.newDocumentBuilder();</span><br><span class="line">      <span class="type">InputStream</span> <span class="variable">in</span> <span class="operator">=</span> TestXPath.class.getClassLoader().getResourceAsStream(<span class="string">&quot;test.xml&quot;</span>);</span><br><span class="line">      <span class="type">Document</span> <span class="variable">doc</span> <span class="operator">=</span> builder.parse(in);</span><br><span class="line">      <span class="type">XPathFactory</span> <span class="variable">factory</span> <span class="operator">=</span> XPathFactory.newInstance();</span><br><span class="line">      <span class="type">XPath</span> <span class="variable">xpath</span> <span class="operator">=</span> factory.newXPath();</span><br><span class="line">      <span class="comment">// 选取所有class元素的name属性</span></span><br><span class="line">      <span class="comment">// XPath语法介绍： http://w3school.com.cn/xpath/</span></span><br><span class="line">      <span class="type">XPathExpression</span> <span class="variable">expr</span> <span class="operator">=</span> xpath.compile(<span class="string">&quot;//class/@name&quot;</span>);</span><br><span class="line">      <span class="type">NodeList</span> <span class="variable">nodes</span> <span class="operator">=</span> (NodeList) expr.evaluate(doc, XPathConstants.NODESET);</span><br><span class="line">      <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; nodes.length();i++)&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;name = &quot;</span> + nodes.item(i).getNodeValue());</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (XPathExpressionException e) &#123;</span><br><span class="line">      e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (ParserConfigurationException e) &#123;</span><br><span class="line">      e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (SAXException e) &#123;</span><br><span class="line">      e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">      e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例:"></a>案例:</h3><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">import java.io.IOException;
+import java.io.InputStream;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+public class TestXPath &#123;
+  public static void main(String[] args) &#123;
+    read();
+  &#125;
+  public static void read() &#123;
+    try &#123;
+      DocumentBuilderFactory dbf &#x3D; DocumentBuilderFactory.newInstance();
+      DocumentBuilder builder &#x3D; dbf.newDocumentBuilder();
+      InputStream in &#x3D; TestXPath.class.getClassLoader().getResourceAsStream(&quot;test.xml&quot;);
+      Document doc &#x3D; builder.parse(in);
+      XPathFactory factory &#x3D; XPathFactory.newInstance();
+      XPath xpath &#x3D; factory.newXPath();
+      &#x2F;&#x2F; 选取所有class元素的name属性
+      &#x2F;&#x2F; XPath语法介绍： http:&#x2F;&#x2F;w3school.com.cn&#x2F;xpath&#x2F;
+      XPathExpression expr &#x3D; xpath.compile(&quot;&#x2F;&#x2F;class&#x2F;@name&quot;);
+      NodeList nodes &#x3D; (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
+      for (int i &#x3D; 0; i &lt; nodes.length();i++)&#123;
+        System.out.println(&quot;name &#x3D; &quot; + nodes.item(i).getNodeValue());
+      &#125;
+    &#125; catch (XPathExpressionException e) &#123;
+      e.printStackTrace();
+    &#125; catch (ParserConfigurationException e) &#123;
+      e.printStackTrace();
+    &#125; catch (SAXException e) &#123;
+      e.printStackTrace();
+    &#125; catch (IOException e) &#123;
+      e.printStackTrace();
+    &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -512,10 +597,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -550,13 +635,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/02/11/Java/Java%20%E5%B8%B8%E7%94%A8jar%E5%8C%85/Java%20%E8%BF%9E%E6%8E%A5Redis/">
+                <a href="/2022/02/11/Java/Java%20%E5%B8%B8%E7%94%A8jar%E5%8C%85/Java%20%E8%A7%A3%E6%9E%90JSON/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Jedis连接Redis">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="JSON解析">
                         
-                        <span class="card-title">Jedis连接Redis</span>
+                        <span class="card-title">JSON解析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -599,13 +684,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/02/11/Java/Java%20%E6%B5%8B%E8%AF%95/Java%20junit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+                <a href="/2022/02/11/Java/Java%20%E5%B8%B8%E7%94%A8jar%E5%8C%85/Java%20%E8%BF%9E%E6%8E%A5Redis/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Java junit单元测试">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Jedis连接Redis">
                         
-                        <span class="card-title">Java junit单元测试</span>
+                        <span class="card-title">Jedis连接Redis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -633,8 +718,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java-%E6%B5%8B%E8%AF%95/">
-                        <span class="chip bg-color">Java 测试</span>
+                    <a href="/tags/Java-jar%E5%8C%85/">
+                        <span class="chip bg-color">Java jar包</span>
                     </a>
                     
                 </div>
@@ -828,25 +913,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -876,7 +972,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -428,12 +428,15 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="单机结构"><a href="#单机结构" class="headerlink" title="单机结构"></a>单机结构</h2><p>一个系统业务量很小的时候所有的代码都放在一个项目中就好了，然后这个项目部署在一台服务器上就好了。整个项目所有的服务都由这台服务器提供。这就是单机结构。<br>单机的处理能力毕竟是有限的，当业务增长到一定程度时，单机的硬件资源将无法满足业务需求。此时便出现了集群模式.</p>
+                <h2 id="单机结构"><a href="#单机结构" class="headerlink" title="单机结构"></a>单机结构</h2><p>一个项目在一个服务器,整个项目的服务都由这台服务器提供。这就是单机结构<br>单机的处理能力毕竟是有限的，当业务增长到一定程度时，单机的硬件资源将无法满足业务需求。此时便出现了集群模式.</p>
 <h2 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h2><p>单机处理到达瓶颈的时候，你就把单机复制几份，这样就构成了一个“集群”。<br>集群中每台服务器就叫做这个集群的一个“节点”，所有节点构成了一个集群。<br>每个节点都提供相同的服务，那么这样系统的处理能力就相当于提升了好几倍（有几个节点就相当于提升了这么多倍）。<br>负载均衡:<br>但问题是用户的请求究竟由哪个节点来处理呢？最好能够让此时此刻负载较小的节点来处理，这样使得每个节点的压力都比较平均。要实现这个功能，就需要在所有节点之前增加一个“调度者”的角色，用户的所有请求都先交给它，<br>然后它根据当前所有节点的负载情况，决定将这个请求交给哪个节点处理。这个“调度者”有个牛逼了名字——负载均衡服务器。<br>集群结构的优势:<br>集群结构的好处就是系统扩展非常容易。如果随着你们系统业务的发展，当前的系统又支撑不住了，那么给这个集群再增加节点就行了。<br>集群存在的问题:<br>当你的业务发展到一定程度的时候，你会发现一个问题——无论怎么增加节点，貌似整个集群性能的提升效果并不明显了。这时候，你就需要使用微服务结构了。</p>
 <h2 id="分布式"><a href="#分布式" class="headerlink" title="分布式"></a>分布式</h2><p>分布式结构就是将一个完整的系统，按照业务功能，拆分成一个个独立的子系统，<br>在分布式结构中，每个子系统就被称为“服务”。这些子系统能够独立运行在web容器中，它们之间通过RPC方式通信。</p>
 <p>例子:<br>假设需要开发一个在线商城。按照微服务的思想，我们需要按照功能模块拆分成多个独立的服务，如：用户服务、产品服务、订单服务、后台管理服务、数据分析服务等等。这一个个服务都是一个个独立的项目，可以独立运行。<br>如果服务之间有依赖关系，那么通过RPC方式调用。<br>分布式的优势:<br>系统之间的耦合度大大降低，可以独立开发、独立部署、独立测试，系统与系统之间的边界非常明确，排错也变得相当容易，开发效率大大提升。<br>系统之间的耦合度降低，从而系统更易于扩展。我们可以针对性地扩展某些服务。假设这个商城要搞一次大促，下单量可能会大大提升，因此我们可以针对性地提升订单系统、产品系统的节点数量，而对于后台管理系统、数据分析系统而言，节点数量维持原有水平即可。<br>服务的复用性更高。比如，当我们将用户系统作为单独的服务后，该公司所有的产品都可以使用该系统作为用户系统，无需重复开发。<br>3.二者的区别<br>从单机结构到集群结构，你的代码基本无需要作任何修改，<br>你要做的仅仅是多部署几台服务器，每台服务器上运行相同的代码就行了<br>。但是，当你要从集群结构演进到微服务结构的时候，之前的那套代码就需要发生较大的改动了。所以对于新系统我们建议，系统设计之初就采用微服务架构，这样后期运维的成本更低。但如果一套老系统需要升级成微服务结构的话，那就得对代码大动干戈了。所以，对于老系统而言，究竟是继续保持集群模式，还是升级成微服务架构，这需要你们的架构师深思熟虑、权衡投入产出比。<br>我记得在一本讲 tcp&#x2F;ip 的书上有这样一句话：分布式是指 多个系统协同合作完成一个特定任务的系统。<br>分布式是解决中心化管理的问题，把所有的任务叠加到一个节点处理，太慢了。<br>所以把一个大的问题拆分为多个小的问题，并分别解决，最终协同合作。分布式的主要工作是分解任务，将职能拆解。<br>2） 集群主要的使用场景是为了分担请求的压力，也就是在几个服务器上部署相同的应用程序，来分担客户端请求。<br>当压力进一步增大的时候，可能在需要存储的部分，mysql无法面对很多的写压力。因为在mysql做成集群之后，主要的写压力还是在master的机器上面，其他slave机器无法分担写压力，从而这个时候，也就引出来分布式。<br>分布式的主要应用场景是单台机器已经无法满足这种性能的要求，必须要融合多个节点，并且节点之间是相关之间有交互的。相当于在写mysql的时候，每个节点存储部分数据，也就是分布式存储的由来。在存储一些非结构化数据：静态文件、图片、pdf、小视频 … 这些也就是分布式文件系统的由来。<br>3）集群主要是简单加机器解决问题，对于问题本身不做任何分解；<br>集群和分布式都是由多个节点组成，但是集群之间的通信协调基本不需要；而分布式各个节点的通信协调必不可少。<br>将一套系统拆分成不同子系统部署在不同服务器上（这叫分布式），然后部署多个相同的子系统在不同的服务器上（这叫集群），部署在不同服务器上的同一个子系统应做负载均衡。<br>分布式：一个业务拆分为多个子业务，部署在多个服务器上 。<br>集群：同一个业务，部署在多个服务器上 。<br>集群：多个人在一起作同样的事 。<br>分布式 ：多个人在一起作不同的事 。</p>
@@ -512,10 +515,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -828,25 +831,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -876,7 +890,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>

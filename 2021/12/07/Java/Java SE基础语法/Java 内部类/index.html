@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
 
@@ -247,7 +247,7 @@
     }
 </style>
 
-<!-- <a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -256,7 +256,7 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
               fill="currentColor" class="octo-body"></path>
     </svg>
-</a> -->
+</a>
         
     </nav>
 
@@ -428,6 +428,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -440,7 +443,20 @@
 </ul>
 </li>
 <li><p>定义格式:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> class 外部类名称&#123;   </span><br><span class="line">    class 成员内部类名称&#123;</span><br><span class="line"></span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br><span class="line">```      </span><br><span class="line"><span class="number">3.</span> 访问方式</span><br><span class="line">    - 内部类访问外部类</span><br><span class="line">      - 成员内部类可以无条件访问外部类的所有成员(属性,行为):包括<span class="keyword">private</span>成员和静态成员</span><br><span class="line">    - 外部类访问内部类</span><br><span class="line">      - 创建内部类的对象,通过这个对象的引用访问</span><br><span class="line">      - 创建内部类对象的方式,例:</span><br><span class="line">      ``` Java</span><br><span class="line">      外部类名.内部类名 对象名 = <span class="keyword">new</span> 外部类型().new 内部类型();</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class 外部类名称&#123;   
+    class 成员内部类名称&#123;
+
+    &#125;   
+&#125;
+&#96;&#96;&#96;      
+3. 访问方式
+    - 内部类访问外部类
+      - 成员内部类可以无条件访问外部类的所有成员(属性,行为):包括private成员和静态成员
+    - 外部类访问内部类
+      - 创建内部类的对象,通过这个对象的引用访问
+      - 创建内部类对象的方式,例:
+      &#96;&#96;&#96; Java
+      外部类名.内部类名 对象名 &#x3D; new 外部类型().new 内部类型();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>注意:</p>
 <ol>
 <li>内部类是一个独立的类，在编译时内部类会被编译成独立的.class文件，但是前面冠以外部类的类名和$符号 </li>
@@ -460,7 +476,13 @@
 </ul>
 </li>
 <li><p>定义格式:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> class 外部类名称&#123;   </span><br><span class="line">    修饰符  返回值类型  外部类方法（参数）&#123;</span><br><span class="line">        class 局部内部类名称&#123;</span><br><span class="line"></span><br><span class="line">        &#125;   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class 外部类名称&#123;   
+    修饰符  返回值类型  外部类方法（参数）&#123;
+        class 局部内部类名称&#123;
+
+        &#125;   
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>访问方式</p>
 <ul>
@@ -469,7 +491,21 @@
 </ul>
 </li>
 <li>外部类访问内部类<ul>
-<li>调用内部类所在的方法,方法内执行内部类的操作;例:<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span>&#123;</span><br><span class="line">      <span class="keyword">class</span> <span class="title class_">Poto</span>&#123;</span><br><span class="line">          <span class="keyword">private</span> String name;</span><br><span class="line">          <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">potoFun</span><span class="params">()</span>&#123;</span><br><span class="line">              System.out.println(<span class="string">&quot;这里是局部内部类方法&quot;</span>);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">       <span class="type">Poto</span> <span class="variable">poto</span> <span class="operator">=</span><span class="keyword">new</span> <span class="title class_">Poto</span>();</span><br><span class="line">       poto.potoFun();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String [] args)</span>&#123;</span><br><span class="line">      <span class="keyword">new</span> <span class="title class_">Demo1</span>().test();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>调用内部类所在的方法,方法内执行内部类的操作;例:<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class Demo1 &#123;
+    public void test()&#123;
+      class Poto&#123;
+          private String name;
+          public void potoFun()&#123;
+              System.out.println(&quot;这里是局部内部类方法&quot;);
+          &#125;
+        &#125;
+       Poto poto &#x3D;new Poto();
+       poto.potoFun();
+    &#125;
+    public static void main(String [] args)&#123;
+      new Demo1().test();
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 </li>
 </ul>
@@ -489,7 +525,13 @@
 </ul>
 </li>
 <li><p>格式:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> 父类名或者接口名()&#123; </span><br><span class="line">   </span><br><span class="line">    <span class="meta">@Override</span>  <span class="comment">// 方法重写 </span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">method</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 执行语句 </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">new 父类名或者接口名()&#123; 
+   
+    @Override  &#x2F;&#x2F; 方法重写 
+    public void method() &#123;
+        &#x2F;&#x2F; 执行语句 
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <p>注意:</p>
 <ol>
@@ -497,13 +539,33 @@
 <li>匿名内部类在”创建对象”的时候,只能使用唯一一次.</li>
 <li>如果希望多次创建对象,而且类的内容一样的话,那么就必须使用单独定义的实现类.</li>
 </ol>
-<p>使用<br>  只使用一次对象时使用,<br>  在方法的形式参数是接口或者抽象类时，可以将匿名内部类作为参数传递;例<br>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">//  定义接口</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">class</span> FlyAble&#123; </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line">  <span class="comment">//  创建匿名内部类，并调用：</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">InnerDemo</span> &#123;</span><br><span class="line">      <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123; </span><br><span class="line"></span><br><span class="line">          <span class="comment">//创建匿名内部类,直接传递给showFly(FlyAble f) </span></span><br><span class="line">          showFly(<span class="keyword">new</span> <span class="title class_">FlyAble</span>()&#123; </span><br><span class="line">              <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span> &#123; <span class="comment">//方法重写</span></span><br><span class="line">                System.out.println(<span class="string">&quot;我飞了~~~&quot;</span>); </span><br><span class="line">            &#125; </span><br><span class="line">          &#125;); </span><br><span class="line">      &#125;</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">showFly</span><span class="params">(FlyAble f)</span> &#123; </span><br><span class="line">          f.fly();                                    </span><br><span class="line">      &#125; </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用<br>  只使用一次对象时使用,<br>  在方法的形式参数是接口或者抽象类时，可以将匿名内部类作为参数传递;例<br>  <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">  &#x2F;&#x2F;  定义接口
+  public interface class FlyAble&#123; 
+    public abstract void fly();
+&#125;
+  &#x2F;&#x2F;  创建匿名内部类，并调用：
+  public class InnerDemo &#123;
+      public static void main(String[] args) &#123; 
+
+          &#x2F;&#x2F;创建匿名内部类,直接传递给showFly(FlyAble f) 
+          showFly(new FlyAble()&#123; 
+              public void fly() &#123; &#x2F;&#x2F;方法重写
+                System.out.println(&quot;我飞了~~~&quot;); 
+            &#125; 
+          &#125;); 
+      &#125;
+      
+      public static void showFly(FlyAble f) &#123; 
+          f.fly();                                    
+      &#125; 
+  &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
 <h2 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h2><ol>
 <li><h2 id="概述-有static关键字-不依赖外部类"><a href="#概述-有static关键字-不依赖外部类" class="headerlink" title="概述 - 有static关键字,不依赖外部类"></a>概述<br> - 有static关键字,不依赖外部类</h2></li>
 <li><p>注意:<br>  不能使用外部类非静态成员</p>
 </li>
 <li><p>格式:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建静态内部类对象</span></span><br><span class="line">外部类名.内部类名 xxx = <span class="keyword">new</span> 外部类名.内部类名()</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;创建静态内部类对象
+外部类名.内部类名 xxx &#x3D; new 外部类名.内部类名()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 </ol>
 
                 
@@ -580,10 +642,10 @@
                     <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
-    <!-- 
+    
     <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
-     -->
+    
 
     
 
@@ -888,25 +950,36 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2026</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">zrh</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             
             
             
             
-          
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
             <br>
             
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis"><!-- 
+        <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -936,7 +1009,7 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
- -->
+
 </div>
     </div>
 </footer>
